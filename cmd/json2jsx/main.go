@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // Motion Design Authoring Model Definitions (aligned with motion.schema.json)
@@ -152,6 +153,7 @@ func main() {
 	aepPath := flag.String("aep", "", "target .aep file path to save")
 	runAE := flag.Bool("run", false, "execute AfterFX.com to build and open the .aep")
 	closeOnComplete := flag.Bool("close", false, "close After Effects after running the script")
+	timeout := flag.Duration("timeout", 5*time.Minute, "max time to wait for After Effects to save the .aep")
 	flag.Parse()
 
 	if *inPath == "" {
@@ -217,32 +219,69 @@ func main() {
 		cmd := exec.Command(aePath, "-r", absJSX)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
-		if err := cmd.Run(); err != nil {
+		start := time.Now().Add(-2 * time.Second) // allow for coarse filesystem mtimes
+		var errLog string
+		if targetAEP != "" {
+			errLog = filepath.Join(filepath.Dir(targetAEP), "ae_error.log")
+			_ = os.Remove(errLog)
+		}
+		if err := cmd.Start(); err != nil {
 			fmt.Fprintf(os.Stderr, "After Effects execution failed: %v\n", err)
 			os.Exit(1)
 		}
-		if targetAEP != "" {
-			if _, err := os.Stat(targetAEP); os.IsNotExist(err) {
-				errLog := filepath.Join(filepath.Dir(targetAEP), "ae_error.log")
-				if errData, readErr := os.ReadFile(errLog); readErr == nil {
-					fmt.Fprintf(os.Stderr, "After Effects script failed: %s\n", string(errData))
-				} else {
-					fmt.Fprintf(os.Stderr, "Target AEP was not created: %s\n", targetAEP)
-				}
+		done := make(chan error, 1)
+		go func() { done <- cmd.Wait() }()
+		if targetAEP == "" {
+			if err := <-done; err != nil {
+				fmt.Fprintf(os.Stderr, "After Effects execution failed: %v\n", err)
 				os.Exit(1)
 			}
-			fmt.Printf("Successfully created AEP: %s\n", targetAEP)
-			if !shouldClose {
-				aeGui := strings.TrimSuffix(aePath, ".com") + ".exe"
-				if _, err := os.Stat(aeGui); err == nil {
-					fmt.Printf("Opening AEP in After Effects: %s\n", targetAEP)
-					_ = exec.Command(aeGui, targetAEP).Start()
-				}
+			fmt.Println("After Effects script executed successfully.")
+			return
+		}
+		// AfterFX.com returns early when it hands the script to an already-running
+		// After Effects, and can hang after app.quit(), so poll for the saved .aep
+		// instead of trusting the process exit.
+		if err := waitForAEP(targetAEP, errLog, start, *timeout); err != nil {
+			_ = cmd.Process.Kill()
+			fmt.Fprintf(os.Stderr, "%v\n", err)
+			os.Exit(1)
+		}
+		fmt.Printf("Successfully created AEP: %s\n", targetAEP)
+		if shouldClose {
+			select {
+			case <-done:
+			case <-time.After(30 * time.Second):
+				_ = cmd.Process.Kill() // only the process we started
 			}
 		} else {
-			fmt.Println("After Effects script executed successfully.")
+			aeGui := strings.TrimSuffix(aePath, ".com") + ".exe"
+			if _, err := os.Stat(aeGui); err == nil {
+				fmt.Printf("Opening AEP in After Effects: %s\n", targetAEP)
+				_ = exec.Command(aeGui, targetAEP).Start()
+			}
 		}
 	}
+}
+
+// waitForAEP blocks until aepPath is written after start and its size settles,
+// the script reports an error in errLog, or timeout elapses.
+func waitForAEP(aepPath, errLog string, start time.Time, timeout time.Duration) error {
+	deadline := time.Now().Add(timeout)
+	lastSize := int64(-1)
+	for time.Now().Before(deadline) {
+		if data, err := os.ReadFile(errLog); err == nil {
+			return fmt.Errorf("After Effects script failed: %s", strings.TrimSpace(string(data)))
+		}
+		if fi, err := os.Stat(aepPath); err == nil && !fi.ModTime().Before(start) {
+			if fi.Size() > 0 && fi.Size() == lastSize {
+				return nil
+			}
+			lastSize = fi.Size()
+		}
+		time.Sleep(500 * time.Millisecond)
+	}
+	return fmt.Errorf("timed out after %v waiting for After Effects to save %s", timeout, aepPath)
 }
 
 func findAfterEffectsCLI() (string, error) {
@@ -556,14 +595,15 @@ func GenerateJSX(proj *ProjectDoc, aepPath string, closeOnComplete bool) (string
 	}
 
 	g.write("  } catch(err) {")
-	if closeOnComplete && aepPath != "" {
+	if aepPath != "" {
 		g.write("    try {")
 		g.write("      var errFile = new File(%q);", escapePath(filepath.Join(filepath.Dir(aepPath), "ae_error.log")))
 		g.write("      errFile.open('w');")
 		g.write("      errFile.writeln('BUILD_ERROR: ' + err.toString() + ' (line ' + err.line + ')');")
 		g.write("      errFile.close();")
 		g.write("    } catch(e) {}")
-	} else {
+	}
+	if !closeOnComplete {
 		g.write("    alert('Build Error: ' + err.toString() + ' (line ' + err.line + ')');")
 	}
 	g.write("    $.writeln('BUILD_ERROR: ' + err.toString() + ' (line ' + err.line + ')');")

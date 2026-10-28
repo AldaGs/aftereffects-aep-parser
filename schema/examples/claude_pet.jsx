@@ -50,10 +50,10 @@
     layers["ClaudePet//Shadow"] = layer_0_25;
     try { layer_0_25.inPoint = 0; } catch(e) {}
     try { if (21 > layer_0_25.inPoint) { layer_0_25.outPoint = 21; } } catch(e) {}
+    try { layer_0_25.property('ADBE Transform Group').property("ADBE Position").setValue([520,760]); } catch(e) {}
     try { layer_0_25.property('ADBE Transform Group').property("ADBE Opacity").setValue(35); } catch(e) {}
     try { layer_0_25.property('ADBE Transform Group').property("ADBE Scale").setValue([100,100]); } catch(e) {}
     try { layer_0_25.property('ADBE Transform Group').property("ADBE Scale").expression = "s = 100 - Math.sin(time*3)*8; [s, s];"; } catch(e) {}
-    try { layer_0_25.property('ADBE Transform Group').property("ADBE Position").setValue([520,760]); } catch(e) {}
     var layer_0_24 = comp_0.layers.addNull();
     layer_0_24.name = "Pet Rig";
     layers["ClaudePet//Pet Rig"] = layer_0_24;
@@ -130,9 +130,9 @@
     layers["ClaudePet//Body"] = layer_0_23;
     try { layer_0_23.inPoint = 0; } catch(e) {}
     try { if (21 > layer_0_23.inPoint) { layer_0_23.outPoint = 21; } } catch(e) {}
+    try { layer_0_23.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     try { layer_0_23.property('ADBE Transform Group').property("ADBE Scale").setValue([100,100]); } catch(e) {}
     try { layer_0_23.property('ADBE Transform Group').property("ADBE Scale").expression = "s = Math.sin(time*6)*3; [100 + s, 100 - s];"; } catch(e) {}
-    try { layer_0_23.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_0_22 = comp_0.layers.addShape();
     var sh_rect_7 = layer_0_22.property('ADBE Root Vectors Group').addProperty('ADBE Vector Shape - Rect');
     sh_rect_7.name = "R";
@@ -145,8 +145,8 @@
     layers["ClaudePet//Ear R"] = layer_0_22;
     try { layer_0_22.inPoint = 0; } catch(e) {}
     try { if (21 > layer_0_22.inPoint) { layer_0_22.outPoint = 21; } } catch(e) {}
-    try { layer_0_22.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(20); } catch(e) {}
     try { layer_0_22.property('ADBE Transform Group').property("ADBE Position").setValue([80,-120]); } catch(e) {}
+    try { layer_0_22.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(20); } catch(e) {}
     var layer_0_21 = comp_0.layers.addShape();
     var sh_rect_9 = layer_0_21.property('ADBE Root Vectors Group').addProperty('ADBE Vector Shape - Rect');
     sh_rect_9.name = "R";
@@ -159,8 +159,8 @@
     layers["ClaudePet//Ear L"] = layer_0_21;
     try { layer_0_21.inPoint = 0; } catch(e) {}
     try { if (21 > layer_0_21.inPoint) { layer_0_21.outPoint = 21; } } catch(e) {}
-    try { layer_0_21.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(-20); } catch(e) {}
     try { layer_0_21.property('ADBE Transform Group').property("ADBE Position").setValue([-80,-120]); } catch(e) {}
+    try { layer_0_21.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(-20); } catch(e) {}
     var layer_0_20 = comp_0.layers.addShape();
     var sh_ell_11 = layer_0_20.property('ADBE Root Vectors Group').addProperty('ADBE Vector Shape - Ellipse');
     sh_ell_11.name = "D";
@@ -509,35 +509,6 @@
     try { if (17.5 > layer_0_14.inPoint) { layer_0_14.outPoint = 17.5; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(14.25, [1140,580,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(14.85, [1080,580,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        }
-      } catch(e) {}
-    })(layer_0_14.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(14.25, 0);
       try {
         var e = makeEase("easeOut");
@@ -591,6 +562,35 @@
         }
       } catch(e) {}
     })(layer_0_14.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(14.25, [1140,580,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(14.85, [1080,580,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        }
+      } catch(e) {}
+    })(layer_0_14.property('ADBE Transform Group').property("ADBE Position"));
     var layer_0_13 = comp_0.layers.addText("Catch blockers sooner");
     var textProp = layer_0_13.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -604,6 +604,35 @@
     layers["ClaudePet//Heading 4"] = layer_0_13;
     try { layer_0_13.inPoint = 14; } catch(e) {}
     try { if (17.5 > layer_0_13.inPoint) { layer_0_13.outPoint = 17.5; } } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(14, [1140,490,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(14.6, [1080,490,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        }
+      } catch(e) {}
+    })(layer_0_13.property('ADBE Transform Group').property("ADBE Position"));
     (function(p) {
       if (!p) return;
       p.setValueAtTime(14, 0);
@@ -659,35 +688,6 @@
         }
       } catch(e) {}
     })(layer_0_13.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(14, [1140,490,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(14.6, [1080,490,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        }
-      } catch(e) {}
-    })(layer_0_13.property('ADBE Transform Group').property("ADBE Position"));
     var layer_0_12 = comp_0.layers.addText("WORKFLOW");
     var textProp = layer_0_12.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -701,35 +701,6 @@
     layers["ClaudePet//Tag 4"] = layer_0_12;
     try { layer_0_12.inPoint = 14.1; } catch(e) {}
     try { if (17.5 > layer_0_12.inPoint) { layer_0_12.outPoint = 17.5; } } catch(e) {}
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(14.1, [1140,400,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(14.7, [1080,400,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        }
-      } catch(e) {}
-    })(layer_0_12.property('ADBE Transform Group').property("ADBE Position"));
     (function(p) {
       if (!p) return;
       p.setValueAtTime(14.1, 0);
@@ -785,6 +756,35 @@
         }
       } catch(e) {}
     })(layer_0_12.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(14.1, [1140,400,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(14.7, [1080,400,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        }
+      } catch(e) {}
+    })(layer_0_12.property('ADBE Transform Group').property("ADBE Position"));
     var layer_0_11 = comp_0.layers.addText("Start a task, switch to other work,\rcome back when your pet pings you");
     var textProp = layer_0_11.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -798,6 +798,35 @@
     layers["ClaudePet//Body 3"] = layer_0_11;
     try { layer_0_11.inPoint = 10.75; } catch(e) {}
     try { if (14 > layer_0_11.inPoint) { layer_0_11.outPoint = 14; } } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(10.75, [1140,580,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(11.35, [1080,580,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        }
+      } catch(e) {}
+    })(layer_0_11.property('ADBE Transform Group').property("ADBE Position"));
     (function(p) {
       if (!p) return;
       p.setValueAtTime(10.75, 0);
@@ -853,35 +882,6 @@
         }
       } catch(e) {}
     })(layer_0_11.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(10.75, [1140,580,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(11.35, [1080,580,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        }
-      } catch(e) {}
-    })(layer_0_11.property('ADBE Transform Group').property("ADBE Position"));
     var layer_0_10 = comp_0.layers.addText("Hand off, then step away");
     var textProp = layer_0_10.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -1091,35 +1091,6 @@
     try { if (10.5 > layer_0_8.inPoint) { layer_0_8.outPoint = 10.5; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(7.25, [1140,580,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(7.85, [1080,580,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        }
-      } catch(e) {}
-    })(layer_0_8.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(7.25, 0);
       try {
         var e = makeEase("easeOut");
@@ -1173,6 +1144,35 @@
         }
       } catch(e) {}
     })(layer_0_8.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(7.25, [1140,580,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(7.85, [1080,580,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        }
+      } catch(e) {}
+    })(layer_0_8.property('ADBE Transform Group').property("ADBE Position"));
     var layer_0_7 = comp_0.layers.addText("Its mood = progress");
     var textProp = layer_0_7.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -1867,35 +1867,6 @@
     try { if (3.5 > layer_0_0.inPoint) { layer_0_0.outPoint = 3.5; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(0.1, [1140,400,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(1, [e], [e]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(0.7, [1080,400,0]);
-      try {
-        var e = makeEase("easeOut");
-        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        } else if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
-        } else {
-          p.setTemporalEaseAtKey(2, [e], [e]);
-        }
-      } catch(e) {}
-    })(layer_0_0.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(0.1, 0);
       try {
         var e = makeEase("easeOut");
@@ -1949,6 +1920,35 @@
         }
       } catch(e) {}
     })(layer_0_0.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(0.1, [1140,400,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(1, [e], [e]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(0.7, [1080,400,0]);
+      try {
+        var e = makeEase("easeOut");
+        if (p.propertyValueType === PropertyValueType.TwoD_SPATIAL || p.propertyValueType === PropertyValueType.ThreeD_SPATIAL) {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        } else if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [e, e], [e, e]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [e, e, e], [e, e, e]);
+        } else {
+          p.setTemporalEaseAtKey(2, [e], [e]);
+        }
+      } catch(e) {}
+    })(layer_0_0.property('ADBE Transform Group').property("ADBE Position"));
     if (layers["ClaudePet//Pet Rig"]) { try { layer_0_18.setParentWithJump(layers["ClaudePet//Pet Rig"]); } catch(e) {} }
     if (layers["ClaudePet//Pet Rig"]) { try { layer_0_19.setParentWithJump(layers["ClaudePet//Pet Rig"]); } catch(e) {} }
     if (layers["ClaudePet//Pet Rig"]) { try { layer_0_20.setParentWithJump(layers["ClaudePet//Pet Rig"]); } catch(e) {} }
