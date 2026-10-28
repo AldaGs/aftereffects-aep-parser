@@ -1,6 +1,8 @@
 package aep
 
 import (
+	"encoding/json"
+	"math"
 	"bytes"
 	"encoding/binary"
 	"fmt"
@@ -41,6 +43,11 @@ type Item struct {
 	FootageSeconds    float64
 	FootageType       FootageTypeName
 	BackgroundColor   [3]byte
+	SolidColor        [3]float64 // solids only, 0-1
+	// SourceLayer is the one layer of a layered PSD or AI/PDF file this
+	// footage shows; nil for a whole/merged file.
+	SourceLayer *SourceLayer
+	FootagePath       string     // file footage only; as saved, may not exist here
 	CompositionLayers []*Layer
 }
 
@@ -124,13 +131,37 @@ func parseItem(itemHead *rifx.List, project *Project) (*Item, error) {
 		if err != nil {
 			return nil, err
 		}
-		optiData := optiBlock.Data.([]byte)
-		item.FootageType = FootageTypeName(binary.BigEndian.Uint16(optiData[4:6]))
+		optiData, _ := optiBlock.Data.([]byte)
+		if len(optiData) >= 6 {
+			item.FootageType = FootageTypeName(binary.BigEndian.Uint16(optiData[4:6]))
+		}
+		// The source file: `alas` holds JSON with a `fullpath` (py-aep, MIT).
+		if als2, err := pinList.SublistFind("Als2"); err == nil {
+			if alas, err := als2.FindByType("alas"); err == nil {
+				var info struct {
+					Fullpath string `json:"fullpath"`
+				}
+				if json.Unmarshal(bytes.TrimRight(alas.Data.([]byte), string(rune(0))), &info) == nil {
+					item.FootagePath = info.Fullpath
+				}
+			}
+		}
+		item.SourceLayer = parseSourceLayer(optiData, sspcBlock.Data.([]byte))
 		switch item.FootageType {
 		case FootageTypeSolid:
-			item.Name = fmt.Sprintf("%s", bytes.ReplaceAll(bytes.Trim(optiData[26:255], "\x00"), []byte{0}, []byte{32}))
+			// opti: "Soli", u2 type, 8 bytes, then the colour as three float32.
+			if len(optiData) >= 26 {
+				for c := 0; c < 3; c++ {
+					item.SolidColor[c] = float64(math.Float32frombits(binary.BigEndian.Uint32(optiData[14+4*c:])))
+				}
+			}
+			if len(optiData) >= 255 {
+				item.Name = fmt.Sprintf("%s", bytes.ReplaceAll(bytes.Trim(optiData[26:255], "\x00"), []byte{0}, []byte{32}))
+			}
 		case FootageTypePlaceholder:
-			item.Name = fmt.Sprintf("%s", bytes.ReplaceAll(bytes.Trim(optiData[10:], "\x00"), []byte{0}, []byte{32}))
+			if len(optiData) > 10 {
+				item.Name = fmt.Sprintf("%s", bytes.ReplaceAll(bytes.Trim(optiData[10:], "\x00"), []byte{0}, []byte{32}))
+			}
 		}
 	case ItemTypeComposition:
 		type CDTA struct {
@@ -159,12 +190,22 @@ func parseItem(itemHead *rifx.List, project *Project) (*Item, error) {
 		item.BackgroundColor = compDesc.BackgroundColor
 
 		// Parse composition's layers
+		timeBase := float64(compDesc.SecondsDivisor)
 		for index, layerListHead := range itemHead.SublistFilter("Layr") {
 			layer, err := parseLayer(layerListHead, project)
 			if err != nil {
 				return nil, err
 			}
 			layer.Index = uint32(index + 1)
+			applyTimeBase(layer.Effects, timeBase, layer.StartTime)
+			applyTimeBase(layer.Transform, timeBase, layer.StartTime)
+			applyTimeBase(layer.Masks, timeBase, layer.StartTime)
+			applyTimeBase(layer.Contents, timeBase, layer.StartTime)
+			applyTimeBase(layer.Audio, timeBase, layer.StartTime)
+			applyTimeBase(layer.Properties, timeBase, layer.StartTime)
+			if layer.Text != nil {
+				applyTimeBase([]*Property{layer.Text}, timeBase, layer.StartTime)
+			}
 			item.CompositionLayers = append(item.CompositionLayers, layer)
 		}
 	}

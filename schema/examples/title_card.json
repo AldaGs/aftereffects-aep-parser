@@ -1,0 +1,91 @@
+{
+  "$schema": "../schema/motion.schema.json",
+  "file": "title_card.aep",
+  "compositions": [
+    {
+      "name": "TitleCard",
+      "width": 1920,
+      "height": 1080,
+      "fps": 24,
+      "duration": 5.0,
+      "backgroundColor": "#0d1117",
+      "layers": [
+        {
+          "name": "Main Title",
+          "type": "text",
+          "in": 0.2,
+          "out": 5.0,
+          "text": {
+            "string": "MOTION DESIGN AGENT",
+            "font": "HelveticaNeue-Bold",
+            "fontSize": 92,
+            "fillColor": "#ffffff",
+            "tracking": 80,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 500, 0],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.2, "value": 0, "ease": "easeOut" },
+                { "time": 1.0, "value": 100, "ease": "easeOut" }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                { "time": 0.2, "value": [90, 90, 100], "ease": "easeOut" },
+                { "time": 1.2, "value": [100, 100, 100], "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Subtitle",
+          "type": "text",
+          "in": 0.6,
+          "out": 5.0,
+          "text": {
+            "string": "Generated via JSON Schema Specification",
+            "font": "HelveticaNeue",
+            "fontSize": 36,
+            "fillColor": "#7d8590",
+            "tracking": 20,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 580, 0],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.6, "value": 0, "ease": "easeOut" },
+                { "time": 1.2, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Accent Line",
+          "type": "shape",
+          "in": 0.4,
+          "out": 5.0,
+          "transform": {
+            "position": [960, 630, 0]
+          },
+          "shapes": [
+            {
+              "name": "Line",
+              "type": "rect",
+              "size": [240, 4],
+              "roundness": 2
+            },
+            {
+              "name": "Fill",
+              "type": "fill",
+              "color": "#388bfd"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

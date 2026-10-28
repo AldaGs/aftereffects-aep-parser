@@ -1,0 +1,168 @@
+{
+  "$schema": "../schema/motion.schema.json",
+  "file": "agent_showcase.aep",
+  "expressionEngine": "javascript-1.0",
+  "bitDepth": "8 bpc",
+  "compositions": [
+    {
+      "name": "AgentShowcase",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 5.0,
+      "backgroundColor": "#0B0F19",
+      "layers": [
+        {
+          "name": "Badge Text",
+          "type": "text",
+          "in": 0.2,
+          "out": 5.0,
+          "text": {
+            "string": "AI MOTION ENGINE v2.0",
+            "font": "Arial-BoldMT",
+            "fontSize": 24,
+            "fillColor": "#38BDF8",
+            "tracking": 140,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 420],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.2, "value": 0, "ease": "easeOut" },
+                { "time": 0.7, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Main Title",
+          "type": "text",
+          "in": 0.4,
+          "out": 5.0,
+          "text": {
+            "string": "AUTONOMOUS AFTER EFFECTS",
+            "font": "Arial-BoldMT",
+            "fontSize": 68,
+            "fillColor": "#F8FAFC",
+            "tracking": 40,
+            "justification": "center"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                { "time": 0.4, "value": [960, 520], "ease": "easeOut" },
+                { "time": 1.1, "value": [960, 495], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 0.4, "value": 0, "ease": "easeOut" },
+                { "time": 1.0, "value": 100, "ease": "easeOut" }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                { "time": 0.4, "value": [95, 95], "ease": "easeOut" },
+                { "time": 1.2, "value": [100, 100], "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Subtitle",
+          "type": "text",
+          "in": 0.7,
+          "out": 5.0,
+          "text": {
+            "string": "JSON Specification • Keyframes • ExtendScript • Native AEP",
+            "font": "ArialMT",
+            "fontSize": 26,
+            "fillColor": "#94A3B8",
+            "tracking": 20,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 565],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.7, "value": 0, "ease": "easeOut" },
+                { "time": 1.3, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Accent Trim Box",
+          "type": "shape",
+          "in": 0.1,
+          "out": 5.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "name": "BorderRect",
+              "size": [1120, 260],
+              "roundness": 16
+            },
+            {
+              "type": "stroke",
+              "name": "CyanStroke",
+              "color": "#38BDF8",
+              "strokeWidth": 3
+            },
+            {
+              "type": "trim",
+              "name": "TrimDraw",
+              "start": 0,
+              "end": {
+                "keyframes": [
+                  { "time": 0.1, "value": 0, "ease": "easeOut" },
+                  { "time": 1.2, "value": 100, "ease": "easeOut" }
+                ]
+              }
+            }
+          ],
+          "transform": {
+            "position": [960, 495]
+          }
+        },
+        {
+          "name": "Card Background",
+          "type": "shape",
+          "in": 0.0,
+          "out": 5.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "name": "BackPlate",
+              "size": [1120, 260],
+              "roundness": 16
+            },
+            {
+              "type": "fill",
+              "name": "DarkFill",
+              "color": "#1E293B",
+              "opacity": 75
+            }
+          ],
+          "transform": {
+            "position": [960, 495],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.0, "value": 0, "ease": "easeOut" },
+                { "time": 0.5, "value": 100, "ease": "easeOut" }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                { "time": 0.0, "value": [90, 90], "ease": "easeOut" },
+                { "time": 0.6, "value": [100, 100], "ease": "easeOut" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,88 @@
+{
+  "$schema": "../schema/motion.schema.json",
+  "file": "shape_loop.aep",
+  "compositions": [
+    {
+      "name": "LoadingLoop",
+      "width": 1080,
+      "height": 1080,
+      "fps": 60,
+      "duration": 3.0,
+      "backgroundColor": "#090d16",
+      "layers": [
+        {
+          "name": "Ring Spinner",
+          "type": "shape",
+          "in": 0.0,
+          "out": 3.0,
+          "transform": {
+            "position": [540, 540, 0],
+            "rotation": {
+              "expression": "time * 360"
+            }
+          },
+          "shapes": [
+            {
+              "name": "Circle",
+              "type": "ellipse",
+              "size": [320, 320]
+            },
+            {
+              "name": "Stroke",
+              "type": "stroke",
+              "color": "#79c0ff",
+              "strokeWidth": 16
+            },
+            {
+              "name": "Trim",
+              "type": "trim",
+              "start": {
+                "keyframes": [
+                  { "time": 0.0, "value": 0, "ease": "easeInOut" },
+                  { "time": 1.5, "value": 75, "ease": "easeInOut" },
+                  { "time": 3.0, "value": 0, "ease": "easeInOut" }
+                ]
+              },
+              "end": {
+                "keyframes": [
+                  { "time": 0.0, "value": 25, "ease": "easeInOut" },
+                  { "time": 1.5, "value": 100, "ease": "easeInOut" },
+                  { "time": 3.0, "value": 25, "ease": "easeInOut" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Center Pulse",
+          "type": "shape",
+          "in": 0.0,
+          "out": 3.0,
+          "transform": {
+            "position": [540, 540, 0],
+            "scale": {
+              "keyframes": [
+                { "time": 0.0, "value": [100, 100, 100], "ease": "easeInOut" },
+                { "time": 1.5, "value": [130, 130, 100], "ease": "easeInOut" },
+                { "time": 3.0, "value": [100, 100, 100], "ease": "easeInOut" }
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "Center Dot",
+              "type": "ellipse",
+              "size": [60, 60]
+            },
+            {
+              "name": "Dot Fill",
+              "type": "fill",
+              "color": "#1f6feb"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

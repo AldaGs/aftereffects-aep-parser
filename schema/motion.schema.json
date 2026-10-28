@@ -1,0 +1,466 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltframe.com/schemas/motion.schema.json",
+  "title": "MotionDesignProject",
+  "description": "Clean, human- and LLM-friendly authoring format for After Effects motion design projects.",
+  "type": "object",
+  "required": ["compositions"],
+  "properties": {
+    "file": {
+      "type": "string",
+      "description": "Optional output/target project filename (.aep)"
+    },
+    "expressionEngine": {
+      "type": "string",
+      "enum": ["javascript-1.0", "extendscript"],
+      "default": "javascript-1.0"
+    },
+    "bitDepth": {
+      "type": "string",
+      "enum": ["8 bpc", "16 bpc", "32 bpc"],
+      "default": "8 bpc"
+    },
+    "assets": {
+      "type": "array",
+      "description": "Footage, audio, solids, or external asset sources.",
+      "items": {
+        "$ref": "#/$defs/Asset"
+      }
+    },
+    "compositions": {
+      "type": "array",
+      "description": "Compositions defined in this project.",
+      "items": {
+        "$ref": "#/$defs/Composition"
+      }
+    }
+  },
+  "$defs": {
+    "Asset": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for referencing this asset in layer.source"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["file", "solid", "placeholder"]
+        },
+        "file": {
+          "type": "string",
+          "description": "Absolute or relative path to file footage (video/image/audio)"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "solidColor": {
+          "$ref": "#/$defs/ColorValue",
+          "description": "Color for solid asset [r, g, b] or hex '#rrggbb'"
+        }
+      }
+    },
+    "Composition": {
+      "type": "object",
+      "required": ["name", "width", "height", "duration"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps": {
+          "type": "number",
+          "default": 24.0
+        },
+        "duration": {
+          "type": "number",
+          "description": "Duration in seconds"
+        },
+        "backgroundColor": {
+          "type": "string",
+          "description": "Hex color '#000000'",
+          "default": "#000000"
+        },
+        "layers": {
+          "type": "array",
+          "description": "Layers in order (top-to-bottom as displayed in AE timeline)",
+          "items": {
+            "$ref": "#/$defs/Layer"
+          }
+        }
+      }
+    },
+    "Layer": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["solid", "text", "shape", "null", "precomp", "footage", "audio", "camera", "light", "adjustment"]
+        },
+        "source": {
+          "type": "string",
+          "description": "Referenced asset ID or composition name for precomp/footage/solid layers"
+        },
+        "parent": {
+          "type": "string",
+          "description": "Name of the parent layer within this composition"
+        },
+        "threeD": {
+          "type": "boolean",
+          "default": false
+        },
+        "collapse": {
+          "type": "boolean",
+          "description": "Collapse transformations / continuously rasterize",
+          "default": false
+        },
+        "motionBlur": {
+          "type": "boolean",
+          "default": false
+        },
+        "adjustment": {
+          "type": "boolean",
+          "default": false
+        },
+        "in": {
+          "type": "number",
+          "description": "Comp in-point in seconds"
+        },
+        "out": {
+          "type": "number",
+          "description": "Comp out-point in seconds"
+        },
+        "startTime": {
+          "type": "number",
+          "description": "Timeline offset/start time in seconds"
+        },
+        "blendMode": {
+          "type": "string",
+          "enum": [
+            "Normal", "Dissolve", "Darken", "Multiply", "Color Burn", "Classic Color Burn", "Linear Burn", "Darker Color",
+            "Add", "Lighten", "Screen", "Color Dodge", "Classic Color Dodge", "Linear Dodge", "Lighter Color",
+            "Overlay", "Soft Light", "Hard Light", "Linear Light", "Vivid Light", "Pin Light", "Hard Mix",
+            "Difference", "Classic Difference", "Exclusion", "Subtract", "Divide",
+            "Hue", "Saturation", "Color", "Luminosity",
+            "Silhouette Alpha", "Silhouette Luma", "Stencil Alpha", "Stencil Luma", "Alpha Add"
+          ]
+        },
+        "trackMatte": {
+          "type": "object",
+          "properties": {
+            "target": {
+              "type": "string",
+              "description": "Name of the layer used as track matte (AE 23+)"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["Alpha", "Alpha Inverted", "Luma", "Luma Inverted"]
+            }
+          }
+        },
+        "transform": {
+          "$ref": "#/$defs/Transform"
+        },
+        "text": {
+          "$ref": "#/$defs/TextContent"
+        },
+        "shapes": {
+          "type": "array",
+          "description": "Shape items for shape layers",
+          "items": {
+            "$ref": "#/$defs/ShapeItem"
+          }
+        },
+        "masks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Mask"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Effect"
+          }
+        },
+        "jsx": {
+          "type": "string",
+          "description": "Raw ExtendScript escape hatch to execute immediately after creating and configuring this layer"
+        }
+      }
+    },
+    "Transform": {
+      "type": "object",
+      "properties": {
+        "anchorPoint": { "$ref": "#/$defs/AnimatableValue" },
+        "position": { "$ref": "#/$defs/AnimatableValue" },
+        "xPosition": { "$ref": "#/$defs/AnimatableValue" },
+        "yPosition": { "$ref": "#/$defs/AnimatableValue" },
+        "zPosition": { "$ref": "#/$defs/AnimatableValue" },
+        "scale": { "$ref": "#/$defs/AnimatableValue" },
+        "rotation": { "$ref": "#/$defs/AnimatableValue" },
+        "xRotation": { "$ref": "#/$defs/AnimatableValue" },
+        "yRotation": { "$ref": "#/$defs/AnimatableValue" },
+        "zRotation": { "$ref": "#/$defs/AnimatableValue" },
+        "orientation": { "$ref": "#/$defs/AnimatableValue" },
+        "opacity": { "$ref": "#/$defs/AnimatableValue" }
+      }
+    },
+    "TextContent": {
+      "type": "object",
+      "required": ["string"],
+      "properties": {
+        "string": {
+          "type": "string"
+        },
+        "font": {
+          "type": "string",
+          "default": "Arial"
+        },
+        "fontSize": {
+          "type": "number",
+          "default": 48
+        },
+        "fillColor": {
+          "$ref": "#/$defs/ColorValue"
+        },
+        "strokeColor": {
+          "$ref": "#/$defs/ColorValue"
+        },
+        "strokeWidth": {
+          "type": "number",
+          "default": 0
+        },
+        "applyFill": {
+          "type": "boolean",
+          "default": true
+        },
+        "applyStroke": {
+          "type": "boolean",
+          "default": false
+        },
+        "tracking": {
+          "type": "number",
+          "default": 0
+        },
+        "justification": {
+          "type": "string",
+          "enum": ["left", "right", "center", "justifyLeft", "justifyRight", "justifyCenter", "justifyFull"],
+          "default": "left"
+        }
+      }
+    },
+    "ShapeItem": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["group", "rect", "ellipse", "path", "fill", "stroke", "trim", "transform"]
+        },
+        "size": { "$ref": "#/$defs/AnimatableValue" },
+        "position": { "$ref": "#/$defs/AnimatableValue" },
+        "roundness": { "$ref": "#/$defs/AnimatableValue" },
+        "color": { "$ref": "#/$defs/AnimatableValue" },
+        "opacity": { "$ref": "#/$defs/AnimatableValue" },
+        "strokeWidth": { "$ref": "#/$defs/AnimatableValue" },
+        "start": { "$ref": "#/$defs/AnimatableValue" },
+        "end": { "$ref": "#/$defs/AnimatableValue" },
+        "offset": { "$ref": "#/$defs/AnimatableValue" },
+        "path": { "$ref": "#/$defs/BezierPath" },
+        "items": {
+          "type": "array",
+          "description": "Child shapes if type is group",
+          "items": {
+            "$ref": "#/$defs/ShapeItem"
+          }
+        }
+      }
+    },
+    "Mask": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "name": { "type": "string" },
+        "mode": {
+          "type": "string",
+          "enum": ["Add", "Subtract", "Intersect", "Lighten", "Darken", "Difference", "None"],
+          "default": "Add"
+        },
+        "inverted": { "type": "boolean", "default": false },
+        "path": { "$ref": "#/$defs/BezierPath" },
+        "opacity": { "$ref": "#/$defs/AnimatableValue" },
+        "feather": { "$ref": "#/$defs/AnimatableValue" },
+        "expansion": { "$ref": "#/$defs/AnimatableValue" }
+      }
+    },
+    "BezierPath": {
+      "type": "object",
+      "required": ["vertices"],
+      "properties": {
+        "closed": { "type": "boolean", "default": true },
+        "vertices": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "inTangents": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "outTangents": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      }
+    },
+    "Effect": {
+      "type": "object",
+      "required": ["matchName"],
+      "properties": {
+        "name": { "type": "string" },
+        "matchName": { "type": "string" },
+        "props": {
+          "type": "object",
+          "description": "Map of property names or matchNames to AnimatableValue",
+          "additionalProperties": {
+            "$ref": "#/$defs/AnimatableValue"
+          }
+        }
+      }
+    },
+    "AnimatableValue": {
+      "description": "Constant number, vector/color array, string, or animated keyframe specification",
+      "oneOf": [
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "type": "number" }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "value": {
+              "description": "Static default value if not animated",
+              "oneOf": [
+                { "type": "number" },
+                { "type": "boolean" },
+                { "type": "string" },
+                { "type": "array", "items": { "type": "number" } }
+              ]
+            },
+            "expression": {
+              "type": "string",
+              "description": "After Effects expression code"
+            },
+            "keyframes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Keyframe"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Keyframe": {
+      "type": "object",
+      "required": ["time", "value"],
+      "properties": {
+        "time": {
+          "type": "number",
+          "description": "Keyframe time in composition seconds"
+        },
+        "value": {
+          "description": "Value at this keyframe",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "array", "items": { "type": "number" } }
+          ]
+        },
+        "interp": {
+          "type": "string",
+          "enum": ["linear", "bezier", "hold"],
+          "default": "bezier"
+        },
+        "ease": {
+          "description": "Shorthand ease preset ('linear', 'easeIn', 'easeOut', 'easeInOut') or custom speed/influence values",
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": ["linear", "easeIn", "easeOut", "easeInOut"]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "inSpeed": { "type": "number" },
+                "inInfluence": { "type": "number" },
+                "outSpeed": { "type": "number" },
+                "outInfluence": { "type": "number" }
+              }
+            }
+          ]
+        },
+        "inTangent": {
+          "type": "array",
+          "items": { "type": "number" },
+          "description": "Spatial in tangent (for position/spatial properties)"
+        },
+        "outTangent": {
+          "type": "array",
+          "items": { "type": "number" },
+          "description": "Spatial out tangent (for position/spatial properties)"
+        }
+      }
+    },
+    "ColorValue": {
+      "description": "Color represented as hex string (#rrggbb) or normalized [r, g, b] / [r, g, b, a] in 0..1",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 3,
+          "maxItems": 4
+        }
+      ]
+    }
+  }
+}
+

@@ -25,6 +25,7 @@ type Project struct {
 	Depth            BPC
 	RootFolder       *Item
 	Items            map[uint32]*Item
+	pardCache        map[string]*parTDef
 }
 
 // FromReader reads and creates a new project instance from an After Effects project file
@@ -53,6 +54,21 @@ func Open(path string) (*Project, error) {
 func parseProject(root *rifx.List) (*Project, error) {
 	project := &Project{}
 	project.Items = make(map[uint32]*Item)
+	project.pardCache = make(map[string]*parTDef)
+
+	// Pre-populate effect parameter definitions from project-level EfDf block if present
+	if efdfList, err := root.SublistFind("EfDf"); err == nil {
+		sspcs, mns := indexedGroupToEntries(efdfList)
+		for idx, mn := range mns {
+			if sspcs[idx] != nil && sspcs[idx].Identifier == "sspc" {
+				parTList := sspcs[idx].SublistMerge("parT")
+				subMNs, subPards := pairMatchNames(parTList)
+				if len(subMNs) > 0 {
+					project.pardCache[mn] = &parTDef{matchNames: subMNs, pards: subPards}
+				}
+			}
+		}
+	}
 
 	// Parse expression engine
 	expressionEngineList, err := root.SublistFind("ExEn")
@@ -89,7 +105,9 @@ func parseProject(root *rifx.List) (*Project, error) {
 		if item.ItemType == ItemTypeComposition {
 			for _, layer := range item.CompositionLayers {
 				if layer.Name == "" {
-					layer.Name = project.Items[layer.SourceID].Name
+					if src, ok := project.Items[layer.SourceID]; ok {
+						layer.Name = src.Name
+					}
 				}
 			}
 		}

@@ -111,3 +111,50 @@ func TestPropertyParsing(t *testing.T) {
 	expect(t, len(layerSelectEffect.Properties[0].Properties), 0)
 	expect(t, len(layerSelectEffect.Properties[0].SelectOptions), 0)
 }
+
+
+func TestKeyframeParsing(t *testing.T) {
+	project, err := Open("aep/KID - FRANCESCOLI ID - AG.aep")
+	if err != nil {
+		t.Skip("sample AEP not present:", err)
+	}
+
+	comp := project.Items[11]
+	expect(t, comp != nil)
+	expect(t, comp.Name, "VIDEO ID")
+
+	layer := comp.CompositionLayers[0]
+	expect(t, layer.Name, "FORO PUEBLA")
+	expect(t, layer.StartTime, 10.25)
+	expect(t, len(layer.Transform) > 0)
+
+	var pos *Property
+	for _, p := range layer.Transform {
+		if p.MatchName == "ADBE Position" {
+			pos = p
+			break
+		}
+	}
+	expect(t, pos != nil)
+	expect(t, pos.Animated, true)
+	expect(t, pos.ValueType, PropertyValueTypeSpatial)
+	expect(t, pos.Dimensions, 3)
+	expect(t, len(pos.Keyframes), 3)
+	expect(t, pos.Expression != "")
+
+	kf0 := pos.Keyframes[0]
+	expect(t, kf0.Time, 0.0)
+	expect(t, kf0.CompTime, 10.25)
+	expect(t, kf0.InInterpolation, KeyframeInterpolationBezier)
+	expect(t, kf0.OutInterpolation, KeyframeInterpolationBezier)
+	expect(t, len(kf0.Value), 3)
+	expect(t, kf0.Value[0], 524.1485595703125)
+	expect(t, kf0.Value[1], 1310.2962646484375)
+
+	kf2 := pos.Keyframes[2]
+	expect(t, kf2.Time, 0.5)
+	expect(t, kf2.CompTime, 10.75)
+	expect(t, kf2.InInterpolation, KeyframeInterpolationLinear)
+	expect(t, kf2.OutInterpolation, KeyframeInterpolationLinear)
+	expect(t, kf2.Value[1], 1210.2962646484375)
+}

@@ -1,0 +1,709 @@
+{
+  "$schema": "../schema/motion.schema.json",
+  "file": "explainer_video.aep",
+  "expressionEngine": "javascript-1.0",
+  "bitDepth": "8 bpc",
+  "compositions": [
+    {
+      "name": "ExplainerVideo",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 8.0,
+      "backgroundColor": "#0A0E1A",
+      "layers": [
+        {
+          "name": "S3 Feature 3 - Expressions",
+          "type": "text",
+          "in": 6.0,
+          "out": 8.0,
+          "text": {
+            "string": "EXPRESSIONS",
+            "font": "Arial-BoldMT",
+            "fontSize": 22,
+            "fillColor": "#F43F5E",
+            "tracking": 80,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [1270, 640],
+            "opacity": {
+              "keyframes": [
+                { "time": 6.0, "value": 0, "ease": "easeOut" },
+                { "time": 6.4, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Feature 3 Badge",
+          "type": "shape",
+          "in": 6.0,
+          "out": 8.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [260, 52],
+              "roundness": 26
+            },
+            {
+              "type": "stroke",
+              "color": "#F43F5E",
+              "strokeWidth": 2
+            },
+            {
+              "type": "fill",
+              "color": "#1E1B4B",
+              "opacity": 65
+            }
+          ],
+          "transform": {
+            "position": [1270, 632],
+            "scale": {
+              "keyframes": [
+                { "time": 6.0, "value": [80, 80], "ease": "easeOut" },
+                { "time": 6.4, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 6.0, "value": 0, "ease": "easeOut" },
+                { "time": 6.3, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Feature 2 - Vector Shapes",
+          "type": "text",
+          "in": 5.8,
+          "out": 8.0,
+          "text": {
+            "string": "VECTOR SHAPES",
+            "font": "Arial-BoldMT",
+            "fontSize": 22,
+            "fillColor": "#A855F7",
+            "tracking": 80,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 640],
+            "opacity": {
+              "keyframes": [
+                { "time": 5.8, "value": 0, "ease": "easeOut" },
+                { "time": 6.2, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Feature 2 Badge",
+          "type": "shape",
+          "in": 5.8,
+          "out": 8.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [280, 52],
+              "roundness": 26
+            },
+            {
+              "type": "stroke",
+              "color": "#A855F7",
+              "strokeWidth": 2
+            },
+            {
+              "type": "fill",
+              "color": "#1E1B4B",
+              "opacity": 65
+            }
+          ],
+          "transform": {
+            "position": [960, 632],
+            "scale": {
+              "keyframes": [
+                { "time": 5.8, "value": [80, 80], "ease": "easeOut" },
+                { "time": 6.2, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 5.8, "value": 0, "ease": "easeOut" },
+                { "time": 6.1, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Feature 1 - Keyframes",
+          "type": "text",
+          "in": 5.6,
+          "out": 8.0,
+          "text": {
+            "string": "EASE KEYFRAMES",
+            "font": "Arial-BoldMT",
+            "fontSize": 22,
+            "fillColor": "#38BDF8",
+            "tracking": 80,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [640, 640],
+            "opacity": {
+              "keyframes": [
+                { "time": 5.6, "value": 0, "ease": "easeOut" },
+                { "time": 6.0, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Feature 1 Badge",
+          "type": "shape",
+          "in": 5.6,
+          "out": 8.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [280, 52],
+              "roundness": 26
+            },
+            {
+              "type": "stroke",
+              "color": "#38BDF8",
+              "strokeWidth": 2
+            },
+            {
+              "type": "fill",
+              "color": "#0C4A6E",
+              "opacity": 55
+            }
+          ],
+          "transform": {
+            "position": [640, 632],
+            "scale": {
+              "keyframes": [
+                { "time": 5.6, "value": [80, 80], "ease": "easeOut" },
+                { "time": 6.0, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 5.6, "value": 0, "ease": "easeOut" },
+                { "time": 5.9, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Hero Text",
+          "type": "text",
+          "in": 5.3,
+          "out": 8.0,
+          "text": {
+            "string": "100% NATIVE AFTER EFFECTS",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F8FAFC",
+            "tracking": 40,
+            "justification": "center"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                { "time": 5.3, "value": [960, 545], "ease": "easeOut" },
+                { "time": 5.9, "value": [960, 515], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 5.3, "value": 0, "ease": "easeOut" },
+                { "time": 5.8, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Tag",
+          "type": "text",
+          "in": 5.1,
+          "out": 8.0,
+          "text": {
+            "string": "ZERO MANUAL KEYFRAMING • DIRECT FROM CODE",
+            "font": "ArialMT",
+            "fontSize": 20,
+            "fillColor": "#38BDF8",
+            "tracking": 160,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 425],
+            "opacity": {
+              "keyframes": [
+                { "time": 5.1, "value": 0, "ease": "easeOut" },
+                { "time": 5.6, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S3 Hero Card Frame",
+          "type": "shape",
+          "in": 5.0,
+          "out": 8.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [1200, 380],
+              "roundness": 28
+            },
+            {
+              "type": "stroke",
+              "color": "#38BDF8",
+              "strokeWidth": 3
+            },
+            {
+              "type": "trim",
+              "start": 0,
+              "end": {
+                "keyframes": [
+                  { "time": 5.0, "value": 0, "ease": "easeOut" },
+                  { "time": 6.2, "value": 100, "ease": "easeOut" }
+                ]
+              }
+            }
+          ],
+          "transform": {
+            "position": [960, 540]
+          }
+        },
+        {
+          "name": "S3 Hero Card Plate",
+          "type": "shape",
+          "in": 5.0,
+          "out": 8.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [1200, 380],
+              "roundness": 28
+            },
+            {
+              "type": "fill",
+              "color": "#0F172A",
+              "opacity": 80
+            }
+          ],
+          "transform": {
+            "position": [960, 540],
+            "scale": {
+              "keyframes": [
+                { "time": 5.0, "value": [90, 90], "ease": "easeOut" },
+                { "time": 5.6, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 5.0, "value": 0, "ease": "easeOut" },
+                { "time": 5.5, "value": 100, "ease": "easeOut" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S2 Arrow Text",
+          "type": "text",
+          "in": 3.1,
+          "out": 5.0,
+          "text": {
+            "string": "➔",
+            "font": "Arial-BoldMT",
+            "fontSize": 48,
+            "fillColor": "#A855F7",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 556],
+            "opacity": {
+              "keyframes": [
+                { "time": 3.1, "value": 0, "ease": "easeOut" },
+                { "time": 3.5, "value": 100, "ease": "easeOut" },
+                { "time": 4.8, "value": 100 },
+                { "time": 5.0, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S2 Right Text - Native Project",
+          "type": "text",
+          "in": 3.2,
+          "out": 5.0,
+          "text": {
+            "string": "NATIVE .AEP",
+            "font": "Arial-BoldMT",
+            "fontSize": 46,
+            "fillColor": "#F8FAFC",
+            "tracking": 40,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [1300, 556],
+            "opacity": {
+              "keyframes": [
+                { "time": 3.2, "value": 0, "ease": "easeOut" },
+                { "time": 3.7, "value": 100, "ease": "easeOut" },
+                { "time": 4.8, "value": 100 },
+                { "time": 5.0, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S2 Right Pill Shape",
+          "type": "shape",
+          "in": 3.0,
+          "out": 5.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [420, 110],
+              "roundness": 20
+            },
+            {
+              "type": "stroke",
+              "color": "#A855F7",
+              "strokeWidth": 3
+            },
+            {
+              "type": "fill",
+              "color": "#1E1B4B",
+              "opacity": 75
+            }
+          ],
+          "transform": {
+            "position": [1300, 540],
+            "scale": {
+              "keyframes": [
+                { "time": 3.0, "value": [85, 85], "ease": "easeOut" },
+                { "time": 3.6, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 3.0, "value": 0, "ease": "easeOut" },
+                { "time": 3.4, "value": 100, "ease": "easeOut" },
+                { "time": 4.8, "value": 100 },
+                { "time": 5.0, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S2 Left Text - Motion JSON",
+          "type": "text",
+          "in": 2.8,
+          "out": 5.0,
+          "text": {
+            "string": "{ MOTION JSON }",
+            "font": "CourierNewPS-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#38BDF8",
+            "tracking": 20,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [620, 554],
+            "opacity": {
+              "keyframes": [
+                { "time": 2.8, "value": 0, "ease": "easeOut" },
+                { "time": 3.3, "value": 100, "ease": "easeOut" },
+                { "time": 4.8, "value": 100 },
+                { "time": 5.0, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S2 Left Pill Shape",
+          "type": "shape",
+          "in": 2.7,
+          "out": 5.0,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [460, 110],
+              "roundness": 20
+            },
+            {
+              "type": "stroke",
+              "color": "#38BDF8",
+              "strokeWidth": 3
+            },
+            {
+              "type": "fill",
+              "color": "#082F49",
+              "opacity": 75
+            }
+          ],
+          "transform": {
+            "position": [620, 540],
+            "scale": {
+              "keyframes": [
+                { "time": 2.7, "value": [85, 85], "ease": "easeOut" },
+                { "time": 3.3, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 2.7, "value": 0, "ease": "easeOut" },
+                { "time": 3.1, "value": 100, "ease": "easeOut" },
+                { "time": 4.8, "value": 100 },
+                { "time": 5.0, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S2 Scene Tag",
+          "type": "text",
+          "in": 2.6,
+          "out": 5.0,
+          "text": {
+            "string": "HOW IT WORKS",
+            "font": "Arial-BoldMT",
+            "fontSize": 24,
+            "fillColor": "#A855F7",
+            "tracking": 180,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 410],
+            "opacity": {
+              "keyframes": [
+                { "time": 2.6, "value": 0, "ease": "easeOut" },
+                { "time": 3.0, "value": 100, "ease": "easeOut" },
+                { "time": 4.8, "value": 100 },
+                { "time": 5.0, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S1 Underline Accent",
+          "type": "shape",
+          "in": 0.6,
+          "out": 2.6,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [540, 6],
+              "roundness": 3
+            },
+            {
+              "type": "fill",
+              "color": "#38BDF8"
+            }
+          ],
+          "transform": {
+            "position": [730, 566],
+            "scale": {
+              "keyframes": [
+                { "time": 0.6, "value": [0, 100], "ease": "easeOut" },
+                { "time": 1.1, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 0.6, "value": 0, "ease": "easeOut" },
+                { "time": 0.9, "value": 100, "ease": "easeOut" },
+                { "time": 2.3, "value": 100 },
+                { "time": 2.6, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S1 Emphasized Word - PROJECTS",
+          "type": "text",
+          "in": 0.5,
+          "out": 2.6,
+          "text": {
+            "string": "PROJECTS",
+            "font": "Arial-BoldMT",
+            "fontSize": 62,
+            "fillColor": "#F8FAFC",
+            "tracking": 40,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [1255, 542],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.5, "value": 0, "ease": "easeOut" },
+                { "time": 0.9, "value": 100, "ease": "easeOut" },
+                { "time": 2.3, "value": 100 },
+                { "time": 2.6, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S1 Word Highlight Shape",
+          "type": "shape",
+          "in": 0.4,
+          "out": 2.6,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [390, 96],
+              "roundness": 20
+            },
+            {
+              "type": "fill",
+              "color": "#7C3AED",
+              "opacity": 85
+            },
+            {
+              "type": "stroke",
+              "color": "#A855F7",
+              "strokeWidth": 3
+            }
+          ],
+          "transform": {
+            "position": [1255, 520],
+            "scale": {
+              "keyframes": [
+                { "time": 0.4, "value": [70, 70], "ease": "easeOut" },
+                { "time": 0.9, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 0.4, "value": 0, "ease": "easeOut" },
+                { "time": 0.8, "value": 100, "ease": "easeOut" },
+                { "time": 2.3, "value": 100 },
+                { "time": 2.6, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S1 Main Title Text",
+          "type": "text",
+          "in": 0.3,
+          "out": 2.6,
+          "text": {
+            "string": "YOU CAN CREATE",
+            "font": "Arial-BoldMT",
+            "fontSize": 62,
+            "fillColor": "#F8FAFC",
+            "tracking": 40,
+            "justification": "center"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                { "time": 0.3, "value": [730, 570], "ease": "easeOut" },
+                { "time": 0.9, "value": [730, 542], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 0.3, "value": 0, "ease": "easeOut" },
+                { "time": 0.8, "value": 100, "ease": "easeOut" },
+                { "time": 2.3, "value": 100 },
+                { "time": 2.6, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S1 Intro Tag",
+          "type": "text",
+          "in": 0.1,
+          "out": 2.6,
+          "text": {
+            "string": "DID YOU KNOW?",
+            "font": "Arial-BoldMT",
+            "fontSize": 24,
+            "fillColor": "#38BDF8",
+            "tracking": 180,
+            "justification": "center"
+          },
+          "transform": {
+            "position": [960, 420],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.1, "value": 0, "ease": "easeOut" },
+                { "time": 0.6, "value": 100, "ease": "easeOut" },
+                { "time": 2.3, "value": 100 },
+                { "time": 2.6, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "S1 Outer Card Plate",
+          "type": "shape",
+          "in": 0.0,
+          "out": 2.6,
+          "shapes": [
+            {
+              "type": "rect",
+              "size": [1240, 340],
+              "roundness": 28
+            },
+            {
+              "type": "fill",
+              "color": "#111827",
+              "opacity": 75
+            },
+            {
+              "type": "stroke",
+              "color": "#1E293B",
+              "strokeWidth": 2
+            }
+          ],
+          "transform": {
+            "position": [960, 520],
+            "scale": {
+              "keyframes": [
+                { "time": 0.0, "value": [92, 92], "ease": "easeOut" },
+                { "time": 0.6, "value": [100, 100], "ease": "easeOut" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 0.0, "value": 0, "ease": "easeOut" },
+                { "time": 0.5, "value": 100, "ease": "easeOut" },
+                { "time": 2.3, "value": 100 },
+                { "time": 2.6, "value": 0 }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Background Gradient Atmosphere",
+          "type": "solid",
+          "in": 0.0,
+          "out": 8.0,
+          "solidColor": "#080B14",
+          "effects": [
+            {
+              "name": "Gradient Backdrop",
+              "matchName": "ADBE Ramp",
+              "props": {
+                "ADBE Ramp-0001": [960, 200],
+                "ADBE Ramp-0002": "#1E1B4B",
+                "ADBE Ramp-0003": [960, 1000],
+                "ADBE Ramp-0004": "#05070E",
+                "ADBE Ramp-0005": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

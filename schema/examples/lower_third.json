@@ -1,0 +1,101 @@
+{
+  "$schema": "../schema/motion.schema.json",
+  "file": "lower_third.aep",
+  "compositions": [
+    {
+      "name": "LowerThirdComp",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 6.0,
+      "backgroundColor": "#000000",
+      "layers": [
+        {
+          "name": "Presenter Role",
+          "type": "text",
+          "parent": "Presenter Name",
+          "in": 0.5,
+          "out": 5.5,
+          "text": {
+            "string": "CREATIVE DIRECTOR & ANIMATOR",
+            "font": "Arial-BoldMT",
+            "fontSize": 24,
+            "fillColor": "#a5d6ff",
+            "tracking": 40
+          },
+          "transform": {
+            "position": [0, 52, 0],
+            "opacity": {
+              "keyframes": [
+                { "time": 0.5, "value": 0, "ease": "easeOut" },
+                { "time": 0.9, "value": 100, "ease": "easeOut" },
+                { "time": 5.0, "value": 100, "ease": "easeIn" },
+                { "time": 5.4, "value": 0, "ease": "easeIn" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Presenter Name",
+          "type": "text",
+          "in": 0.2,
+          "out": 5.8,
+          "text": {
+            "string": "Alex Rivera",
+            "font": "Arial-BoldMT",
+            "fontSize": 54,
+            "fillColor": "#ffffff"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                { "time": 0.2, "value": [160, 940, 0], "ease": "easeOut" },
+                { "time": 0.8, "value": [220, 940, 0], "ease": "easeOut" },
+                { "time": 5.2, "value": [220, 940, 0], "ease": "easeIn" },
+                { "time": 5.7, "value": [160, 940, 0], "ease": "easeIn" }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                { "time": 0.2, "value": 0, "ease": "easeOut" },
+                { "time": 0.6, "value": 100, "ease": "easeOut" },
+                { "time": 5.3, "value": 100, "ease": "easeIn" },
+                { "time": 5.7, "value": 0, "ease": "easeIn" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Background Ribbon",
+          "type": "shape",
+          "in": 0.1,
+          "out": 5.9,
+          "transform": {
+            "position": [190, 945, 0]
+          },
+          "shapes": [
+            {
+              "name": "Box",
+              "type": "rect",
+              "size": [460, 110],
+              "roundness": 12
+            },
+            {
+              "name": "Fill",
+              "type": "fill",
+              "color": "#161b22",
+              "opacity": 90
+            },
+            {
+              "name": "Stroke",
+              "type": "stroke",
+              "color": "#388bfd",
+              "strokeWidth": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
