@@ -1,0 +1,1427 @@
+{
+  "$schema": "../motion.schema.json",
+  "file": "claude_pet.aep",
+  "compositions": [
+    {
+      "name": "ClaudePet",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "duration": 21.0,
+      "backgroundColor": "#1F1E1D",
+      "layers": [
+        {
+          "name": "Tag 0",
+          "type": "text",
+          "in": 0.1,
+          "out": 3.5,
+          "text": {
+            "string": "HELLO",
+            "font": "ArialMT",
+            "fontSize": 30,
+            "fillColor": "#D97757",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 0.1,
+                  "value": [
+                    1140,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.7,
+                  "value": [
+                    1080,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 0.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.5,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 3.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 0",
+          "type": "text",
+          "in": 0.0,
+          "out": 3.5,
+          "text": {
+            "string": "Meet your Claude pet",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F5F0E8",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 0.0,
+                  "value": [
+                    1140,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.6,
+                  "value": [
+                    1080,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 0.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.4,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 3.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Body 0",
+          "type": "text",
+          "in": 0.25,
+          "out": 3.5,
+          "text": {
+            "string": "A tiny companion for Claude Code",
+            "font": "ArialMT",
+            "fontSize": 40,
+            "fillColor": "#B8B2A7",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 0.25,
+                  "value": [
+                    1140,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.85,
+                  "value": [
+                    1080,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 0.25,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.65,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 3.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 1",
+          "type": "text",
+          "in": 3.6,
+          "out": 7.0,
+          "text": {
+            "string": "WHAT IT DOES",
+            "font": "ArialMT",
+            "fontSize": 30,
+            "fillColor": "#D97757",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 3.6,
+                  "value": [
+                    1140,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.2,
+                  "value": [
+                    1080,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 3.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.0,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 6.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 7.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 1",
+          "type": "text",
+          "in": 3.5,
+          "out": 7.0,
+          "text": {
+            "string": "It watches your sessions",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F5F0E8",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 3.5,
+                  "value": [
+                    1140,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.1,
+                  "value": [
+                    1080,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 3.5,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.9,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 6.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 7.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Body 1",
+          "type": "text",
+          "in": 3.75,
+          "out": 7.0,
+          "text": {
+            "string": "Sits beside the terminal while\rClaude reads, edits and runs tests",
+            "font": "ArialMT",
+            "fontSize": 40,
+            "fillColor": "#B8B2A7",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 3.75,
+                  "value": [
+                    1140,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.35,
+                  "value": [
+                    1080,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 3.75,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.15,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 6.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 7.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 2",
+          "type": "text",
+          "in": 7.1,
+          "out": 10.5,
+          "text": {
+            "string": "WHAT IT DOES",
+            "font": "ArialMT",
+            "fontSize": 30,
+            "fillColor": "#D97757",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 7.1,
+                  "value": [
+                    1140,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.699999999999999,
+                  "value": [
+                    1080,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 7.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.5,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 10.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 10.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 2",
+          "type": "text",
+          "in": 7.0,
+          "out": 10.5,
+          "text": {
+            "string": "Its mood = progress",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F5F0E8",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 7.0,
+                  "value": [
+                    1140,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.6,
+                  "value": [
+                    1080,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 7.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.4,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 10.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 10.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Body 2",
+          "type": "text",
+          "in": 7.25,
+          "out": 10.5,
+          "text": {
+            "string": "Thinking, coding, waiting on you,\ror done: one glance tells you",
+            "font": "ArialMT",
+            "fontSize": 40,
+            "fillColor": "#B8B2A7",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 7.25,
+                  "value": [
+                    1140,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.85,
+                  "value": [
+                    1080,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 7.25,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.65,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 10.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 10.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 3",
+          "type": "text",
+          "in": 10.6,
+          "out": 14.0,
+          "text": {
+            "string": "WORKFLOW",
+            "font": "ArialMT",
+            "fontSize": 30,
+            "fillColor": "#D97757",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 10.6,
+                  "value": [
+                    1140,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.2,
+                  "value": [
+                    1080,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 10.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.0,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 13.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 14.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 3",
+          "type": "text",
+          "in": 10.5,
+          "out": 14.0,
+          "text": {
+            "string": "Hand off, then step away",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F5F0E8",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 10.5,
+                  "value": [
+                    1140,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.1,
+                  "value": [
+                    1080,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 10.5,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 10.9,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 13.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 14.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Body 3",
+          "type": "text",
+          "in": 10.75,
+          "out": 14.0,
+          "text": {
+            "string": "Start a task, switch to other work,\rcome back when your pet pings you",
+            "font": "ArialMT",
+            "fontSize": 40,
+            "fillColor": "#B8B2A7",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 10.75,
+                  "value": [
+                    1140,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.35,
+                  "value": [
+                    1080,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 10.75,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.15,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 13.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 14.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 4",
+          "type": "text",
+          "in": 14.1,
+          "out": 17.5,
+          "text": {
+            "string": "WORKFLOW",
+            "font": "ArialMT",
+            "fontSize": 30,
+            "fillColor": "#D97757",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 14.1,
+                  "value": [
+                    1140,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 14.7,
+                  "value": [
+                    1080,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 14.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 14.5,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 17.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 17.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 4",
+          "type": "text",
+          "in": 14.0,
+          "out": 17.5,
+          "text": {
+            "string": "Catch blockers sooner",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F5F0E8",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 14.0,
+                  "value": [
+                    1140,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 14.6,
+                  "value": [
+                    1080,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 14.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 14.4,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 17.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 17.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Body 4",
+          "type": "text",
+          "in": 14.25,
+          "out": 17.5,
+          "text": {
+            "string": "Approvals and questions surface fast,\rso Claude never sits idle",
+            "font": "ArialMT",
+            "fontSize": 40,
+            "fillColor": "#B8B2A7",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 14.25,
+                  "value": [
+                    1140,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 14.85,
+                  "value": [
+                    1080,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 14.25,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 14.65,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 17.1,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 17.5,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 5",
+          "type": "text",
+          "in": 17.6,
+          "out": 21.0,
+          "text": {
+            "string": "TRY IT",
+            "font": "ArialMT",
+            "fontSize": 30,
+            "fillColor": "#D97757",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 17.6,
+                  "value": [
+                    1140,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 18.200000000000003,
+                  "value": [
+                    1080,
+                    400,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 17.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 18.0,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 21.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 5",
+          "type": "text",
+          "in": 17.5,
+          "out": 21.0,
+          "text": {
+            "string": "Let it keep watch",
+            "font": "Arial-BoldMT",
+            "fontSize": 64,
+            "fillColor": "#F5F0E8",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 17.5,
+                  "value": [
+                    1140,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 18.1,
+                  "value": [
+                    1080,
+                    490,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 17.5,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 17.9,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 21.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Body 5",
+          "type": "text",
+          "in": 17.75,
+          "out": 21.0,
+          "text": {
+            "string": "Less babysitting. More shipping.",
+            "font": "ArialMT",
+            "fontSize": 40,
+            "fillColor": "#B8B2A7",
+            "justification": "left"
+          },
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 17.75,
+                  "value": [
+                    1140,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 18.35,
+                  "value": [
+                    1080,
+                    580,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 17.75,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 18.15,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.6,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 21.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eye L",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              -50,
+              -20
+            ],
+            "scale": {
+              "expression": "t = time % 3.2; s = (t > 3.0) ? 10 : 100; [100, s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                26,
+                44
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#1F1E1D"
+            }
+          ],
+          "parent": "Pet Rig"
+        },
+        {
+          "name": "Eye R",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              50,
+              -20
+            ],
+            "scale": {
+              "expression": "t = time % 3.2; s = (t > 3.0) ? 10 : 100; [100, s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                26,
+                44
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#1F1E1D"
+            }
+          ],
+          "parent": "Pet Rig"
+        },
+        {
+          "name": "Mood Dot",
+          "type": "shape",
+          "in": 3.5,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              110,
+              -150
+            ],
+            "opacity": {
+              "expression": "Math.sin(time*6) > 0 ? 100 : 40;",
+              "value": 100
+            }
+          },
+          "shapes": [
+            {
+              "name": "D",
+              "type": "ellipse",
+              "size": [
+                34,
+                34
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#7EE787"
+            }
+          ],
+          "parent": "Pet Rig"
+        },
+        {
+          "name": "Ear L",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              -80,
+              -120
+            ],
+            "rotation": -20
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                50,
+                70
+              ],
+              "roundness": 20
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D97757"
+            }
+          ],
+          "parent": "Pet Rig"
+        },
+        {
+          "name": "Ear R",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              80,
+              -120
+            ],
+            "rotation": 20
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                50,
+                70
+              ],
+              "roundness": 20
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D97757"
+            }
+          ],
+          "parent": "Pet Rig"
+        },
+        {
+          "name": "Body",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              0,
+              0
+            ],
+            "scale": {
+              "expression": "s = Math.sin(time*6)*3; [100 + s, 100 - s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                280,
+                240
+              ],
+              "roundness": 90
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D97757"
+            }
+          ],
+          "parent": "Pet Rig"
+        },
+        {
+          "name": "Pet Rig",
+          "type": "null",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": {
+              "expression": "[value[0], value[1] + Math.sin(time*3)*14, 0];",
+              "keyframes": [
+                {
+                  "time": 0,
+                  "value": [
+                    520,
+                    1300,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.9,
+                  "value": [
+                    520,
+                    560,
+                    0
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 0,
+                  "value": [
+                    60,
+                    60,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 1.1,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Shadow",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              520,
+              760
+            ],
+            "opacity": 35,
+            "scale": {
+              "expression": "s = 100 - Math.sin(time*3)*8; [s, s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "S",
+              "type": "ellipse",
+              "size": [
+                260,
+                40
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#000000"
+            }
+          ]
+        },
+        {
+          "name": "Backdrop Glow",
+          "type": "shape",
+          "in": 0,
+          "out": 21.0,
+          "transform": {
+            "position": [
+              520,
+              540
+            ]
+          },
+          "shapes": [
+            {
+              "name": "G",
+              "type": "ellipse",
+              "size": [
+                700,
+                700
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#2B2926"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
