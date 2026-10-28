@@ -102,7 +102,7 @@ function Test-AuthoringRoundtrip([string]$jsonPath) {
         # After Effects writes harmless warnings (e.g. GPU sanity tests) to stderr, which
         # Windows PowerShell 5.1 turns into terminating errors under "Stop"; rely on $LASTEXITCODE.
         $ErrorActionPreference = "Continue"
-        & $Json2JsxExe -i $jsonPath -o $jsxOut -aep $absAepOut -run -close
+        & $Json2JsxExe -i $jsonPath -o $jsxOut -aep $absAepOut -run -close | Out-Host
         $ErrorActionPreference = "Stop"
         if ($LASTEXITCODE -ne 0 -or -not (Test-Path $aepOut)) {
             Write-Host "[FAIL] Failed to build $aepOut from $jsonPath" -ForegroundColor Red
@@ -113,7 +113,7 @@ function Test-AuthoringRoundtrip([string]$jsonPath) {
 
     # Step 2: Parse generated AEP back to JSON
     Write-Host "Step 2: Parsing generated AEP back to raw JSON via aep-parser..." -ForegroundColor Yellow
-    & $ParserExe -i $aepOut -o $parsedOut
+    & $ParserExe -i $aepOut -o $parsedOut | Out-Host
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $parsedOut)) {
         Write-Host "[FAIL] Failed to parse $aepOut" -ForegroundColor Red
         return $false
@@ -171,7 +171,8 @@ function Test-AuthoringRoundtrip([string]$jsonPath) {
                 }
 
                 if ($el.text -and $al.text) {
-                    Assert-Equal $el.text.string $al.text "Text String" ([ref]$failures)
+                    # AE stores line breaks as CR; the parser emits LF
+                    Assert-Equal ($el.text.string -replace "`r`n?", "`n") ($al.text -replace "`r`n?", "`n") "Text String" ([ref]$failures)
                 }
 
                 if ($el.transform) {
@@ -224,7 +225,7 @@ function Test-NativeAepRoundtrip([string]$nativeAepPath) {
 
     # Step 1: Parse original AEP
     Write-Host "Step 1: Parsing original AEP..." -ForegroundColor Yellow
-    & $ParserExe -i $nativeAepPath -o $origExportJson
+    & $ParserExe -i $nativeAepPath -o $origExportJson | Out-Host
     if ($LASTEXITCODE -ne 0) {
         Write-Host "[FAIL] Failed to parse $nativeAepPath" -ForegroundColor Red
         return $false
@@ -232,7 +233,7 @@ function Test-NativeAepRoundtrip([string]$nativeAepPath) {
 
     # Step 2: Convert to authoring format
     Write-Host "Step 2: Converting to authoring JSON..." -ForegroundColor Yellow
-    & $Export2AuthorExe -i $origExportJson -o $authoringJson
+    & $Export2AuthorExe -i $origExportJson -o $authoringJson | Out-Host
     if ($LASTEXITCODE -ne 0) {
         Write-Host "[FAIL] Failed to convert to authoring JSON" -ForegroundColor Red
         return $false
@@ -241,7 +242,9 @@ function Test-NativeAepRoundtrip([string]$nativeAepPath) {
     # Step 3: Compile to JSX and Rebuilt AEP
     Write-Host "Step 3: Compiling to JSX and building reconstructed AEP..." -ForegroundColor Yellow
     $absRebuiltAep = [System.IO.Path]::GetFullPath($rebuiltAep)
-    & $Json2JsxExe -i $authoringJson -o $rebuiltJsx -aep $absRebuiltAep -run -close
+    $ErrorActionPreference = "Continue"  # see Step 1 note: AE stderr warnings
+    & $Json2JsxExe -i $authoringJson -o $rebuiltJsx -aep $absRebuiltAep -run -close | Out-Host
+    $ErrorActionPreference = "Stop"
     if ($LASTEXITCODE -ne 0 -or -not (Test-Path $rebuiltAep)) {
         Write-Host "[FAIL] Failed to rebuild AEP via After Effects" -ForegroundColor Red
         return $false
@@ -249,7 +252,7 @@ function Test-NativeAepRoundtrip([string]$nativeAepPath) {
 
     # Step 4: Parse reconstructed AEP
     Write-Host "Step 4: Parsing reconstructed AEP..." -ForegroundColor Yellow
-    & $ParserExe -i $rebuiltAep -o $rebuiltExportJson
+    & $ParserExe -i $rebuiltAep -o $rebuiltExportJson | Out-Host
     if ($LASTEXITCODE -ne 0) {
         Write-Host "[FAIL] Failed to parse rebuilt AEP" -ForegroundColor Red
         return $false
@@ -303,11 +306,9 @@ $totalTests = 0
 $passedTests = 0
 
 if ($All) {
-    $exampleFiles = @(
-        "schema\examples\title_card.json",
-        "schema\examples\lower_third.json",
-        "schema\examples\shape_loop.json"
-    )
+    $exampleFiles = Get-ChildItem (Join-Path $PSScriptRoot "..\schema\examples") -Filter *.json |
+        Where-Object { $_.Name -notlike "*_parsed.json" } |
+        ForEach-Object { "schema\examples\" + $_.Name }
     foreach ($file in $exampleFiles) {
         $totalTests++
         $fullPath = Join-Path $PSScriptRoot "..\" | Join-Path -ChildPath $file
