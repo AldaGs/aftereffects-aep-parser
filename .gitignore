@@ -4,6 +4,7 @@ data/*tmp*.aep
 *.exe
 temp/
 aep/
-docs/*.aep Logs/
+docs/
+*.aep Logs/
 claude_pet.mp4
 package-lock.json
