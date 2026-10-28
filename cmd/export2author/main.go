@@ -10,10 +10,10 @@ import (
 
 // Raw export types needed for reading aep/out/*.json
 type rawExportProject struct {
-	File             string          `json:"file"`
-	ExpressionEngine string          `json:"expressionEngine"`
-	BitDepth         string          `json:"bitDepth"`
-	Root             *rawExportItem  `json:"root"`
+	File             string         `json:"file"`
+	ExpressionEngine string         `json:"expressionEngine"`
+	BitDepth         string         `json:"bitDepth"`
+	Root             *rawExportItem `json:"root"`
 }
 
 type rawExportItem struct {
@@ -33,22 +33,22 @@ type rawExportItem struct {
 }
 
 type rawExportLayer struct {
-	Index       uint32              `json:"index"`
-	Name        string              `json:"name"`
-	SourceID    uint32              `json:"sourceId"`
-	ID          uint32              `json:"layerId"`
-	Kind        string              `json:"kind"`
-	ParentIndex uint32              `json:"parentIndex,omitempty"`
-	BlendMode   string              `json:"blendMode,omitempty"`
-	StartTime   float64             `json:"startTime"`
-	CompInPoint float64             `json:"compInPoint"`
-	CompOutPoint float64            `json:"compOutPoint"`
-	Text        string              `json:"text,omitempty"`
-	TextStyle   *rawTextStyle       `json:"textStyle,omitempty"`
-	Flags       map[string]bool     `json:"flags"`
-	Transform   []rawExportProperty `json:"transform,omitempty"`
-	Effects     []rawExportProperty `json:"effects,omitempty"`
-	Contents    []rawExportProperty `json:"contents,omitempty"`
+	Index        uint32              `json:"index"`
+	Name         string              `json:"name"`
+	SourceID     uint32              `json:"sourceId"`
+	ID           uint32              `json:"layerId"`
+	Kind         string              `json:"kind"`
+	ParentIndex  uint32              `json:"parentIndex,omitempty"`
+	BlendMode    string              `json:"blendMode,omitempty"`
+	StartTime    float64             `json:"startTime"`
+	CompInPoint  float64             `json:"compInPoint"`
+	CompOutPoint float64             `json:"compOutPoint"`
+	Text         string              `json:"text,omitempty"`
+	TextStyle    *rawTextStyle       `json:"textStyle,omitempty"`
+	Flags        map[string]bool     `json:"flags"`
+	Transform    []rawExportProperty `json:"transform,omitempty"`
+	Effects      []rawExportProperty `json:"effects,omitempty"`
+	Contents     []rawExportProperty `json:"contents,omitempty"`
 }
 
 type rawTextStyle struct {

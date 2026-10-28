@@ -99,7 +99,11 @@ function Test-AuthoringRoundtrip([string]$jsonPath) {
         # Step 1: Compile JSON to JSX and build AEP via After Effects
         Write-Host "Step 1: Compiling authoring JSON to AEP via json2jsx..." -ForegroundColor Yellow
         $absAepOut = [System.IO.Path]::GetFullPath($aepOut)
+        # After Effects writes harmless warnings (e.g. GPU sanity tests) to stderr, which
+        # Windows PowerShell 5.1 turns into terminating errors under "Stop"; rely on $LASTEXITCODE.
+        $ErrorActionPreference = "Continue"
         & $Json2JsxExe -i $jsonPath -o $jsxOut -aep $absAepOut -run -close
+        $ErrorActionPreference = "Stop"
         if ($LASTEXITCODE -ne 0 -or -not (Test-Path $aepOut)) {
             Write-Host "[FAIL] Failed to build $aepOut from $jsonPath" -ForegroundColor Red
             return $false

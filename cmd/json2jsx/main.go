@@ -43,25 +43,25 @@ type CompositionDoc struct {
 }
 
 type LayerDoc struct {
-	Name        string                 `json:"name"`
-	Type        string                 `json:"type"` // "solid", "text", "shape", "null", "precomp", "footage", etc.
-	Source      string                 `json:"source,omitempty"`
-	Parent      string                 `json:"parent,omitempty"`
-	ThreeD      bool                   `json:"threeD,omitempty"`
-	Collapse    bool                   `json:"collapse,omitempty"`
-	MotionBlur  bool                   `json:"motionBlur,omitempty"`
-	Adjustment  bool                   `json:"adjustment,omitempty"`
-	In          *float64               `json:"in,omitempty"`
-	Out         *float64               `json:"out,omitempty"`
-	StartTime   *float64               `json:"startTime,omitempty"`
-	BlendMode   string                 `json:"blendMode,omitempty"`
-	TrackMatte  *TrackMatteDoc         `json:"trackMatte,omitempty"`
-	Transform   map[string]interface{} `json:"transform,omitempty"`
-	Text        *TextDoc               `json:"text,omitempty"`
-	Shapes      []ShapeItemDoc         `json:"shapes,omitempty"`
-	Masks       []MaskDoc              `json:"masks,omitempty"`
-	Effects     []EffectDoc            `json:"effects,omitempty"`
-	JSX         string                 `json:"jsx,omitempty"`
+	Name       string                 `json:"name"`
+	Type       string                 `json:"type"` // "solid", "text", "shape", "null", "precomp", "footage", etc.
+	Source     string                 `json:"source,omitempty"`
+	Parent     string                 `json:"parent,omitempty"`
+	ThreeD     bool                   `json:"threeD,omitempty"`
+	Collapse   bool                   `json:"collapse,omitempty"`
+	MotionBlur bool                   `json:"motionBlur,omitempty"`
+	Adjustment bool                   `json:"adjustment,omitempty"`
+	In         *float64               `json:"in,omitempty"`
+	Out        *float64               `json:"out,omitempty"`
+	StartTime  *float64               `json:"startTime,omitempty"`
+	BlendMode  string                 `json:"blendMode,omitempty"`
+	TrackMatte *TrackMatteDoc         `json:"trackMatte,omitempty"`
+	Transform  map[string]interface{} `json:"transform,omitempty"`
+	Text       *TextDoc               `json:"text,omitempty"`
+	Shapes     []ShapeItemDoc         `json:"shapes,omitempty"`
+	Masks      []MaskDoc              `json:"masks,omitempty"`
+	Effects    []EffectDoc            `json:"effects,omitempty"`
+	JSX        string                 `json:"jsx,omitempty"`
 }
 
 type TrackMatteDoc struct {
@@ -129,12 +129,12 @@ type AnimValueDoc struct {
 }
 
 type KeyframeDoc struct {
-	Time        float64     `json:"time"`
-	Value       interface{} `json:"value"`
-	Interp      string      `json:"interp,omitempty"` // "linear", "bezier", "hold"
-	Ease        interface{} `json:"ease,omitempty"`   // string preset or custom object
-	InTangent   []float64   `json:"inTangent,omitempty"`
-	OutTangent  []float64   `json:"outTangent,omitempty"`
+	Time       float64     `json:"time"`
+	Value      interface{} `json:"value"`
+	Interp     string      `json:"interp,omitempty"` // "linear", "bezier", "hold"
+	Ease       interface{} `json:"ease,omitempty"`   // string preset or custom object
+	InTangent  []float64   `json:"inTangent,omitempty"`
+	OutTangent []float64   `json:"outTangent,omitempty"`
 }
 
 // Code generation state
