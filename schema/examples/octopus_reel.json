@@ -1,0 +1,2087 @@
+{
+  "$schema": "../motion.schema.json",
+  "file": "octopus_reel.aep",
+  "compositions": [
+    {
+      "name": "OctopusReel",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "duration": 24.0,
+      "backgroundColor": "#0B2A3C",
+      "layers": [
+        {
+          "name": "Tag 0",
+          "type": "text",
+          "in": 0.0,
+          "out": 4.0,
+          "text": {
+            "string": "OCTOPUS FACTS",
+            "font": "Arial-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#FFD37A",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              330,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 0.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.3,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 4.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 0.0,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.35,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 0",
+          "type": "text",
+          "in": 0.1,
+          "out": 4.0,
+          "text": {
+            "string": "That sound fake.\rThey are not.",
+            "font": "Arial-BoldMT",
+            "fontSize": 84,
+            "fillColor": "#F7EFE3",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              440,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 0.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.4,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 4.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 0.1,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.44999999999999996,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Joke 0",
+          "type": "text",
+          "in": 0.6,
+          "out": 4.0,
+          "text": {
+            "string": "(we checked)",
+            "font": "ArialMT",
+            "fontSize": 46,
+            "fillColor": "#BFD7E6",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              1250,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 0.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.8999999999999999,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 3.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 4.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 0.6,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.95,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 1",
+          "type": "text",
+          "in": 4.0,
+          "out": 8.0,
+          "text": {
+            "string": "FACT #1",
+            "font": "Arial-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#FFD37A",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              330,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 4.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.3,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 8.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 4.0,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.35,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 1",
+          "type": "text",
+          "in": 4.1,
+          "out": 8.0,
+          "text": {
+            "string": "3 HEARTS",
+            "font": "Arial-BoldMT",
+            "fontSize": 84,
+            "fillColor": "#F7EFE3",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              440,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 4.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.3999999999999995,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 8.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 4.1,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.449999999999999,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Joke 1",
+          "type": "text",
+          "in": 4.6,
+          "out": 8.0,
+          "text": {
+            "string": "Two pump blood to the gills.\rOne does everything else.\rNone of them are single.",
+            "font": "ArialMT",
+            "fontSize": 46,
+            "fillColor": "#BFD7E6",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              1250,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 4.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.8999999999999995,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 7.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 8.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 4.6,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 4.949999999999999,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 2",
+          "type": "text",
+          "in": 8.0,
+          "out": 12.0,
+          "text": {
+            "string": "FACT #2",
+            "font": "Arial-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#FFD37A",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              330,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 8.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 8.3,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 12.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 8.0,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 8.35,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 2",
+          "type": "text",
+          "in": 8.1,
+          "out": 12.0,
+          "text": {
+            "string": "BLUE BLOOD",
+            "font": "Arial-BoldMT",
+            "fontSize": 84,
+            "fillColor": "#F7EFE3",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              440,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 8.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 8.4,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 12.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 8.1,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 8.45,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Joke 2",
+          "type": "text",
+          "in": 8.6,
+          "out": 12.0,
+          "text": {
+            "string": "Copper-based, not iron.\rLiterally blue-blooded.\rAct accordingly.",
+            "font": "ArialMT",
+            "fontSize": 46,
+            "fillColor": "#BFD7E6",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              1250,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 8.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 8.9,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 11.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 12.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 8.6,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 8.95,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 3",
+          "type": "text",
+          "in": 12.0,
+          "out": 16.0,
+          "text": {
+            "string": "FACT #3",
+            "font": "Arial-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#FFD37A",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              330,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 12.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 12.3,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 15.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 16.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 12.0,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 12.35,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 3",
+          "type": "text",
+          "in": 12.1,
+          "out": 16.0,
+          "text": {
+            "string": "ARMS THAT THINK",
+            "font": "Arial-BoldMT",
+            "fontSize": 84,
+            "fillColor": "#F7EFE3",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              440,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 12.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 12.4,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 15.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 16.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 12.1,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 12.45,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Joke 3",
+          "type": "text",
+          "in": 12.6,
+          "out": 16.0,
+          "text": {
+            "string": "Most of its neurons live\rin its arms. Each arm\rhas opinions.",
+            "font": "ArialMT",
+            "fontSize": 46,
+            "fillColor": "#BFD7E6",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              1250,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 12.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 12.9,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 15.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 16.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 12.6,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 12.95,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 4",
+          "type": "text",
+          "in": 16.0,
+          "out": 20.0,
+          "text": {
+            "string": "FACT #4",
+            "font": "Arial-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#FFD37A",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              330,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 16.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.3,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 19.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 20.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 16.0,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.35,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 4",
+          "type": "text",
+          "in": 16.1,
+          "out": 20.0,
+          "text": {
+            "string": "SWIMMING STOPS\rA HEART",
+            "font": "Arial-BoldMT",
+            "fontSize": 84,
+            "fillColor": "#F7EFE3",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              440,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 16.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.400000000000002,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 19.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 20.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 16.1,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.450000000000003,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Joke 4",
+          "type": "text",
+          "in": 16.6,
+          "out": 20.0,
+          "text": {
+            "string": "The main heart pauses\rwhen it swims.\rSo it mostly... walks.",
+            "font": "ArialMT",
+            "fontSize": 46,
+            "fillColor": "#BFD7E6",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              1250,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 16.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.900000000000002,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 19.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 20.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 16.6,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.950000000000003,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Tag 5",
+          "type": "text",
+          "in": 20.0,
+          "out": 24.0,
+          "text": {
+            "string": "FOLLOW",
+            "font": "Arial-BoldMT",
+            "fontSize": 40,
+            "fillColor": "#FFD37A",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              330,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 20.0,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.3,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 23.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 24.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 20.0,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.35,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heading 5",
+          "type": "text",
+          "in": 20.1,
+          "out": 24.0,
+          "text": {
+            "string": "For more facts",
+            "font": "Arial-BoldMT",
+            "fontSize": 84,
+            "fillColor": "#F7EFE3",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              440,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 20.1,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.400000000000002,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 23.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 24.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 20.1,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.450000000000003,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Joke 5",
+          "type": "text",
+          "in": 20.6,
+          "out": 24.0,
+          "text": {
+            "string": "your heart(s) can handle",
+            "font": "ArialMT",
+            "fontSize": 46,
+            "fillColor": "#BFD7E6",
+            "justification": "center"
+          },
+          "transform": {
+            "position": [
+              510,
+              1250,
+              0
+            ],
+            "opacity": {
+              "keyframes": [
+                {
+                  "time": 20.6,
+                  "value": 0,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.900000000000002,
+                  "value": 100,
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 23.7,
+                  "value": 100,
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 24.0,
+                  "value": 0,
+                  "ease": "easeIn"
+                }
+              ]
+            },
+            "scale": {
+              "keyframes": [
+                {
+                  "time": 20.6,
+                  "value": [
+                    70,
+                    70,
+                    100
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 20.950000000000003,
+                  "value": [
+                    100,
+                    100,
+                    100
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Heart 0",
+          "type": "shape",
+          "in": 4.5,
+          "out": 8.0,
+          "transform": {
+            "position": [
+              -120,
+              -260
+            ],
+            "scale": {
+              "expression": "s = 100 + Math.sin(time*10)*10; [s, s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                70,
+                70
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#F27C8D"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Heart 1",
+          "type": "shape",
+          "in": 4.75,
+          "out": 8.0,
+          "transform": {
+            "position": [
+              0,
+              -260
+            ],
+            "scale": {
+              "expression": "s = 100 + Math.sin(time*10)*10; [s, s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                70,
+                70
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#F27C8D"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Heart 2",
+          "type": "shape",
+          "in": 5.0,
+          "out": 8.0,
+          "transform": {
+            "position": [
+              120,
+              -260
+            ],
+            "scale": {
+              "expression": "s = 100 + Math.sin(time*10)*10; [s, s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                70,
+                70
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#F27C8D"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Blue Drop",
+          "type": "shape",
+          "in": 8.5,
+          "out": 12.0,
+          "transform": {
+            "position": {
+              "keyframes": [
+                {
+                  "time": 8.5,
+                  "value": [
+                    170,
+                    -330
+                  ],
+                  "ease": "easeIn"
+                },
+                {
+                  "time": 9.4,
+                  "value": [
+                    170,
+                    -230
+                  ],
+                  "ease": "easeOut"
+                }
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                80,
+                110
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#4FA3E0"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Crown",
+          "type": "shape",
+          "in": 9.4,
+          "out": 12.0,
+          "transform": {
+            "position": [
+              0,
+              -215
+            ]
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                120,
+                50
+              ],
+              "roundness": 6
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#FFD37A"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Swim Zzz",
+          "type": "shape",
+          "in": 16.6,
+          "out": 20.0,
+          "transform": {
+            "position": [
+              0,
+              -60
+            ],
+            "opacity": {
+              "expression": "Math.sin(time*8) > 0 ? 100 : 15;",
+              "value": 100
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                36,
+                36
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#F27C8D"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Eye L",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              -55,
+              -50
+            ],
+            "scale": {
+              "expression": "(time % 2.7 > 2.55) ? [100, 10] : [100, 100];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                46,
+                58
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#FFFFFF"
+            },
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                22,
+                30
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#10202B"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Eye R",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              55,
+              -50
+            ],
+            "scale": {
+              "expression": "(time % 2.7 > 2.55) ? [100, 10] : [100, 100];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                46,
+                58
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#FFFFFF"
+            },
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                22,
+                30
+              ],
+              "position": [
+                0,
+                6
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#10202B"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Smile",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              0,
+              20
+            ]
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                70,
+                14
+              ],
+              "roundness": 7
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#7A2E3B"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Head",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              0,
+              -40
+            ],
+            "scale": {
+              "expression": "s = Math.sin(time*4)*3; [100 - s, 100 + s];",
+              "value": [
+                100,
+                100
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                300,
+                330
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#E8735C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 0",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              -140,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 0*0.8)*14;",
+              "value": -31.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 1",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              -100,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 1*0.8)*14;",
+              "value": -22.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 2",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              -60,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 2*0.8)*14;",
+              "value": -13.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 3",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              -20,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 3*0.8)*14;",
+              "value": -4.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 4",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              20,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 4*0.8)*14;",
+              "value": 4.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 5",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              60,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 5*0.8)*14;",
+              "value": 13.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 6",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              100,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 6*0.8)*14;",
+              "value": 22.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Arm 7",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              140,
+              70
+            ],
+            "rotation": {
+              "expression": "value + Math.sin(time*4 + 7*0.8)*14;",
+              "value": 31.5
+            }
+          },
+          "shapes": [
+            {
+              "name": "R",
+              "type": "rect",
+              "size": [
+                44,
+                230
+              ],
+              "roundness": 22,
+              "position": [
+                0,
+                105
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#D9614C"
+            }
+          ],
+          "parent": "Rig"
+        },
+        {
+          "name": "Rig",
+          "type": "null",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": {
+              "expression": "[value[0], value[1] + Math.sin(time*2.5)*18, 0];",
+              "keyframes": [
+                {
+                  "time": 0,
+                  "value": [
+                    510,
+                    2300,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 0.8,
+                  "value": [
+                    510,
+                    900,
+                    0
+                  ],
+                  "ease": "easeOut"
+                },
+                {
+                  "time": 16.3,
+                  "value": [
+                    510,
+                    900,
+                    0
+                  ],
+                  "ease": "easeInOut"
+                },
+                {
+                  "time": 17.6,
+                  "value": [
+                    670,
+                    860,
+                    0
+                  ],
+                  "ease": "easeInOut"
+                },
+                {
+                  "time": 19.0,
+                  "value": [
+                    510,
+                    900,
+                    0
+                  ],
+                  "ease": "easeInOut"
+                }
+              ]
+            },
+            "rotation": {
+              "expression": "Math.sin(time*2)*4;",
+              "value": 0
+            }
+          }
+        },
+        {
+          "name": "Floor Glow",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": [
+              510,
+              1210
+            ]
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                520,
+                70
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#082030"
+            }
+          ]
+        },
+        {
+          "name": "Bubble 0",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": {
+              "expression": "[value[0] + Math.sin(time*2+0)*12, 700 - ((time*60 + 0) % 900) + 300, 0];",
+              "value": [
+                180,
+                700
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                40,
+                40
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#1E5A7A"
+            }
+          ]
+        },
+        {
+          "name": "Bubble 1",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": {
+              "expression": "[value[0] + Math.sin(time*2+1)*12, 900 - ((time*60 + 300) % 900) + 300, 0];",
+              "value": [
+                860,
+                900
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                26,
+                26
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#1E5A7A"
+            }
+          ]
+        },
+        {
+          "name": "Bubble 2",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": {
+              "expression": "[value[0] + Math.sin(time*2+2)*12, 1250 - ((time*60 + 600) % 900) + 300, 0];",
+              "value": [
+                250,
+                1250
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                30,
+                30
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#1E5A7A"
+            }
+          ]
+        },
+        {
+          "name": "Bubble 3",
+          "type": "shape",
+          "in": 0,
+          "out": 24.0,
+          "transform": {
+            "position": {
+              "expression": "[value[0] + Math.sin(time*2+3)*12, 1200 - ((time*60 + 900) % 900) + 300, 0];",
+              "value": [
+                800,
+                1200
+              ]
+            }
+          },
+          "shapes": [
+            {
+              "name": "E",
+              "type": "ellipse",
+              "size": [
+                44,
+                44
+              ]
+            },
+            {
+              "name": "F",
+              "type": "fill",
+              "color": "#1E5A7A"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
