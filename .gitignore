@@ -6,5 +6,8 @@ temp/
 aep/
 docs/
 *.aep Logs/
+# renders and generated projects
 *.mp4
+*.mov
+schema/examples/*.aep
 package-lock.json
