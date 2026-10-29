@@ -11,3 +11,4 @@ docs/
 *.mov
 schema/examples/*.aep
 package-lock.json
+node_modules/

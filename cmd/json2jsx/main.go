@@ -80,6 +80,20 @@ type TextDoc struct {
 	ApplyStroke   *bool       `json:"applyStroke,omitempty"`
 	Tracking      float64     `json:"tracking,omitempty"`
 	Justification string      `json:"justification,omitempty"`
+	BoxSize       []float64   `json:"boxSize,omitempty"`    // [w, h] -> paragraph (box) text, origin at box top-left
+	Leading       float64     `json:"leading,omitempty"`    // line height in px; 0 = auto
+	SpaceAfter    float64     `json:"spaceAfter,omitempty"` // paragraph spacing in px
+	Runs          []TextRun   `json:"runs,omitempty"`       // per-character style overrides
+}
+
+type TextRun struct {
+	Start     int         `json:"start"`
+	End       int         `json:"end"` // exclusive
+	Font      string      `json:"font,omitempty"`
+	FontSize  float64     `json:"fontSize,omitempty"`
+	FillColor interface{} `json:"fillColor,omitempty"`
+	Tracking  *float64    `json:"tracking,omitempty"`
+	Leading   float64     `json:"leading,omitempty"`
 }
 
 type ShapeItemDoc struct {
@@ -414,7 +428,11 @@ func GenerateJSX(proj *ProjectDoc, aepPath string, closeOnComplete bool) (string
 				if l.Text != nil {
 					textStr = l.Text.String
 				}
-				g.write("    var %s = %s.layers.addText(%q);", layerVar, compVar, textStr)
+				if l.Text != nil && len(l.Text.BoxSize) == 2 {
+					g.write("    var %s = %s.layers.addBoxText([%g, %g], %q);", layerVar, compVar, l.Text.BoxSize[0], l.Text.BoxSize[1], textStr)
+				} else {
+					g.write("    var %s = %s.layers.addText(%q);", layerVar, compVar, textStr)
+				}
 				if l.Text != nil {
 					writeTextStyling(g, layerVar, l.Text)
 				}
@@ -682,7 +700,38 @@ func writeTextStyling(g *Generator, layerVar string, t *TextDoc) {
 			g.write("    textDoc.justification = %s;", aeJust)
 		}
 	}
+	if t.Leading > 0 {
+		g.write("    try { textDoc.autoLeading = false; textDoc.leading = %g; } catch(e) {}", t.Leading)
+	}
+	if t.SpaceAfter > 0 {
+		g.write("    try { textDoc.spaceAfter = %g; } catch(e) {}", t.SpaceAfter)
+	}
+	// characterRange needs AE 24.3+; older versions keep the base style
+	for _, r := range t.Runs {
+		g.write("    try { var cr = textDoc.characterRange(%d, %d);", r.Start, r.End)
+		if r.Font != "" {
+			g.write("      cr.font = %q;", r.Font)
+		}
+		if r.FontSize > 0 {
+			g.write("      cr.fontSize = %g;", r.FontSize)
+		}
+		if r.FillColor != nil {
+			cr, cg, cb := parseColor(r.FillColor)
+			g.write("      cr.applyFill = true; cr.fillColor = [%g, %g, %g];", cr, cg, cb)
+		}
+		if r.Tracking != nil {
+			g.write("      cr.tracking = %g;", *r.Tracking)
+		}
+		if r.Leading > 0 {
+			g.write("      cr.autoLeading = false; cr.leading = %g;", r.Leading)
+		}
+		g.write("    } catch(e) {}")
+	}
 	g.write("    textProp.setValue(textDoc);")
+	if len(t.BoxSize) == 2 {
+		// box text: anchor at the box's top-left, so position = box top-left like design tools
+		g.write("    try { var bp = textProp.value.boxTextPos; %s.property('ADBE Transform Group').property('ADBE Anchor Point').setValue([bp[0], bp[1]]); } catch(e) {}", layerVar)
+	}
 }
 
 func writeShapeItem(g *Generator, layerVar, parentGroup string, shp ShapeItemDoc) {
@@ -769,7 +818,7 @@ func writeShapeItem(g *Generator, layerVar, parentGroup string, shp ShapeItemDoc
 	case "path":
 		if shp.Path != nil {
 			sVar := "sh_path_" + randomID()
-			g.write("    var %s = %s.addProperty('ADBE Vector Shape - Path');", sVar, baseRef)
+			g.write("    var %s = %s.addProperty('ADBE Vector Shape - Group');", sVar, baseRef)
 			if shp.Name != "" {
 				g.write("    %s.name = %q;", sVar, shp.Name)
 			}
