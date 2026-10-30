@@ -1,8 +1,8 @@
 # The Coffee Family Tree: Script and Storyboard
 
-**Status:** draft, waiting for approval. No JSON is generated yet.
+**Status:** approved. Built by `coffee_families.py` → `coffee_families.json` → `coffee_families.jsx`.
 
-**Format:** about 3:05, 1920×1080, 30 fps, English VO (to be recorded; timings assume about 150 words per minute)
+**Format:** 3:00, 1920×1080, 30 fps, English VO (to be recorded; timings assume about 155 words per minute). Target: After Effects 26.5
 **Audience:** curious general viewers who drink coffee but have never thought about where the plant comes from
 **Build (after approval):** `coffee_families.py` generates `coffee_families.json` and then `json2jsx`. There is one precomp per scene inside `Coffee_Families`.
 
@@ -17,7 +17,7 @@ Every cup comes from a seed, but not always the same plant. We zoom out to the w
 | Background | Pure white `#FFFFFF` in every scene. No colour fills behind scenes and no gradients |
 | Ink | Near-black `#161616` for type and 3 px outlines. Light grey `#E6E6E6` for guide lines, grids and the "inactive" state |
 | Colour coding | One colour per family, and it never changes: **Arabica** red `#D9432F` (the ripe cherry), **Robusta** brown `#7A5440`, **smaller species** slate `#6F8796`, **Mexico** green `#2F7D5A`, **roya (leaf rust)** orange `#E8892B`. Highlighter yellow `#FFD84D` is used only for the marker swipe behind key words |
-| Type | Georgia Bold for headlines and numbers, *Georgia Italic* for scientific names (*Coffea arabica*), and Arial Bold in small tracked caps for labels and leader-line callouts |
+| Type | **Chonburi** (`Chonburi-Regular`, a free Google Font that must be installed) for headlines, names and numbers, *Georgia Italic* for scientific names (*Coffea arabica*), and Arial Bold in small tracked caps for labels and leader-line callouts |
 | Graphic language | Flat cut-paper shapes with one soft drop shadow (8 % black, 6 px blur, offset downward), thin leader lines ending in dots, family-tree connectors with rounded elbows, and simplified maps drawn as flat light-grey landmasses with no borders, except Mexico, which gets state outlines in scene 7 |
 | Motion | Snappy "leave fast, land soft" easing (out 85 / in 10), lines that draw on with trim paths, labels that type on or wipe in under a highlighter swipe, and a slow 3 % push-in on every scene through a camera null. Nothing bounces. It should feel calm and editorial |
 | Texture | A 2 % grain adjustment layer over the master comp, so the white still reads as paper |
@@ -31,7 +31,7 @@ Every cup comes from a seed, but not always the same plant. We zoom out to the w
 | 2→3 | The two highlighted dots (red and brown) | The two column headers, a red circle on the left and a brown one on the right | Two circles that slide apart and grow |
 | 3→4 | The world-production bar's last grey sliver (<2 %) | The bar that becomes the timeline of the four smaller species | A thin grey bar at the same height |
 | 4→5 | The *eugenioides* card's slate circle | The left parent node of arabica's family tree | A slate circle in the same place |
-| 5→6 | Arabica's node splitting into two branch lines | The two migration routes on the world map | The same red line, which keeps drawing |
+| 5→6 | The red arabica dot on Mocha, with the map of the Red Sea | The same dot and map, which pull out to the world map | A red dot. The two routes then draw out of it |
 | 6→7 | The Typica route's arrowhead landing on Veracruz | The Veracruz dot on the map of Mexico | A red dot. The world map is swapped for the Mexico map at the same scale, then the camera pushes in |
 | 7→8 | The four state dots | The root nodes of the Mexican variety tree | The dots lift off the map into tree positions |
 | 8→9 | Garnica's leaf icon | A large leaf that roya spots spread across | A leaf shape that scales up to fill the frame |
@@ -49,7 +49,7 @@ Timecodes are for the master comp.
 
 **VO:** "This is a coffee cherry. Inside are two seeds, and every cup you've ever had started as one of them. But not every cup comes from the same plant."
 
-### 2. The genus (0:10–0:24, `S2_Genus`)
+### 2. The genus (0:10–0:23, `S2_Genus`)
 **Storyboard**
 - **A:** *(Match cut in.)* The red circle shrinks to a 14 px dot as the camera pulls out, revealing a light-grey map of Africa, Madagascar, India and Southeast Asia.
 - **B:** About 120 grey dots pop on in quick clusters across the tropics. A counter in Georgia Bold ticks up to **120+**. The headline *Coffea* types on in italics, with a highlighter swipe.
@@ -57,7 +57,7 @@ Timecodes are for the master comp.
 
 **VO:** "Coffee is a genus, *Coffea*, with more than a hundred and twenty wild species scattered across Africa, Madagascar and Asia. But almost all the coffee we drink comes from just two of them."
 
-### 3. Arabica vs. robusta (0:24–0:50, `S3_TwoSpecies`)
+### 3. Arabica vs. robusta (0:23–0:48, `S3_TwoSpecies`)
 **Storyboard**
 - **A:** *(Match cut in.)* The two dots slide apart and grow into 160 px circles at the top of two columns: *Coffea canephora* ("robusta") in brown on the left and *Coffea arabica* in red on the right. A thin grey divider draws down the middle.
 - **B:** Comparison rows build one at a time, mirrored across the divider, each with a small icon:
@@ -70,7 +70,7 @@ Timecodes are for the master comp.
 
 **VO:** "*Coffea canephora*, better known as robusta, lives up to its name. It grows low and hot, shrugs off pests, and carries about twice the caffeine, which makes it bitter. *Coffea arabica* is fussier. It wants altitude, cool nights and shade, and in return it's sweeter, brighter and more aromatic. Arabica is about sixty percent of the world's coffee. Robusta is almost all the rest."
 
-### 4. The smaller families (0:50–1:10, `S4_Others`)
+### 4. The smaller families (0:48–1:10, `S4_Others`)
 **Storyboard**
 - **A:** *(Match cut in.)* The grey sliver stretches across the frame into a horizontal rail. Four slate circles drop onto it at even spacing.
 - **B:** Each circle expands into a minimal card in turn. On the card is an icon of the plant or bean, the scientific name in italics, the origin, and one trait:
@@ -82,7 +82,7 @@ Timecodes are for the master comp.
 
 **VO:** "That last sliver belongs to the smaller species. Liberica, a towering tree with big, smoky beans. Excelsa, tart and fruity, grown across Southeast Asia. Stenophylla, a species from Sierra Leone that was lost for decades, tastes like arabica, and handles the heat. And eugenioides, a mild highland plant that turns out to be arabica's mother."
 
-### 5. Where arabica comes from (1:10–1:24, `S5_Origin`)
+### 5. Where arabica comes from (1:10–1:27, `S5_Origin`)
 **Storyboard**
 - **A:** *(Match cut in.)* The slate circle (eugenioides) sits on the left. The brown circle (canephora) slides in from the right. Tree connectors draw down from both and meet below.
 - **B:** A red circle (arabica) pops at the meeting point. Small chromosome ticks above each parent (11 pairs + 11 pairs) slide down and stack into 22 pairs inside arabica. A label reads: 2 GENOMES → 1 SPECIES.
@@ -90,7 +90,7 @@ Timecodes are for the master comp.
 
 **VO:** "Arabica is a natural hybrid of eugenioides and canephora, robusta itself, formed long before anyone drank coffee. It kept both sets of chromosomes, learned to pollinate itself, and grew wild in the forests of Ethiopia until people carried it across the Red Sea to Yemen."
 
-### 6. Two lines: Typica and Bourbon (1:24–1:44, `S6_Routes`)
+### 6. Two lines: Typica and Bourbon (1:27–1:46, `S6_Routes`)
 **Storyboard**
 - **A:** *(Match cut in.)* The two branch lines keep drawing as the camera pulls out to a grey world map, centred on Yemen. They are labelled TYPICA and BOURBON in small caps.
 - **B:** The **Typica** route draws east and then west, with a dot and a year at each stop: India (1670), Java (1696), Amsterdam (1706), Paris (1714), Martinique (around 1720), and then fanning out across the Caribbean.
@@ -99,7 +99,7 @@ Timecodes are for the master comp.
 
 **VO:** "From Yemen, almost every arabica on Earth descends from two lines. Typica travelled east to India and Java, then to Amsterdam, Paris and the Caribbean. Bourbon went south to the island of Bourbon, today Réunion, and on to Brazil and East Africa. Such a narrow family would matter later."
 
-### 7. Arrival in Mexico (1:44–1:58, `S7_Mexico`)
+### 7. Arrival in Mexico (1:46–1:59, `S7_Mexico`)
 **Storyboard**
 - **A:** *(Match cut in.)* The Veracruz dot stays fixed while the world map is replaced, at the same scale, by a detailed silhouette of Mexico. The camera pushes in. A label reads VERACRUZ, LATE 1700s.
 - **B:** The coffee states fill in green, each with a dot and a label: Chiapas, Veracruz, Puebla and Oaxaca (with Guerrero, Hidalgo and San Luis Potosí lighter). A contour-line icon of a mountain rises next to Chiapas with a label: 900–1,700 m.
@@ -107,7 +107,7 @@ Timecodes are for the master comp.
 
 **VO:** "In the late seventeen hundreds, Typica reached Veracruz from the Caribbean. Today Mexico grows coffee in the mountains of Chiapas, Veracruz, Puebla and Oaxaca, and most of it is arabica."
 
-### 8. Mexico's arabica family tree (1:58–2:30, `S8_Varieties`, the centrepiece)
+### 8. Mexico's arabica family tree (1:59–2:28, `S8_Varieties`, the centrepiece)
 **Storyboard.** A full-frame family tree builds from the top down. The camera tilts down it as it grows. Each variety is a node made of a circle, a name in Georgia Bold, a one-line trait in Arial, and a small icon such as plant height, bean size or a leaf.
 - **A:** *(Match cut in.)* The dots settle into two root nodes, **Typica** and **Bourbon** (the other dots merge in).
 - **B:** Under Typica: **Typica / Criollo** (old farms, tall and elegant, low yield), **Pluma Hidalgo** (a selection from Oaxaca), and **Maragogype** (a mutation with giant "elephant" beans; the bean icon scales up to twice the size).
@@ -117,7 +117,7 @@ Timecodes are for the master comp.
 
 **VO:** "Mexico's farms are a living family tree. Typica, known here as *criollo*, still grows on old farms. From it came Pluma Hidalgo, selected in Oaxaca, and Maragogype, a mutation with giant beans. Bourbon gave Caturra, a compact dwarf you can plant densely. Cross Typica with Bourbon and you get Mundo Novo, tall and productive. Cross Mundo Novo with Caturra and you get Catuaí, and, bred right here in Mexico, Garnica."
 
-### 9. La roya and the rescue (2:30–2:54, `S9_Roya`)
+### 9. La roya and the rescue (2:28–2:51, `S9_Roya`)
 **Storyboard**
 - **A:** *(Match cut in.)* The leaf scales up to fill most of the frame. A label reads 2012. Orange rust spots grow and spread across it (circles that scale up with a slight offset). The leaf greys out.
 - **B:** A small line chart draws in the corner, showing Mexico's harvest falling by about half over a few seasons. A label reads *Hemileia vastatrix*, "la roya". The leaf shrinks back into a node.
@@ -126,7 +126,7 @@ Timecodes are for the master comp.
 
 **VO:** "But a narrow family has a weak spot. In 2012, coffee leaf rust, *la roya*, swept through Central America and into Mexico, and harvests fell by around half. The rescue came from an old relative. On the island of Timor, arabica had crossed with robusta. Its rust-resistant descendants, Catimors and Sarchimors like Costa Rica 95, Oro Azteca and Marsellesa, now cover much of Mexico's hillsides."
 
-### 10. Close (2:54–3:05, `S10_Close`)
+### 10. Close (2:51–3:00, `S10_Close`)
 **Storyboard**
 - **A:** *(Match cut in.)* The red circle becomes the cherry from scene 1: the stem and leaf return, in the same position and at the same size, as a bookend.
 - **B:** The cherry opens again to show the two seeds. This time a tiny brown thread runs through one of them, a visual hint of the robusta in its ancestry.
@@ -140,7 +140,8 @@ Timecodes are for the master comp.
 - **Match-cut discipline:** each scene's last frame and the next scene's first frame share the matched element's exact position, size and colour. The generator defines these "handoff" values once as constants and both scenes read them, so retiming a scene can never break a match.
 - **Maps:** simplified hand-drawn polygons (a low-detail world map and a Mexico outline with state shapes for the states named), kept in the generator as point lists. They are deliberately stylised, not cartographic.
 - **Loops** (the drifting cherry, the pulsing nodes) are expressions, not keyframes.
-- **Fonts:** Georgia, Georgia-Bold, Georgia-Italic, ArialMT and Arial-BoldMT.
+- **Fonts:** Chonburi-Regular, Georgia-Italic, ArialMT and Arial-BoldMT.
+- **Build changes from the storyboard:** scene 5 ends on the Mocha map rather than on branching lines, so the 5→6 cut is a pull-out from the same dot. The S3 bar shows *≈ 60 %*, *≈ 38 %* and *< 2 %*. The roya chart shows two bars (2012 against 2016, "≈ half") rather than a line.
 
 ## Facts to double-check before final
 
