@@ -38,7 +38,7 @@ It bridges static binary `.aep` analysis (via RIFX/Egg! chunk parsing in Go) wit
 | [`cmd/export2author/main.go`](cmd/export2author/main.go) | CLI that converts a raw `aep-parser` JSON export into the concise, human/agent-editable authoring JSON format. |
 | [`cmd/json2jsx/main.go`](cmd/json2jsx/main.go) | CLI that compiles an authoring JSON file into an ES3-compatible `.jsx` ExtendScript, and optionally executes After Effects to build, save, and open the `.aep`. |
 | [`schema/motion.schema.json`](schema/motion.schema.json) | JSON Schema (Draft-07) defining the authoring format. |
-| [`schema/examples/`](schema/examples/) | Ready-to-run authoring JSON examples (`explainer_video.json`, `agent_showcase.json`, `title_card.json`, `lower_third.json`, `shape_loop.json`) and their generated `.jsx` scripts. |
+| [`schema/examples/`](schema/examples/) | Ready-to-run authoring JSON examples (`explainer_video.json`, `espresso_explainer.json`, `agent_showcase.json`, `title_card.json`, `lower_third.json`, `shape_loop.json`) and their generated `.jsx` scripts. |
 | [`scripts/fig2json.js`](scripts/fig2json.js) | Node script that converts a Figma `.fig` file into authoring JSON (one file per comp), ready for `json2jsx`. |
 | [`scripts/roundtrip.ps1`](scripts/roundtrip.ps1) | Automated PowerShell test harness that compiles JSON -> JSX -> AEP, parses the resulting `.aep` back with `aep-parser`, and verifies layer/keyframe fidelity. |
 | [`docs/AGENT_GUIDE.md`](docs/AGENT_GUIDE.md) | Complete reference guide and coordinate rules for AI agents authoring or modifying motion graphics. |
@@ -167,7 +167,13 @@ When generating or modifying authoring JSON files, follow these rules to prevent
    - All layer times (`in`, `out`, `startTime`) and keyframe `time` values are in **seconds** (floating-point).
    - Ensure `out > in` for every layer.
 5. **Supported Easing Presets**:
-   - Keyframes support `"ease": "linear" | "easeIn" | "easeOut" | "easeInOut" | "hold"`, or custom `"easeIn": { "influence": 80, "speed": 0 }` / `"easeOut": { "influence": 80, "speed": 0 }` handles.
+   - Keyframes support `"ease": "linear" | "easeIn" | "easeOut" | "easeInOut"` (`"interp": "hold"` for hold keys), or custom handles: `"ease": { "inInfluence": 85, "outInfluence": 10, "inSpeed": 0, "outSpeed": 0 }`. A low out-influence and a high in-influence give the snappy fast-out, slow-in motion-graphics feel.
+   - AE's default auto-bezier makes a layer drift in a loop while "holding" between two equal position keys. Give such keys `"inTangent": [0, 0], "outTangent": [0, 0]` for straight motion paths.
+6. **Styling & Structure**:
+   - Strokes take `"lineCap": "butt" | "round" | "projecting"` and `"lineJoin": "miter" | "round" | "bevel"`.
+   - Groups take a `"transform"` (`anchorPoint`, `position`, `scale`, `rotation`, `opacity`), so one shape layer can animate many parts.
+   - `"enabled": false` hides a layer (guides, track matte sources).
+   - Non-ASCII text such as `"93 °C"` is written as `\uXXXX` escapes, so it survives ExtendScript's file encoding.
 
 ---
 
