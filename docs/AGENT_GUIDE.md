@@ -142,7 +142,7 @@ powershell -ExecutionPolicy Bypass -File scripts\roundtrip.ps1 -AuthoringJson my
 
 - `"text"`: Text layer. Specify `text` object (`string`, `font`, `fontSize`, `fillColor`, `tracking`, `justification`).
 - `"shape"`: Vector shape layer. Specify `shapes` array with items like `rect`, `ellipse`, `fill`, `stroke`, `trim`, `path`.
-- `"solid"`: Color solid. Specify `solidColor` (hex or RGB array) and optional `width`/`height`.
+- `"solid"`: Solid from a `solid` asset (`source: "asset_id"`, where the asset sets `solidColor`). Without a source it is 50 % grey; for coloured backgrounds use a shape layer with a `rect`.
 - `"null"`: Invisible controller layer for parenting and rig hierarchies.
 - `"adjustment"`: Adjustment layer with effects affecting all layers beneath it.
 - `"precomp"`: Nested composition reference (`source: "CompName"`).
@@ -175,11 +175,12 @@ Supported transform property keys:
 - `anchorPoint` (`[x, y]` or `[x, y, z]`)
 
 ### 3.5 Keyframe Easing Presets
-- `"easeOut"`: Starts fast, slows down smoothly to a stop (speed: 0, influence: 75%).
-- `"easeIn"`: Starts slow, accelerates into the keyframe.
-- `"easeInOut"`: Smooth acceleration and deceleration.
-- `"linear"`: Constant speed.
-- `"hold"`: Holds previous value until next keyframe.
+- `"easeIn"`, `"easeOut"`, `"easeInOut"`: currently all the same, speed 0 / influence 75 % on **both** sides of the key (a smooth ease in and out).
+- `"linear"`: Constant speed. Keys with no `ease` are linear too.
+- Custom handles: `{ "inInfluence": 85, "outInfluence": 10, "inSpeed": 0, "outSpeed": 0 }`. Low out and high in influence gives a real ease-out (fast start, soft landing).
+- Hold keys: `"interp": "hold"` (not an `ease` value).
+
+See [`CLAUDE.md`](../CLAUDE.md) for spatial interpolation and other pitfalls.
 
 ---
 
