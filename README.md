@@ -40,6 +40,7 @@ It bridges static binary `.aep` analysis (via RIFX/Egg! chunk parsing in Go) wit
 | [`schema/motion.schema.json`](schema/motion.schema.json) | JSON Schema (Draft-07) defining the authoring format. |
 | [`schema/examples/`](schema/examples/) | Ready-to-run authoring JSON examples (`explainer_video.json`, `espresso_explainer.json` with its generator `espresso_explainer.py` and script, `agent_showcase.json`, `title_card.json`, `lower_third.json`, `shape_loop.json`) and their generated `.jsx` scripts. |
 | [`scripts/fig2json.js`](scripts/fig2json.js) | Node script that converts a Figma `.fig` file into authoring JSON (one file per comp), ready for `json2jsx`. |
+| [`scripts/preview.js`](scripts/preview.js) | Node + Playwright renderer that draws an authoring JSON to JPEG frames, for checking layouts without After Effects (approximate: no effects, straight motion paths). |
 | [`scripts/roundtrip.ps1`](scripts/roundtrip.ps1) | Automated PowerShell test harness that compiles JSON -> JSX -> AEP, parses the resulting `.aep` back with `aep-parser`, and verifies layer/keyframe fidelity. |
 | [`docs/AGENT_GUIDE.md`](docs/AGENT_GUIDE.md) | Complete reference guide and coordinate rules for AI agents authoring or modifying motion graphics. |
 | [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) | Detailed architectural specification of the binary parser and authoring pipeline. |
