@@ -1,0 +1,3078 @@
+{
+  "file": "KID - FRANCESCOLI ID - AG.aep",
+  "expressionEngine": "javascript-1.0",
+  "bitDepth": "8 bpc",
+  "totalItems": 19,
+  "root": {
+    "id": 0,
+    "name": "root",
+    "type": "Folder",
+    "children": [
+      {
+        "id": 2,
+        "name": "_MAIN",
+        "type": "Folder"
+      },
+      {
+        "id": 3,
+        "name": "ASSETS",
+        "type": "Folder",
+        "children": [
+          {
+            "id": 4,
+            "name": "AI",
+            "type": "Folder"
+          },
+          {
+            "id": 5,
+            "name": "FOOTAGE",
+            "type": "Folder",
+            "children": [
+              {
+                "id": 24,
+                "name": "",
+                "type": "Footage",
+                "footageType": "file",
+                "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\03 — MOTION\\AG\\VIDEO ID.mp4.es.subs.json"
+              },
+              {
+                "id": 1,
+                "name": "",
+                "type": "Footage",
+                "width": 720,
+                "height": 1280,
+                "framerate": 29.995086669921875,
+                "seconds": 10.068344724120687,
+                "footageType": "file",
+                "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\00 — PRODUCTION\\01 — FROM CLIENT\\VIDEO ID.mp4"
+              },
+              {
+                "id": 42,
+                "name": "",
+                "type": "Footage",
+                "width": 3840,
+                "height": 2160,
+                "framerate": 24,
+                "seconds": 5.041666666666667,
+                "footageType": "file",
+                "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\_UTILS\\TICKET MASTER\\_OCESA - LOGO TICKETMASTER - ALPHA - 16X9.mov"
+              },
+              {
+                "id": 11,
+                "name": "VIDEO ID",
+                "type": "Composition",
+                "width": 1080,
+                "height": 1920,
+                "framerate": 24,
+                "seconds": 20,
+                "backgroundColor": "#000000",
+                "layers": [
+                  {
+                    "index": 1,
+                    "name": "FORO PUEBLA",
+                    "sourceId": 0,
+                    "layerId": 36,
+                    "kind": "text",
+                    "startTime": 10.25,
+                    "duration": 20,
+                    "compInPoint": 10.25,
+                    "compOutPoint": 30.25,
+                    "text": "FORO PUEBLA",
+                    "textStyle": {
+                      "font": "InterTight-ExtraBold",
+                      "fontSize": 82.9814,
+                      "tracking": -50,
+                      "fillColor": [
+                        0.04706,
+                        0.18039,
+                        0.39216
+                      ],
+                      "strokeColor": [
+                        0.48627,
+                        0.18498,
+                        0
+                      ],
+                      "applyFill": true,
+                      "applyStroke": false,
+                      "strokeWidth": 3,
+                      "justification": "left"
+                    },
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": true,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Anchor Point",
+                        "matchName": "ADBE Anchor Point",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          260.1880187988281,
+                          -30.186105728149414,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 0,
+                            "compTime": 10.25,
+                            "value": [
+                              524.1485595703125,
+                              1310.2962646484375,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              2159.999999999996
+                            ],
+                            "outInfluence": [
+                              0.1
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.3333333333333333,
+                            "compTime": 10.583333333333334,
+                            "value": [
+                              524.1485595703125,
+                              1190.2962646484375,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.7000000000000001
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.45
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.5,
+                            "compTime": 10.75,
+                            "value": [
+                              524.1485595703125,
+                              1210.2962646484375,
+                              0
+                            ],
+                            "inInterpolation": "Linear",
+                            "outInterpolation": "Linear",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          }
+                        ],
+                        "expression": "amp = 4; freq = 2.0; \ndecay = 6.0; n = 0; \nif (numKeys \u003e 0) { \t\n\tn = nearestKey(time).index; \t\n\t(key(n).time \u003e time) ? n-- : n; \n\t} \n(n == 0) ? t = 0 : t = time - key(n).time;\nif (n \u003e 0 \u0026\u0026 t \u003c 1) { \t\n\tv = velocityAtTime(key(n).time - thisComp.frameDuration/10); \t\n\tvalue + (v/100)*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t); \n\t} else { \t\n\t\tvalue; \n\t\t}"
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 2,
+                    "name": "CIUDAD DE MÉXICO",
+                    "sourceId": 0,
+                    "layerId": 35,
+                    "kind": "text",
+                    "startTime": 10.125,
+                    "duration": 20,
+                    "compInPoint": 10.125,
+                    "compOutPoint": 30.125,
+                    "text": "CIUDAD DE MÉXICO",
+                    "textStyle": {
+                      "font": "InterTight-ExtraBold",
+                      "fontSize": 82.9814,
+                      "tracking": -50,
+                      "fillColor": [
+                        0.04706,
+                        0.18039,
+                        0.39216
+                      ],
+                      "strokeColor": [
+                        0.48627,
+                        0.18498,
+                        0
+                      ],
+                      "applyFill": true,
+                      "applyStroke": false,
+                      "strokeWidth": 3,
+                      "justification": "left"
+                    },
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": true,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Anchor Point",
+                        "matchName": "ADBE Anchor Point",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          359.1538391113281,
+                          -38.97856903076172,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 0,
+                            "compTime": 10.125,
+                            "value": [
+                              504.5675354003906,
+                              1224.26611328125,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              2159.999999999996
+                            ],
+                            "outInfluence": [
+                              0.1
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.3333333333333333,
+                            "compTime": 10.458333333333334,
+                            "value": [
+                              504.5675354003906,
+                              1104.26611328125,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.7000000000000001
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.45
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.5,
+                            "compTime": 10.625,
+                            "value": [
+                              504.5675354003906,
+                              1124.26611328125,
+                              0
+                            ],
+                            "inInterpolation": "Linear",
+                            "outInterpolation": "Linear",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          }
+                        ],
+                        "expression": "amp = 4; freq = 2.0; \ndecay = 6.0; n = 0; \nif (numKeys \u003e 0) { \t\n\tn = nearestKey(time).index; \t\n\t(key(n).time \u003e time) ? n-- : n; \n\t} \n(n == 0) ? t = 0 : t = time - key(n).time;\nif (n \u003e 0 \u0026\u0026 t \u003c 1) { \t\n\tv = velocityAtTime(key(n).time - thisComp.frameDuration/10); \t\n\tvalue + (v/100)*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t); \n\t} else { \t\n\t\tvalue; \n\t\t}"
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 3,
+                    "name": "21.03.27",
+                    "sourceId": 0,
+                    "layerId": 34,
+                    "kind": "text",
+                    "startTime": 10,
+                    "duration": 20,
+                    "compInPoint": 10,
+                    "compOutPoint": 30,
+                    "text": "21.03.27",
+                    "textStyle": {
+                      "font": "InterTight-ExtraBold",
+                      "fontSize": 82.9814,
+                      "tracking": -50,
+                      "fillColor": [
+                        0.04706,
+                        0.18039,
+                        0.39216
+                      ],
+                      "strokeColor": [
+                        0.48627,
+                        0.18498,
+                        0
+                      ],
+                      "applyFill": true,
+                      "applyStroke": false,
+                      "strokeWidth": 3,
+                      "justification": "left"
+                    },
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": true,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Anchor Point",
+                        "matchName": "ADBE Anchor Point",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          156.9718017578125,
+                          -30.145586013793945,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 0,
+                            "compTime": 10,
+                            "value": [
+                              530.47412109375,
+                              1117.2413940429688,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              2159.999999999996
+                            ],
+                            "outInfluence": [
+                              0.1
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.3333333333333333,
+                            "compTime": 10.333333333333334,
+                            "value": [
+                              530.47412109375,
+                              997.2413940429688,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.7000000000000001
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.45
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.5,
+                            "compTime": 10.5,
+                            "value": [
+                              530.47412109375,
+                              1017.2413940429688,
+                              0
+                            ],
+                            "inInterpolation": "Linear",
+                            "outInterpolation": "Linear",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          }
+                        ],
+                        "expression": "amp = 4; freq = 2.0; \ndecay = 6.0; n = 0; \nif (numKeys \u003e 0) { \t\n\tn = nearestKey(time).index; \t\n\t(key(n).time \u003e time) ? n-- : n; \n\t} \n(n == 0) ? t = 0 : t = time - key(n).time;\nif (n \u003e 0 \u0026\u0026 t \u003c 1) { \t\n\tv = velocityAtTime(key(n).time - thisComp.frameDuration/10); \t\n\tvalue + (v/100)*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t); \n\t} else { \t\n\t\tvalue; \n\t\t}"
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 4,
+                    "name": "Image 2",
+                    "sourceId": 32,
+                    "layerId": 37,
+                    "kind": "av",
+                    "startTime": 9.75,
+                    "duration": 20,
+                    "compInPoint": 9.75,
+                    "compOutPoint": 29.75,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Anchor Point",
+                        "matchName": "ADBE Anchor Point",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0.5041290377684791,
+                          0.8216117940923219,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 0,
+                            "compTime": 9.75,
+                            "value": [
+                              544,
+                              640.5714263916016,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              2159.999999999996
+                            ],
+                            "outInfluence": [
+                              0.1
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.3333333333333333,
+                            "compTime": 10.083333333333334,
+                            "value": [
+                              544,
+                              520.5714263916016,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.7000000000000001
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.45
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.5,
+                            "compTime": 10.25,
+                            "value": [
+                              544,
+                              540.5714263916016,
+                              0
+                            ],
+                            "inInterpolation": "Linear",
+                            "outInterpolation": "Linear",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          }
+                        ],
+                        "expression": "amp = 4; freq = 2.0; \ndecay = 6.0; n = 0; \nif (numKeys \u003e 0) { \t\n\tn = nearestKey(time).index; \t\n\t(key(n).time \u003e time) ? n-- : n; \n\t} \n(n == 0) ? t = 0 : t = time - key(n).time;\nif (n \u003e 0 \u0026\u0026 t \u003c 1) { \t\n\tv = velocityAtTime(key(n).time - thisComp.frameDuration/10); \t\n\tvalue + (v/100)*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t); \n\t} else { \t\n\t\tvalue; \n\t\t}"
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Scale",
+                        "matchName": "ADBE Scale",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 3,
+                        "value": [
+                          99.97416687011719,
+                          99.87865447998047,
+                          100
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "masks": [
+                      {
+                        "name": "Mask",
+                        "matchName": "ADBE Mask Atom",
+                        "label": "Mask 1",
+                        "type": "Custom",
+                        "maskMode": "add",
+                        "properties": [
+                          {
+                            "name": "Mask Path",
+                            "matchName": "ADBE Mask Shape",
+                            "type": "Custom",
+                            "valueType": "NoValue",
+                            "dimensions": 1,
+                            "path": {
+                              "closed": true,
+                              "vertices": [
+                                [
+                                  0.8556867241859436,
+                                  0.5816892981529236
+                                ],
+                                [
+                                  0.15257130563259125,
+                                  0.5816892981529236
+                                ],
+                                [
+                                  0.15257130563259125,
+                                  1.0615342855453491
+                                ],
+                                [
+                                  0.8556867241859436,
+                                  1.0615342855453491
+                                ]
+                              ],
+                              "inTangents": [
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ]
+                              ],
+                              "outTangents": [
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ]
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 5,
+                    "name": "Image",
+                    "sourceId": 32,
+                    "layerId": 33,
+                    "kind": "av",
+                    "startTime": 9.625,
+                    "duration": 20,
+                    "compInPoint": 9.625,
+                    "compOutPoint": 29.625,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Anchor Point",
+                        "matchName": "ADBE Anchor Point",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0.5041290377684791,
+                          0.255640870781355,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 0,
+                            "compTime": 9.625,
+                            "value": [
+                              544,
+                              535.4285736083984,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              2159.999999999996
+                            ],
+                            "outInfluence": [
+                              0.1
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.3333333333333333,
+                            "compTime": 9.958333333333334,
+                            "value": [
+                              544,
+                              415.42857360839844,
+                              0
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.7000000000000001
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.45
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          },
+                          {
+                            "time": 0.5,
+                            "compTime": 10.125,
+                            "value": [
+                              544,
+                              435.42857360839844,
+                              0
+                            ],
+                            "inInterpolation": "Linear",
+                            "outInterpolation": "Linear",
+                            "inSpeed": [
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667
+                            ],
+                            "inTangent": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outTangent": [
+                              0,
+                              0,
+                              0
+                            ]
+                          }
+                        ],
+                        "expression": "amp = 4; freq = 2.0; \ndecay = 6.0; n = 0; \nif (numKeys \u003e 0) { \t\n\tn = nearestKey(time).index; \t\n\t(key(n).time \u003e time) ? n-- : n; \n\t} \n(n == 0) ? t = 0 : t = time - key(n).time;\nif (n \u003e 0 \u0026\u0026 t \u003c 1) { \t\n\tv = velocityAtTime(key(n).time - thisComp.frameDuration/10); \t\n\tvalue + (v/100)*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t); \n\t} else { \t\n\t\tvalue; \n\t\t}"
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Scale",
+                        "matchName": "ADBE Scale",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 3,
+                        "value": [
+                          99.97416687011719,
+                          99.87865447998047,
+                          100
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "masks": [
+                      {
+                        "name": "Mask",
+                        "matchName": "ADBE Mask Atom",
+                        "label": "Mask 1",
+                        "type": "Custom",
+                        "maskMode": "add",
+                        "properties": [
+                          {
+                            "name": "Mask Path",
+                            "matchName": "ADBE Mask Shape",
+                            "type": "Custom",
+                            "valueType": "NoValue",
+                            "dimensions": 1,
+                            "path": {
+                              "closed": true,
+                              "vertices": [
+                                [
+                                  1.0137697458267212,
+                                  -0.04580019414424896
+                                ],
+                                [
+                                  -0.005511689465492964,
+                                  -0.04580019414424896
+                                ],
+                                [
+                                  -0.005511689465492964,
+                                  0.5570818781852722
+                                ],
+                                [
+                                  1.0137697458267212,
+                                  0.5570818781852722
+                                ]
+                              ],
+                              "inTangents": [
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ]
+                              ],
+                              "outTangents": [
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0
+                                ]
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 6,
+                    "name": "ARTE.psd",
+                    "sourceId": 41,
+                    "layerId": 31,
+                    "kind": "av",
+                    "startTime": 9.5,
+                    "duration": 20,
+                    "compInPoint": 9.5,
+                    "compOutPoint": 29.5,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          608.4533081054688,
+                          962.1671447753906,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Scale",
+                        "matchName": "ADBE Scale",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 3,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 0,
+                            "compTime": 9.5,
+                            "value": [
+                              200.00000000000014,
+                              200,
+                              128.36970474967939
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667,
+                              0.16666666667,
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              -417.6000000000005,
+                              -417.6000000000005,
+                              0
+                            ],
+                            "outInfluence": [
+                              0.1,
+                              0.1,
+                              0.1
+                            ]
+                          },
+                          {
+                            "time": 0.4166666666666667,
+                            "compTime": 9.916666666666666,
+                            "value": [
+                              115.79999999999995,
+                              115.79999999999984,
+                              100.0937207122774
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              -2.8973671234403837,
+                              -2.8973671234403837,
+                              0
+                            ],
+                            "inInfluence": [
+                              0.8248138427734375,
+                              0.8248138427734375,
+                              0.7000000000000001
+                            ],
+                            "outSpeed": [
+                              -2.083546895505855,
+                              -2.083546895505855,
+                              0
+                            ],
+                            "outInfluence": [
+                              0.17257575780649462,
+                              0.17257575780649462,
+                              0.16666666667
+                            ]
+                          },
+                          {
+                            "time": 5.5,
+                            "compTime": 15,
+                            "value": [
+                              106.79999999999981,
+                              106.79999999999976,
+                              100.0937207122774
+                            ],
+                            "inInterpolation": "Linear",
+                            "outInterpolation": "Linear",
+                            "inSpeed": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667,
+                              0.16666666667,
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0,
+                              0,
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667,
+                              0.16666666667,
+                              0.16666666667
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 7,
+                    "name": "AutoSubs",
+                    "sourceId": 0,
+                    "layerId": 25,
+                    "kind": "text",
+                    "duration": 9.416666666666666,
+                    "compInPoint": 0,
+                    "compOutPoint": 9.416666666666666,
+                    "textStyle": {
+                      "font": "Interstate-Regular",
+                      "fontSize": 60,
+                      "fillColor": [
+                        0.97647,
+                        0.94118,
+                        0.88235
+                      ],
+                      "strokeColor": [
+                        0.48627,
+                        0.18498,
+                        0
+                      ],
+                      "applyFill": true,
+                      "applyStroke": false,
+                      "strokeWidth": 3,
+                      "justification": "center"
+                    },
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": true,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          380,
+                          1132,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "name": "Slider Control",
+                        "matchName": "ADBE Slider Control",
+                        "label": "Words per line",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Slider",
+                            "matchName": "ADBE Slider Control-0001",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              3
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Slider Control",
+                        "matchName": "ADBE Slider Control",
+                        "label": "Max chars",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Slider",
+                            "matchName": "ADBE Slider Control-0001",
+                            "type": "OneD",
+                            "value": [
+                              3
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Slider Control",
+                        "matchName": "ADBE Slider Control",
+                        "label": "Min frames",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Slider",
+                            "matchName": "ADBE Slider Control-0001",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              12
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Slider Control",
+                        "matchName": "ADBE Slider Control",
+                        "label": "Close gap frames",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Slider",
+                            "matchName": "ADBE Slider Control-0001",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              6
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Slider Control",
+                        "matchName": "ADBE Slider Control",
+                        "label": "Pause break (ms)",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Slider",
+                            "matchName": "ADBE Slider Control-0001",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              600
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Slider Control",
+                        "matchName": "ADBE Slider Control",
+                        "label": "Lines",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Slider",
+                            "matchName": "ADBE Slider Control-0001",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              2
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Color Control",
+                        "matchName": "ADBE Color Control",
+                        "label": "Highlight color",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Color",
+                            "matchName": "ADBE Color Control-0001",
+                            "type": "Color",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              1,
+                              0.8500000238418579,
+                              0,
+                              1
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Checkbox Control",
+                        "matchName": "ADBE Checkbox Control",
+                        "label": "Highlight",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Checkbox",
+                            "matchName": "ADBE Checkbox Control-0001",
+                            "type": "Boolean",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              1
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Checkbox Control",
+                        "matchName": "ADBE Checkbox Control",
+                        "label": "Cumulative",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Checkbox",
+                            "matchName": "ADBE Checkbox Control-0001",
+                            "type": "Boolean",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              1
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Text Box",
+                        "matchName": "aldai TextBox",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Box Color",
+                            "matchName": "aldai TextBox-0001",
+                            "type": "Color",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0.0470588281750679,
+                              0.18039216101169586,
+                              0.3921568989753723,
+                              1
+                            ]
+                          },
+                          {
+                            "name": "Box Opacity",
+                            "matchName": "aldai TextBox-0002",
+                            "type": "OneD",
+                            "value": [
+                              100
+                            ]
+                          },
+                          {
+                            "name": "Composite",
+                            "matchName": "aldai TextBox-0003",
+                            "type": "Select",
+                            "selectOptions": [
+                              "Art Over Box",
+                              "Box Only",
+                              "Knockout Art",
+                              "Box Over Art"
+                            ]
+                          },
+                          {
+                            "name": "Padding",
+                            "matchName": "aldai TextBox-0004",
+                            "type": "OneD",
+                            "value": [
+                              20
+                            ]
+                          },
+                          {
+                            "name": "Padding Horizontal",
+                            "matchName": "aldai TextBox-0005",
+                            "type": "OneD",
+                            "value": [
+                              0
+                            ]
+                          },
+                          {
+                            "name": "Padding Vertical",
+                            "matchName": "aldai TextBox-0006",
+                            "type": "OneD",
+                            "value": [
+                              0
+                            ]
+                          },
+                          {
+                            "name": "Padding Top",
+                            "matchName": "aldai TextBox-0007",
+                            "type": "OneD",
+                            "value": [
+                              0
+                            ]
+                          },
+                          {
+                            "name": "Padding Bottom",
+                            "matchName": "aldai TextBox-0008",
+                            "type": "OneD",
+                            "value": [
+                              0
+                            ]
+                          },
+                          {
+                            "name": "Padding Left",
+                            "matchName": "aldai TextBox-0009",
+                            "type": "OneD",
+                            "value": [
+                              0
+                            ]
+                          },
+                          {
+                            "name": "Padding Right",
+                            "matchName": "aldai TextBox-0010",
+                            "type": "OneD",
+                            "value": [
+                              0
+                            ]
+                          },
+                          {
+                            "name": "Corner Radius",
+                            "matchName": "aldai TextBox-0011",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              18
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Extended Shadow",
+                        "matchName": "aldai ExtendedShadow",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Shadow Type\u0000��������������������",
+                            "matchName": "aldai ExtendedShadow-0001",
+                            "type": "Select",
+                            "selectOptions": [
+                              "Directional",
+                              "Radial",
+                              "Inverse Radial"
+                            ]
+                          },
+                          {
+                            "name": "Shadow Direction\u0000���������������",
+                            "matchName": "aldai ExtendedShadow-0002",
+                            "type": "Angle",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              125
+                            ]
+                          },
+                          {
+                            "name": "Shadow Length\u0000������������������",
+                            "matchName": "aldai ExtendedShadow-0003",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              20
+                            ]
+                          },
+                          {
+                            "name": "Shadow Source\u0000������������������",
+                            "matchName": "aldai ExtendedShadow-0004",
+                            "type": "TwoD",
+                            "valueType": "Spatial",
+                            "dimensions": 2,
+                            "value": [
+                              0.5,
+                              0.5
+                            ]
+                          },
+                          {
+                            "name": "Shadow Length %\u0000����������������",
+                            "matchName": "aldai ExtendedShadow-0005",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              30
+                            ]
+                          },
+                          {
+                            "name": "Fade In\u0000������������������������",
+                            "matchName": "aldai ExtendedShadow-0006",
+                            "type": "OneD",
+                            "value": [
+                              100
+                            ]
+                          },
+                          {
+                            "name": "Fade Out\u0000�����������������������",
+                            "matchName": "aldai ExtendedShadow-0007",
+                            "type": "OneD",
+                            "value": [
+                              100
+                            ]
+                          },
+                          {
+                            "name": "Shadow Color\u0000�������������������",
+                            "matchName": "aldai ExtendedShadow-0008",
+                            "type": "Color",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0.012595155276358128,
+                              0.10318338125944138,
+                              0.24705882370471954,
+                              1
+                            ]
+                          },
+                          {
+                            "name": "Fill\u0000���������������������������",
+                            "matchName": "aldai ExtendedShadow-0009",
+                            "type": "Select",
+                            "selectOptions": [
+                              "Solid",
+                              "Linear Gradient",
+                              "Radial Gradient"
+                            ]
+                          },
+                          {
+                            "name": "Gradient End Color\u0000�������������",
+                            "matchName": "aldai ExtendedShadow-0010",
+                            "type": "Color",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0.5019607843137255,
+                              0.5019607843137255,
+                              0.5019607843137255,
+                              1
+                            ]
+                          },
+                          {
+                            "name": "Gradient Start\u0000�����������������",
+                            "matchName": "aldai ExtendedShadow-0011",
+                            "type": "TwoD",
+                            "valueType": "Spatial",
+                            "dimensions": 2,
+                            "value": [
+                              0.25,
+                              0.5
+                            ]
+                          },
+                          {
+                            "name": "Gradient End\u0000�������������������",
+                            "matchName": "aldai ExtendedShadow-0012",
+                            "type": "TwoD",
+                            "valueType": "Spatial",
+                            "dimensions": 2,
+                            "value": [
+                              0.75,
+                              0.5
+                            ]
+                          },
+                          {
+                            "name": "Tint Amount\u0000��������������������",
+                            "matchName": "aldai ExtendedShadow-0013",
+                            "type": "OneD",
+                            "value": [
+                              100
+                            ]
+                          },
+                          {
+                            "name": "Opacity\u0000������������������������",
+                            "matchName": "aldai ExtendedShadow-0014",
+                            "type": "OneD",
+                            "value": [
+                              100
+                            ]
+                          },
+                          {
+                            "name": "Alpha Threshold\u0000����������������",
+                            "matchName": "aldai ExtendedShadow-0015",
+                            "type": "OneD",
+                            "value": [
+                              50
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "textProperties": {
+                      "name": "Text",
+                      "matchName": "ADBE Text Properties",
+                      "type": "Custom",
+                      "properties": [
+                        {
+                          "name": "Source Text",
+                          "matchName": "ADBE Text Document",
+                          "type": "Custom",
+                          "valueType": "NoValue",
+                          "dimensions": 1,
+                          "expression": "function buildLines(words, o) {\r\n    var fd = o.fd, e = 1e-6, ml = o.maxLines || 1, subs = [], lines = [], cur = [], len = 0, i, w, n, S, k;\r\n    function endLine() { if (cur.length) lines.push(cur); cur = []; len = 0; }\r\n    function endSub() { endLine(); if (lines.length) subs.push({ lines: lines }); lines = []; }\r\n    function nextLine() { endLine(); if (lines.length \u003e= ml) endSub(); }\r\n    for (i = 0; i \u003c words.length; i++) {\r\n        w = words[i];\r\n        if (cur.length \u0026\u0026 !w.lk \u0026\u0026 o.maxChars \u003e 0 \u0026\u0026 len + 1 + w.text.length \u003e o.maxChars) nextLine();\r\n        len += (cur.length ? 1 : 0) + w.text.length; cur.push(w);\r\n        n = words[i + 1];\r\n        if (w.br === true) endSub();\r\n        else if (w.br === 'line') { if (w.lk) endLine(); else nextLine(); }\r\n        else if (w.br !== false \u0026\u0026 !w.lk) {\r\n            if (/[.?!]$/.test(w.text) || (n \u0026\u0026 n.start - w.end \u003e o.pauseBreak)) endSub();\r\n            else if (cur.length \u003e= o.wordsPerLine) nextLine();\r\n        }\r\n    }\r\n    endSub();\r\n    for (i = 0; i \u003c subs.length; i++) {\r\n        S = subs[i]; S.words = []; k = [];\r\n        S.lines.forEach(function (L) { S.words = S.words.concat(L); k.push(L.map(function (x) { return x.text; }).join(' ')); });\r\n        S.text = k.join('\\r');\r\n        S.lk = !!S.words[0].lk;\r\n        S.start = Math.floor(S.words[0].start / fd + e) * fd;\r\n        S.end = Math.max(Math.ceil(S.words[S.words.length - 1].end / fd - e) * fd, S.start + (S.lk ? 1 : o.minFrames) * fd);\r\n    }\r\n    for (i = 0; i \u003c subs.length - 1; i++) {\r\n        n = subs[i + 1].start;\r\n        if ((!subs[i].lk \u0026\u0026 n - subs[i].end \u003c o.closeGapFrames * fd - e) || subs[i].end \u003e n) subs[i].end = n;\r\n    }\r\n    return subs;\r\n}\r\nvar words = footage(\"VIDEO ID.mp4.es.subs.json\").sourceData.words;\r\nvar v = function (n) { return effect(n)(\"Slider\").value; };\r\n// ponytail: rebuilds all lines every frame, O(words); cache or precompute if long transcripts get slow\r\nvar ml = 1; try { ml = Math.max(1, Math.round(v(\"Lines\")) || 1); } catch (err) {} // layers made before the Lines slider existed\r\nvar lines = buildLines(words, { fd: thisComp.frameDuration, wordsPerLine: Math.max(1, Math.round(v(\"Words per line\"))),\r\n  maxLines: ml, maxChars: v(\"Max chars\"), minFrames: v(\"Min frames\"), closeGapFrames: v(\"Close gap frames\"), pauseBreak: v(\"Pause break (ms)\") / 1000 });\r\nvar cl = null;\r\nfor (var i = 0; i \u003c lines.length; i++) if (time \u003e= lines[i].start - 1e-6 \u0026\u0026 time \u003c lines[i].end - 1e-6) { cl = lines[i]; break; }\r\nvar out = cl ? cl.text : \"\";\r\nout;"
+                        },
+                        {
+                          "name": "Path Options",
+                          "matchName": "ADBE Text Path Options",
+                          "type": "Custom"
+                        },
+                        {
+                          "name": "More Options",
+                          "matchName": "ADBE Text More Options",
+                          "type": "Custom"
+                        },
+                        {
+                          "name": "Animators",
+                          "matchName": "ADBE Text Animators",
+                          "type": "Custom",
+                          "properties": [
+                            {
+                              "name": "Animator",
+                              "matchName": "ADBE Text Animator",
+                              "label": "Highlight",
+                              "type": "Custom",
+                              "properties": [
+                                {
+                                  "name": "Selectors",
+                                  "matchName": "ADBE Text Selectors",
+                                  "type": "Custom",
+                                  "properties": [
+                                    {
+                                      "name": "Range Selector",
+                                      "matchName": "ADBE Text Selector",
+                                      "label": "Range Selector 1",
+                                      "type": "Custom",
+                                      "properties": [
+                                        {
+                                          "name": "ADBE Text Percent Start",
+                                          "matchName": "ADBE Text Percent Start",
+                                          "type": "Custom",
+                                          "valueType": "Numeric",
+                                          "dimensions": 1,
+                                          "value": [
+                                            0
+                                          ]
+                                        },
+                                        {
+                                          "name": "ADBE Text Percent End",
+                                          "matchName": "ADBE Text Percent End",
+                                          "type": "Custom",
+                                          "valueType": "Numeric",
+                                          "dimensions": 1,
+                                          "value": [
+                                            100
+                                          ]
+                                        },
+                                        {
+                                          "name": "ADBE Text Percent Offset",
+                                          "matchName": "ADBE Text Percent Offset",
+                                          "type": "Custom",
+                                          "valueType": "Numeric",
+                                          "dimensions": 1,
+                                          "value": [
+                                            0
+                                          ]
+                                        },
+                                        {
+                                          "name": "ADBE Text Index Start",
+                                          "matchName": "ADBE Text Index Start",
+                                          "type": "Custom",
+                                          "valueType": "Numeric",
+                                          "dimensions": 1,
+                                          "value": [
+                                            0
+                                          ],
+                                          "expression": "function buildLines(words, o) {\n    var fd = o.fd, e = 1e-6, ml = o.maxLines || 1, subs = [], lines = [], cur = [], len = 0, i, w, n, S, k;\n    function endLine() { if (cur.length) lines.push(cur); cur = []; len = 0; }\n    function endSub() { endLine(); if (lines.length) subs.push({ lines: lines }); lines = []; }\n    function nextLine() { endLine(); if (lines.length \u003e= ml) endSub(); }\n    for (i = 0; i \u003c words.length; i++) {\n        w = words[i];\n        if (cur.length \u0026\u0026 !w.lk \u0026\u0026 o.maxChars \u003e 0 \u0026\u0026 len + 1 + w.text.length \u003e o.maxChars) nextLine();\n        len += (cur.length ? 1 : 0) + w.text.length; cur.push(w);\n        n = words[i + 1];\n        if (w.br === true) endSub();\n        else if (w.br === 'line') { if (w.lk) endLine(); else nextLine(); }\n        else if (w.br !== false \u0026\u0026 !w.lk) {\n            if (/[.?!]$/.test(w.text) || (n \u0026\u0026 n.start - w.end \u003e o.pauseBreak)) endSub();\n            else if (cur.length \u003e= o.wordsPerLine) nextLine();\n        }\n    }\n    endSub();\n    for (i = 0; i \u003c subs.length; i++) {\n        S = subs[i]; S.words = []; k = [];\n        S.lines.forEach(function (L) { S.words = S.words.concat(L); k.push(L.map(function (x) { return x.text; }).join(' ')); });\n        S.text = k.join('\\r');\n        S.lk = !!S.words[0].lk;\n        S.start = Math.floor(S.words[0].start / fd + e) * fd;\n        S.end = Math.max(Math.ceil(S.words[S.words.length - 1].end / fd - e) * fd, S.start + (S.lk ? 1 : o.minFrames) * fd);\n    }\n    for (i = 0; i \u003c subs.length - 1; i++) {\n        n = subs[i + 1].start;\n        if ((!subs[i].lk \u0026\u0026 n - subs[i].end \u003c o.closeGapFrames * fd - e) || subs[i].end \u003e n) subs[i].end = n;\n    }\n    return subs;\n}\nvar words = footage(\"VIDEO ID.mp4.es.subs.json\").sourceData.words;\nvar v = function (n) { return effect(n)(\"Slider\").value; };\n// ponytail: rebuilds all lines every frame, O(words); cache or precompute if long transcripts get slow\nvar ml = 1; try { ml = Math.max(1, Math.round(v(\"Lines\")) || 1); } catch (err) {} // layers made before the Lines slider existed\nvar lines = buildLines(words, { fd: thisComp.frameDuration, wordsPerLine: Math.max(1, Math.round(v(\"Words per line\"))),\n  maxLines: ml, maxChars: v(\"Max chars\"), minFrames: v(\"Min frames\"), closeGapFrames: v(\"Close gap frames\"), pauseBreak: v(\"Pause break (ms)\") / 1000 });\nvar cl = null;\nfor (var i = 0; i \u003c lines.length; i++) if (time \u003e= lines[i].start - 1e-6 \u0026\u0026 time \u003c lines[i].end - 1e-6) { cl = lines[i]; break; }\nvar wi = -1;\nif (cl) for (var j = 0; j \u003c cl.words.length; j++) if (cl.words[j].start \u003c= time) wi = j;\nwi;\n(wi \u003c 0 || !effect(\"Highlight\")(\"Checkbox\").value) ? 0 : (effect(\"Cumulative\")(\"Checkbox\").value ? 0 : wi);"
+                                        },
+                                        {
+                                          "name": "ADBE Text Index End",
+                                          "matchName": "ADBE Text Index End",
+                                          "type": "Custom",
+                                          "valueType": "Numeric",
+                                          "dimensions": 1,
+                                          "value": [
+                                            0
+                                          ],
+                                          "expression": "function buildLines(words, o) {\n    var fd = o.fd, e = 1e-6, ml = o.maxLines || 1, subs = [], lines = [], cur = [], len = 0, i, w, n, S, k;\n    function endLine() { if (cur.length) lines.push(cur); cur = []; len = 0; }\n    function endSub() { endLine(); if (lines.length) subs.push({ lines: lines }); lines = []; }\n    function nextLine() { endLine(); if (lines.length \u003e= ml) endSub(); }\n    for (i = 0; i \u003c words.length; i++) {\n        w = words[i];\n        if (cur.length \u0026\u0026 !w.lk \u0026\u0026 o.maxChars \u003e 0 \u0026\u0026 len + 1 + w.text.length \u003e o.maxChars) nextLine();\n        len += (cur.length ? 1 : 0) + w.text.length; cur.push(w);\n        n = words[i + 1];\n        if (w.br === true) endSub();\n        else if (w.br === 'line') { if (w.lk) endLine(); else nextLine(); }\n        else if (w.br !== false \u0026\u0026 !w.lk) {\n            if (/[.?!]$/.test(w.text) || (n \u0026\u0026 n.start - w.end \u003e o.pauseBreak)) endSub();\n            else if (cur.length \u003e= o.wordsPerLine) nextLine();\n        }\n    }\n    endSub();\n    for (i = 0; i \u003c subs.length; i++) {\n        S = subs[i]; S.words = []; k = [];\n        S.lines.forEach(function (L) { S.words = S.words.concat(L); k.push(L.map(function (x) { return x.text; }).join(' ')); });\n        S.text = k.join('\\r');\n        S.lk = !!S.words[0].lk;\n        S.start = Math.floor(S.words[0].start / fd + e) * fd;\n        S.end = Math.max(Math.ceil(S.words[S.words.length - 1].end / fd - e) * fd, S.start + (S.lk ? 1 : o.minFrames) * fd);\n    }\n    for (i = 0; i \u003c subs.length - 1; i++) {\n        n = subs[i + 1].start;\n        if ((!subs[i].lk \u0026\u0026 n - subs[i].end \u003c o.closeGapFrames * fd - e) || subs[i].end \u003e n) subs[i].end = n;\n    }\n    return subs;\n}\nvar words = footage(\"VIDEO ID.mp4.es.subs.json\").sourceData.words;\nvar v = function (n) { return effect(n)(\"Slider\").value; };\n// ponytail: rebuilds all lines every frame, O(words); cache or precompute if long transcripts get slow\nvar ml = 1; try { ml = Math.max(1, Math.round(v(\"Lines\")) || 1); } catch (err) {} // layers made before the Lines slider existed\nvar lines = buildLines(words, { fd: thisComp.frameDuration, wordsPerLine: Math.max(1, Math.round(v(\"Words per line\"))),\n  maxLines: ml, maxChars: v(\"Max chars\"), minFrames: v(\"Min frames\"), closeGapFrames: v(\"Close gap frames\"), pauseBreak: v(\"Pause break (ms)\") / 1000 });\nvar cl = null;\nfor (var i = 0; i \u003c lines.length; i++) if (time \u003e= lines[i].start - 1e-6 \u0026\u0026 time \u003c lines[i].end - 1e-6) { cl = lines[i]; break; }\nvar wi = -1;\nif (cl) for (var j = 0; j \u003c cl.words.length; j++) if (cl.words[j].start \u003c= time) wi = j;\nwi;\n(wi \u003c 0 || !effect(\"Highlight\")(\"Checkbox\").value) ? 0 : (wi + 1);"
+                                        },
+                                        {
+                                          "name": "ADBE Text Index Offset",
+                                          "matchName": "ADBE Text Index Offset",
+                                          "type": "Custom",
+                                          "valueType": "Numeric",
+                                          "dimensions": 1,
+                                          "value": [
+                                            0
+                                          ]
+                                        },
+                                        {
+                                          "name": "ADBE Text Range Advanced",
+                                          "matchName": "ADBE Text Range Advanced",
+                                          "type": "Custom",
+                                          "properties": [
+                                            {
+                                              "name": "ADBE Text Range Units",
+                                              "matchName": "ADBE Text Range Units",
+                                              "type": "Custom",
+                                              "valueType": "Numeric",
+                                              "dimensions": 1,
+                                              "value": [
+                                                2
+                                              ]
+                                            },
+                                            {
+                                              "name": "ADBE Text Range Type2",
+                                              "matchName": "ADBE Text Range Type2",
+                                              "type": "Custom",
+                                              "valueType": "Numeric",
+                                              "dimensions": 1,
+                                              "value": [
+                                                3
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "Animator Properties",
+                                  "matchName": "ADBE Text Animator Properties",
+                                  "type": "Custom",
+                                  "properties": [
+                                    {
+                                      "name": "ADBE Text Fill Color",
+                                      "matchName": "ADBE Text Fill Color",
+                                      "type": "Custom",
+                                      "valueType": "Color",
+                                      "dimensions": 4,
+                                      "value": [
+                                        1,
+                                        0,
+                                        0,
+                                        1
+                                      ],
+                                      "expression": "effect(\"Highlight color\")(\"Color\")"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "index": 8,
+                    "name": "",
+                    "sourceId": 42,
+                    "layerId": 43,
+                    "kind": "av",
+                    "duration": 10.125,
+                    "compInPoint": 0,
+                    "compOutPoint": 10.125,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          540,
+                          1570.2857208251953,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Scale",
+                        "matchName": "ADBE Scale",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 3,
+                        "value": [
+                          35,
+                          35,
+                          97.22222222222221
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "effects": [
+                      {
+                        "name": "Drop Shadow",
+                        "matchName": "ADBE Drop Shadow",
+                        "type": "Group",
+                        "properties": [
+                          {
+                            "name": "Shadow Color",
+                            "matchName": "ADBE Drop Shadow-0001",
+                            "type": "Color"
+                          },
+                          {
+                            "name": "Opacity\u0000olor",
+                            "matchName": "ADBE Drop Shadow-0002",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              255
+                            ]
+                          },
+                          {
+                            "name": "Direction\u0000or",
+                            "matchName": "ADBE Drop Shadow-0003",
+                            "type": "Angle"
+                          },
+                          {
+                            "name": "Distance\u0000\u0000or",
+                            "matchName": "ADBE Drop Shadow-0004",
+                            "type": "OneD",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              12.9
+                            ]
+                          },
+                          {
+                            "name": "Softness\u0000\u0000or",
+                            "matchName": "ADBE Drop Shadow-0005",
+                            "type": "OneD"
+                          },
+                          {
+                            "name": "Shadow Only",
+                            "matchName": "ADBE Drop Shadow-0006",
+                            "type": "Boolean",
+                            "value": [
+                              0
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "masks": [
+                      {
+                        "name": "Mask",
+                        "matchName": "ADBE Mask Atom",
+                        "label": "Mask 1",
+                        "type": "Custom",
+                        "maskMode": "add",
+                        "properties": [
+                          {
+                            "name": "Mask Path",
+                            "matchName": "ADBE Mask Shape",
+                            "type": "Custom",
+                            "valueType": "NoValue",
+                            "dimensions": 1,
+                            "path": {
+                              "closed": true,
+                              "vertices": [
+                                [
+                                  0.5,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0.5
+                                ],
+                                [
+                                  0.5,
+                                  1
+                                ],
+                                [
+                                  1,
+                                  0.5
+                                ]
+                              ],
+                              "inTangents": [
+                                [
+                                  0.2761423587799072,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  -0.2761423736810684
+                                ],
+                                [
+                                  -0.2761423736810684,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0.2761423587799072
+                                ]
+                              ],
+                              "outTangents": [
+                                [
+                                  -0.2761423736810684,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  0.2761423587799072
+                                ],
+                                [
+                                  0.2761423587799072,
+                                  0
+                                ],
+                                [
+                                  0,
+                                  -0.2761423736810684
+                                ]
+                              ]
+                            }
+                          },
+                          {
+                            "name": "Mask Feather",
+                            "matchName": "ADBE Mask Feather",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 2,
+                            "value": [
+                              100,
+                              100
+                            ]
+                          },
+                          {
+                            "name": "Mask Expansion",
+                            "matchName": "ADBE Mask Offset",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              -50
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 9,
+                    "name": "",
+                    "sourceId": 1,
+                    "layerId": 23,
+                    "kind": "av",
+                    "duration": 10.068344724120687,
+                    "compInPoint": 0,
+                    "compOutPoint": 10.068344724120687,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": false,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Scale",
+                        "matchName": "ADBE Scale",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 3,
+                        "value": [
+                          100,
+                          100,
+                          100
+                        ],
+                        "expression": "delta = (thisComp.height \u003e thisComp.width) ? (100*thisComp.height/thisLayer.height) : (100*thisComp.width/thisLayer.width);\n\n[delta,delta]"
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 10,
+                    "name": "",
+                    "sourceId": 28,
+                    "layerId": 40,
+                    "kind": "av",
+                    "duration": 9.708333333333334,
+                    "compInPoint": 0,
+                    "compOutPoint": 9.708333333333334,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "audio": [
+                      {
+                        "name": "Audio Levels",
+                        "matchName": "ADBE Audio Levels",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 2,
+                        "value": [
+                          6,
+                          6
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 11,
+                    "name": "",
+                    "sourceId": 28,
+                    "layerId": 29,
+                    "kind": "av",
+                    "duration": 9.708333333333334,
+                    "compInPoint": 0,
+                    "compOutPoint": 9.708333333333334,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "audio": [
+                      {
+                        "name": "Audio Levels",
+                        "matchName": "ADBE Audio Levels",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 2,
+                        "value": [
+                          6,
+                          6
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "index": 12,
+                    "name": "",
+                    "sourceId": 26,
+                    "layerId": 27,
+                    "kind": "av",
+                    "startTime": -122.625,
+                    "inPoint": 122.625,
+                    "duration": 142.83333333333334,
+                    "compInPoint": 0,
+                    "compOutPoint": 142.83333333333334,
+                    "flags": {
+                      "3D": false,
+                      "adjustment": false,
+                      "audio": true,
+                      "collapse": false,
+                      "effects": true,
+                      "guide": false,
+                      "locked": false,
+                      "motionBlur": false,
+                      "shy": false,
+                      "solo": false,
+                      "video": true
+                    },
+                    "transform": [
+                      {
+                        "name": "X Position",
+                        "matchName": "ADBE Position_0",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Position",
+                        "matchName": "ADBE Position_1",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Orientation",
+                        "matchName": "ADBE Orientation",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 3,
+                        "value": [
+                          0,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "name": "X Rotation",
+                        "matchName": "ADBE Rotate X",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "Y Rotation",
+                        "matchName": "ADBE Rotate Y",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          0
+                        ]
+                      },
+                      {
+                        "name": "ADBE Envir Appear in Reflect",
+                        "matchName": "ADBE Envir Appear in Reflect",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 1,
+                        "value": [
+                          1
+                        ]
+                      }
+                    ],
+                    "markers": [
+                      0,
+                      0
+                    ],
+                    "audio": [
+                      {
+                        "name": "Audio Levels",
+                        "matchName": "ADBE Audio Levels",
+                        "type": "Custom",
+                        "valueType": "Numeric",
+                        "dimensions": 2,
+                        "animated": true,
+                        "keyframes": [
+                          {
+                            "time": 136.79166666666666,
+                            "compTime": 14.166666666666657,
+                            "value": [
+                              -15,
+                              -15
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              0,
+                              0
+                            ],
+                            "inInfluence": [
+                              0.16666666667,
+                              0.16666666667
+                            ],
+                            "outSpeed": [
+                              0,
+                              -0
+                            ],
+                            "outInfluence": [
+                              0.72,
+                              0.72
+                            ]
+                          },
+                          {
+                            "time": 137.625,
+                            "compTime": 15,
+                            "value": [
+                              -50,
+                              -50
+                            ],
+                            "inInterpolation": "Bezier",
+                            "outInterpolation": "Bezier",
+                            "inSpeed": [
+                              -115.99999999999996,
+                              -115.99999999999996
+                            ],
+                            "inInfluence": [
+                              0.20999999999999996,
+                              0.20999999999999996
+                            ],
+                            "outSpeed": [
+                              0,
+                              0
+                            ],
+                            "outInfluence": [
+                              0.16666666667,
+                              0.16666666667
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": 9,
+            "name": "IMAGES",
+            "type": "Folder"
+          },
+          {
+            "id": 7,
+            "name": "PROJECTS",
+            "type": "Folder"
+          },
+          {
+            "id": 8,
+            "name": "PSD",
+            "type": "Folder",
+            "children": [
+              {
+                "id": 41,
+                "name": "",
+                "type": "Footage",
+                "width": 2633,
+                "height": 1816,
+                "footageType": "file",
+                "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\00 — PRODUCTION\\01 — FROM CLIENT\\KID FRANCESCOLI\\KID FRANCESCOLI_GEN_EDIT\\Links\\Links\\ARTE.psd"
+              }
+            ]
+          },
+          {
+            "id": 6,
+            "name": "SOUND",
+            "type": "Folder",
+            "children": [
+              {
+                "id": 26,
+                "name": "",
+                "type": "Footage",
+                "seconds": 390.63945578231295,
+                "footageType": "file",
+                "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\00 — PRODUCTION\\01 — FROM CLIENT\\Moon (And It Went Like)_spotdown.org.mp3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "PRECOMPS",
+        "type": "Folder"
+      },
+      {
+        "id": 30,
+        "name": "",
+        "type": "Footage",
+        "width": 2769,
+        "height": 1910,
+        "footageType": "file",
+        "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\03 — MOTION\\AG\\MTAG_Images\\ARTE.psd.png"
+      },
+      {
+        "id": 32,
+        "name": "",
+        "type": "Footage",
+        "width": 969,
+        "height": 186,
+        "footageType": "file",
+        "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\03 — MOTION\\AG\\MTAG_Images\\Image.png"
+      },
+      {
+        "id": 28,
+        "name": "",
+        "type": "Footage",
+        "seconds": 10.014,
+        "footageType": "file",
+        "file": "D:\\Long Summer Days Dropbox\\Carpeta del equipo Long Summer Days\\OCESA\\OCESA 2026\\275 -- KID FRANCESCOLI ID\\03 — MOTION\\AG\\VIDEO ID.mp4.clean-df.wav"
+      }
+    ]
+  },
+  "texts": [
+    {
+      "composition": "VIDEO ID",
+      "layer": 1,
+      "text": "FORO PUEBLA"
+    },
+    {
+      "composition": "VIDEO ID",
+      "layer": 2,
+      "text": "CIUDAD DE MÉXICO"
+    },
+    {
+      "composition": "VIDEO ID",
+      "layer": 3,
+      "text": "21.03.27"
+    }
+  ]
+}

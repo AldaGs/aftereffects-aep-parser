@@ -1,0 +1,5248 @@
+{
+  "file": "COLORS 2.aep",
+  "expressionEngine": "javascript-1.0",
+  "bitDepth": "8 bpc",
+  "totalItems": 17,
+  "root": {
+    "id": 0,
+    "name": "root",
+    "type": "Folder",
+    "children": [
+      {
+        "id": 1,
+        "name": "COLOR GRID",
+        "type": "Composition",
+        "width": 6656,
+        "height": 2270,
+        "framerate": 24,
+        "seconds": 40,
+        "backgroundColor": "#000000",
+        "layers": [
+          {
+            "index": 1,
+            "name": "CONTROLLERS",
+            "sourceId": 17,
+            "layerId": 18,
+            "kind": "null",
+            "sourceName": "Null 1",
+            "duration": 40,
+            "compInPoint": 0,
+            "compOutPoint": 40,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "Position",
+                "matchName": "ADBE Position",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  3328,
+                  1139,
+                  0
+                ]
+              },
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Angle Control",
+                "matchName": "ADBE Angle Control",
+                "label": "Speed",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Angle",
+                    "matchName": "ADBE Angle Control-0001",
+                    "type": "Angle",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "time * 3"
+                  }
+                ]
+              },
+              {
+                "name": "Checkbox Control",
+                "matchName": "ADBE Checkbox Control",
+                "label": "Link Size",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Checkbox",
+                    "matchName": "ADBE Checkbox Control-0001",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Width",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      545
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Height",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      125.49999999999915
+                    ],
+                    "expression": "(effect(\"Link Size\")(\"Checkbox\") == true) ? effect(\"Width\")(\"Slider\") : value;"
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Random Seed",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2.3000000000000007
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Transition",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "value": [
+                      545
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "name": "GRID",
+            "sourceId": 19,
+            "layerId": 20,
+            "kind": "av",
+            "sourceName": "GRID",
+            "duration": 40,
+            "compInPoint": 0,
+            "compOutPoint": 40,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Fractal Noise",
+                "matchName": "ADBE Fractal Noise",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Fractal Type",
+                    "matchName": "ADBE Fractal Noise-0001",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Basic",
+                      "(-",
+                      "Turbulent Smooth",
+                      "Turbulent Basic",
+                      "Turbulent Sharp",
+                      "(-",
+                      "Dynamic",
+                      "Dynamic Progressive",
+                      "Dynamic Twist",
+                      "(-",
+                      "Max",
+                      "Smeary",
+                      "Swirly",
+                      "Rocky",
+                      "Cloudy",
+                      "Terrain",
+                      "Subscale",
+                      "Small Bumps",
+                      "Strings",
+                      "Threads"
+                    ]
+                  },
+                  {
+                    "name": "Noise Type\u0000e",
+                    "matchName": "ADBE Fractal Noise-0002",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Block",
+                      "Linear",
+                      "Soft Linear",
+                      "Spline"
+                    ]
+                  },
+                  {
+                    "name": "Invert",
+                    "matchName": "ADBE Fractal Noise-0003",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Contrast\u0000e\u0000e",
+                    "matchName": "ADBE Fractal Noise-0004",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      220
+                    ]
+                  },
+                  {
+                    "name": "Brightness\u0000e",
+                    "matchName": "ADBE Fractal Noise-0005",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Transition\")(\"Slider\")"
+                  },
+                  {
+                    "name": "Overflow\u0000s\u0000e",
+                    "matchName": "ADBE Fractal Noise-0006",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Clip",
+                      "Soft Clamp",
+                      "Wrap Back",
+                      "Allow HDR Results"
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Fractal Noise-0007",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Rotation",
+                    "matchName": "ADBE Fractal Noise-0008",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "Uniform Scaling",
+                    "matchName": "ADBE Fractal Noise-0009",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Scale",
+                    "matchName": "ADBE Fractal Noise-0010",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      283.83458646616543
+                    ]
+                  },
+                  {
+                    "name": "Scale Width",
+                    "matchName": "ADBE Fractal Noise-0011",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Scale Height",
+                    "matchName": "ADBE Fractal Noise-0012",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Offset Turbulence",
+                    "matchName": "ADBE Fractal Noise-0013",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Perspective Offset",
+                    "matchName": "ADBE Fractal Noise-0031",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "ffset Turbulence",
+                    "matchName": "ADBE Fractal Noise-0014",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Complexity",
+                    "matchName": "ADBE Fractal Noise-0015",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Settings",
+                    "matchName": "ADBE Fractal Noise-0016",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Sub Influence (%)",
+                    "matchName": "ADBE Fractal Noise-0017",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Scaling\u0000e (%)",
+                    "matchName": "ADBE Fractal Noise-0018",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Rotation\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0019",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "Sub Offset\u0000n\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0020",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Center Subscale",
+                    "matchName": "ADBE Fractal Noise-0021",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "ub Offset\u0000n\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0022",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Evolution",
+                    "matchName": "ADBE Fractal Noise-0023",
+                    "type": "Angle",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Speed\")(\"Angle\")"
+                  },
+                  {
+                    "name": "Evolution Options",
+                    "matchName": "ADBE Fractal Noise-0024",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Cycle Evolution",
+                    "matchName": "ADBE Fractal Noise-0025",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Cycle (in Revolutions)",
+                    "matchName": "ADBE Fractal Noise-0026",
+                    "type": "Custom",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Random Seed\u0000volutions)",
+                    "matchName": "ADBE Fractal Noise-0027",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Random Seed\")(\"Slider\")"
+                  },
+                  {
+                    "name": "Random Seed\u0000volutions)",
+                    "matchName": "ADBE Fractal Noise-0028",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Opacity",
+                    "matchName": "ADBE Fractal Noise-0029",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Blending Mode",
+                    "matchName": "ADBE Fractal Noise-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "None",
+                      "Normal",
+                      "(-",
+                      "Add",
+                      "Multiply",
+                      "Screen",
+                      "Overlay",
+                      "Soft Light",
+                      "Hard Light",
+                      "(-",
+                      "Color Dodge",
+                      "Color Burn",
+                      "(-",
+                      "Darken",
+                      "Lighten",
+                      "Difference",
+                      "Exclusion",
+                      "(-",
+                      "Hue",
+                      "Saturation",
+                      "Luminosity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Mosaic",
+                "matchName": "ADBE Mosaic",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Horizontal Blocks",
+                    "matchName": "ADBE Mosaic-0001",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      10
+                    ],
+                    "expression": "Math.round(thisComp.width/thisComp.layer(\"CONTROLLERS\").effect(\"Width\")(\"Slider\"))"
+                  },
+                  {
+                    "name": "Vertical Blocks",
+                    "matchName": "ADBE Mosaic-0002",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ],
+                    "expression": "Math.round(thisComp.height/thisComp.layer(\"CONTROLLERS\").effect(\"Height\")(\"Slider\"))"
+                  },
+                  {
+                    "name": "Sharp Colors",
+                    "matchName": "ADBE Mosaic-0003",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Hard Mosaic",
+                "matchName": "aldai HardMosaic",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Grid Mode",
+                    "matchName": "aldai HardMosaic-0001",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Block Size",
+                      "Block Count"
+                    ]
+                  },
+                  {
+                    "name": "Width",
+                    "matchName": "aldai HardMosaic-0002",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      953
+                    ]
+                  },
+                  {
+                    "name": "Height",
+                    "matchName": "aldai HardMosaic-0003",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      284.60000000000264
+                    ]
+                  },
+                  {
+                    "name": "Square Blocks",
+                    "matchName": "aldai HardMosaic-0004",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Grid Offset X",
+                    "matchName": "aldai HardMosaic-0005",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Grid Offset Y",
+                    "matchName": "aldai HardMosaic-0006",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Block Color",
+                    "matchName": "aldai HardMosaic-0007",
+                    "type": "Select",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ],
+                    "selectOptions": [
+                      "Dominant",
+                      "Nearest Solid",
+                      "Average (classic)"
+                    ]
+                  },
+                  {
+                    "name": "Coverage Threshold",
+                    "matchName": "aldai HardMosaic-0008",
+                    "type": "OneD",
+                    "value": [
+                      50
+                    ]
+                  },
+                  {
+                    "name": "Solid Alpha Above",
+                    "matchName": "aldai HardMosaic-0009",
+                    "type": "OneD",
+                    "value": [
+                      50
+                    ]
+                  },
+                  {
+                    "name": "Snap Alpha",
+                    "matchName": "aldai HardMosaic-0010",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Input Alpha",
+                    "matchName": "aldai HardMosaic-0011",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Auto",
+                      "Straight",
+                      "Premultiplied"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Colorama",
+                "matchName": "APC Colorama",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Input Phase",
+                    "matchName": "APC Colorama-0003",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Get Phase From",
+                    "matchName": "APC Colorama-0002",
+                    "type": "Select",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      6
+                    ],
+                    "selectOptions": [
+                      "Intensity",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "Value",
+                      "Alpha",
+                      "Zero"
+                    ]
+                  },
+                  {
+                    "name": "Add Phase",
+                    "matchName": "APC Colorama-0004",
+                    "type": "LayerSelect",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Add Phase From",
+                    "matchName": "APC Colorama-0006",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Intensity",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "Value",
+                      "Alpha",
+                      "Zero"
+                    ]
+                  },
+                  {
+                    "name": "Add Mode",
+                    "matchName": "APC Colorama-0040",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Wrap",
+                      "Clamp",
+                      "Average",
+                      "Screen"
+                    ]
+                  },
+                  {
+                    "name": "Phase Shift",
+                    "matchName": "APC Colorama-0008",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "APC Colorama-0015",
+                    "matchName": "APC Colorama-0015",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Output Cycle",
+                    "matchName": "APC Colorama-0017",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Use Preset Palette",
+                    "matchName": "APC Colorama-0010",
+                    "type": "Select",
+                    "selectOptions": [
+                      "[none]",
+                      "Alpha Ramp",
+                      "Hue Cycle",
+                      "Negative",
+                      "Ramp Red",
+                      "Ramp Green",
+                      "Ramp Blue",
+                      "Ramp Grey",
+                      "RGB",
+                      "Saturation Ramp",
+                      "Solarize Red",
+                      "Solarize Green",
+                      "Solarize Blue",
+                      "Solarize Grey",
+                      "(-",
+                      "Carribean",
+                      "Clay",
+                      "Copper",
+                      "Deep Ocean",
+                      "Earthenware",
+                      "Fire",
+                      "Fire And Smoke",
+                      "Golden 1",
+                      "Golden 2",
+                      "Granite",
+                      "Horizon",
+                      "Leather",
+                      "Moldy",
+                      "Mossy",
+                      "Old Glory",
+                      "Rusty",
+                      "Sepia 1",
+                      "Sepia 2",
+                      "Skink",
+                      "Sunset"
+                    ]
+                  },
+                  {
+                    "name": "Output Cycle",
+                    "matchName": "APC Colorama-0012",
+                    "type": "Custom",
+                    "valueType": "NoValue",
+                    "dimensions": 1,
+                    "arb": "00000320ff425aa800003752ff295529000057d1ff0000000000841effef40240000b42eff0000000000d44bfff5b82e0000c7b2fff5b82e0000e320ff0000000000fdacff0000000000fdacff0000000000fdacff0000000000fdacff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002ca5ff0000000000000600000002"
+                  },
+                  {
+                    "name": "Cycle Repetitions",
+                    "matchName": "APC Colorama-0038",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ]
+                  },
+                  {
+                    "name": "Interpolate Palette",
+                    "matchName": "APC Colorama-0014",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0027",
+                    "matchName": "APC Colorama-0027",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Modify",
+                    "matchName": "APC Colorama-0029",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Modify",
+                    "matchName": "APC Colorama-0016",
+                    "type": "Select",
+                    "selectOptions": [
+                      "All",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "RG",
+                      "GB",
+                      "RB",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "HL",
+                      "LS",
+                      "HS",
+                      "None"
+                    ]
+                  },
+                  {
+                    "name": "Modify Alpha",
+                    "matchName": "APC Colorama-0018",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Change Empty Pixels",
+                    "matchName": "APC Colorama-0034",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0037",
+                    "matchName": "APC Colorama-0037",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Pixel Selection",
+                    "matchName": "APC Colorama-0039",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Matching Color",
+                    "matchName": "APC Colorama-0020",
+                    "type": "Color"
+                  },
+                  {
+                    "name": "Matching Tolerance",
+                    "matchName": "APC Colorama-0022",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Matching Softness",
+                    "matchName": "APC Colorama-0024",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Matching Mode",
+                    "matchName": "APC Colorama-0026",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Off",
+                      "RGB",
+                      "Hue",
+                      "Chroma"
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0049",
+                    "matchName": "APC Colorama-0049",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Masking",
+                    "matchName": "APC Colorama-0051",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Mask Layer",
+                    "matchName": "APC Colorama-0028",
+                    "type": "LayerSelect",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Masking Mode",
+                    "matchName": "APC Colorama-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Off",
+                      "Intensity",
+                      "Alpha",
+                      "Inverted Intensity",
+                      "Inverted Alpha"
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0057",
+                    "matchName": "APC Colorama-0057",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Composite Over Layer",
+                    "matchName": "APC Colorama-0032",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Blend With Original",
+                    "matchName": "APC Colorama-0036",
+                    "type": "OneD"
+                  }
+                ]
+              },
+              {
+                "name": "Unmult",
+                "matchName": "ADBE Unmult",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Background Color",
+                    "matchName": "ADBE Unmult-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Black",
+                      "White"
+                    ]
+                  },
+                  {
+                    "name": "Black Level",
+                    "matchName": "ADBE Unmult-0031",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Softness",
+                    "matchName": "ADBE Unmult-0032",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Remove Color Matting",
+                    "matchName": "ADBE Unmult-0033",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Clip HDR Results",
+                    "matchName": "ADBE Unmult-0034",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Offset",
+                "matchName": "ADBE Offset",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Shift Center To",
+                    "matchName": "ADBE Offset-0001",
+                    "type": "TwoD",
+                    "valueType": "Spatial",
+                    "dimensions": 2,
+                    "animated": true,
+                    "keyframes": [
+                      {
+                        "time": 0,
+                        "compTime": 0,
+                        "value": [
+                          0.5,
+                          0.5
+                        ],
+                        "inInterpolation": "Linear",
+                        "outInterpolation": "Linear",
+                        "inSpeed": [
+                          0
+                        ],
+                        "inInfluence": [
+                          0
+                        ],
+                        "outSpeed": [
+                          0
+                        ],
+                        "outInfluence": [
+                          0
+                        ],
+                        "inTangent": [
+                          0,
+                          0
+                        ],
+                        "outTangent": [
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "time": 10,
+                        "compTime": 10,
+                        "value": [
+                          0.6420198128783692,
+                          0.5
+                        ],
+                        "inInterpolation": "Linear",
+                        "outInterpolation": "Linear",
+                        "inSpeed": [
+                          0
+                        ],
+                        "inInfluence": [
+                          0
+                        ],
+                        "outSpeed": [
+                          0
+                        ],
+                        "outInfluence": [
+                          0.16666666667
+                        ],
+                        "inTangent": [
+                          0,
+                          0
+                        ],
+                        "outTangent": [
+                          0,
+                          0
+                        ]
+                      }
+                    ],
+                    "expression": "loopOut(\"offset\")"
+                  },
+                  {
+                    "name": "Blend With Original",
+                    "matchName": "ADBE Offset-0002",
+                    "type": "OneD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "name": "BG",
+            "sourceId": 0,
+            "layerId": 13,
+            "kind": "shape",
+            "duration": 40,
+            "compInPoint": 0,
+            "compOutPoint": 40,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": true,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "contents": [
+              {
+                "name": "Shape Group",
+                "matchName": "ADBE Vector Group",
+                "label": "Rectangle 1",
+                "type": "Custom",
+                "properties": [
+                  {
+                    "name": "Contents",
+                    "matchName": "ADBE Vectors Group",
+                    "type": "Custom",
+                    "properties": [
+                      {
+                        "name": "ADBE Vector Shape - Rect",
+                        "matchName": "ADBE Vector Shape - Rect",
+                        "label": "Rectangle Path 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Rect Size",
+                            "matchName": "ADBE Vector Rect Size",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 2,
+                            "value": [
+                              4000,
+                              2000
+                            ],
+                            "expression": "[thisComp.width,thisComp.height]"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Stroke",
+                        "matchName": "ADBE Vector Graphic - Stroke",
+                        "label": "Stroke 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Stroke Width",
+                            "matchName": "ADBE Vector Stroke Width",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              41
+                            ]
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Dashes",
+                            "matchName": "ADBE Vector Stroke Dashes",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Taper",
+                            "matchName": "ADBE Vector Stroke Taper",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Wave",
+                            "matchName": "ADBE Vector Stroke Wave",
+                            "type": "Custom"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Fill",
+                        "matchName": "ADBE Vector Graphic - Fill",
+                        "label": "Fill 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Fill Color",
+                            "matchName": "ADBE Vector Fill Color",
+                            "type": "Custom",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Vector Transform Group",
+                    "type": "Custom"
+                  },
+                  {
+                    "name": "ADBE Vector Materials Group",
+                    "matchName": "ADBE Vector Materials Group",
+                    "type": "Custom"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 85,
+        "name": "COLOR GRID_DISSOLVE",
+        "type": "Composition",
+        "width": 6656,
+        "height": 2270,
+        "framerate": 24,
+        "seconds": 60,
+        "backgroundColor": "#000000",
+        "layers": [
+          {
+            "index": 1,
+            "name": "CONTROLLERS",
+            "sourceId": 17,
+            "layerId": 89,
+            "kind": "null",
+            "sourceName": "Null 1",
+            "duration": 60,
+            "compInPoint": 0,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "Position",
+                "matchName": "ADBE Position",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  3328,
+                  1139,
+                  0
+                ]
+              },
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Angle Control",
+                "matchName": "ADBE Angle Control",
+                "label": "Speed",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Angle",
+                    "matchName": "ADBE Angle Control-0001",
+                    "type": "Angle"
+                  }
+                ]
+              },
+              {
+                "name": "Checkbox Control",
+                "matchName": "ADBE Checkbox Control",
+                "label": "Link Size",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Checkbox",
+                    "matchName": "ADBE Checkbox Control-0001",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Width",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      512
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Height",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      125.49999999999915
+                    ],
+                    "expression": "(effect(\"Link Size\")(\"Checkbox\") == true) ? effect(\"Width\")(\"Slider\") : value;"
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Random Seed",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0.8999999999999999
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Transition",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      545
+                    ],
+                    "animated": true,
+                    "keyframes": [
+                      {
+                        "time": 0,
+                        "compTime": 0,
+                        "value": [
+                          25
+                        ],
+                        "inInterpolation": "Linear",
+                        "outInterpolation": "Linear",
+                        "inSpeed": [
+                          0
+                        ],
+                        "inInfluence": [
+                          0
+                        ],
+                        "outSpeed": [
+                          0
+                        ],
+                        "outInfluence": [
+                          0
+                        ]
+                      },
+                      {
+                        "time": 59.958333333333336,
+                        "compTime": 59.958333333333336,
+                        "value": [
+                          85
+                        ],
+                        "inInterpolation": "Linear",
+                        "outInterpolation": "Linear",
+                        "inSpeed": [
+                          0
+                        ],
+                        "inInfluence": [
+                          0
+                        ],
+                        "outSpeed": [
+                          0
+                        ],
+                        "outInfluence": [
+                          0.16666666667
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "masks": [
+              {
+                "name": "Mask",
+                "matchName": "ADBE Mask Atom",
+                "label": "Mask 1",
+                "type": "Custom",
+                "maskMode": "add"
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "name": "GRID 3",
+            "sourceId": 133,
+            "layerId": 88,
+            "kind": "av",
+            "sourceName": "GRID 3",
+            "duration": 60,
+            "compInPoint": 0,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Fractal Noise",
+                "matchName": "ADBE Fractal Noise",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Fractal Type",
+                    "matchName": "ADBE Fractal Noise-0001",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Basic",
+                      "(-",
+                      "Turbulent Smooth",
+                      "Turbulent Basic",
+                      "Turbulent Sharp",
+                      "(-",
+                      "Dynamic",
+                      "Dynamic Progressive",
+                      "Dynamic Twist",
+                      "(-",
+                      "Max",
+                      "Smeary",
+                      "Swirly",
+                      "Rocky",
+                      "Cloudy",
+                      "Terrain",
+                      "Subscale",
+                      "Small Bumps",
+                      "Strings",
+                      "Threads"
+                    ]
+                  },
+                  {
+                    "name": "Noise Type\u0000e",
+                    "matchName": "ADBE Fractal Noise-0002",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Block",
+                      "Linear",
+                      "Soft Linear",
+                      "Spline"
+                    ]
+                  },
+                  {
+                    "name": "Invert",
+                    "matchName": "ADBE Fractal Noise-0003",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Contrast\u0000e\u0000e",
+                    "matchName": "ADBE Fractal Noise-0004",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      143
+                    ]
+                  },
+                  {
+                    "name": "Brightness\u0000e",
+                    "matchName": "ADBE Fractal Noise-0005",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Transition\")(\"Slider\")"
+                  },
+                  {
+                    "name": "Overflow\u0000s\u0000e",
+                    "matchName": "ADBE Fractal Noise-0006",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Clip",
+                      "Soft Clamp",
+                      "Wrap Back",
+                      "Allow HDR Results"
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Fractal Noise-0007",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Rotation",
+                    "matchName": "ADBE Fractal Noise-0008",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "Uniform Scaling",
+                    "matchName": "ADBE Fractal Noise-0009",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Scale",
+                    "matchName": "ADBE Fractal Noise-0010",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      320.90225563909775
+                    ]
+                  },
+                  {
+                    "name": "Scale Width",
+                    "matchName": "ADBE Fractal Noise-0011",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Scale Height",
+                    "matchName": "ADBE Fractal Noise-0012",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Offset Turbulence",
+                    "matchName": "ADBE Fractal Noise-0013",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Perspective Offset",
+                    "matchName": "ADBE Fractal Noise-0031",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "ffset Turbulence",
+                    "matchName": "ADBE Fractal Noise-0014",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Complexity",
+                    "matchName": "ADBE Fractal Noise-0015",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Sub Settings",
+                    "matchName": "ADBE Fractal Noise-0016",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Sub Influence (%)",
+                    "matchName": "ADBE Fractal Noise-0017",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Scaling\u0000e (%)",
+                    "matchName": "ADBE Fractal Noise-0018",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Rotation\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0019",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "Sub Offset\u0000n\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0020",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Center Subscale",
+                    "matchName": "ADBE Fractal Noise-0021",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "ub Offset\u0000n\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0022",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Evolution",
+                    "matchName": "ADBE Fractal Noise-0023",
+                    "type": "Angle",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Speed\")(\"Angle\")"
+                  },
+                  {
+                    "name": "Evolution Options",
+                    "matchName": "ADBE Fractal Noise-0024",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Cycle Evolution",
+                    "matchName": "ADBE Fractal Noise-0025",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Cycle (in Revolutions)",
+                    "matchName": "ADBE Fractal Noise-0026",
+                    "type": "Custom",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Random Seed\u0000volutions)",
+                    "matchName": "ADBE Fractal Noise-0027",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Random Seed\")(\"Slider\")"
+                  },
+                  {
+                    "name": "Random Seed\u0000volutions)",
+                    "matchName": "ADBE Fractal Noise-0028",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Opacity",
+                    "matchName": "ADBE Fractal Noise-0029",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Blending Mode",
+                    "matchName": "ADBE Fractal Noise-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "None",
+                      "Normal",
+                      "(-",
+                      "Add",
+                      "Multiply",
+                      "Screen",
+                      "Overlay",
+                      "Soft Light",
+                      "Hard Light",
+                      "(-",
+                      "Color Dodge",
+                      "Color Burn",
+                      "(-",
+                      "Darken",
+                      "Lighten",
+                      "Difference",
+                      "Exclusion",
+                      "(-",
+                      "Hue",
+                      "Saturation",
+                      "Luminosity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Mosaic",
+                "matchName": "ADBE Mosaic",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Horizontal Blocks",
+                    "matchName": "ADBE Mosaic-0001",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      10
+                    ],
+                    "expression": "Math.round(thisComp.width/thisComp.layer(\"CONTROLLERS\").effect(\"Width\")(\"Slider\"))"
+                  },
+                  {
+                    "name": "Vertical Blocks",
+                    "matchName": "ADBE Mosaic-0002",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ],
+                    "expression": "Math.round(thisComp.height/thisComp.layer(\"CONTROLLERS\").effect(\"Height\")(\"Slider\"))"
+                  },
+                  {
+                    "name": "Sharp Colors",
+                    "matchName": "ADBE Mosaic-0003",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Hard Mosaic",
+                "matchName": "aldai HardMosaic",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Grid Mode",
+                    "matchName": "aldai HardMosaic-0001",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Block Size",
+                      "Block Count"
+                    ]
+                  },
+                  {
+                    "name": "Width",
+                    "matchName": "aldai HardMosaic-0002",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      16
+                    ],
+                    "expression": "effect(\"Hard Mosaic\")(\"Height\")"
+                  },
+                  {
+                    "name": "Height",
+                    "matchName": "aldai HardMosaic-0003",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      16
+                    ],
+                    "expression": "thisComp.height / 5"
+                  },
+                  {
+                    "name": "Square Blocks",
+                    "matchName": "aldai HardMosaic-0004",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Grid Offset X",
+                    "matchName": "aldai HardMosaic-0005",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Grid Offset Y",
+                    "matchName": "aldai HardMosaic-0006",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Block Color",
+                    "matchName": "aldai HardMosaic-0007",
+                    "type": "Select",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ],
+                    "selectOptions": [
+                      "Dominant",
+                      "Nearest Solid",
+                      "Average (classic)"
+                    ]
+                  },
+                  {
+                    "name": "Coverage Threshold",
+                    "matchName": "aldai HardMosaic-0008",
+                    "type": "OneD",
+                    "value": [
+                      50
+                    ]
+                  },
+                  {
+                    "name": "Solid Alpha Above",
+                    "matchName": "aldai HardMosaic-0009",
+                    "type": "OneD",
+                    "value": [
+                      50
+                    ]
+                  },
+                  {
+                    "name": "Snap Alpha",
+                    "matchName": "aldai HardMosaic-0010",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Input Alpha",
+                    "matchName": "aldai HardMosaic-0011",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Auto",
+                      "Straight",
+                      "Premultiplied"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Colorama",
+                "matchName": "APC Colorama",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Input Phase",
+                    "matchName": "APC Colorama-0003",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Get Phase From",
+                    "matchName": "APC Colorama-0002",
+                    "type": "Select",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      6
+                    ],
+                    "selectOptions": [
+                      "Intensity",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "Value",
+                      "Alpha",
+                      "Zero"
+                    ]
+                  },
+                  {
+                    "name": "Add Phase",
+                    "matchName": "APC Colorama-0004",
+                    "type": "LayerSelect",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Add Phase From",
+                    "matchName": "APC Colorama-0006",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Intensity",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "Value",
+                      "Alpha",
+                      "Zero"
+                    ]
+                  },
+                  {
+                    "name": "Add Mode",
+                    "matchName": "APC Colorama-0040",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Wrap",
+                      "Clamp",
+                      "Average",
+                      "Screen"
+                    ]
+                  },
+                  {
+                    "name": "Phase Shift",
+                    "matchName": "APC Colorama-0008",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "APC Colorama-0015",
+                    "matchName": "APC Colorama-0015",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Output Cycle",
+                    "matchName": "APC Colorama-0017",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Use Preset Palette",
+                    "matchName": "APC Colorama-0010",
+                    "type": "Select",
+                    "selectOptions": [
+                      "[none]",
+                      "Alpha Ramp",
+                      "Hue Cycle",
+                      "Negative",
+                      "Ramp Red",
+                      "Ramp Green",
+                      "Ramp Blue",
+                      "Ramp Grey",
+                      "RGB",
+                      "Saturation Ramp",
+                      "Solarize Red",
+                      "Solarize Green",
+                      "Solarize Blue",
+                      "Solarize Grey",
+                      "(-",
+                      "Carribean",
+                      "Clay",
+                      "Copper",
+                      "Deep Ocean",
+                      "Earthenware",
+                      "Fire",
+                      "Fire And Smoke",
+                      "Golden 1",
+                      "Golden 2",
+                      "Granite",
+                      "Horizon",
+                      "Leather",
+                      "Moldy",
+                      "Mossy",
+                      "Old Glory",
+                      "Rusty",
+                      "Sepia 1",
+                      "Sepia 2",
+                      "Skink",
+                      "Sunset"
+                    ]
+                  },
+                  {
+                    "name": "Output Cycle",
+                    "matchName": "APC Colorama-0012",
+                    "type": "Custom",
+                    "valueType": "NoValue",
+                    "dimensions": 1,
+                    "arb": "00000320ff425aa800003752ff295529000057d1ff0000000000841effef40240000b42eff0000000000d44bfff5b82e0000c7b2fff5b82e0000e320ff0000000000fdacff0000000000fdacff0000000000fdacff0000000000fdacff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002ca5ff0000000000000600000002"
+                  },
+                  {
+                    "name": "Cycle Repetitions",
+                    "matchName": "APC Colorama-0038",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ]
+                  },
+                  {
+                    "name": "Interpolate Palette",
+                    "matchName": "APC Colorama-0014",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0027",
+                    "matchName": "APC Colorama-0027",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Modify",
+                    "matchName": "APC Colorama-0029",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Modify",
+                    "matchName": "APC Colorama-0016",
+                    "type": "Select",
+                    "selectOptions": [
+                      "All",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "RG",
+                      "GB",
+                      "RB",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "HL",
+                      "LS",
+                      "HS",
+                      "None"
+                    ]
+                  },
+                  {
+                    "name": "Modify Alpha",
+                    "matchName": "APC Colorama-0018",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Change Empty Pixels",
+                    "matchName": "APC Colorama-0034",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0037",
+                    "matchName": "APC Colorama-0037",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Pixel Selection",
+                    "matchName": "APC Colorama-0039",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Matching Color",
+                    "matchName": "APC Colorama-0020",
+                    "type": "Color"
+                  },
+                  {
+                    "name": "Matching Tolerance",
+                    "matchName": "APC Colorama-0022",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Matching Softness",
+                    "matchName": "APC Colorama-0024",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Matching Mode",
+                    "matchName": "APC Colorama-0026",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Off",
+                      "RGB",
+                      "Hue",
+                      "Chroma"
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0049",
+                    "matchName": "APC Colorama-0049",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Masking",
+                    "matchName": "APC Colorama-0051",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Mask Layer",
+                    "matchName": "APC Colorama-0028",
+                    "type": "LayerSelect",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Masking Mode",
+                    "matchName": "APC Colorama-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Off",
+                      "Intensity",
+                      "Alpha",
+                      "Inverted Intensity",
+                      "Inverted Alpha"
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0057",
+                    "matchName": "APC Colorama-0057",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Composite Over Layer",
+                    "matchName": "APC Colorama-0032",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Blend With Original",
+                    "matchName": "APC Colorama-0036",
+                    "type": "OneD"
+                  }
+                ]
+              },
+              {
+                "name": "Unmult",
+                "matchName": "ADBE Unmult",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Background Color",
+                    "matchName": "ADBE Unmult-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Black",
+                      "White"
+                    ]
+                  },
+                  {
+                    "name": "Black Level",
+                    "matchName": "ADBE Unmult-0031",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Softness",
+                    "matchName": "ADBE Unmult-0032",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Remove Color Matting",
+                    "matchName": "ADBE Unmult-0033",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Clip HDR Results",
+                    "matchName": "ADBE Unmult-0034",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Offset",
+                "matchName": "ADBE Offset",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Shift Center To",
+                    "matchName": "ADBE Offset-0001",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Blend With Original",
+                    "matchName": "ADBE Offset-0002",
+                    "type": "OneD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "name": "BG",
+            "sourceId": 0,
+            "layerId": 87,
+            "kind": "shape",
+            "duration": 60,
+            "compInPoint": 0,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": true,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "contents": [
+              {
+                "name": "Shape Group",
+                "matchName": "ADBE Vector Group",
+                "label": "Rectangle 1",
+                "type": "Custom",
+                "properties": [
+                  {
+                    "name": "Contents",
+                    "matchName": "ADBE Vectors Group",
+                    "type": "Custom",
+                    "properties": [
+                      {
+                        "name": "ADBE Vector Shape - Rect",
+                        "matchName": "ADBE Vector Shape - Rect",
+                        "label": "Rectangle Path 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Rect Size",
+                            "matchName": "ADBE Vector Rect Size",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 2,
+                            "value": [
+                              4000,
+                              2000
+                            ],
+                            "expression": "[thisComp.width,thisComp.height]"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Stroke",
+                        "matchName": "ADBE Vector Graphic - Stroke",
+                        "label": "Stroke 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Stroke Width",
+                            "matchName": "ADBE Vector Stroke Width",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              41
+                            ]
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Dashes",
+                            "matchName": "ADBE Vector Stroke Dashes",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Taper",
+                            "matchName": "ADBE Vector Stroke Taper",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Wave",
+                            "matchName": "ADBE Vector Stroke Wave",
+                            "type": "Custom"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Fill",
+                        "matchName": "ADBE Vector Graphic - Fill",
+                        "label": "Fill 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Fill Color",
+                            "matchName": "ADBE Vector Fill Color",
+                            "type": "Custom",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Vector Transform Group",
+                    "type": "Custom"
+                  },
+                  {
+                    "name": "ADBE Vector Materials Group",
+                    "matchName": "ADBE Vector Materials Group",
+                    "type": "Custom"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 100,
+        "name": "COLOR GRID_LOOP",
+        "type": "Composition",
+        "width": 6656,
+        "height": 2270,
+        "framerate": 24,
+        "seconds": 40,
+        "backgroundColor": "#000000",
+        "layers": [
+          {
+            "index": 1,
+            "name": "COLOR GRID_RANDOM",
+            "sourceId": 115,
+            "layerId": 114,
+            "kind": "av",
+            "sourceName": "COLOR GRID_RANDOM",
+            "startTime": 20,
+            "duration": 10,
+            "compInPoint": 20,
+            "compOutPoint": 30,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "name": "COLOR GRID_RANDOM",
+            "sourceId": 115,
+            "layerId": 112,
+            "kind": "av",
+            "sourceName": "COLOR GRID_RANDOM",
+            "duration": 10,
+            "compInPoint": 0,
+            "compOutPoint": 10,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 115,
+        "name": "COLOR GRID_RANDOM",
+        "type": "Composition",
+        "width": 6656,
+        "height": 2270,
+        "framerate": 24,
+        "seconds": 60,
+        "backgroundColor": "#000000",
+        "layers": [
+          {
+            "index": 1,
+            "name": "CONTROLLERS",
+            "sourceId": 17,
+            "layerId": 119,
+            "kind": "null",
+            "sourceName": "Null 1",
+            "duration": 60,
+            "compInPoint": 0,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "Position",
+                "matchName": "ADBE Position",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  3328,
+                  1139,
+                  0
+                ]
+              },
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Angle Control",
+                "matchName": "ADBE Angle Control",
+                "label": "Speed",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Angle",
+                    "matchName": "ADBE Angle Control-0001",
+                    "type": "Angle",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "time*3"
+                  }
+                ]
+              },
+              {
+                "name": "Checkbox Control",
+                "matchName": "ADBE Checkbox Control",
+                "label": "Link Size",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Checkbox",
+                    "matchName": "ADBE Checkbox Control-0001",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Width",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      512
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Height",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      125.49999999999915
+                    ],
+                    "expression": "(effect(\"Link Size\")(\"Checkbox\") == true) ? effect(\"Width\")(\"Slider\") : value;"
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Random Seed",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "value": [
+                      545
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "Transition",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "value": [
+                      545
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "name": "GRID 2",
+            "sourceId": 131,
+            "layerId": 118,
+            "kind": "av",
+            "sourceName": "GRID 2",
+            "duration": 60,
+            "compInPoint": 0,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Fractal Noise",
+                "matchName": "ADBE Fractal Noise",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Fractal Type",
+                    "matchName": "ADBE Fractal Noise-0001",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Basic",
+                      "(-",
+                      "Turbulent Smooth",
+                      "Turbulent Basic",
+                      "Turbulent Sharp",
+                      "(-",
+                      "Dynamic",
+                      "Dynamic Progressive",
+                      "Dynamic Twist",
+                      "(-",
+                      "Max",
+                      "Smeary",
+                      "Swirly",
+                      "Rocky",
+                      "Cloudy",
+                      "Terrain",
+                      "Subscale",
+                      "Small Bumps",
+                      "Strings",
+                      "Threads"
+                    ]
+                  },
+                  {
+                    "name": "Noise Type\u0000e",
+                    "matchName": "ADBE Fractal Noise-0002",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Block",
+                      "Linear",
+                      "Soft Linear",
+                      "Spline"
+                    ]
+                  },
+                  {
+                    "name": "Invert",
+                    "matchName": "ADBE Fractal Noise-0003",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Contrast\u0000e\u0000e",
+                    "matchName": "ADBE Fractal Noise-0004",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      143
+                    ]
+                  },
+                  {
+                    "name": "Brightness\u0000e",
+                    "matchName": "ADBE Fractal Noise-0005",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Transition\")(\"Slider\")"
+                  },
+                  {
+                    "name": "Overflow\u0000s\u0000e",
+                    "matchName": "ADBE Fractal Noise-0006",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Clip",
+                      "Soft Clamp",
+                      "Wrap Back",
+                      "Allow HDR Results"
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Fractal Noise-0007",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Rotation",
+                    "matchName": "ADBE Fractal Noise-0008",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "Uniform Scaling",
+                    "matchName": "ADBE Fractal Noise-0009",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Scale",
+                    "matchName": "ADBE Fractal Noise-0010",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      320.90225563909775
+                    ]
+                  },
+                  {
+                    "name": "Scale Width",
+                    "matchName": "ADBE Fractal Noise-0011",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Scale Height",
+                    "matchName": "ADBE Fractal Noise-0012",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Offset Turbulence",
+                    "matchName": "ADBE Fractal Noise-0013",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Perspective Offset",
+                    "matchName": "ADBE Fractal Noise-0031",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "ffset Turbulence",
+                    "matchName": "ADBE Fractal Noise-0014",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Complexity",
+                    "matchName": "ADBE Fractal Noise-0015",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Sub Settings",
+                    "matchName": "ADBE Fractal Noise-0016",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Sub Influence (%)",
+                    "matchName": "ADBE Fractal Noise-0017",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Scaling\u0000e (%)",
+                    "matchName": "ADBE Fractal Noise-0018",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Sub Rotation\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0019",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "Sub Offset\u0000n\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0020",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Center Subscale",
+                    "matchName": "ADBE Fractal Noise-0021",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "ub Offset\u0000n\u0000 (%)",
+                    "matchName": "ADBE Fractal Noise-0022",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Evolution",
+                    "matchName": "ADBE Fractal Noise-0023",
+                    "type": "Angle",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Speed\")(\"Angle\")"
+                  },
+                  {
+                    "name": "Evolution Options",
+                    "matchName": "ADBE Fractal Noise-0024",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Cycle Evolution",
+                    "matchName": "ADBE Fractal Noise-0025",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Cycle (in Revolutions)",
+                    "matchName": "ADBE Fractal Noise-0026",
+                    "type": "Custom",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Random Seed\u0000volutions)",
+                    "matchName": "ADBE Fractal Noise-0027",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ],
+                    "expression": "thisComp.layer(\"CONTROLLERS\").effect(\"Random Seed\")(\"Slider\")"
+                  },
+                  {
+                    "name": "Random Seed\u0000volutions)",
+                    "matchName": "ADBE Fractal Noise-0028",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Opacity",
+                    "matchName": "ADBE Fractal Noise-0029",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Blending Mode",
+                    "matchName": "ADBE Fractal Noise-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "None",
+                      "Normal",
+                      "(-",
+                      "Add",
+                      "Multiply",
+                      "Screen",
+                      "Overlay",
+                      "Soft Light",
+                      "Hard Light",
+                      "(-",
+                      "Color Dodge",
+                      "Color Burn",
+                      "(-",
+                      "Darken",
+                      "Lighten",
+                      "Difference",
+                      "Exclusion",
+                      "(-",
+                      "Hue",
+                      "Saturation",
+                      "Luminosity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Mosaic",
+                "matchName": "ADBE Mosaic",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Horizontal Blocks",
+                    "matchName": "ADBE Mosaic-0001",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      10
+                    ],
+                    "expression": "Math.round(thisComp.width/thisComp.layer(\"CONTROLLERS\").effect(\"Width\")(\"Slider\"))"
+                  },
+                  {
+                    "name": "Vertical Blocks",
+                    "matchName": "ADBE Mosaic-0002",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ],
+                    "expression": "Math.round(thisComp.height/thisComp.layer(\"CONTROLLERS\").effect(\"Height\")(\"Slider\"))"
+                  },
+                  {
+                    "name": "Sharp Colors",
+                    "matchName": "ADBE Mosaic-0003",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Hard Mosaic",
+                "matchName": "aldai HardMosaic",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Grid Mode",
+                    "matchName": "aldai HardMosaic-0001",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Block Size",
+                      "Block Count"
+                    ]
+                  },
+                  {
+                    "name": "Width",
+                    "matchName": "aldai HardMosaic-0002",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      16
+                    ],
+                    "expression": "effect(\"Hard Mosaic\")(\"Height\")"
+                  },
+                  {
+                    "name": "Height",
+                    "matchName": "aldai HardMosaic-0003",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      16
+                    ],
+                    "expression": "thisComp.height / 5"
+                  },
+                  {
+                    "name": "Square Blocks",
+                    "matchName": "aldai HardMosaic-0004",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Grid Offset X",
+                    "matchName": "aldai HardMosaic-0005",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Grid Offset Y",
+                    "matchName": "aldai HardMosaic-0006",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Block Color",
+                    "matchName": "aldai HardMosaic-0007",
+                    "type": "Select",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      2
+                    ],
+                    "selectOptions": [
+                      "Dominant",
+                      "Nearest Solid",
+                      "Average (classic)"
+                    ]
+                  },
+                  {
+                    "name": "Coverage Threshold",
+                    "matchName": "aldai HardMosaic-0008",
+                    "type": "OneD",
+                    "value": [
+                      50
+                    ]
+                  },
+                  {
+                    "name": "Solid Alpha Above",
+                    "matchName": "aldai HardMosaic-0009",
+                    "type": "OneD",
+                    "value": [
+                      50
+                    ]
+                  },
+                  {
+                    "name": "Snap Alpha",
+                    "matchName": "aldai HardMosaic-0010",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Input Alpha",
+                    "matchName": "aldai HardMosaic-0011",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Auto",
+                      "Straight",
+                      "Premultiplied"
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Colorama",
+                "matchName": "APC Colorama",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Input Phase",
+                    "matchName": "APC Colorama-0003",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Get Phase From",
+                    "matchName": "APC Colorama-0002",
+                    "type": "Select",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      6
+                    ],
+                    "selectOptions": [
+                      "Intensity",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "Value",
+                      "Alpha",
+                      "Zero"
+                    ]
+                  },
+                  {
+                    "name": "Add Phase",
+                    "matchName": "APC Colorama-0004",
+                    "type": "LayerSelect",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Add Phase From",
+                    "matchName": "APC Colorama-0006",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Intensity",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "Value",
+                      "Alpha",
+                      "Zero"
+                    ]
+                  },
+                  {
+                    "name": "Add Mode",
+                    "matchName": "APC Colorama-0040",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Wrap",
+                      "Clamp",
+                      "Average",
+                      "Screen"
+                    ]
+                  },
+                  {
+                    "name": "Phase Shift",
+                    "matchName": "APC Colorama-0008",
+                    "type": "Angle"
+                  },
+                  {
+                    "name": "APC Colorama-0015",
+                    "matchName": "APC Colorama-0015",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Output Cycle",
+                    "matchName": "APC Colorama-0017",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Use Preset Palette",
+                    "matchName": "APC Colorama-0010",
+                    "type": "Select",
+                    "selectOptions": [
+                      "[none]",
+                      "Alpha Ramp",
+                      "Hue Cycle",
+                      "Negative",
+                      "Ramp Red",
+                      "Ramp Green",
+                      "Ramp Blue",
+                      "Ramp Grey",
+                      "RGB",
+                      "Saturation Ramp",
+                      "Solarize Red",
+                      "Solarize Green",
+                      "Solarize Blue",
+                      "Solarize Grey",
+                      "(-",
+                      "Carribean",
+                      "Clay",
+                      "Copper",
+                      "Deep Ocean",
+                      "Earthenware",
+                      "Fire",
+                      "Fire And Smoke",
+                      "Golden 1",
+                      "Golden 2",
+                      "Granite",
+                      "Horizon",
+                      "Leather",
+                      "Moldy",
+                      "Mossy",
+                      "Old Glory",
+                      "Rusty",
+                      "Sepia 1",
+                      "Sepia 2",
+                      "Skink",
+                      "Sunset"
+                    ]
+                  },
+                  {
+                    "name": "Output Cycle",
+                    "matchName": "APC Colorama-0012",
+                    "type": "Custom",
+                    "valueType": "NoValue",
+                    "dimensions": 1,
+                    "arb": "00000320ff425aa800003752ff295529000057d1ff0000000000841effef40240000b42eff0000000000d44bfff5b82e0000c7b2fff5b82e0000e320ff0000000000fdacff0000000000fdacff0000000000fdacff0000000000fdacff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002ca5ff0000000000000600000002"
+                  },
+                  {
+                    "name": "Cycle Repetitions",
+                    "matchName": "APC Colorama-0038",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Interpolate Palette",
+                    "matchName": "APC Colorama-0014",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0027",
+                    "matchName": "APC Colorama-0027",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Modify",
+                    "matchName": "APC Colorama-0029",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Modify",
+                    "matchName": "APC Colorama-0016",
+                    "type": "Select",
+                    "selectOptions": [
+                      "All",
+                      "Red",
+                      "Green",
+                      "Blue",
+                      "RG",
+                      "GB",
+                      "RB",
+                      "Hue",
+                      "Lightness",
+                      "Saturation",
+                      "HL",
+                      "LS",
+                      "HS",
+                      "None"
+                    ]
+                  },
+                  {
+                    "name": "Modify Alpha",
+                    "matchName": "APC Colorama-0018",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Change Empty Pixels",
+                    "matchName": "APC Colorama-0034",
+                    "type": "Boolean",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0037",
+                    "matchName": "APC Colorama-0037",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Pixel Selection",
+                    "matchName": "APC Colorama-0039",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Matching Color",
+                    "matchName": "APC Colorama-0020",
+                    "type": "Color"
+                  },
+                  {
+                    "name": "Matching Tolerance",
+                    "matchName": "APC Colorama-0022",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Matching Softness",
+                    "matchName": "APC Colorama-0024",
+                    "type": "OneD"
+                  },
+                  {
+                    "name": "Matching Mode",
+                    "matchName": "APC Colorama-0026",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Off",
+                      "RGB",
+                      "Hue",
+                      "Chroma"
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0049",
+                    "matchName": "APC Colorama-0049",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Masking",
+                    "matchName": "APC Colorama-0051",
+                    "type": "Group",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Mask Layer",
+                    "matchName": "APC Colorama-0028",
+                    "type": "LayerSelect",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Masking Mode",
+                    "matchName": "APC Colorama-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Off",
+                      "Intensity",
+                      "Alpha",
+                      "Inverted Intensity",
+                      "Inverted Alpha"
+                    ]
+                  },
+                  {
+                    "name": "APC Colorama-0057",
+                    "matchName": "APC Colorama-0057",
+                    "type": "Custom",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Composite Over Layer",
+                    "matchName": "APC Colorama-0032",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  },
+                  {
+                    "name": "Blend With Original",
+                    "matchName": "APC Colorama-0036",
+                    "type": "OneD"
+                  }
+                ]
+              },
+              {
+                "name": "Unmult",
+                "matchName": "ADBE Unmult",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Background Color",
+                    "matchName": "ADBE Unmult-0030",
+                    "type": "Select",
+                    "selectOptions": [
+                      "Black",
+                      "White"
+                    ]
+                  },
+                  {
+                    "name": "Black Level",
+                    "matchName": "ADBE Unmult-0031",
+                    "type": "OneD",
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Softness",
+                    "matchName": "ADBE Unmult-0032",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Remove Color Matting",
+                    "matchName": "ADBE Unmult-0033",
+                    "type": "Boolean",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      0
+                    ]
+                  },
+                  {
+                    "name": "Clip HDR Results",
+                    "matchName": "ADBE Unmult-0034",
+                    "type": "Boolean",
+                    "value": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Offset",
+                "matchName": "ADBE Offset",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Shift Center To",
+                    "matchName": "ADBE Offset-0001",
+                    "type": "TwoD"
+                  },
+                  {
+                    "name": "Blend With Original",
+                    "matchName": "ADBE Offset-0002",
+                    "type": "OneD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "name": "BG",
+            "sourceId": 0,
+            "layerId": 117,
+            "kind": "shape",
+            "duration": 60,
+            "compInPoint": 0,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": true,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "contents": [
+              {
+                "name": "Shape Group",
+                "matchName": "ADBE Vector Group",
+                "label": "Rectangle 1",
+                "type": "Custom",
+                "properties": [
+                  {
+                    "name": "Contents",
+                    "matchName": "ADBE Vectors Group",
+                    "type": "Custom",
+                    "properties": [
+                      {
+                        "name": "ADBE Vector Shape - Rect",
+                        "matchName": "ADBE Vector Shape - Rect",
+                        "label": "Rectangle Path 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Rect Size",
+                            "matchName": "ADBE Vector Rect Size",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 2,
+                            "value": [
+                              4000,
+                              2000
+                            ],
+                            "expression": "[thisComp.width,thisComp.height]"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Stroke",
+                        "matchName": "ADBE Vector Graphic - Stroke",
+                        "label": "Stroke 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Stroke Width",
+                            "matchName": "ADBE Vector Stroke Width",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              41
+                            ]
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Dashes",
+                            "matchName": "ADBE Vector Stroke Dashes",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Taper",
+                            "matchName": "ADBE Vector Stroke Taper",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Wave",
+                            "matchName": "ADBE Vector Stroke Wave",
+                            "type": "Custom"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Fill",
+                        "matchName": "ADBE Vector Graphic - Fill",
+                        "label": "Fill 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Fill Color",
+                            "matchName": "ADBE Vector Fill Color",
+                            "type": "Custom",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Vector Transform Group",
+                    "type": "Custom"
+                  },
+                  {
+                    "name": "ADBE Vector Materials Group",
+                    "matchName": "ADBE Vector Materials Group",
+                    "type": "Custom"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "name": "COLOR LOOP",
+        "type": "Composition",
+        "width": 3634,
+        "height": 1200,
+        "framerate": 24,
+        "seconds": 40,
+        "backgroundColor": "#000000",
+        "layers": [
+          {
+            "index": 1,
+            "name": "COLOR GRID",
+            "sourceId": 1,
+            "layerId": 50,
+            "kind": "av",
+            "sourceName": "COLOR GRID",
+            "inPoint": 20,
+            "duration": 40,
+            "compInPoint": 20,
+            "compOutPoint": 60,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "name": "COLOR GRID",
+            "sourceId": 1,
+            "layerId": 49,
+            "kind": "av",
+            "sourceName": "COLOR GRID",
+            "duration": 20.041666666666668,
+            "compInPoint": 0,
+            "compOutPoint": 20.041666666666668,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "name": "Solids",
+        "type": "Folder",
+        "children": [
+          {
+            "id": 19,
+            "name": "GRID",
+            "type": "Footage",
+            "width": 6656,
+            "height": 2270,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 131,
+            "name": "GRID 2",
+            "type": "Footage",
+            "width": 6656,
+            "height": 2270,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 133,
+            "name": "GRID 3",
+            "type": "Footage",
+            "width": 6656,
+            "height": 2270,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 17,
+            "name": "Null 1",
+            "type": "Footage",
+            "width": 100,
+            "height": 100,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 65,
+            "name": "Null 2",
+            "type": "Footage",
+            "width": 100,
+            "height": 100,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 67,
+            "name": "Null 3",
+            "type": "Footage",
+            "width": 100,
+            "height": 100,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 69,
+            "name": "Null 4",
+            "type": "Footage",
+            "width": 100,
+            "height": 100,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 71,
+            "name": "Null 5",
+            "type": "Footage",
+            "width": 100,
+            "height": 100,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": 74,
+            "name": "Null 6",
+            "type": "Footage",
+            "width": 100,
+            "height": 100,
+            "footageType": "solid",
+            "solidColor": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "id": 52,
+        "name": "TRANSICION",
+        "type": "Composition",
+        "width": 8192,
+        "height": 2414,
+        "framerate": 24,
+        "seconds": 40,
+        "backgroundColor": "#000000",
+        "layers": [
+          {
+            "index": 1,
+            "name": "CONTROLLER",
+            "sourceId": 74,
+            "layerId": 75,
+            "kind": "null",
+            "sourceName": "Null 6",
+            "duration": 40,
+            "compInPoint": 0,
+            "compOutPoint": 40,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": false,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "WIDTH",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      4044
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Slider Control",
+                "matchName": "ADBE Slider Control",
+                "label": "HEIGHT",
+                "type": "Group",
+                "properties": [
+                  {
+                    "name": "Slider",
+                    "matchName": "ADBE Slider Control-0001",
+                    "type": "OneD",
+                    "valueType": "Numeric",
+                    "dimensions": 1,
+                    "value": [
+                      450
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "name": "RECT BLUE - 01",
+            "sourceId": 0,
+            "layerId": 73,
+            "kind": "shape",
+            "duration": 1.2916666666666667,
+            "compInPoint": 0,
+            "compOutPoint": 1.2916666666666667,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": true,
+              "effects": true,
+              "guide": false,
+              "locked": false,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": true
+            },
+            "transform": [
+              {
+                "name": "Position",
+                "matchName": "ADBE Position",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  225,
+                  0
+                ],
+                "expression": "value + [(time - inPoint) * 200 , 0]"
+              },
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "contents": [
+              {
+                "name": "Shape Group",
+                "matchName": "ADBE Vector Group",
+                "label": "Rectangle 1",
+                "type": "Custom",
+                "properties": [
+                  {
+                    "name": "Contents",
+                    "matchName": "ADBE Vectors Group",
+                    "type": "Custom",
+                    "properties": [
+                      {
+                        "name": "ADBE Vector Shape - Rect",
+                        "matchName": "ADBE Vector Shape - Rect",
+                        "label": "Rectangle Path 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Rect Size",
+                            "matchName": "ADBE Vector Rect Size",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 2,
+                            "value": [
+                              1856.9508422786885,
+                              456.6272562980382
+                            ],
+                            "expression": "w = thisComp.layer(\"CONTROLLER\").effect(\"WIDTH\")(\"Slider\"); \r\nh = thisComp.layer(\"CONTROLLER\").effect(\"HEIGHT\")(\"Slider\");\r\nf = framesToTime(1);\r\ndur = outPoint - inPoint;\r\nmid = inPoint + (dur * 0.5);\r\n\r\nif(time \u003c mid){\r\n\tease(time, inPoint , mid - f, [w-w,h], [w,h])\r\n}else{\r\n\tease(time, mid , outPoint - f, [w,h], [w-w,h])\t\r\n}\r\n\r\n"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Stroke",
+                        "matchName": "ADBE Vector Graphic - Stroke",
+                        "label": "Stroke 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Stroke Width",
+                            "matchName": "ADBE Vector Stroke Width",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              41
+                            ]
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Dashes",
+                            "matchName": "ADBE Vector Stroke Dashes",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Taper",
+                            "matchName": "ADBE Vector Stroke Taper",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Wave",
+                            "matchName": "ADBE Vector Stroke Wave",
+                            "type": "Custom"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Fill",
+                        "matchName": "ADBE Vector Graphic - Fill",
+                        "label": "Fill 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Fill Color",
+                            "matchName": "ADBE Vector Fill Color",
+                            "type": "Custom",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0.2627450980392157,
+                              0.35294117647058826,
+                              0.6588235294117647,
+                              1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Vector Transform Group",
+                    "type": "Custom",
+                    "properties": [
+                      {
+                        "name": "Anchor Point",
+                        "matchName": "ADBE Vector Anchor",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 2,
+                        "value": [
+                          0,
+                          0
+                        ],
+                        "expression": "s = content(\"Rectangle 1\").content(\"Rectangle Path 1\").size;\r\ndur = outPoint - inPoint;\r\nmid = inPoint + (dur * 0.5);\r\n\r\nvalue + ((time \u003c mid) ? - [s[0] * 0.5, 0] : [s[0] * 0.5, 0]);"
+                      },
+                      {
+                        "name": "Position",
+                        "matchName": "ADBE Vector Position",
+                        "type": "Custom",
+                        "valueType": "Spatial",
+                        "dimensions": 2,
+                        "value": [
+                          0,
+                          0
+                        ],
+                        "expression": "s = thisComp.layer(\"CONTROLLER\").effect(\"WIDTH\")(\"Slider\");\r\ndur = outPoint - inPoint;\r\nmid = inPoint + (dur * 0.5);\r\n\r\nvalue + ((time \u003c mid) ? [0,0] : [s, 0]);"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ADBE Vector Materials Group",
+                    "matchName": "ADBE Vector Materials Group",
+                    "type": "Custom"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "name": "SAFE",
+            "sourceId": 0,
+            "layerId": 64,
+            "kind": "shape",
+            "duration": 40,
+            "compInPoint": 0,
+            "compOutPoint": 40,
+            "flags": {
+              "3D": false,
+              "adjustment": false,
+              "audio": true,
+              "collapse": true,
+              "effects": true,
+              "guide": false,
+              "locked": true,
+              "motionBlur": false,
+              "shy": false,
+              "solo": false,
+              "video": false
+            },
+            "transform": [
+              {
+                "name": "X Position",
+                "matchName": "ADBE Position_0",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Position",
+                "matchName": "ADBE Position_1",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Orientation",
+                "matchName": "ADBE Orientation",
+                "type": "Custom",
+                "valueType": "Spatial",
+                "dimensions": 3,
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "X Rotation",
+                "matchName": "ADBE Rotate X",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "Y Rotation",
+                "matchName": "ADBE Rotate Y",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  0
+                ]
+              },
+              {
+                "name": "ADBE Envir Appear in Reflect",
+                "matchName": "ADBE Envir Appear in Reflect",
+                "type": "Custom",
+                "valueType": "Numeric",
+                "dimensions": 1,
+                "value": [
+                  1
+                ]
+              }
+            ],
+            "contents": [
+              {
+                "name": "Shape Group",
+                "matchName": "ADBE Vector Group",
+                "label": "Rectangle 1",
+                "type": "Custom",
+                "properties": [
+                  {
+                    "name": "Contents",
+                    "matchName": "ADBE Vectors Group",
+                    "type": "Custom",
+                    "properties": [
+                      {
+                        "name": "ADBE Vector Shape - Rect",
+                        "matchName": "ADBE Vector Shape - Rect",
+                        "label": "Rectangle Path 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Rect Size",
+                            "matchName": "ADBE Vector Rect Size",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 2,
+                            "value": [
+                              8192,
+                              2414
+                            ],
+                            "expression": "[7296,2149]"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Stroke",
+                        "matchName": "ADBE Vector Graphic - Stroke",
+                        "label": "Stroke 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Stroke Width",
+                            "matchName": "ADBE Vector Stroke Width",
+                            "type": "Custom",
+                            "valueType": "Numeric",
+                            "dimensions": 1,
+                            "value": [
+                              41
+                            ]
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Dashes",
+                            "matchName": "ADBE Vector Stroke Dashes",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Taper",
+                            "matchName": "ADBE Vector Stroke Taper",
+                            "type": "Custom"
+                          },
+                          {
+                            "name": "ADBE Vector Stroke Wave",
+                            "matchName": "ADBE Vector Stroke Wave",
+                            "type": "Custom"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ADBE Vector Graphic - Fill",
+                        "matchName": "ADBE Vector Graphic - Fill",
+                        "label": "Fill 1",
+                        "type": "Custom",
+                        "properties": [
+                          {
+                            "name": "ADBE Vector Fill Color",
+                            "matchName": "ADBE Vector Fill Color",
+                            "type": "Custom",
+                            "valueType": "Color",
+                            "dimensions": 4,
+                            "value": [
+                              0.2627450980392157,
+                              0.35294117647058826,
+                              0.6588235294117647,
+                              1
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Transform",
+                    "matchName": "ADBE Vector Transform Group",
+                    "type": "Custom"
+                  },
+                  {
+                    "name": "ADBE Vector Materials Group",
+                    "matchName": "ADBE Vector Materials Group",
+                    "type": "Custom"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "texts": []
+}

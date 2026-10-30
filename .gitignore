@@ -3,11 +3,8 @@ data/*tmp*.aep
 .idea/
 *.exe
 temp/
-aep/
-docs/
 *.aep Logs/
 # renders
 *.mp4
 *.mov
-package-lock.json
 node_modules/
