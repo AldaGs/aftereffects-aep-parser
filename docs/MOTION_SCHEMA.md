@@ -148,9 +148,14 @@ For `"type": "shape"` layers, add elements in the `shapes` array:
 - `rect`: `size` `[width, height]`, `position`, `roundness`
 - `ellipse`: `size` `[width, height]`, `position`
 - `fill`: `color` (hex or RGB), `opacity`
-- `stroke`: `color`, `strokeWidth`, `opacity`
+- `stroke`: `color`, `strokeWidth`, `opacity`, `lineCap` (`"butt"`, `"round"`, `"projecting"`), `lineJoin` (`"miter"`, `"round"`, `"bevel"`)
 - `trim`: `start`, `end`, `offset` (supports keyframing)
 - `path`: Custom bezier vector path with `vertices`, `inTangents`, `outTangents`, `closed`
+- `group`: `items` plus an optional `transform` (`anchorPoint`, `position`, `scale`, `rotation`, `opacity`) to animate parts inside one layer
+
+Items listed first draw on top, and a `fill`/`stroke` applies to the paths above it in the same group.
+
+Layers also accept `"enabled": false` to hide guide layers and track matte sources.
 
 ---
 
