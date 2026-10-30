@@ -62,6 +62,7 @@ type LayerDoc struct {
 	Masks      []MaskDoc              `json:"masks,omitempty"`
 	Effects    []EffectDoc            `json:"effects,omitempty"`
 	JSX        string                 `json:"jsx,omitempty"`
+	Enabled    *bool                  `json:"enabled,omitempty"` // false hides the layer (guides, track mattes)
 }
 
 type TrackMatteDoc struct {
@@ -105,6 +106,8 @@ type ShapeItemDoc struct {
 	Color       interface{}            `json:"color,omitempty"`
 	Opacity     interface{}            `json:"opacity,omitempty"`
 	StrokeWidth interface{}            `json:"strokeWidth,omitempty"`
+	LineCap     string                 `json:"lineCap,omitempty"`  // "butt", "round", "projecting"
+	LineJoin    string                 `json:"lineJoin,omitempty"` // "miter", "round", "bevel"
 	Start       interface{}            `json:"start,omitempty"`
 	End         interface{}            `json:"end,omitempty"`
 	Offset      interface{}            `json:"offset,omitempty"`
@@ -488,6 +491,9 @@ func GenerateJSX(proj *ProjectDoc, aepPath string, closeOnComplete bool) (string
 			if l.Adjustment {
 				g.write("    try { %s.adjustmentLayer = true; } catch(e) {}", layerVar)
 			}
+			if l.Enabled != nil && !*l.Enabled {
+				g.write("    try { %s.enabled = false; } catch(e) {}", layerVar)
+			}
 
 			// Timing
 			if l.StartTime != nil {
@@ -634,7 +640,26 @@ func GenerateJSX(proj *ProjectDoc, aepPath string, closeOnComplete bool) (string
 	g.write("  }")
 	g.write("})();")
 
-	return g.sb.String(), nil
+	return escapeNonASCII(g.sb.String()), nil
+}
+
+// escapeNonASCII rewrites non-ASCII runes as \uXXXX escapes. ExtendScript reads a
+// BOM-less .jsx in the system code page, so raw UTF-8 text ("93 °C") would be mangled.
+// Non-ASCII only occurs inside string literals and comments, where the escape is safe.
+func escapeNonASCII(code string) string {
+	var sb strings.Builder
+	for _, r := range code {
+		switch {
+		case r < 0x80:
+			sb.WriteRune(r)
+		case r <= 0xFFFF:
+			fmt.Fprintf(&sb, "\\u%04x", r)
+		default:
+			r -= 0x10000
+			fmt.Fprintf(&sb, "\\u%04x\\u%04x", 0xD800+(r>>10), 0xDC00+(r&0x3FF))
+		}
+	}
+	return sb.String()
 }
 
 func writeJSHelpers(g *Generator) {
@@ -798,6 +823,12 @@ func writeShapeItem(g *Generator, layerVar, parentGroup string, shp ShapeItemDoc
 		if shp.Opacity != nil {
 			writePropertyData(g, sVar+".property('ADBE Vector Stroke Opacity')", shp.Opacity)
 		}
+		if v, ok := map[string]int{"butt": 1, "round": 2, "projecting": 3}[shp.LineCap]; ok {
+			g.write("    try { %s.property('ADBE Vector Stroke Line Cap').setValue(%d); } catch(e) {}", sVar, v)
+		}
+		if v, ok := map[string]int{"miter": 1, "round": 2, "bevel": 3}[shp.LineJoin]; ok {
+			g.write("    try { %s.property('ADBE Vector Stroke Line Join').setValue(%d); } catch(e) {}", sVar, v)
+		}
 
 	case "trim":
 		sVar := "sh_trim_" + randomID()
@@ -830,6 +861,18 @@ func writeShapeItem(g *Generator, layerVar, parentGroup string, shp ShapeItemDoc
 		g.write("    var %s = %s.addProperty('ADBE Vector Group');", sVar, baseRef)
 		if shp.Name != "" {
 			g.write("    %s.name = %q;", sVar, shp.Name)
+		}
+		groupProps := map[string]string{
+			"anchorPoint": "ADBE Vector Anchor",
+			"position":    "ADBE Vector Position",
+			"scale":       "ADBE Vector Scale",
+			"rotation":    "ADBE Vector Rotation",
+			"opacity":     "ADBE Vector Group Opacity",
+		}
+		for _, key := range []string{"anchorPoint", "position", "scale", "rotation", "opacity"} {
+			if v, ok := shp.Transform[key]; ok {
+				writePropertyData(g, fmt.Sprintf("%s.property('ADBE Vector Transform Group').property(%q)", sVar, groupProps[key]), v)
+			}
 		}
 		for _, child := range shp.Items {
 			writeShapeItem(g, layerVar, sVar, child)
@@ -933,6 +976,20 @@ func writePropertyData(g *Generator, propRef string, data interface{}) {
 						g.write("          p.setTemporalEaseAtKey(%d, [e], [e]);", kfIdx)
 						g.write("        }")
 						g.write("      } catch(e) {}")
+					} else if easeObj, ok := kf.Ease.(map[string]interface{}); ok {
+						// Custom handles: {"inInfluence", "inSpeed", "outInfluence", "outSpeed"}
+						g.write("      try {")
+						g.write("        var ei = new KeyframeEase(%g, %g), eo = new KeyframeEase(%g, %g);",
+							easeNum(easeObj, "inSpeed", 0), easeInfluence(easeObj, "inInfluence"),
+							easeNum(easeObj, "outSpeed", 0), easeInfluence(easeObj, "outInfluence"))
+						g.write("        if (p.propertyValueType === PropertyValueType.TwoD) {")
+						g.write("          p.setTemporalEaseAtKey(%d, [ei, ei], [eo, eo]);", kfIdx)
+						g.write("        } else if (p.propertyValueType === PropertyValueType.ThreeD) {")
+						g.write("          p.setTemporalEaseAtKey(%d, [ei, ei, ei], [eo, eo, eo]);", kfIdx)
+						g.write("        } else {")
+						g.write("          p.setTemporalEaseAtKey(%d, [ei], [eo]);", kfIdx)
+						g.write("        }")
+						g.write("      } catch(e) {}")
 					}
 				}
 			}
@@ -941,7 +998,15 @@ func writePropertyData(g *Generator, propRef string, data interface{}) {
 			if len(kf.InTangent) > 0 || len(kf.OutTangent) > 0 {
 				inT, _ := json.Marshal(kf.InTangent)
 				outT, _ := json.Marshal(kf.OutTangent)
-				g.write("      try { p.setSpatialTangentsAtKey(%d, %s, %s); } catch(e) {}", kfIdx, string(inT), string(outT))
+				// auto-bezier off first, or AE recomputes the tangents when the next key is added
+				g.write("      try { p.setSpatialAutoBezierAtKey(%d, false); p.setSpatialContinuousAtKey(%d, false); } catch(e) {}", kfIdx, kfIdx)
+				if len(kf.InTangent) == 2 && len(kf.OutTangent) == 2 {
+					// 2D layer positions are ThreeD_SPATIAL and want 3-value tangents
+					g.write("      try { p.setSpatialTangentsAtKey(%d, %s, %s); } catch(e) { try { p.setSpatialTangentsAtKey(%d, [%g, %g, 0], [%g, %g, 0]); } catch(e2) {} }",
+						kfIdx, string(inT), string(outT), kfIdx, kf.InTangent[0], kf.InTangent[1], kf.OutTangent[0], kf.OutTangent[1])
+				} else {
+					g.write("      try { p.setSpatialTangentsAtKey(%d, %s, %s); } catch(e) {}", kfIdx, string(inT), string(outT))
+				}
 			}
 		}
 		g.write("    })(%s);", propRef)
@@ -951,6 +1016,25 @@ func writePropertyData(g *Generator, propRef string, data interface{}) {
 	if anim.Expression != "" {
 		g.write("    try { %s.expression = %q; } catch(e) {}", propRef, anim.Expression)
 	}
+}
+
+func easeNum(m map[string]interface{}, key string, def float64) float64 {
+	if v, ok := m[key].(float64); ok {
+		return v
+	}
+	return def
+}
+
+// easeInfluence reads an influence percentage, clamped to the 0.1-100 range AE accepts.
+func easeInfluence(m map[string]interface{}, key string) float64 {
+	v := easeNum(m, key, 33.33)
+	if v < 0.1 {
+		v = 0.1
+	}
+	if v > 100 {
+		v = 100
+	}
+	return v
 }
 
 func formatValueForAE(val interface{}) string {

@@ -201,6 +201,11 @@
             "$ref": "#/$defs/Effect"
           }
         },
+        "enabled": {
+          "type": "boolean",
+          "description": "Set false to hide the layer (guide layers, track matte sources)",
+          "default": true
+        },
         "jsx": {
           "type": "string",
           "description": "Raw ExtendScript escape hatch to execute immediately after creating and configuring this layer"
@@ -283,6 +288,19 @@
         "color": { "$ref": "#/$defs/AnimatableValue" },
         "opacity": { "$ref": "#/$defs/AnimatableValue" },
         "strokeWidth": { "$ref": "#/$defs/AnimatableValue" },
+        "lineCap": { "type": "string", "enum": ["butt", "round", "projecting"] },
+        "lineJoin": { "type": "string", "enum": ["miter", "round", "bevel"] },
+        "transform": {
+          "type": "object",
+          "description": "Group transform (type 'group' only)",
+          "properties": {
+            "anchorPoint": { "$ref": "#/$defs/AnimatableValue" },
+            "position": { "$ref": "#/$defs/AnimatableValue" },
+            "scale": { "$ref": "#/$defs/AnimatableValue" },
+            "rotation": { "$ref": "#/$defs/AnimatableValue" },
+            "opacity": { "$ref": "#/$defs/AnimatableValue" }
+          }
+        },
         "start": { "$ref": "#/$defs/AnimatableValue" },
         "end": { "$ref": "#/$defs/AnimatableValue" },
         "offset": { "$ref": "#/$defs/AnimatableValue" },
