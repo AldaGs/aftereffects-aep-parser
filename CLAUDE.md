@@ -53,4 +53,9 @@ python schema/examples/espresso_explainer.py                 # regenerate the es
 - Generator self-checks: unique layer names per comp, and every `parent` resolves (see `build()` in `espresso_explainer.py`).
 - Every layer has `out > in`, and comp names referenced by precomp layers exist.
 - The JSX at least parses: `node -e "new Function(require('fs').readFileSync('x.jsx','utf8'))"`.
-- For anything visual, render frames and look at them before handing off. Overlaps, wrong stacking and lost positions only show up on screen.
+- For anything visual, render frames and look at them before handing off. Overlaps, wrong stacking and lost positions only show up on screen:
+  ```bash
+  node scripts/preview.js schema/examples/<name>.json /tmp/frames 1        # one frame per second
+  ffmpeg -i /tmp/frames/f%05d.jpg -frames:v 1 -vf "scale=480:-1,tile=4x5" sheet.jpg
+  ```
+  The preview is approximate: no effects or grain, Liberation fonts in place of Arial and Georgia, and position paths drawn straight (as they are when keys have zero tangents).
