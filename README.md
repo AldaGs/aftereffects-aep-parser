@@ -167,7 +167,13 @@ When generating or modifying authoring JSON files, follow these rules to prevent
    - All layer times (`in`, `out`, `startTime`) and keyframe `time` values are in **seconds** (floating-point).
    - Ensure `out > in` for every layer.
 5. **Supported Easing Presets**:
-   - Keyframes support `"ease": "linear" | "easeIn" | "easeOut" | "easeInOut" | "hold"`, or custom `"easeIn": { "influence": 80, "speed": 0 }` / `"easeOut": { "influence": 80, "speed": 0 }` handles.
+   - Keyframes support `"ease": "linear" | "easeIn" | "easeOut" | "easeInOut"` (`"interp": "hold"` for hold keys), or custom handles: `"ease": { "inInfluence": 85, "outInfluence": 10, "inSpeed": 0, "outSpeed": 0 }`. A low out-influence and a high in-influence give the snappy fast-out, slow-in motion-graphics feel.
+   - AE's default auto-bezier makes a layer drift in a loop while "holding" between two equal position keys. Give such keys `"inTangent": [0, 0], "outTangent": [0, 0]` for straight motion paths.
+6. **Styling & Structure**:
+   - Strokes take `"lineCap": "butt" | "round" | "projecting"` and `"lineJoin": "miter" | "round" | "bevel"`.
+   - Groups take a `"transform"` (`anchorPoint`, `position`, `scale`, `rotation`, `opacity`), so one shape layer can animate many parts.
+   - `"enabled": false` hides a layer (guides, track matte sources).
+   - Non-ASCII text such as `"93 °C"` is written as `\uXXXX` escapes, so it survives ExtendScript's file encoding.
 
 ---
 
