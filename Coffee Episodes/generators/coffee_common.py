@@ -101,6 +101,85 @@ def word_marker(name, line, word, center, y, size, t, t1, font=HEAD):
     return marker(name, x0 - 10, y, tw(word, size, font) + 20, t, t1, size=size)
 
 
+def _cut_opacity(op):
+    """Turn every fade to/from 0 into a hold (a cut). Returns [(t0, t1, 'in'|'out')] for the scale pops."""
+    ks = op["keyframes"]
+    ev = []
+    vals = [k["value"] for k in ks]
+    for j, (a, b) in enumerate(zip(ks, ks[1:])):
+        if vals[j] == 0 and vals[j + 1] != 0:
+            ev.append((a["time"], b["time"], "in"))
+            a["value"] = b["value"]
+            a["interp"] = "hold"
+            a.pop("ease", None)
+        elif vals[j + 1] == 0 and vals[j] != 0:
+            ev.append((a["time"], b["time"], "out"))
+            a["interp"] = "hold"
+            a.pop("ease", None)
+    for k in ks:
+        if k["value"] == 0:  # an invisible stretch must not ramp into the next key
+            k["interp"] = "hold"
+            k.pop("ease", None)
+    return ev
+
+
+def _pop(tr, ev, key="scale"):
+    base = tr.get(key, [100, 100])
+    if isinstance(base, dict) or not ev:
+        return
+    ks = []
+    for t0, t1, kind in ev:
+        z = [0, 0]
+        ks += [K(t0, z), K(t1, base)] if kind == "in" else [K(t0, base), K(t1, z)]
+    ks.sort(key=lambda k: k["time"])
+    tr[key] = {"keyframes": ks}
+
+
+def _extent(items):
+    """Largest distance from the layer origin reached by any path vertex or item position."""
+    m = 0
+    for it in items:
+        if it.get("type") == "group":
+            m = max(m, _extent(it.get("items", [])))
+            p = (it.get("transform") or {}).get("position")
+            if isinstance(p, list):
+                m = max(m, abs(p[0]), abs(p[1]))
+        elif it.get("type") == "path":
+            for x, y in it["path"]["vertices"]:
+                m = max(m, abs(x), abs(y))
+        else:
+            p, s = it.get("position"), it.get("size")
+            for v in (p, s):
+                if isinstance(v, list):
+                    m = max(m, abs(v[0]), abs(v[1]))
+    return m
+
+
+def cut_pass(proj):
+    """Channel rule: nothing fades in or out. Appearing/disappearing is a cut, plus a scale pop where the scale is free.
+    Partial opacity (greyed-back groups) stays animated."""
+    def walk(items):
+        for it in items:
+            if it.get("type") != "group":
+                continue
+            tr = it.get("transform") or {}
+            op = tr.get("opacity")
+            if isinstance(op, dict) and "keyframes" in op:
+                _pop(tr, _cut_opacity(op))
+            walk(it.get("items", []))
+    for c in proj["compositions"]:
+        for l in c["layers"]:
+            if l["type"] in ("null", "precomp", "adjustment"):
+                continue
+            tr = l.get("transform", {})
+            op = tr.get("opacity")
+            if isinstance(op, dict) and "keyframes" in op:
+                ev = _cut_opacity(op)
+                if l.get("enabled") is not False and _extent(l.get("shapes", [])) < 700:  # maps, routes and pipes drawn in comp space only cut
+                    _pop(tr, ev)
+            walk(l.get("shapes", []))
+
+
 def build_project(scenes, master_name, aep_name):
     comps, main = [], []
     t = 0.0
@@ -123,6 +202,7 @@ def build_project(scenes, master_name, aep_name):
     master = {"name": master_name, "width": W, "height": H, "fps": FPS, "duration": t, "backgroundColor": WHITE, "layers": [grain] + main}
     proj = {"$schema": "../../schema/motion.schema.json", "file": aep_name, "expressionEngine": "javascript-1.0",
             "bitDepth": "8 bpc", "compositions": [master] + comps}
+    cut_pass(proj)
     zero_tangents(proj)
     return proj
 

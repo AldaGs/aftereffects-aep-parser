@@ -24,6 +24,7 @@ Most coffee channels cover brewing and gear and repeat the same arabica-vs-robus
 - Chonburi for headlines and numbers, Georgia Italic for scientific names, Arial Bold small tracked caps for labels.
 - Flat cut-paper shapes with one soft shadow, leader lines ending in dots, trim-path draw-ons, a 3 % push-in per scene, 2 % grain. Easing leaves fast and lands soft. Nothing bounces.
 - **Match cuts only.** Every script includes a match-cut chain table: what shape ends scene N, what it becomes in scene N+1, and the shared position/size/colour. No fades, wipes or whip pans.
+- **No fades, inside scenes either.** Elements never fade in or out. They arrive and leave by motion (position, scale, rotation) or by a cut, and the motion should land them where the next element starts, so every change reads as a match cut or a jump cut. Greying an element back to show it's no longer the focus is allowed; that is a state, not an exit. `coffee_common.cut_pass` enforces this on every generated project.
 - Reuse episode 1 assets where they fit (the cherry, the world map and Mexico map with state outlines, family-tree nodes, the roya leaf). Say which ones in each script.
 
 ## Vox devices to use
