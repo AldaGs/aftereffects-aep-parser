@@ -211,31 +211,6 @@
     try { if (20 > layer_1_13.inPoint) { layer_1_13.outPoint = 20; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(15.4, [100,100]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(19, [164.30171769977596,164.30171769977596]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_1_13.property('ADBE Transform Group').property("ADBE Scale"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(15.4, [720,640]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -264,6 +239,31 @@
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_1_13.property('ADBE Transform Group').property("ADBE Position"));
     try { layer_1_13.property('ADBE Transform Group').property("ADBE Anchor Point").setValue([720,640]); } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(15.4, [100,100]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(19, [164.30171769977596,164.30171769977596]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_1_13.property('ADBE Transform Group').property("ADBE Scale"));
     var layer_1_12 = comp_1.layers.addShape();
     var sh_grp_4 = layer_1_12.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_4.name = "Line";
@@ -328,6 +328,7 @@
     layers["S1_Tin//Tin"] = layer_1_11;
     try { layer_1_11.inPoint = 0; } catch(e) {}
     try { if (16 > layer_1_11.inPoint) { layer_1_11.outPoint = 16; } } catch(e) {}
+    try { layer_1_11.property('ADBE Transform Group').property("ADBE Position").setValue([720,580]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(15.2, 100);
@@ -378,7 +379,6 @@
         }
       } catch(e) {}
     })(layer_1_11.property('ADBE Transform Group').property("ADBE Scale"));
-    try { layer_1_11.property('ADBE Transform Group').property("ADBE Position").setValue([720,580]); } catch(e) {}
     var layer_1_10 = comp_1.layers.addText("PURE TEA");
     var textProp = layer_1_10.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -393,6 +393,7 @@
     layers["S1_Tin//Tin Sub"] = layer_1_10;
     try { layer_1_10.inPoint = 0; } catch(e) {}
     try { if (16 > layer_1_10.inPoint) { layer_1_10.outPoint = 16; } } catch(e) {}
+    try { layer_1_10.property('ADBE Transform Group').property("ADBE Position").setValue([720,512]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(15.2, 100);
@@ -418,7 +419,6 @@
         }
       } catch(e) {}
     })(layer_1_10.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_1_10.property('ADBE Transform Group').property("ADBE Position").setValue([720,512]); } catch(e) {}
     var layer_1_9 = comp_1.layers.addText("CEYLON");
     var textProp = layer_1_9.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -2141,6 +2141,7 @@
     layers["S1_Tin//Rust Spot"] = layer_1_3;
     try { layer_1_3.inPoint = 8.3; } catch(e) {}
     try { if (15.2 > layer_1_3.inPoint) { layer_1_3.outPoint = 15.2; } } catch(e) {}
+    try { layer_1_3.property('ADBE Transform Group').property("ADBE Position").setValue([1290,736]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(8.3, [0,0]);
@@ -2191,7 +2192,6 @@
         }
       } catch(e) {}
     })(layer_1_3.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_1_3.property('ADBE Transform Group').property("ADBE Position").setValue([1290,736]); } catch(e) {}
     var layer_1_2 = comp_1.layers.addText("MEXICO \u00b7 STILL GROWS COFFEE");
     var textProp = layer_1_2.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -2206,7 +2206,6 @@
     layers["S1_Tin//Mexico Label"] = layer_1_2;
     try { layer_1_2.inPoint = 10.2; } catch(e) {}
     try { if (15.2 > layer_1_2.inPoint) { layer_1_2.outPoint = 15.2; } } catch(e) {}
-    try { layer_1_2.property('ADBE Transform Group').property("ADBE Position").setValue([1560,470]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(10.2, 0);
@@ -2254,6 +2253,7 @@
         }
       } catch(e) {}
     })(layer_1_2.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_1_2.property('ADBE Transform Group').property("ADBE Position").setValue([1560,470]); } catch(e) {}
     var layer_1_1 = comp_1.layers.addShape();
     var sh_grp_94 = layer_1_1.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_94.name = "Vein";
@@ -2860,10 +2860,10 @@
     layers["S2_Island//Map Rig"] = layer_2_21;
     try { layer_2_21.inPoint = 0; } catch(e) {}
     try { if (23 > layer_2_21.inPoint) { layer_2_21.outPoint = 23; } } catch(e) {}
-    try { layer_2_21.property('ADBE Transform Group').property("ADBE Anchor Point").setValue([7263,-702]); } catch(e) {}
-    try { layer_2_21.property('ADBE Transform Group').property("ADBE Scale").expression = "var s = 0.35482; if (time > 0.3) { var u = Math.min(1, Math.max(0, (time - 0.3) / 2.3000000000000003)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; s = 0.35482 * (1 - u) + -1.86075 * u; } if (time > 3.6) { var u = Math.min(1, Math.max(0, (time - 3.6) / 1.9999999999999996)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; s = -1.86075 * (1 - u) + 0.00000 * u; } var k = Math.exp(s) * 100; [k, k]"; } catch(e) {}
     try { layer_2_21.property('ADBE Transform Group').property("ADBE Position").setValue([960,540]); } catch(e) {}
     try { layer_2_21.property('ADBE Transform Group').property("ADBE Position").expression = "var x = 960.00, y = 540.00; if (time > 3.6) { var u = Math.min(1, Math.max(0, (time - 3.6) / 1.9999999999999996)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; x = 960.00 + (-320.00) * u; y = 540.00 + (20.00) * u; } [x, y]"; } catch(e) {}
+    try { layer_2_21.property('ADBE Transform Group').property("ADBE Anchor Point").setValue([7263,-702]); } catch(e) {}
+    try { layer_2_21.property('ADBE Transform Group').property("ADBE Scale").expression = "var s = 0.35482; if (time > 0.3) { var u = Math.min(1, Math.max(0, (time - 0.3) / 2.3000000000000003)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; s = 0.35482 * (1 - u) + -1.86075 * u; } if (time > 3.6) { var u = Math.min(1, Math.max(0, (time - 3.6) / 1.9999999999999996)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; s = -1.86075 * (1 - u) + 0.00000 * u; } var k = Math.exp(s) * 100; [k, k]"; } catch(e) {}
     var layer_2_20 = comp_2.layers.addShape();
     var sh_grp_154 = layer_2_20.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_154.name = "Land";
@@ -2927,7 +2927,6 @@
     layers["S2_Island//Land"] = layer_2_20;
     try { layer_2_20.inPoint = 0; } catch(e) {}
     try { if (22 > layer_2_20.inPoint) { layer_2_20.outPoint = 22; } } catch(e) {}
-    try { layer_2_20.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.4, 0);
@@ -2975,6 +2974,7 @@
         }
       } catch(e) {}
     })(layer_2_20.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_2_20.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_2_19 = comp_2.layers.addShape();
     var sh_grp_162 = layer_2_19.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_162.name = "Disc";
@@ -3010,32 +3010,6 @@
     layers["S2_Island//Ceylon Dot"] = layer_2_19;
     try { layer_2_19.inPoint = 0; } catch(e) {}
     try { if (22.12 > layer_2_19.inPoint) { layer_2_19.outPoint = 22.12; } } catch(e) {}
-    try { layer_2_19.property('ADBE Transform Group').property("ADBE Position").setValue([7263,-702]); } catch(e) {}
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(3.6, [100,100]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(5.5, [15.555555555555555,15.555555555555555]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_2_19.property('ADBE Transform Group').property("ADBE Scale"));
     (function(p) {
       if (!p) return;
       p.setValueAtTime(18, 100);
@@ -3083,6 +3057,32 @@
         }
       } catch(e) {}
     })(layer_2_19.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_2_19.property('ADBE Transform Group').property("ADBE Position").setValue([7263,-702]); } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(3.6, [100,100]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(5.5, [15.555555555555555,15.555555555555555]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_2_19.property('ADBE Transform Group').property("ADBE Scale"));
     var layer_2_18 = comp_2.layers.addShape();
     var sh_grp_165 = layer_2_18.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_165.name = "Vein";
@@ -7314,6 +7314,7 @@
     layers["S2_Island//Estates"] = layer_2_17;
     try { layer_2_17.inPoint = 18.4; } catch(e) {}
     try { if (22.06 > layer_2_17.inPoint) { layer_2_17.outPoint = 22.06; } } catch(e) {}
+    try { layer_2_17.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(21.46, 100);
@@ -7339,7 +7340,6 @@
         }
       } catch(e) {}
     })(layer_2_17.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_2_17.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_2_16 = comp_2.layers.addText("SOURCE: DE SILVA, A HISTORY OF SRI LANKA");
     var textProp = layer_2_16.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -7736,35 +7736,6 @@
     try { if (15 > layer_2_11.inPoint) { layer_2_11.outPoint = 15; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(12.6, [1000,584]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(13.15, [1000,560]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_2_11.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(12.6, 0);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -7810,6 +7781,35 @@
         }
       } catch(e) {}
     })(layer_2_11.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(12.6, [1000,584]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(13.15, [1000,560]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_2_11.property('ADBE Transform Group').property("ADBE Position"));
     var layer_2_10 = comp_2.layers.addText("Sri Lanka  65,600 km\u00b2");
     var textProp = layer_2_10.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -7987,6 +7987,7 @@
     layers["S2_Island//Src Sacks"] = layer_2_8;
     try { layer_2_8.inPoint = 6; } catch(e) {}
     try { if (11.5 > layer_2_8.inPoint) { layer_2_8.outPoint = 11.5; } } catch(e) {}
+    try { layer_2_8.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(6, 0);
@@ -8034,7 +8035,6 @@
         }
       } catch(e) {}
     })(layer_2_8.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_2_8.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     var layer_2_7 = comp_2.layers.addText("\u2248 4.1 M bags");
     var textProp = layer_2_7.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -9197,35 +9197,6 @@
     try { if (22.03 > layer_2_1.inPoint) { layer_2_1.outPoint = 22.03; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(5.6, [640,374]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(6.15, [640,350]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_2_1.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(5.6, 0);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -9271,6 +9242,35 @@
         }
       } catch(e) {}
     })(layer_2_1.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(5.6, [640,374]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(6.15, [640,350]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_2_1.property('ADBE Transform Group').property("ADBE Position"));
     var layer_2_0 = comp_2.layers.addText("1870");
     var textProp = layer_2_0.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -9284,6 +9284,35 @@
     layers["S2_Island//Year"] = layer_2_0;
     try { layer_2_0.inPoint = 2.6; } catch(e) {}
     try { if (22 > layer_2_0.inPoint) { layer_2_0.outPoint = 22; } } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(2.6, [120,244]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(3.15, [120,220]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_2_0.property('ADBE Transform Group').property("ADBE Position"));
     (function(p) {
       if (!p) return;
       p.setValueAtTime(2.6, 0);
@@ -9331,35 +9360,6 @@
         }
       } catch(e) {}
     })(layer_2_0.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(2.6, [120,244]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(3.15, [120,220]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_2_0.property('ADBE Transform Group').property("ADBE Position"));
     if (layers["S2_Island//Map Rig"]) { try { layer_2_9.setParentWithJump(layers["S2_Island//Map Rig"]); } catch(e) {} }
     if (layers["S2_Island//Map Rig"]) { try { layer_2_13.setParentWithJump(layers["S2_Island//Map Rig"]); } catch(e) {} }
     if (layers["S2_Island//Map Rig"]) { try { layer_2_17.setParentWithJump(layers["S2_Island//Map Rig"]); } catch(e) {} }
@@ -10183,7 +10183,6 @@
     layers["S3_Spore//Section"] = layer_3_26;
     try { layer_3_26.inPoint = 0.5; } catch(e) {}
     try { if (37.63 > layer_3_26.inPoint) { layer_3_26.outPoint = 37.63; } } catch(e) {}
-    try { layer_3_26.property('ADBE Transform Group').property("ADBE Position").setValue([960,480]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(37.03, 100);
@@ -10209,6 +10208,7 @@
         }
       } catch(e) {}
     })(layer_3_26.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_3_26.property('ADBE Transform Group').property("ADBE Position").setValue([960,480]); } catch(e) {}
     var layer_3_25 = comp_3.layers.addText("SOURCE: APS PLANT DISEASE LESSON, COFFEE RUST");
     var textProp = layer_3_25.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -12357,6 +12357,7 @@
     layers["S3_Spore//Top Clean"] = layer_3_20;
     try { layer_3_20.inPoint = 23; } catch(e) {}
     try { if (28.2 > layer_3_20.inPoint) { layer_3_20.outPoint = 28.2; } } catch(e) {}
+    try { layer_3_20.property('ADBE Transform Group').property("ADBE Position").setValue([1560,284]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(23, 0);
@@ -12404,7 +12405,6 @@
         }
       } catch(e) {}
     })(layer_3_20.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_3_20.property('ADBE Transform Group').property("ADBE Position").setValue([1560,284]); } catch(e) {}
     var layer_3_19 = comp_3.layers.addText("\u2248 14 DAYS INSIDE");
     var textProp = layer_3_19.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -12419,7 +12419,6 @@
     layers["S3_Spore//Days"] = layer_3_19;
     try { layer_3_19.inPoint = 21; } catch(e) {}
     try { if (28.2 > layer_3_19.inPoint) { layer_3_19.outPoint = 28.2; } } catch(e) {}
-    try { layer_3_19.property('ADBE Transform Group').property("ADBE Position").setValue([880,300]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(21, 0);
@@ -12467,6 +12466,7 @@
         }
       } catch(e) {}
     })(layer_3_19.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_3_19.property('ADBE Transform Group').property("ADBE Position").setValue([880,300]); } catch(e) {}
     var layer_3_18 = comp_3.layers.addShape();
     var sh_grp_837 = layer_3_18.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_837.name = "H1";
@@ -12976,7 +12976,6 @@
     layers["S3_Spore//Thread"] = layer_3_17;
     try { layer_3_17.inPoint = 14.8; } catch(e) {}
     try { if (37.66 > layer_3_17.inPoint) { layer_3_17.outPoint = 37.66; } } catch(e) {}
-    try { layer_3_17.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(37.06, 100);
@@ -13002,6 +13001,7 @@
         }
       } catch(e) {}
     })(layer_3_17.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_3_17.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_3_16 = comp_3.layers.addText("24\u201348 H WET");
     var textProp = layer_3_16.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -13322,31 +13322,6 @@
     try { if (37.66 > layer_3_12.inPoint) { layer_3_12.outPoint = 37.66; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(37.06, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(37.66, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_3_12.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(4.2, [774,860]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -13375,6 +13350,31 @@
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_3_12.property('ADBE Transform Group').property("ADBE Position"));
     try { layer_3_12.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(-20); } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(37.06, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(37.66, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_3_12.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_3_11 = comp_3.layers.addText("COFFEE LEAF RUST \u00b7 LEAF CROSS-SECTION");
     var textProp = layer_3_11.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -13517,31 +13517,6 @@
     try { layer_3_9.enabled = false; } catch(e) {}
     try { layer_3_9.inPoint = 1.4; } catch(e) {}
     try { if (37.72 > layer_3_9.inPoint) { layer_3_9.outPoint = 37.72; } } catch(e) {}
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(37.12, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(37.72, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_3_9.property('ADBE Transform Group').property("ADBE Opacity"));
     try { layer_3_9.property('ADBE Transform Group').property("ADBE Position").setValue([330,225.92]); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -13568,6 +13543,31 @@
         }
       } catch(e) {}
     })(layer_3_9.property('ADBE Transform Group').property("ADBE Scale"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(37.12, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(37.72, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_3_9.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_3_8 = comp_3.layers.addShape();
     var sh_grp_893 = layer_3_8.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_893.name = "Rail";
@@ -13739,7 +13739,6 @@
     layers["S3_Spore//Step 4 Label"] = layer_3_6;
     try { layer_3_6.inPoint = 1; } catch(e) {}
     try { if (37.63 > layer_3_6.inPoint) { layer_3_6.outPoint = 37.63; } } catch(e) {}
-    try { layer_3_6.property('ADBE Transform Group').property("ADBE Position").setValue([1420,930]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(1, 0);
@@ -13809,6 +13808,7 @@
         }
       } catch(e) {}
     })(layer_3_6.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_3_6.property('ADBE Transform Group').property("ADBE Position").setValue([1420,930]); } catch(e) {}
     var layer_3_5 = comp_3.layers.addShape();
     var sh_grp_900 = layer_3_5.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_900.name = "Disc";
@@ -14073,6 +14073,7 @@
     layers["S3_Spore//Step 2 Label"] = layer_3_2;
     try { layer_3_2.inPoint = 1; } catch(e) {}
     try { if (37.66 > layer_3_2.inPoint) { layer_3_2.outPoint = 37.66; } } catch(e) {}
+    try { layer_3_2.property('ADBE Transform Group').property("ADBE Position").setValue([820,930]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(1, 0);
@@ -14142,7 +14143,6 @@
         }
       } catch(e) {}
     })(layer_3_2.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_3_2.property('ADBE Transform Group').property("ADBE Position").setValue([820,930]); } catch(e) {}
     var layer_3_1 = comp_3.layers.addShape();
     var sh_grp_906 = layer_3_1.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_906.name = "Disc";
@@ -14375,7 +14375,6 @@
     layers["S4_Grid//Src Grid"] = layer_4_11;
     try { layer_4_11.inPoint = 9; } catch(e) {}
     try { if (19.1 > layer_4_11.inPoint) { layer_4_11.outPoint = 19.1; } } catch(e) {}
-    try { layer_4_11.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(9, 0);
@@ -14423,6 +14422,7 @@
         }
       } catch(e) {}
     })(layer_4_11.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_4_11.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     var layer_4_10 = comp_4.layers.addText("RUST IN EVERY COFFEE DISTRICT");
     var textProp = layer_4_10.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -14953,6 +14953,7 @@
     layers["S4_Grid//Family Label"] = layer_4_3;
     try { layer_4_3.inPoint = 2.5; } catch(e) {}
     try { if (8.6 > layer_4_3.inPoint) { layer_4_3.outPoint = 8.6; } } catch(e) {}
+    try { layer_4_3.property('ADBE Transform Group').property("ADBE Position").setValue([150,170]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(2.5, 0);
@@ -15000,7 +15001,6 @@
         }
       } catch(e) {}
     })(layer_4_3.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_4_3.property('ADBE Transform Group').property("ADBE Position").setValue([150,170]); } catch(e) {}
     var layer_4_2 = comp_4.layers.addShape();
     var sh_grp_927 = layer_4_2.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_927.name = "Line";
@@ -15056,6 +15056,7 @@
     layers["S4_Grid//Family Line"] = layer_4_2;
     try { layer_4_2.inPoint = 2.2; } catch(e) {}
     try { if (8.6 > layer_4_2.inPoint) { layer_4_2.outPoint = 8.6; } } catch(e) {}
+    try { layer_4_2.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(2.2, 0);
@@ -15103,7 +15104,6 @@
         }
       } catch(e) {}
     })(layer_4_2.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_4_2.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_4_1 = comp_4.layers.addShape();
     var sh_grp_934 = layer_4_1.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_934.name = "Spore";
@@ -30776,31 +30776,6 @@
     try { if (21.1 > layer_4_0.inPoint) { layer_4_0.outPoint = 21.1; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(20.8, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(21.1, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_4_0.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(19.2, [960,540]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -30853,6 +30828,31 @@
         }
       } catch(e) {}
     })(layer_4_0.property('ADBE Transform Group').property("ADBE Scale"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(20.8, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(21.1, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_4_0.property('ADBE Transform Group').property("ADBE Opacity"));
     // --- Layers for Comp: S5_Collapse ---
     var layer_5_24 = comp_5.layers.addShape();
     var sh_grp_1537 = layer_5_24.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
@@ -31139,31 +31139,6 @@
     layers["S5_Collapse//Ward Report Swipe"] = layer_5_19;
     try { layer_5_19.inPoint = 5.1; } catch(e) {}
     try { if (10.6 > layer_5_19.inPoint) { layer_5_19.outPoint = 10.6; } } catch(e) {}
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(10.4, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(10.7, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_5_19.property('ADBE Transform Group').property("ADBE Opacity"));
     try { layer_5_19.property('ADBE Transform Group').property("ADBE Position").setValue([1337.7,286]); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -31190,6 +31165,31 @@
         }
       } catch(e) {}
     })(layer_5_19.property('ADBE Transform Group').property("ADBE Scale"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(10.4, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(10.7, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_5_19.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_5_18 = comp_5.layers.addText("COFFEE LEAF");
     var textProp = layer_5_18.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -31428,6 +31428,7 @@
     layers["S5_Collapse//Land Label"] = layer_5_14;
     try { layer_5_14.inPoint = 13.6; } catch(e) {}
     try { if (16.4 > layer_5_14.inPoint) { layer_5_14.outPoint = 16.4; } } catch(e) {}
+    try { layer_5_14.property('ADBE Transform Group').property("ADBE Position").setValue([620,948]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(13.6, 0);
@@ -31475,7 +31476,6 @@
         }
       } catch(e) {}
     })(layer_5_14.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_5_14.property('ADBE Transform Group').property("ADBE Position").setValue([620,948]); } catch(e) {}
     var layer_5_13 = comp_5.layers.addShape();
     var sh_grp_1550 = layer_5_13.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_1550.name = "Q1";
@@ -32241,6 +32241,7 @@
     try { layer_5_6.enabled = false; } catch(e) {}
     try { layer_5_6.inPoint = 0.8; } catch(e) {}
     try { if (18 > layer_5_6.inPoint) { layer_5_6.outPoint = 18; } } catch(e) {}
+    try { layer_5_6.property('ADBE Transform Group').property("ADBE Position").setValue([230,165.92]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.8, [0,100]);
@@ -32266,7 +32267,6 @@
         }
       } catch(e) {}
     })(layer_5_6.property('ADBE Transform Group').property("ADBE Scale"));
-    try { layer_5_6.property('ADBE Transform Group').property("ADBE Position").setValue([230,165.92]); } catch(e) {}
     var layer_5_5 = comp_5.layers.addText("1890");
     var textProp = layer_5_5.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -32952,7 +32952,6 @@
     layers["S6_Tea//Damb Dot"] = layer_6_23;
     try { layer_6_23.inPoint = 21.6; } catch(e) {}
     try { if (28 > layer_6_23.inPoint) { layer_6_23.outPoint = 28; } } catch(e) {}
-    try { layer_6_23.property('ADBE Transform Group').property("ADBE Position").setValue([1633.59,332.23]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(21.6, [0,0]);
@@ -32978,14 +32977,15 @@
         }
       } catch(e) {}
     })(layer_6_23.property('ADBE Transform Group').property("ADBE Scale"));
+    try { layer_6_23.property('ADBE Transform Group').property("ADBE Position").setValue([1633.59,332.23]); } catch(e) {}
     var layer_6_22 = comp_6.layers.addNull();
     layer_6_22.name = "Chart Rig";
     layers["S6_Tea//Chart Rig"] = layer_6_22;
     try { layer_6_22.inPoint = 0; } catch(e) {}
     try { if (28 > layer_6_22.inPoint) { layer_6_22.outPoint = 28; } } catch(e) {}
+    try { layer_6_22.property('ADBE Transform Group').property("ADBE Scale").setValue([103,103]); } catch(e) {}
     try { layer_6_22.property('ADBE Transform Group').property("ADBE Position").setValue([960,540]); } catch(e) {}
     try { layer_6_22.property('ADBE Transform Group').property("ADBE Anchor Point").setValue([960,540]); } catch(e) {}
-    try { layer_6_22.property('ADBE Transform Group').property("ADBE Scale").setValue([103,103]); } catch(e) {}
     var layer_6_21 = comp_6.layers.addText("1890s PRESS ADVERTISEMENT, RECREATED");
     var textProp = layer_6_21.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -33000,7 +33000,6 @@
     layers["S6_Tea//Advert Credit"] = layer_6_21;
     try { layer_6_21.inPoint = 14.8; } catch(e) {}
     try { if (21 > layer_6_21.inPoint) { layer_6_21.outPoint = 21; } } catch(e) {}
-    try { layer_6_21.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(14.8, 0);
@@ -33048,6 +33047,7 @@
         }
       } catch(e) {}
     })(layer_6_21.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_6_21.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     var layer_6_20 = comp_6.layers.addShape();
     var sh_grp_1612 = layer_6_20.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_1612.name = "Sheet";
@@ -33447,35 +33447,6 @@
     try { if (26.52 > layer_6_14.inPoint) { layer_6_14.outPoint = 26.52; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(12.4, [1650,458]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(12.95, [1650,434]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_6_14.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(12.4, 0);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -33565,6 +33536,35 @@
         }
       } catch(e) {}
     })(layer_6_14.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(12.4, [1650,458]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(12.95, [1650,434]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_6_14.property('ADBE Transform Group').property("ADBE Position"));
     var layer_6_13 = comp_6.layers.addText("\u2248 400,000 acres");
     var textProp = layer_6_13.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -34003,6 +34003,7 @@
     try { layer_6_9.enabled = false; } catch(e) {}
     try { layer_6_9.inPoint = 5.6; } catch(e) {}
     try { if (26.52 > layer_6_9.inPoint) { layer_6_9.outPoint = 26.52; } } catch(e) {}
+    try { layer_6_9.property('ADBE Transform Group').property("ADBE Position").setValue([230,165.92]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(5.6, [0,100]);
@@ -34097,7 +34098,6 @@
         }
       } catch(e) {}
     })(layer_6_9.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_6_9.property('ADBE Transform Group').property("ADBE Position").setValue([230,165.92]); } catch(e) {}
     var layer_6_8 = comp_6.layers.addText("Ceylon's coffee exports");
     var textProp = layer_6_8.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -34173,6 +34173,7 @@
     layers["S6_Tea//Tick 1900"] = layer_6_7;
     try { layer_6_7.inPoint = 0.75; } catch(e) {}
     try { if (26.46 > layer_6_7.inPoint) { layer_6_7.outPoint = 26.46; } } catch(e) {}
+    try { layer_6_7.property('ADBE Transform Group').property("ADBE Position").setValue([1660,860]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.75, 0);
@@ -34264,7 +34265,6 @@
         }
       } catch(e) {}
     })(layer_6_7.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_6_7.property('ADBE Transform Group').property("ADBE Position").setValue([1660,860]); } catch(e) {}
     var layer_6_6 = comp_6.layers.addText("1895");
     var textProp = layer_6_6.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -34553,6 +34553,7 @@
     layers["S6_Tea//Tick 1880"] = layer_6_3;
     try { layer_6_3.inPoint = 0; } catch(e) {}
     try { if (26.49 > layer_6_3.inPoint) { layer_6_3.outPoint = 26.49; } } catch(e) {}
+    try { layer_6_3.property('ADBE Transform Group').property("ADBE Position").setValue([726.6666666666666,860]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(14.2, 100);
@@ -34622,7 +34623,6 @@
         }
       } catch(e) {}
     })(layer_6_3.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_6_3.property('ADBE Transform Group').property("ADBE Position").setValue([726.6666666666666,860]); } catch(e) {}
     var layer_6_2 = comp_6.layers.addText("1875");
     var textProp = layer_6_2.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -36109,31 +36109,6 @@
     try { if (31 > layer_7_25.inPoint) { layer_7_25.outPoint = 31; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(21, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(21.5, 30);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_7_25.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(12.8, [960,204]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -36161,6 +36136,31 @@
       try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_7_25.property('ADBE Transform Group').property("ADBE Position"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(21, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(21.5, 30);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_7_25.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_7_24 = comp_7.layers.addShape();
     var sh_grp_1744 = layer_7_24.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_1744.name = "Leaf";
@@ -36337,7 +36337,6 @@
     layers["S7_Switch//Heat"] = layer_7_23;
     try { layer_7_23.inPoint = 18.4; } catch(e) {}
     try { if (31 > layer_7_23.inPoint) { layer_7_23.outPoint = 31; } } catch(e) {}
-    try { layer_7_23.property('ADBE Transform Group').property("ADBE Position").setValue([1340,270]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(21, 100);
@@ -36363,6 +36362,7 @@
         }
       } catch(e) {}
     })(layer_7_23.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_7_23.property('ADBE Transform Group').property("ADBE Position").setValue([1340,270]); } catch(e) {}
     var layer_7_22 = comp_7.layers.addShape();
     var sh_grp_1756 = layer_7_22.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_1756.name = "Disc";
@@ -36374,6 +36374,31 @@
     layers["S7_Switch//Stage DRY Dot"] = layer_7_22;
     try { layer_7_22.inPoint = 18.4; } catch(e) {}
     try { if (31 > layer_7_22.inPoint) { layer_7_22.outPoint = 31; } } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(21, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(21.5, 30);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_7_22.property('ADBE Transform Group').property("ADBE Opacity"));
     try { layer_7_22.property('ADBE Transform Group').property("ADBE Position").setValue([1340,300]); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -36400,31 +36425,6 @@
         }
       } catch(e) {}
     })(layer_7_22.property('ADBE Transform Group').property("ADBE Scale"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(21, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(21.5, 30);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_7_22.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_7_21 = comp_7.layers.addText("DRY");
     var textProp = layer_7_21.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -36504,7 +36504,6 @@
     layers["S7_Switch//Stage OXIDISE Dot"] = layer_7_20;
     try { layer_7_20.inPoint = 16.8; } catch(e) {}
     try { if (31 > layer_7_20.inPoint) { layer_7_20.outPoint = 31; } } catch(e) {}
-    try { layer_7_20.property('ADBE Transform Group').property("ADBE Position").setValue([1080,300]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(16.8, [0,0]);
@@ -36555,6 +36554,7 @@
         }
       } catch(e) {}
     })(layer_7_20.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_7_20.property('ADBE Transform Group').property("ADBE Position").setValue([1080,300]); } catch(e) {}
     var layer_7_19 = comp_7.layers.addText("OXIDISE");
     var textProp = layer_7_19.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -36971,6 +36971,7 @@
     layers["S7_Switch//Src Switch"] = layer_7_13;
     try { layer_7_13.inPoint = 8.9; } catch(e) {}
     try { if (12 > layer_7_13.inPoint) { layer_7_13.outPoint = 12; } } catch(e) {}
+    try { layer_7_13.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(8.9, 0);
@@ -37018,7 +37019,6 @@
         }
       } catch(e) {}
     })(layer_7_13.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_7_13.property('ADBE Transform Group').property("ADBE Position").setValue([90,1040]); } catch(e) {}
     var layer_7_12 = comp_7.layers.addText("FIRST HARVEST \u2248 YEAR 3");
     var textProp = layer_7_12.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -37204,6 +37204,31 @@
     try { if (31 > layer_7_10.inPoint) { layer_7_10.outPoint = 31; } } catch(e) {}
     (function(p) {
       if (!p) return;
+      p.setValueAtTime(6, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(6.33, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_7_10.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
       p.setValueAtTime(6, [810,614]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -37231,31 +37256,6 @@
       try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_7_10.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(6, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(6.33, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_7_10.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_7_9 = comp_7.layers.addShape();
     var sh_grp_1781 = layer_7_9.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_1781.name = "Band";
@@ -37592,6 +37592,31 @@
     try { if (31 > layer_7_5.inPoint) { layer_7_5.outPoint = 31; } } catch(e) {}
     (function(p) {
       if (!p) return;
+      p.setValueAtTime(1.2, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(1.53, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_7_5.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
       p.setValueAtTime(1.2, [1560,694]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -37619,31 +37644,6 @@
       try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_7_5.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(1.2, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(1.53, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_7_5.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_7_4 = comp_7.layers.addText("YEAR 3");
     var textProp = layer_7_4.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -39783,6 +39783,7 @@
     layers["S8_Atlantic//Chiapas"] = layer_8_23;
     try { layer_8_23.inPoint = 25; } catch(e) {}
     try { if (29 > layer_8_23.inPoint) { layer_8_23.outPoint = 29; } } catch(e) {}
+    try { layer_8_23.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(25, 0);
@@ -39808,7 +39809,6 @@
         }
       } catch(e) {}
     })(layer_8_23.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_8_23.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_8_22 = comp_8.layers.addText("SOURCE: USDA FAS PSD; USDA FAS MEXICO COFFEE ANNUAL 2016");
     var textProp = layer_8_22.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -40396,6 +40396,7 @@
     layers["S8_Atlantic//Bar 2012/13"] = layer_8_15;
     try { layer_8_15.inPoint = 19.8; } catch(e) {}
     try { if (24.8 > layer_8_15.inPoint) { layer_8_15.outPoint = 24.8; } } catch(e) {}
+    try { layer_8_15.property('ADBE Transform Group').property("ADBE Position").setValue([1500,860]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(19.8, [100,0]);
@@ -40446,7 +40447,6 @@
         }
       } catch(e) {}
     })(layer_8_15.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_8_15.property('ADBE Transform Group').property("ADBE Position").setValue([1500,860]); } catch(e) {}
     var layer_8_14 = comp_8.layers.addText("SOURCE: ICO COFFEE MARKET REPORT, MARCH 2013");
     var textProp = layer_8_14.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -40525,6 +40525,35 @@
     try { if (19.6 > layer_8_13.inPoint) { layer_8_13.outPoint = 19.6; } } catch(e) {}
     (function(p) {
       if (!p) return;
+      p.setValueAtTime(16.2, [1440,570]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(16.75, [1440,546]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_8_13.property('ADBE Transform Group').property("ADBE Position"));
+    (function(p) {
+      if (!p) return;
       p.setValueAtTime(16.2, 0);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -40570,35 +40599,6 @@
         }
       } catch(e) {}
     })(layer_8_13.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(16.2, [1440,570]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(16.75, [1440,546]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_8_13.property('ADBE Transform Group').property("ADBE Position"));
     var layer_8_12 = comp_8.layers.addText("\u2248 53 %");
     var textProp = layer_8_12.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -40710,7 +40710,6 @@
     layers["S8_Atlantic//Area Bar"] = layer_8_11;
     try { layer_8_11.inPoint = 15.6; } catch(e) {}
     try { if (19.6 > layer_8_11.inPoint) { layer_8_11.outPoint = 19.6; } } catch(e) {}
-    try { layer_8_11.property('ADBE Transform Group').property("ADBE Position").setValue([1440,420]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(15.6, 0);
@@ -40758,6 +40757,7 @@
         }
       } catch(e) {}
     })(layer_8_11.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_8_11.property('ADBE Transform Group').property("ADBE Position").setValue([1440,420]); } catch(e) {}
     var layer_8_10 = comp_8.layers.addShape();
     var sh_grp_2020 = layer_8_10.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_2020.name = "A1";
@@ -42797,7 +42797,6 @@
     layers["S8_Atlantic//Stop 1"] = layer_8_1;
     try { layer_8_1.inPoint = 0.7; } catch(e) {}
     try { if (11.6 > layer_8_1.inPoint) { layer_8_1.outPoint = 11.6; } } catch(e) {}
-    try { layer_8_1.property('ADBE Transform Group').property("ADBE Position").setValue([1730.95,583.2]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.7, 0);
@@ -42845,6 +42844,7 @@
         }
       } catch(e) {}
     })(layer_8_1.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_8_1.property('ADBE Transform Group').property("ADBE Position").setValue([1730.95,583.2]); } catch(e) {}
     var layer_8_0 = comp_8.layers.addShape();
     var sh_grp_2161 = layer_8_0.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_2161.name = "R1";
@@ -46149,7 +46149,6 @@
     layers["S9_Tree//Ep1 Tag"] = layer_9_39;
     try { layer_9_39.inPoint = 15.6; } catch(e) {}
     try { if (23.7 > layer_9_39.inPoint) { layer_9_39.outPoint = 23.7; } } catch(e) {}
-    try { layer_9_39.property('ADBE Transform Group').property("ADBE Position").setValue([960,100]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(15.6, 0);
@@ -46197,6 +46196,7 @@
         }
       } catch(e) {}
     })(layer_9_39.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_9_39.property('ADBE Transform Group').property("ADBE Position").setValue([960,100]); } catch(e) {}
     var layer_9_38 = comp_9.layers.addText("Marsellesa");
     var textProp = layer_9_38.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -46330,6 +46330,7 @@
     layers["S9_Tree//Oro Azteca Name"] = layer_9_36;
     try { layer_9_36.inPoint = 15.6; } catch(e) {}
     try { if (23.7 > layer_9_36.inPoint) { layer_9_36.outPoint = 23.7; } } catch(e) {}
+    try { layer_9_36.property('ADBE Transform Group').property("ADBE Position").setValue([1402,492]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(15.6, 0);
@@ -46377,7 +46378,6 @@
         }
       } catch(e) {}
     })(layer_9_36.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_9_36.property('ADBE Transform Group').property("ADBE Position").setValue([1402,492]); } catch(e) {}
     var layer_9_35 = comp_9.layers.addShape();
     var sh_grp_2470 = layer_9_35.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_2470.name = "Disc";
@@ -47950,7 +47950,6 @@
     layers["S9_Tree//Link Rob"] = layer_9_14;
     try { layer_9_14.inPoint = 15.6; } catch(e) {}
     try { if (23.7 > layer_9_14.inPoint) { layer_9_14.outPoint = 23.7; } } catch(e) {}
-    try { layer_9_14.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(15.6, 0);
@@ -47998,6 +47997,7 @@
         }
       } catch(e) {}
     })(layer_9_14.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_9_14.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_9_13 = comp_9.layers.addShape();
     var sh_grp_2533 = layer_9_13.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_2533.name = "L";
@@ -48114,31 +48114,6 @@
     try { if (15.6 > layer_9_12.inPoint) { layer_9_12.outPoint = 15.6; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(15, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(15.4, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_9_12.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(12.2, [700,-300]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -48166,6 +48141,31 @@
       try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_9_12.property('ADBE Transform Group').property("ADBE Position"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(15, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(15.4, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_9_12.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_9_11 = comp_9.layers.addText("\u2248 3 FOOTBALL PITCHES");
     var textProp = layer_9_11.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -48288,6 +48288,31 @@
     layers["S9_Tree//Pitch 3"] = layer_9_10;
     try { layer_9_10.inPoint = 9.4; } catch(e) {}
     try { if (12 > layer_9_10.inPoint) { layer_9_10.outPoint = 12; } } catch(e) {}
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(11.6, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(12, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_9_10.property('ADBE Transform Group').property("ADBE Opacity"));
     try { layer_9_10.property('ADBE Transform Group').property("ADBE Position").setValue([1180,680]); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -48314,31 +48339,6 @@
         }
       } catch(e) {}
     })(layer_9_10.property('ADBE Transform Group').property("ADBE Scale"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(11.6, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(12, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_9_10.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_9_9 = comp_9.layers.addShape();
     var sh_grp_2554 = layer_9_9.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_2554.name = "P";
@@ -48454,31 +48454,6 @@
     layers["S9_Tree//Pitch 1"] = layer_9_8;
     try { layer_9_8.inPoint = 8.8; } catch(e) {}
     try { if (12 > layer_9_8.inPoint) { layer_9_8.outPoint = 12; } } catch(e) {}
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(11.6, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(12, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_9_8.property('ADBE Transform Group').property("ADBE Opacity"));
     try { layer_9_8.property('ADBE Transform Group').property("ADBE Position").setValue([1180,360]); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -48505,6 +48480,31 @@
         }
       } catch(e) {}
     })(layer_9_8.property('ADBE Transform Group').property("ADBE Scale"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(11.6, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(12, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_9_8.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_9_7 = comp_9.layers.addText("2 ha");
     var textProp = layer_9_7.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -48613,7 +48613,6 @@
     layers["S9_Tree//Plot"] = layer_9_6;
     try { layer_9_6.inPoint = 7.4; } catch(e) {}
     try { if (14.8 > layer_9_6.inPoint) { layer_9_6.outPoint = 14.8; } } catch(e) {}
-    try { layer_9_6.property('ADBE Transform Group').property("ADBE Position").setValue([700,520]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(14.4, 100);
@@ -48639,6 +48638,7 @@
         }
       } catch(e) {}
     })(layer_9_6.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_9_6.property('ADBE Transform Group').property("ADBE Position").setValue([700,520]); } catch(e) {}
     var layer_9_5 = comp_9.layers.addShape();
     var sh_grp_2572 = layer_9_5.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_2572.name = "Row 1";
@@ -48988,7 +48988,6 @@
     layers["S9_Tree//Plot Rows"] = layer_9_5;
     try { layer_9_5.inPoint = 8; } catch(e) {}
     try { if (14.8 > layer_9_5.inPoint) { layer_9_5.outPoint = 14.8; } } catch(e) {}
-    try { layer_9_5.property('ADBE Transform Group').property("ADBE Position").setValue([700,520]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(8, 0);
@@ -49036,6 +49035,7 @@
         }
       } catch(e) {}
     })(layer_9_5.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_9_5.property('ADBE Transform Group').property("ADBE Position").setValue([700,520]); } catch(e) {}
     var layer_9_4 = comp_9.layers.addText("SOURCE: INEGI CENSUS VIA LA JORNADA (2018); USDA FAS MX2026-0026");
     var textProp = layer_9_4.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -49113,6 +49113,35 @@
     try { if (7.4 > layer_9_3.inPoint) { layer_9_3.outPoint = 7.4; } } catch(e) {}
     (function(p) {
       if (!p) return;
+      p.setValueAtTime(3.6, [960,824]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(4.15, [960,800]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_9_3.property('ADBE Transform Group').property("ADBE Position"));
+    (function(p) {
+      if (!p) return;
       p.setValueAtTime(3.6, 0);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -49158,35 +49187,6 @@
         }
       } catch(e) {}
     })(layer_9_3.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(3.6, [960,824]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(4.15, [960,800]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_9_3.property('ADBE Transform Group').property("ADBE Position"));
     var layer_9_2 = comp_9.layers.addText("\u2248 500,000 families");
     var textProp = layer_9_2.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -52740,10 +52740,10 @@
     layers["S10_Cost//Cam"] = layer_10_54;
     try { layer_10_54.inPoint = 0; } catch(e) {}
     try { if (28 > layer_10_54.inPoint) { layer_10_54.outPoint = 28; } } catch(e) {}
-    try { layer_10_54.property('ADBE Transform Group').property("ADBE Anchor Point").setValue([1330,220]); } catch(e) {}
-    try { layer_10_54.property('ADBE Transform Group').property("ADBE Scale").expression = "var u = Math.min(1, Math.max(0, (time - 24.6) / 2.799999999999997)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; var s = Math.exp(0.00000 * (1 - u) + -0.84049 * u) * 100; [s, s]"; } catch(e) {}
     try { layer_10_54.property('ADBE Transform Group').property("ADBE Position").setValue([1330,220]); } catch(e) {}
     try { layer_10_54.property('ADBE Transform Group').property("ADBE Position").expression = "var u = Math.min(1, Math.max(0, (time - 24.6) / 2.799999999999997)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; [1330.00 + (-49.61) * u, 220.00 + (510.29) * u]"; } catch(e) {}
+    try { layer_10_54.property('ADBE Transform Group').property("ADBE Anchor Point").setValue([1330,220]); } catch(e) {}
+    try { layer_10_54.property('ADBE Transform Group').property("ADBE Scale").expression = "var u = Math.min(1, Math.max(0, (time - 24.6) / 2.799999999999997)); u = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; var s = Math.exp(0.00000 * (1 - u) + -0.84049 * u) * 100; [s, s]"; } catch(e) {}
     var layer_10_53 = comp_10.layers.addText("SOURCE: WORLD COFFEE RESEARCH");
     var textProp = layer_10_53.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -53039,7 +53039,6 @@
     layers["S10_Cost//Var Marsellesa"] = layer_10_48;
     try { layer_10_48.inPoint = 17.2; } catch(e) {}
     try { if (25.1 > layer_10_48.inPoint) { layer_10_48.outPoint = 25.1; } } catch(e) {}
-    try { layer_10_48.property('ADBE Transform Group').property("ADBE Position").setValue([1330,760]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(17.2, 0);
@@ -53087,6 +53086,7 @@
         }
       } catch(e) {}
     })(layer_10_48.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_10_48.property('ADBE Transform Group').property("ADBE Position").setValue([1330,760]); } catch(e) {}
     var layer_10_47 = comp_10.layers.addText("Oro Azteca");
     var textProp = layer_10_47.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -53159,6 +53159,7 @@
     layers["S10_Cost//Var Oro Azteca"] = layer_10_46;
     try { layer_10_46.inPoint = 17.2; } catch(e) {}
     try { if (25.1 > layer_10_46.inPoint) { layer_10_46.outPoint = 25.1; } } catch(e) {}
+    try { layer_10_46.property('ADBE Transform Group').property("ADBE Position").setValue([1330,480]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(17.2, 0);
@@ -53206,7 +53207,6 @@
         }
       } catch(e) {}
     })(layer_10_46.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_10_46.property('ADBE Transform Group').property("ADBE Position").setValue([1330,480]); } catch(e) {}
     var layer_10_45 = comp_10.layers.addText("Costa Rica 95");
     var textProp = layer_10_45.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -53220,7 +53220,6 @@
     layers["S10_Cost//Costa Rica 95 Name"] = layer_10_45;
     try { layer_10_45.inPoint = 17.2; } catch(e) {}
     try { if (25.1 > layer_10_45.inPoint) { layer_10_45.outPoint = 25.1; } } catch(e) {}
-    try { layer_10_45.property('ADBE Transform Group').property("ADBE Position").setValue([1402,232]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(17.2, 0);
@@ -53268,6 +53267,7 @@
         }
       } catch(e) {}
     })(layer_10_45.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_10_45.property('ADBE Transform Group').property("ADBE Position").setValue([1402,232]); } catch(e) {}
     var layer_10_44 = comp_10.layers.addShape();
     var sh_grp_3007 = layer_10_44.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3007.name = "Disc";
@@ -54024,7 +54024,6 @@
     layers["S10_Cost//Link Oro Azteca R"] = layer_10_33;
     try { layer_10_33.inPoint = 17.2; } catch(e) {}
     try { if (25.1 > layer_10_33.inPoint) { layer_10_33.outPoint = 25.1; } } catch(e) {}
-    try { layer_10_33.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(17.2, 0);
@@ -54072,6 +54071,7 @@
         }
       } catch(e) {}
     })(layer_10_33.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_10_33.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_10_32 = comp_10.layers.addShape();
     var sh_grp_3043 = layer_10_32.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3043.name = "L";
@@ -54369,7 +54369,6 @@
     layers["S10_Cost//Link Sarchimor A"] = layer_10_28;
     try { layer_10_28.inPoint = 17.2; } catch(e) {}
     try { if (25.1 > layer_10_28.inPoint) { layer_10_28.outPoint = 25.1; } } catch(e) {}
-    try { layer_10_28.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(17.2, 0);
@@ -54417,6 +54416,7 @@
         }
       } catch(e) {}
     })(layer_10_28.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_10_28.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_10_27 = comp_10.layers.addShape();
     var sh_grp_3058 = layer_10_27.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3058.name = "L";
@@ -54989,31 +54989,6 @@
     layers["S10_Cost//INIFAP"] = layer_10_18;
     try { layer_10_18.inPoint = 5.6; } catch(e) {}
     try { if (10.6 > layer_10_18.inPoint) { layer_10_18.outPoint = 10.6; } } catch(e) {}
-    (function(p) {
-      if (!p) return;
-      p.setValueAtTime(10.4, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(10.7, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_10_18.property('ADBE Transform Group').property("ADBE Opacity"));
     try { layer_10_18.property('ADBE Transform Group').property("ADBE Position").setValue([1500,340]); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -55040,6 +55015,31 @@
         }
       } catch(e) {}
     })(layer_10_18.property('ADBE Transform Group').property("ADBE Scale"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(10.4, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(10.7, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_10_18.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_10_17 = comp_10.layers.addText("CUP QUALITY");
     var textProp = layer_10_17.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -55113,7 +55113,6 @@
     layers["S10_Cost//INIFAP Swipe"] = layer_10_16;
     try { layer_10_16.inPoint = 6.5; } catch(e) {}
     try { if (10.6 > layer_10_16.inPoint) { layer_10_16.outPoint = 10.6; } } catch(e) {}
-    try { layer_10_16.property('ADBE Transform Group').property("ADBE Position").setValue([1416.56,333.6]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(6.5, [0,100]);
@@ -55164,6 +55163,7 @@
         }
       } catch(e) {}
     })(layer_10_16.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_10_16.property('ADBE Transform Group').property("ADBE Position").setValue([1416.56,333.6]); } catch(e) {}
     var layer_10_15 = comp_10.layers.addText("HYBRIDS: LOW");
     var textProp = layer_10_15.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -55775,31 +55775,6 @@
     try { if (16.6 > layer_10_4.inPoint) { layer_10_4.outPoint = 16.6; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(1, 0);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      p.setValueAtTime(1.33, 100);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-    })(layer_10_4.property('ADBE Transform Group').property("ADBE Opacity"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(1, [360,704]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -55827,6 +55802,31 @@
       try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
       try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
     })(layer_10_4.property('ADBE Transform Group').property("ADBE Position"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(1, 0);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      p.setValueAtTime(1.33, 100);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+    })(layer_10_4.property('ADBE Transform Group').property("ADBE Opacity"));
     var layer_10_3 = comp_10.layers.addShape();
     var sh_grp_3097 = layer_10_3.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3097.name = "Axis";
@@ -56026,35 +56026,6 @@
     try { if (16.6 > layer_10_0.inPoint) { layer_10_0.outPoint = 16.6; } } catch(e) {}
     (function(p) {
       if (!p) return;
-      p.setValueAtTime(0.2, [960,540]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(1, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-      p.setValueAtTime(1.4, [760,520]);
-      try {
-        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
-        if (p.propertyValueType === PropertyValueType.TwoD) {
-          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
-        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
-          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
-        } else {
-          p.setTemporalEaseAtKey(2, [ei], [eo]);
-        }
-      } catch(e) {}
-      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
-      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
-    })(layer_10_0.property('ADBE Transform Group').property("ADBE Position"));
-    (function(p) {
-      if (!p) return;
       p.setValueAtTime(0.2, [100,100]);
       try {
         var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
@@ -56103,6 +56074,35 @@
         }
       } catch(e) {}
     })(layer_10_0.property('ADBE Transform Group').property("ADBE Opacity"));
+    (function(p) {
+      if (!p) return;
+      p.setValueAtTime(0.2, [960,540]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(1, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(1, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(1, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(1, false); p.setSpatialContinuousAtKey(1, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(1, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(1, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+      p.setValueAtTime(1.4, [760,520]);
+      try {
+        var ei = new KeyframeEase(0, 85), eo = new KeyframeEase(0, 10);
+        if (p.propertyValueType === PropertyValueType.TwoD) {
+          p.setTemporalEaseAtKey(2, [ei, ei], [eo, eo]);
+        } else if (p.propertyValueType === PropertyValueType.ThreeD) {
+          p.setTemporalEaseAtKey(2, [ei, ei, ei], [eo, eo, eo]);
+        } else {
+          p.setTemporalEaseAtKey(2, [ei], [eo]);
+        }
+      } catch(e) {}
+      try { p.setSpatialAutoBezierAtKey(2, false); p.setSpatialContinuousAtKey(2, false); } catch(e) {}
+      try { p.setSpatialTangentsAtKey(2, [0,0], [0,0]); } catch(e) { try { p.setSpatialTangentsAtKey(2, [0, 0, 0], [0, 0, 0]); } catch(e2) {} }
+    })(layer_10_0.property('ADBE Transform Group').property("ADBE Position"));
     if (layers["S10_Cost//Specialty Label Matte"]) { try { layer_10_11.setTrackMatte(layers["S10_Cost//Specialty Label Matte"], TrackMatteType.ALPHA); } catch(e) {} }
     if (layers["S10_Cost//Cam"]) { try { layer_10_24.setParentWithJump(layers["S10_Cost//Cam"]); } catch(e) {} }
     if (layers["S10_Cost//Cam"]) { try { layer_10_25.setParentWithJump(layers["S10_Cost//Cam"]); } catch(e) {} }
@@ -56227,6 +56227,7 @@
     layers["S11_Close//Table"] = layer_11_15;
     try { layer_11_15.inPoint = 0; } catch(e) {}
     try { if (21 > layer_11_15.inPoint) { layer_11_15.outPoint = 21; } } catch(e) {}
+    try { layer_11_15.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.2, 0);
@@ -56252,7 +56253,6 @@
         }
       } catch(e) {}
     })(layer_11_15.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_11_15.property('ADBE Transform Group').property("ADBE Position").setValue([0,0]); } catch(e) {}
     var layer_11_14 = comp_11.layers.addShape();
     var sh_grp_3117 = layer_11_14.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3117.name = "Body";
@@ -56310,7 +56310,6 @@
     layers["S11_Close//Tin Sub"] = layer_11_13;
     try { layer_11_13.inPoint = 0; } catch(e) {}
     try { if (21 > layer_11_13.inPoint) { layer_11_13.outPoint = 21; } } catch(e) {}
-    try { layer_11_13.property('ADBE Transform Group').property("ADBE Position").setValue([720,512]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.2, 0);
@@ -56336,6 +56335,7 @@
         }
       } catch(e) {}
     })(layer_11_13.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_11_13.property('ADBE Transform Group').property("ADBE Position").setValue([720,512]); } catch(e) {}
     var layer_11_12 = comp_11.layers.addText("CEYLON");
     var textProp = layer_11_12.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -56677,7 +56677,6 @@
     layers["S11_Close//Seal"] = layer_11_9;
     try { layer_11_9.inPoint = 0; } catch(e) {}
     try { if (21 > layer_11_9.inPoint) { layer_11_9.outPoint = 21; } } catch(e) {}
-    try { layer_11_9.property('ADBE Transform Group').property("ADBE Position").setValue([720,640]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(0.2, 0);
@@ -56703,6 +56702,7 @@
         }
       } catch(e) {}
     })(layer_11_9.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_11_9.property('ADBE Transform Group').property("ADBE Position").setValue([720,640]); } catch(e) {}
     var layer_11_8 = comp_11.layers.addText("ORO AZTECA \u00b7 A LITTLE ROBUSTA");
     var textProp = layer_11_8.property('ADBE Text Properties').property('ADBE Text Document');
     var textDoc = textProp.value;
@@ -56804,6 +56804,7 @@
     layers["S11_Close//Coffee Leaf"] = layer_11_7;
     try { layer_11_7.inPoint = 0; } catch(e) {}
     try { if (6.2 > layer_11_7.inPoint) { layer_11_7.outPoint = 6.2; } } catch(e) {}
+    try { layer_11_7.property('ADBE Transform Group').property("ADBE Position").setValue([1250,744]); } catch(e) {}
     try { layer_11_7.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(-8); } catch(e) {}
     (function(p) {
       if (!p) return;
@@ -56852,7 +56853,6 @@
         }
       } catch(e) {}
     })(layer_11_7.property('ADBE Transform Group').property("ADBE Opacity"));
-    try { layer_11_7.property('ADBE Transform Group').property("ADBE Position").setValue([1250,744]); } catch(e) {}
     var layer_11_6 = comp_11.layers.addShape();
     var sh_grp_3201 = layer_11_6.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3201.name = "Vein";
@@ -56887,8 +56887,6 @@
     layers["S11_Close//Mexico Leaf"] = layer_11_6;
     try { layer_11_6.inPoint = 5.4; } catch(e) {}
     try { if (21 > layer_11_6.inPoint) { layer_11_6.outPoint = 21; } } catch(e) {}
-    try { layer_11_6.property('ADBE Transform Group').property("ADBE Position").setValue([1250,744]); } catch(e) {}
-    try { layer_11_6.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(-8); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(5.4, 0);
@@ -56914,6 +56912,8 @@
         }
       } catch(e) {}
     })(layer_11_6.property('ADBE Transform Group').property("ADBE Opacity"));
+    try { layer_11_6.property('ADBE Transform Group').property("ADBE Position").setValue([1250,744]); } catch(e) {}
+    try { layer_11_6.property('ADBE Transform Group').property("ADBE Rotate Z").setValue(-8); } catch(e) {}
     var layer_11_5 = comp_11.layers.addShape();
     var sh_grp_3207 = layer_11_5.property('ADBE Root Vectors Group').addProperty('ADBE Vector Group');
     sh_grp_3207.name = "Disc";
@@ -57069,6 +57069,7 @@
     try { layer_11_0.enabled = false; } catch(e) {}
     try { layer_11_0.inPoint = 12.4; } catch(e) {}
     try { if (21 > layer_11_0.inPoint) { layer_11_0.outPoint = 21; } } catch(e) {}
+    try { layer_11_0.property('ADBE Transform Group').property("ADBE Position").setValue([493.52,839.52]); } catch(e) {}
     (function(p) {
       if (!p) return;
       p.setValueAtTime(12.4, [0,100]);
@@ -57094,7 +57095,6 @@
         }
       } catch(e) {}
     })(layer_11_0.property('ADBE Transform Group').property("ADBE Scale"));
-    try { layer_11_0.property('ADBE Transform Group').property("ADBE Position").setValue([493.52,839.52]); } catch(e) {}
     if (layers["S11_Close//End 1 Matte"]) { try { layer_11_1.setTrackMatte(layers["S11_Close//End 1 Matte"], TrackMatteType.ALPHA); } catch(e) {} }
     if (layers["S11_Close//End 2 Matte"]) { try { layer_11_3.setTrackMatte(layers["S11_Close//End 2 Matte"], TrackMatteType.ALPHA); } catch(e) {} }
     if (layers["S11_Close//Tin Rig"]) { try { layer_11_5.setParentWithJump(layers["S11_Close//Tin Rig"]); } catch(e) {} }
@@ -57114,17 +57114,6 @@
     try { if (!aepFile.parent.exists) { aepFile.parent.create(); } } catch(e) {}
     app.project.save(aepFile);
     $.writeln('SAVED_AEP: ' + aepFile.fsName);
-    if (aepFile.exists && (!app.project.file || app.project.file.fsName !== aepFile.fsName)) {
-      app.open(aepFile);
-    }
-    try {
-      if (typeof comp_0 !== 'undefined' && comp_0) { comp_0.openInViewer(); }
-      else if (app.project && app.project.numItems > 0) {
-        for (var ci = 1; ci <= app.project.numItems; ci++) {
-          if (app.project.item(ci) instanceof CompItem) { app.project.item(ci).openInViewer(); break; }
-        }
-      }
-    } catch(e) {}
   } catch(err) {
     try {
       var errFile = new File("C:/Users/aldai/Desktop/aep/aftereffects-aep-parser/Coffee Episodes/aep/ae_error.log");
@@ -57132,9 +57121,10 @@
       errFile.writeln('BUILD_ERROR: ' + err.toString() + ' (line ' + err.line + ')');
       errFile.close();
     } catch(e) {}
-    alert('Build Error: ' + err.toString() + ' (line ' + err.line + ')');
     $.writeln('BUILD_ERROR: ' + err.toString() + ' (line ' + err.line + ')');
   } finally {
     if (undoOpen) { try { app.endUndoGroup(); } catch(e) {} }
+    // Auto-close when executed non-interactively via CLI
+    app.quit();
   }
 })();
