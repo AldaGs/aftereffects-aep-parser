@@ -11,7 +11,7 @@ Most coffee channels cover brewing gear, recipes and the same "Arabica vs. robus
 | Promise | "You'll never look at a cup the same way." Friendly enough for anyone, and specific enough that a barista learns something |
 | Lens | Mexico as the recurring case study: its regions, varieties, farmers and history. Few English-language channels cover it, so this is our niche |
 | Style | The Vox-style motion design from episode 1: white page, one colour per idea, match cuts, maps and family trees. The look stays consistent so the channel is recognisable |
-| Length | 8–12 minutes for main episodes (YouTube rewards watch time), plus a 45–60 s vertical cut of each one for Shorts, Reels and TikTok. Episode 1 (3:00) works as the pilot or channel trailer |
+| Length | 3–5 minutes for main episodes (scripts in `Coffee Episodes/`), plus a 45–60 s vertical cut of each one for Shorts, Reels and TikTok. Episode 1 (3:00) works as the pilot or channel trailer |
 | Rule | Every episode has one hard number, one map or diagram, and one surprise |
 
 ## Season 1: From plant to cup
