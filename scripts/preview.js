@@ -10,6 +10,8 @@
 // JS expressions using time/value, shape groups with transforms, trim paths, stroke caps/joins,
 // track mattes, enabled:false. Not rendered: effects, adjustment layers, footage, 3D, masks,
 // auto-bezier spatial curves (paths are drawn straight). Text uses Liberation fonts for Arial/Georgia.
+// Other fonts: set PREVIEW_FONTS to a folder of .ttf/.otf files named <Family>-<Style>.ttf (e.g. Chonburi-Regular.ttf);
+// a layer whose PostScript font name starts with <Family> is drawn with that file.
 const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
@@ -115,7 +117,8 @@ function drawShape(ctx, L, t){
 }
 function drawText(ctx, L){
   const T=L.text; const size=T.fontSize||48; const f=T.font||''; const bold=/Bold/.test(f), ital=/Italic/.test(f);
-  const fam=/Georgia/.test(f)?'"Liberation Serif", Georgia, serif':'"Liberation Sans", Arial';
+  const own=(window.FONTFAMS||[]).find(n=>f.indexOf(n)===0);
+  const fam=own?'"'+own+'"':/Georgia/.test(f)?'"Liberation Serif", Georgia, serif':'"Liberation Sans", Arial';
   ctx.font=(ital?'italic ':'')+(bold?'bold ':'')+size+'px '+fam; ctx.letterSpacing=((T.tracking||0)/1000*size)+'px';
   ctx.fillStyle=css(T.fillColor||'#ffffff'); ctx.textAlign = T.justification==='center'?'center':(T.justification==='right'?'right':'left'); ctx.textBaseline='alphabetic';
   const lines=T.string.split(/\r|\n/); const lead=T.leading||size*1.2;
@@ -163,7 +166,15 @@ window.frame=(t)=>{ const c=PROJ.compositions[0]; const cv=document.getElementBy
   const browser = await chromium.launch();
   const page = await browser.newPage();
   page.on('console', m => console.log('page:', m.text()));
-  await page.setContent('<canvas id="cv"></canvas><script>' + pageCode + '</script>');
+  const fontDir = process.env.PREVIEW_FONTS, fams = [];
+  let faces = '';
+  if (fontDir) for (const fn of fs.readdirSync(fontDir).filter(n => /\.(ttf|otf)$/i.test(n))) {
+    const fam = fn.replace(/\.(ttf|otf)$/i, '').split('-')[0];
+    fams.push(fam);
+    faces += '@font-face{font-family:"' + fam + '";src:url(data:font/ttf;base64,' + fs.readFileSync(path.join(fontDir, fn)).toString('base64') + ');}';
+  }
+  await page.setContent('<style>' + faces + '</style><canvas id="cv"></canvas><script>window.FONTFAMS=' + JSON.stringify(fams) + ';' + pageCode + '</script>');
+  for (const fam of fams) await page.evaluate(f => document.fonts.load('48px "' + f + '"'), fam);
   const dur = await page.evaluate(([j, s]) => window.setup(j, s), [json, parseFloat(scale)]);
   const end = to ? parseFloat(to) : dur;
   const f = parseFloat(fps);
