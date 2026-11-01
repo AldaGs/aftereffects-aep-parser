@@ -148,7 +148,7 @@ For `"type": "shape"` layers, add elements in the `shapes` array:
 - `rect`: `size` `[width, height]`, `position`, `roundness`
 - `ellipse`: `size` `[width, height]`, `position`
 - `fill`: `color` (hex or RGB), `opacity`
-- `stroke`: `color`, `strokeWidth`, `opacity`, `lineCap` (`"butt"`, `"round"`, `"projecting"`), `lineJoin` (`"miter"`, `"round"`, `"bevel"`)
+- `stroke`: `color`, `strokeWidth`, `opacity`, `lineCap` (`"butt"`, `"round"`, `"projecting"`), `lineJoin` (`"miter"`, `"round"`, `"bevel"`), `dashes` (`{"dash": 14, "gap": 10, "offset": 0}`; each value may be animated, and an offset expression such as `time * -40` gives marching ants)
 - `trim`: `start`, `end`, `offset` (supports keyframing)
 - `path`: Custom bezier vector path with `vertices`, `inTangents`, `outTangents`, `closed`
 - `group`: `items` plus an optional `transform` (`anchorPoint`, `position`, `scale`, `rotation`, `opacity`) to animate parts inside one layer

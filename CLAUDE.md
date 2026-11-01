@@ -28,6 +28,7 @@ python schema/examples/espresso_explainer.py                 # regenerate the es
 **Coordinates and stacking**
 - `layers[0]` is the top layer. Inside a shape group, items listed first draw on top, and a `fill`/`stroke` applies to every path *above* it in the same group. Write groups as `[paths..., stroke, fill]` for an outlined shape.
 - Shape layers default to position = comp centre with anchor `[0, 0]`. Either keep shape items at `[0, 0]` and place the layer, or set the layer to `[0, 0]` and draw in comp coordinates (good for pipes and paths). Don't mix the two.
+- Dashed lines: one `path` and a `stroke` with `"dashes": {"dash": 14, "gap": 10, "offset": 0}` (`stroke(..., dashes=(14, 10))` in the Python helpers). Animate `offset` for marching ants. Don't fake dashes with many short paths.
 - Point text `position` is the baseline. `"\r"` separates lines and `leading` sets line height. Box text (`boxSize`) is positioned by its top-left corner.
 - Null layers default to anchor `[50, 50]`. Always set `anchorPoint` on nulls. A camera rig is a null with `anchorPoint` = `position` = comp centre, so children keep their comp coordinates and scale pivots on the centre.
 - Parenting uses `setParentWithJump`, so a child's values are in the parent's space (relative to the parent's anchor), and it happens after all layers exist. Parent names must match exactly (no error if they don't; the layer just isn't parented).

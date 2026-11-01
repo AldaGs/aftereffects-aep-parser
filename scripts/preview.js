@@ -7,7 +7,7 @@
 // Needs Playwright with Chromium (npm install playwright && npx playwright install chromium).
 //
 // Supported: shape/text/null/precomp layers, parenting, keyframes (preset and custom ease),
-// JS expressions using time/value, shape groups with transforms, trim paths, stroke caps/joins,
+// JS expressions using time/value, shape groups with transforms, trim paths, stroke caps/joins/dashes,
 // track mattes, enabled:false. Not rendered: effects, adjustment layers, footage, 3D, masks,
 // auto-bezier spatial curves (paths are drawn straight). Text uses Liberation fonts for Arial/Georgia.
 // Other fonts: set PREVIEW_FONTS to a folder of .ttf/.otf files named <Family>-<Style>.ttf (e.g. Chonburi-Regular.ttf);
@@ -100,7 +100,7 @@ function buildGroup(items, t){
     else if (it.type==='trim'){ const s=evalProp(it.start,t,0), e=evalProp(it.end,t,100), o=evalProp(it.offset,t,0);
       paths=paths.map(p=>({pts:p.pts, closed:p.closed, trim:[s,e,o]})); }
     else if (it.type==='fill') ops.push({kind:'fill', color:evalProp(it.color,t,[1,0,0,1]), op:evalProp(it.opacity,t,100), paths:paths.slice()});
-    else if (it.type==='stroke') ops.push({kind:'stroke', color:evalProp(it.color,t,[1,1,1,1]), op:evalProp(it.opacity,t,100), w:evalProp(it.strokeWidth,t,2), cap:it.lineCap, join:it.lineJoin, paths:paths.slice()});
+    else if (it.type==='stroke') ops.push({kind:'stroke', color:evalProp(it.color,t,[1,1,1,1]), op:evalProp(it.opacity,t,100), w:evalProp(it.strokeWidth,t,2), cap:it.lineCap, join:it.lineJoin, dash:it.dashes&&[evalProp(it.dashes.dash,t,10), evalProp(it.dashes.gap,t,evalProp(it.dashes.dash,t,10)), evalProp(it.dashes.offset,t,0)], paths:paths.slice()});
   }
   return {ops, paths};
 }
@@ -112,7 +112,7 @@ function drawShape(ctx, L, t){
       ctx.fillStyle=css(op.color, op.op/100); ctx.fill('nonzero'); }
     else { for(const p of op.paths){ const pieces = p.trim ? trimPoly(p,...p.trim) : [p.closed? p.pts.concat([p.pts[0]]) : p.pts];
         for(const pc of pieces){ if(!pc.length) continue; ctx.moveTo(pc[0][0],pc[0][1]); for(const q of pc) ctx.lineTo(q[0],q[1]); } }
-      ctx.strokeStyle=css(op.color, op.op/100); ctx.lineWidth=op.w; ctx.lineJoin=op.join||'miter'; ctx.lineCap=op.cap==='projecting'?'square':(op.cap||'butt'); if (op.w>0) ctx.stroke(); }
+      ctx.strokeStyle=css(op.color, op.op/100); ctx.lineWidth=op.w; ctx.lineJoin=op.join||'miter'; ctx.lineCap=op.cap==='projecting'?'square':(op.cap||'butt'); ctx.setLineDash(op.dash?op.dash.slice(0,2):[]); ctx.lineDashOffset=op.dash?-op.dash[2]:0; if (op.w>0) ctx.stroke(); }
   }
 }
 function drawText(ctx, L){

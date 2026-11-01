@@ -290,6 +290,15 @@
         "strokeWidth": { "$ref": "#/$defs/AnimatableValue" },
         "lineCap": { "type": "string", "enum": ["butt", "round", "projecting"] },
         "lineJoin": { "type": "string", "enum": ["miter", "round", "bevel"] },
+        "dashes": {
+          "type": "object",
+          "description": "Dash pattern (type 'stroke' only). Animate offset for marching ants.",
+          "properties": {
+            "dash": { "$ref": "#/$defs/AnimatableValue" },
+            "gap": { "$ref": "#/$defs/AnimatableValue" },
+            "offset": { "$ref": "#/$defs/AnimatableValue" }
+          }
+        },
         "transform": {
           "type": "object",
           "description": "Group transform (type 'group' only)",

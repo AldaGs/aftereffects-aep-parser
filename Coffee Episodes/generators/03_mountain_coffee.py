@@ -58,16 +58,8 @@ def mountain(prefix, t0, t1, rig, dx=0, right=1700, draw=None, shrubs=True, col=
     return out
 
 
-def dashes(x0, x1, y, d=14, g=10):
-    ps, x = [], x0
-    while x < x1:
-        ps.append(path([(x, y), (min(x + d, x1), y)]))
-        x += d + g
-    return ps
-
-
 def grade_line(name, t0, t1, rig, lw=2, x0=SCALE_X, x1=1500):
-    return shape(name, [G("Dash", *dashes(x0, x1, Q[1], 7, 5), stroke(INK, lw, cap="butt"))], [x0, 0], t0, t1, parent=rig,
+    return shape(name, [G("Dash", path([(x0, Q[1]), (x1, Q[1])]), stroke(INK, lw, cap="butt", dashes=(7, 5)))], [x0, 0], t0, t1, parent=rig,
                  anchorPoint=[x0, 0], scale=A(K(t0, [0, 100]), K(t0 + 1.0, [100, 100])))
 
 

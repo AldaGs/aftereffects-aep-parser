@@ -132,10 +132,13 @@ def fill(c, op=None):
     return d
 
 
-def stroke(c, w, op=None, cap="round", join="round"):
+def stroke(c, w, op=None, cap="round", join="round", dashes=None):
+    """dashes: (dash, gap) or (dash, gap, offset); each a number or animated value."""
     d = {"type": "stroke", "color": c, "strokeWidth": w, "lineCap": cap, "lineJoin": join}
     if op is not None:
         d["opacity"] = op
+    if dashes is not None:
+        d["dashes"] = dict(zip(("dash", "gap", "offset"), dashes))
     return d
 
 

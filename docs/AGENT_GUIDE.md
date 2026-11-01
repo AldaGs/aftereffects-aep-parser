@@ -141,7 +141,7 @@ powershell -ExecutionPolicy Bypass -File scripts\roundtrip.ps1 -AuthoringJson my
 ### 3.3 Layer Types & Options
 
 - `"text"`: Text layer. Specify `text` object (`string`, `font`, `fontSize`, `fillColor`, `tracking`, `justification`).
-- `"shape"`: Vector shape layer. Specify `shapes` array with items like `rect`, `ellipse`, `fill`, `stroke`, `trim`, `path`.
+- `"shape"`: Vector shape layer. Specify `shapes` array with items like `rect`, `ellipse`, `fill`, `stroke`, `trim`, `path`. A dashed line is one `path` plus a `stroke` with `dashes` (`{"dash": 14, "gap": 10, "offset": 0}`), not many short segments.
 - `"solid"`: Solid from a `solid` asset (`source: "asset_id"`, where the asset sets `solidColor`). Without a source it is 50 % grey; for coloured backgrounds use a shape layer with a `rect`.
 - `"null"`: Invisible controller layer for parenting and rig hierarchies.
 - `"adjustment"`: Adjustment layer with effects affecting all layers beneath it.

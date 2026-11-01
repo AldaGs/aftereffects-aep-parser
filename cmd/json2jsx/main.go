@@ -111,9 +111,17 @@ type ShapeItemDoc struct {
 	Start       interface{}            `json:"start,omitempty"`
 	End         interface{}            `json:"end,omitempty"`
 	Offset      interface{}            `json:"offset,omitempty"`
+	Dashes      *DashesDoc             `json:"dashes,omitempty"` // stroke only
 	Path        *BezierPathDoc         `json:"path,omitempty"`
 	Items       []ShapeItemDoc         `json:"items,omitempty"`
 	Transform   map[string]interface{} `json:"transform,omitempty"`
+}
+
+// DashesDoc is a stroke's dash pattern. Each value is a number or an AnimatableValue.
+type DashesDoc struct {
+	Dash   interface{} `json:"dash,omitempty"`
+	Gap    interface{} `json:"gap,omitempty"`
+	Offset interface{} `json:"offset,omitempty"`
 }
 
 type MaskDoc struct {
@@ -828,6 +836,22 @@ func writeShapeItem(g *Generator, layerVar, parentGroup string, shp ShapeItemDoc
 		}
 		if v, ok := map[string]int{"miter": 1, "round": 2, "bevel": 3}[shp.LineJoin]; ok {
 			g.write("    try { %s.property('ADBE Vector Stroke Line Join').setValue(%d); } catch(e) {}", sVar, v)
+		}
+		if d := shp.Dashes; d != nil {
+			// addProperty in try: an unknown matchName would otherwise abort the build
+			dVar := "sh_dash_" + randomID()
+			g.write("    var %s = null; try { %s = %s.property('ADBE Vector Stroke Dashes'); } catch(e) {}", dVar, dVar, sVar)
+			for _, p := range []struct {
+				match string
+				val   interface{}
+			}{{"ADBE Vector Stroke Dash 1", d.Dash}, {"ADBE Vector Stroke Gap 1", d.Gap}, {"ADBE Vector Stroke Offset", d.Offset}} {
+				if p.val == nil {
+					continue
+				}
+				pVar := "sh_dashp_" + randomID()
+				g.write("    var %s = null; try { %s = %s.addProperty('%s'); } catch(e) {}", pVar, pVar, dVar, p.match)
+				writePropertyData(g, pVar, p.val)
+			}
 		}
 
 	case "trim":
