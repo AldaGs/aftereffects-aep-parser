@@ -152,6 +152,10 @@
           "type": "number",
           "description": "Timeline offset/start time in seconds"
         },
+        "stretch": {
+          "type": "number",
+          "description": "Time stretch in percent (100 = normal, 90 = plays 10 % faster). Set before startTime/in/out, which stay in parent-comp time"
+        },
         "blendMode": {
           "type": "string",
           "enum": [

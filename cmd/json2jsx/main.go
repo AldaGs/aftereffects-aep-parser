@@ -54,6 +54,7 @@ type LayerDoc struct {
 	In         *float64               `json:"in,omitempty"`
 	Out        *float64               `json:"out,omitempty"`
 	StartTime  *float64               `json:"startTime,omitempty"`
+	Stretch    *float64               `json:"stretch,omitempty"`
 	BlendMode  string                 `json:"blendMode,omitempty"`
 	TrackMatte *TrackMatteDoc         `json:"trackMatte,omitempty"`
 	Transform  map[string]interface{} `json:"transform,omitempty"`
@@ -504,6 +505,9 @@ func GenerateJSX(proj *ProjectDoc, aepPath string, closeOnComplete bool) (string
 			}
 
 			// Timing
+			if l.Stretch != nil {
+				g.write("    try { %s.stretch = %g; } catch(e) {}", layerVar, *l.Stretch)
+			}
 			if l.StartTime != nil {
 				g.write("    try { %s.startTime = %g; } catch(e) {}", layerVar, *l.StartTime)
 			}
