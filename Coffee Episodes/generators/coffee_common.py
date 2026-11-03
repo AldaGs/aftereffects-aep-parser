@@ -217,3 +217,11 @@ def write(scenes, master_name, stem):
         print(f"{int(t // 60)}:{t % 60:04.1f}  {c}")
         t += d
     print("total", t, "s,", sum(len(c["layers"]) for c in proj["compositions"]), "layers")
+
+
+def truck(name, pos, t0, t1, s=100, col=INK, **tr):
+    """Coyote pickup, side view, facing right (ep. 9, ep. 10)."""
+    items = [G("Wheels", ell([30, 30], [-38, 22]), ell([30, 30], [40, 22]), stroke(col, 4), fill(WHITE)),
+             G("Cab", path([(10, 6), (10, -30), (40, -30), (62, -6), (62, 6)], True), stroke(col, 4), fill(WHITE)),
+             G("Bed", rect([80, 30], [-30, -9]), stroke(col, 4), fill(WHITE))]
+    return shape(name, items, pos, t0, t1, scale=tr.pop("scale", [s, s]), **tr)
