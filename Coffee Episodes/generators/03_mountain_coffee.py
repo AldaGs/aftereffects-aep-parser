@@ -5,10 +5,15 @@
 One mountain (base coordinates, 0.4 px per metre) serves S1/S9 (zoomed Z about the 1,200 m point Q), S2 and S8.
 The shared altitude scale (S2, S6, S7, S8) sits at x = SCALE_X; in S6/S7 it rides a rig that cancels the master
 push-in so its ticks land on the same pixels across cuts. No fades: cut_pass turns every exit into a cut or a pop.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and its drawn vectors: the coffee cherry and its cross-section (S3, S4; the push into the seed turns the camera
+upright), the section's seed shape for the big seeds, coffee-shrub icons, and egg-shaped calendar cherries.
 """
 import math, random
 
 from coffee_common import *  # noqa: F401,F403
+from coffee_families import _rot
 
 ICE, SAGE = "#A7CFEA", "#8FA88A"
 BASE_Y, PPM, SCALE_X = 960, 0.4, 300
@@ -43,6 +48,10 @@ def hold_rig(name, D):
 # ---------------------------------------------------------------------
 # art
 # ---------------------------------------------------------------------
+# a coffee bush in a hillside row: a lumpy dome, leaf tips poking out, on a short stem (about 20 x 16 px)
+MINI_BUSH = smooth([(-11, -4), (-12, -9), (-8, -14), (-3, -13), (0, -18), (4, -14), (9, -15), (12, -9), (10, -4), (0, -3)], True, corners=(0, 8))
+
+
 def mountain(prefix, t0, t1, rig, dx=0, right=1700, draw=None, shrubs=True, col=LINE, lw=3):
     """Outline mountain plus a row of Mexico-green shrubs along the left flank (900-1,600 m)."""
     out = []
@@ -50,7 +59,8 @@ def mountain(prefix, t0, t1, rig, dx=0, right=1700, draw=None, shrubs=True, col=
         gs = []
         for k, m in enumerate(range(900, 1650, 50)):
             x, y = fx(m) + dx, ay(m)
-            gs.append(G(f"Shrub {k + 1}", ell([9, 9], [x - 5, y - 6]), ell([9, 9], [x + 4, y - 7]), ell([8, 8], [x, y - 12]), fill(MX)))
+            gs.append(G(f"Shrub {k + 1}", G("Bush", MINI_BUSH, fill(MX)), G("Stem", path([(0, 0), (0, -5)]), stroke(STEM, 2)),
+                        tr={"position": [x, y]}))
         out.append(shape(f"{prefix} Shrubs", gs, [0, 0], t0, t1, parent=rig))
     tr = [trim(0, A(K(draw, 0), K(draw + 1.4, 100)))] if draw is not None else []
     out.append(shape(f"{prefix} Mountain", [G("M", path([(X0 + dx, BASE_Y), (PEAK[0] + dx, PEAK[1]), (right + dx, BASE_Y)]), *tr, stroke(col, lw))],
@@ -114,14 +124,19 @@ def bracket(name, a, b, t, t1, label=None, side=1, col=INK, size=15, lab_off=Non
     return out
 
 
-def seed_path(h, s=1):
-    k = h / 144
-    return path([(s * 6 * k, -h / 2), (s * 6 * k, h / 2)], True, i=[(s * 70 * k, 0), (0, 0)], o=[(0, 0), (s * 70 * k, 0)])
+SEED_PTS = [(5, -74), (36, -66), (60, -30), (64, 8), (52, 48), (28, 72), (5, 76)]       # coffee_section's right seed
+PARCH_PTS = [(2, -84), (40, -76), (70, -34), (74, 10), (60, 56), (30, 82), (2, 86)]
+
+
+def seed_path(h, s=1, pts=SEED_PTS):
+    k = h / 150
+    return smooth([(s * x * k, y * k) for x, y in pts], True, corners=(0, len(pts) - 1))
 
 
 SEED_H = 500
-SEED_K = SEED_H / 144
-SEED_O = (CX - 40 * SEED_K, CY)        # where cherry_section's right seed lands after the push-in
+SEED_K = SEED_H / 150
+SEED_O = (CX - 40 * SEED_K, CY)        # where coffee_section's right seed lands after the push-in (camera turned upright)
+SEED_A = _rot((40, 0), CH_ROT)           # that seed point in the tilted section
 
 
 def seed_cells(rnd, h, fill_frac):
@@ -173,9 +188,24 @@ def jacket_icon(name, pos, t, t1):
     return shape(name, [G("Zip", path([(0, -24), (0, 34)]), stroke(WHITE, 3)), G("Jacket", p, fill(INK))], pos, t, t1, scale=grow(t))
 
 
-def shrub_icon(name, pos, t, t1, col=GREY2):
-    return shape(name, [G("S", ell([30, 30], [-14, -18]), ell([30, 30], [14, -20]), ell([26, 26], [0, -36]), fill(col)),
-                        G("Stem", path([(0, 0), (0, -16)]), stroke(STEM, 4))], pos, t, t1, scale=grow(t))
+def shrub_icon(name, pos, t, t1, col=GREY):
+    return shape(name, icon_shrub(col, True), [pos[0], pos[1] - 30], t, t1, scale=grow(t))
+
+
+def cherry_dot(name, pos, t, t1, size=26, **tr):
+    """Calendar cherry: episode 1's egg on a short stalk, size = body width."""
+    k = size / CH_W
+    return shape(name, [G("Stalk", path([(0, -CH_H * k / 2 + 2), (2, -CH_H * k / 2 - 8)]), stroke(STEM, 3)),
+                        G("Skin", egg(CH_W * k, CH_H * k), fill(ARA))], pos, t, t1, rotation=CH_ROT, **tr)
+
+
+def shade_tree(name, pos, t, t1, **tr):
+    """Inga-like shade tree: a wide, flat umbrella crown on a leaning trunk."""
+    crown = smooth([(-120, -140), (-100, -176), (-56, -196), (-10, -214), (40, -208), (86, -190), (116, -160), (100, -138), (40, -128), (-40, -126), (-96, -128)],
+                   True)
+    return shape(name, [G("Crown", crown, fill(SAGE)),
+                        G("Branches", path([(-4, -110), (-50, -134)]), path([(-4, -110), (46, -132)]), stroke(STEM, 5)),
+                        G("Trunk", path([(0, 0), (-6, -130)]), stroke(STEM, 8))], pos, t, t1, **tr)
 
 
 def map_layer(name, k, center, o, t0, t1, **tr):
@@ -315,7 +345,7 @@ def s3_heat(D):
     rigs = []
     for pre, t1f, m in (("Fast", t_fast, 6), ("Slow", t_slow, 11)):
         rg = f"{pre} Cherry Rig"
-        L += cherry(f"{pre} Cherry", t1f + 0.2, D, rg)
+        L += coffee_cherry(f"{pre} Cherry", t1f + 0.2, D, rg, branch_t=t1f + 0.2, detail_t=t1f + 0.2, flutter=False)
         rigs.append((rg, t1f, m))
     L += bracket("Months", (cal_x(6), 780), (cal_x(11), 780), t_slow + 0.6, 22.4, "≈ 5 MONTHS", side=-1, lab_off=[cal_x(8.5), 750])
     L.append(src("Src Heat", "SOURCE: CENICAFÉ", b0, 22.4))
@@ -326,9 +356,9 @@ def s3_heat(D):
         p0 = [cal_x(m), 860]
         if m == 6:
             L.append(null(rg, p0, t1f + 0.2, D, anchor=[CX, CY], scale=A(K(t1f + 0.2, [0, 0]), K(t1f + 0.7, [s0, s0]))))
-            add_out(L[-4], d0)
-            add_out(L[-3], d0)
-            add_out(L[-2], d0)
+            for l in L:
+                if l["name"].startswith("Fast Cherry ") and l["type"] != "null":
+                    add_out(l, d0)
         else:
             L.append(null(rg, A(K(d0, p0), K(D - 0.3, inv((CX, CY)))), t1f + 0.2, D, anchor=[CX, CY],
                           scale=A(K(t1f + 0.2, [0, 0]), K(t1f + 0.7, [s0, s0]), K(d0, [s0, s0]), K(D - 0.3, [420 / CHERRY_D / HS * 100] * 2))))
@@ -350,14 +380,18 @@ def s4_seed(D):
     p0, p1 = 1.0, 2.6
     cut_t = p1 + 2.0
     # A/B: open, push into the right seed until it is 500 px tall
-    L.append(cherry_section("Cherry", p0, None, cut_t, crig))
-    L += cherry("Cherry", 0, cut_t, crig)
-    L.append(null(crig, [CX + 40 * s0 / 100, CY], 0, cut_t, anchor=[CX + 40, CY], position=A(K(p1, [CX + 40 * s0 / 100, CY]), K(cut_t, [CX, CY])),
-                  scale=A(K(p0, [s0, s0]), K(p1, [s0, s0]), K(cut_t, [SEED_K * 100] * 2))))
+    L.append(coffee_section("Cherry", p0, None, cut_t, crig))
+    L += coffee_cherry("Cherry", 0, cut_t, crig, branch_t=-1.5, detail_t=-1.0, flutter=False)  # already grown at the cut from S3
+    a0 = [CX + SEED_A[0] * s0 / 100, CY + SEED_A[1] * s0 / 100]
+    L.append(null(crig, a0, 0, cut_t, anchor=[CX + SEED_A[0], CY + SEED_A[1]], position=A(K(p1, a0), K(cut_t, [CX, CY])),
+                  scale=A(K(p0, [s0, s0]), K(p1, [s0, s0]), K(cut_t, [SEED_K * 100] * 2)), rotation=A(K(p1, 0), K(cut_t, -CH_ROT))))
     c0, d0, z0, e0 = 12.0, 15.6, 20.6, 24.0
     so = list(SEED_O)
     sc = SEED_O[0] + 110                     # visual centre of the seed
     L += seed_layers("Slow", so, cut_t, e0, srig, 0.95, A(K(cut_t, 2), K(c0, 7)), (cut_t + 0.6, c0 - 1.0), zig_t=z0 + 0.6, rnd=rnd)
+    # the seed's parchment, kept for the first beat after the cut so the section's ring does not vanish
+    L.append(shape("Slow Parchment", [G("P", seed_path(SEED_H, pts=PARCH_PTS), stroke("#E6D3AE", 2 * SEED_K), fill("#FFF8EA"))], list(SEED_O),
+                   cut_t, cut_t + 1.0, parent=srig))
     L.append(shape("Clock", [G("Hand", path([(0, 0), (0, -26)]), stroke(INK, 4), tr={"rotation": X("time * 240")}),
                              G("Face", ell([70, 70]), stroke(INK, 4), fill(WHITE))], [1560, 200], cut_t + 0.4, c0))
     L.append(leader("Food Leader", (sc + 40, CY - 120), (1300, 360), cut_t + 1.8, c0, col=INK))
@@ -643,19 +677,18 @@ def s8_same(D):
            caps("Days Label", "DAYS FROM 1 APRIL →", [dx_(0) - 20, DAY_Y + 6], c0 + 0.2, e0, size=13, color=INK, just="right")]
     cal.append(disc("Chi Marker", A(KL(jf, [dx_(0), DAY_Y]), KL(t_chi, [dx_(238), DAY_Y])), 16, INK, jf, d0, sh=0, parent=crig))
     cal.append(disc("Coa Marker", A(KL(jf, [dx_(0), DAY_Y]), KL(t_coa, [dx_(256), DAY_Y])), 16, MX, jf, e0, sh=0))
-    cal.append(disc("Chi Cherry", [dx_(238), DAY_Y], 26, ARA, t_chi, d0, sh=0, scale=grow(t_chi), parent=crig))
-    cal.append(disc("Coa Cherry", [dx_(256), DAY_Y], 26, ARA, t_coa, e0, sh=0, scale=grow(t_coa)))
+    cal.append(cherry_dot("Chi Cherry", [dx_(238), DAY_Y], t_chi, d0, scale=grow(t_chi), parent=crig))
+    cal.append(cherry_dot("Coa Cherry", [dx_(256), DAY_Y], t_coa, e0, scale=grow(t_coa)))
     cal += bracket("Weeks", (dx_(238), 1004), (dx_(256), 1004), t_coa + 0.4, d0, "≈ 2 WEEKS SOONER", side=-1, lab_off=[dx_(200), 990])
     cal[-1]["text"]["justification"] = "right"
     for l in cal[-2:]:
         l["parent"] = crig
     L += cal
     # D: the Chiapas mountain leaves; a shade tree slows the Coatepec cherry
-    L.append(shape("Shade Tree", [G("Crown", ell([120, 90], [-50, -150]), ell([140, 100], [30, -170]), ell([110, 80], [-10, -205]), fill(SAGE)),
-                                  G("Trunk", path([(0, 0), (-6, -130)]), stroke(STEM, 8))], [Q[0] + 40, Q[1] - 4], d0 + 0.8, e0, scale=grow(d0 + 0.8, d=0.7)))
+    L.append(shade_tree("Shade Tree", [Q[0] + 40, Q[1] - 4], d0 + 0.8, e0, scale=grow(d0 + 0.8, d=0.7)))
     t_sh = d0 + 1.8 + 286 / 36
     L.append(disc("Shade Marker", A(KL(d0 + 1.8, [dx_(0), DAY_Y]), KL(t_sh, [dx_(286), DAY_Y])), 16, SAGE, d0 + 1.8, e0, sh=0))
-    L.append(disc("Shade Cherry", [dx_(286), DAY_Y], 26, ARA, t_sh, e0, sh=0, scale=grow(t_sh)))
+    L.append(cherry_dot("Shade Cherry", [dx_(286), DAY_Y], t_sh, e0, scale=grow(t_sh)))
     L += bracket("Month", (dx_(256), 1004), (dx_(286), 1004), t_sh + 0.3, e0, "UP TO ≈ 1 MONTH LATER, SAME SPOT", side=-1, lab_off=[dx_(240), 990])
     L[-1]["text"]["justification"] = "right"
     L.append(src("Src Shade", "SOURCE: VAAST ET AL. 2006 (COSTA RICA)", d0 + 0.8, e0))
@@ -711,4 +744,4 @@ SCENES = [("S1_Line", 21.0, s1_line), ("S2_Slope", 21.0, s2_slope), ("S3_HeatBud
           ("S8_SameRung", 42.0, s8_same), ("S9_Close", 28.0, s9_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Mountain_Coffee", "03_mountain_coffee")
+    write(SCENES, "Mountain_Coffee", "03_mountain_coffee", beats=True)
