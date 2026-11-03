@@ -1386,6 +1386,7 @@ def zero_tangents(proj):
 # ---------- timing: 24 fps, in/out animations in whole 12-frame beats ----------
 EPS = 1e-6
 _UEXPR = re.compile(r"\(time - ([-0-9.e]+)\) / ([-0-9.e]+)\)")
+_GTEXPR = re.compile(r"time > ([-0-9.e]+)\)")
 
 
 def frames(t):
@@ -1469,7 +1470,8 @@ def retime(layers, D, Dn):
             tmap.setdefault(round(o, 3), []).append(n)
 
     def expr(e):
-        return _UEXPR.sub(lambda m: f"(time - {T(float(m.group(1))):.6f}) / {beats(float(m.group(2)) * f):.6f})", e)
+        e = _UEXPR.sub(lambda m: f"(time - {T(float(m.group(1))):.6f}) / {beats(float(m.group(2)) * f):.6f})", e)
+        return _GTEXPR.sub(lambda m: f"time > {T(float(m.group(1))):.6f})", e)  # zmulti()/pmulti() segment starts
 
     def walk(o, tmap):
         if isinstance(o, dict):

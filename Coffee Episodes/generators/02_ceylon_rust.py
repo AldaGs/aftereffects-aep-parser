@@ -3,7 +3,9 @@
     python "Coffee Episodes/generators/02_ceylon_rust.py"        # writes ../json/02_ceylon_rust.json
     go run ./cmd/json2jsx -i "Coffee Episodes/json/02_ceylon_rust.json" -o "Coffee Episodes/jsx/02_ceylon_rust.jsx" -aep "<abs>/Coffee Episodes/aep/02_ceylon_rust.aep"
 
-Reuses episode 1's helpers, palette and maps by importing schema/examples/coffee_families.py.
+Reuses episode 1's helpers, palette and maps by importing schema/examples/coffee_families.py, and follows its rules:
+24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)), and its drawn vectors
+(coffee leaves with veins, the shrub icon) instead of lens leaves and stick plants.
 White page, flat shapes, match cuts only. A handoff is a screen point/size H: the outgoing scene ends its shape
 at inv(H) with size/HS (the master pushes every scene in by HS); the incoming scene starts it at H.
 """
@@ -58,12 +60,12 @@ def s1_tin(D):
     k = 3.2
     mx_items = [path([[(p[0] + 102) * k, -(p[1] - 23.5) * k] for p in r], True) for rings in GEO["mexico"].values() for r in rings]
     mex = [shape("Mexico", [G("Mexico", *mx_items, fill(MX))], [1500, 340], 9.6, 15.2, opacity=fade_io(9.6, 15.2, 0.4)),
-           shape("Mexico Leaf", icon_leaf(MX, 90), [1700, 400], 10.0, 15.2, rotation=-30, opacity=fade_io(10.0, 15.2, 0.4)),
+           shape("Mexico Leaf", coffee_leaf(90, MX, sh=3), [1700, 400], 10.0, 15.2, rotation=-30, opacity=fade_io(10.0, 15.2, 0.4)),
            caps("Mexico Label", "MEXICO · STILL GROWS COFFEE", [1560, 470], 10.2, 15.2, size=18, color=MX, opacity=fade_io(10.2, 15.2, 0.4))]
     L += mex
     # the coffee leaf with its rust spot (last thing out of the tin)
     spot = disc("Rust Spot", list(SPOT), SPOT_D, RUST, 8.3, 15.2, sh=0, scale=grow(8.3, 100, 0.5), opacity=A(K(14.6, 100), K(15.2, 0)))
-    leaf = grey_leaf("Coffee Leaf", CLEAF_L, A(K(7.3, [TIN[0] + 60, 400]), K(8.1, list(CLEAF))), 7.3, 15.2, rotation=CLEAF_R,
+    leaf = coffee_grey_leaf("Coffee Leaf", CLEAF_L, A(K(7.3, [TIN[0] + 60, 400]), K(8.1, list(CLEAF))), 7.3, 15.2, rotation=CLEAF_R,
                      opacity=A(K(7.3, 0), K(7.5, 100), K(14.6, 100), K(15.2, 0)))
     L += [spot, leaf]
     L.append(caps("Label Ceylon", "CEYLON = SRI LANKA", [TIN[0], 300], 1.8, 6.2, size=18, color=INK, opacity=fade_io(1.8, 6.2)))
@@ -146,7 +148,7 @@ def s2_island(D):
             lat += 0.07
         lon += 0.07
     L.append(shape("Estates", gs, [0, 0], 18.4, D, parent=rig))
-    L.append(grey_leaf("Leaf Icon", LEAF2_L, list(inv(LEAF2)), 20.0, D, rotation=-25,
+    L.append(coffee_grey_leaf("Leaf Icon", LEAF2_L, list(inv(LEAF2)), 20.0, D, rotation=-25,
                        scale=A(K(20.0, [0, 0]), K(20.4, [100 / HS, 100 / HS]))))
     # the dot that came out of the seal; tea green turns red as the coffee years begin
     L.append(disc("Ceylon Dot", m(CEY), DOT_MAP, A(K(2.4, TEA), K(3.0, ARA)), 0, D, sh=0, parent=rig,
@@ -234,14 +236,13 @@ def s3_spore(D):
     fade_all(sec, t_off, 0.6)
     L += sec
     # the grown leaf icon from scene 2 opens into the section
-    L.append(grey_leaf("Leaf In", LEAF2_L, A(K(0, list(LEAF2)), K(1.0, list(BAND_C))), 0, 1.4, rotation=A(K(0, -25), K(1.0, 0)),
+    L.append(coffee_grey_leaf("Leaf In", LEAF2_L, A(K(0, list(LEAF2)), K(1.0, list(BAND_C))), 0, 1.4, rotation=A(K(0, -25), K(1.0, 0)),
                        scale=A(K(0, [100, 100]), K(1.0, [900, 900])), opacity=A(K(0.7, 100), K(1.3, 0))))
     # F: the whole leaf, spotted, falls; one spore drifts off to the right
     LF = 420
     spots = [G(f"Spot {j + 1}", ell([d, d]), fill(RUST), tr={"position": p, "scale": grow(37.6 + j * 0.12, 100, 0.4)})
-             for j, (p, d) in enumerate([((-120, -10), 34), ((-40, 30), 22), ((40, -30), 30), ((110, 10), 26), ((-160, 30), 18), ((70, 40), 16), ((150, -18), 14)])]
-    leaf = shape("Falling Leaf", spots + [G("Vein", path([(-LF * 0.4, 0), (LF * 0.38, 0)]), stroke(INK, 2)),
-                                         G("Leaf", leaf_path(LF), stroke(INK, 3), fill(LAND))],
+             for j, (p, d) in enumerate([((-120, -10), 34), ((-40, 30), 22), ((40, -30), 30), ((110, 10), 26), ((-95, 22), 18), ((70, 40), 16), ((150, -18), 14)])]
+    leaf = shape("Falling Leaf", spots + coffee_grey_leaf("_", LF, [0, 0], 0, 1)["shapes"],
                  A(K(37.4, [CX, 500]), K(41.0, [CX, 500]), K(43.0, [CX - 120, 1400], {"inInfluence": 10, "outInfluence": 70, "inSpeed": 0, "outSpeed": 0})),
                  37.4, 43.0, rotation=A(K(41.0, -12), K(43.0, 30)), scale=grow(37.4, 100, 0.6))
     L.append(leaf)
@@ -429,14 +430,14 @@ def s7_switch(D):
         c.append(appear(caps(f"Year {y}", f"YEAR {y}", [R0 + y * RPY, RAIL_Y + 50], 0.8 + y * 0.1, D, size=16), 0.8 + y * 0.1))
     c.append(shape("Rail", [G("Rail", path([(R0, RAIL_Y), (R0 + 4 * RPY, RAIL_Y)]), trim(0, A(K(0.6, 0), K(1.6, 100))), stroke(INK, 3))], [0, 0], 0.6, D))
     # clear the coffee
-    tree = icon_plant(GREY, True) + [G("Roots", path([(0, 26), (-12, 40)]), path([(0, 26), (12, 40)]), path([(0, 26), (0, 44)]), stroke(GREY, 4))]
+    tree = icon_shrub(GREY, True) + [G("Roots", path([(0, 26), (-12, 40)]), path([(0, 26), (12, 40)]), path([(0, 26), (0, 44)]), stroke(GREY, 4))]
     c.append(shape("Uprooted", tree, [R0, RAIL_Y - 90], 1.8, D, rotation=-80, scale=grow(1.8, 130)))
     c.append(appear(caps("Clear Label", "CLEAR THE COFFEE", [R0, RAIL_Y - 150], 2.1, D, size=16, color=INK), 2.1))
     # no income until the first tea harvest
     c.append(shape("No Income", [G("Band", path([(R0, RAIL_Y), (R0 + 3 * RPY, RAIL_Y)]), trim(0, A(K(5.2, 0), K(8.6, 100))), stroke(GREY2, 16, cap="butt"))],
                    [0, 0], 5.2, D))
     c.append(appear(caps("No Income Label", "NO INCOME", [R0 + 1.5 * RPY, RAIL_Y - 30], 6.0, D, size=20, color=INK), 6.0))
-    c.append(shape("Tea Bush", icon_plant(TEA, False), [R0 + 3 * RPY, RAIL_Y - 50], 8.6, D, scale=grow(8.6, 160)))
+    c.append(shape("Tea Bush", icon_tea_bush(TEA), [R0 + 3 * RPY, RAIL_Y - 50], 8.6, D, scale=grow(8.6, 160)))
     c.append(appear(caps("Harvest Label", "FIRST HARVEST ≈ YEAR 3", [R0 + 3 * RPY, RAIL_Y - 110], 8.9, D, size=16, color=TEA), 8.9))
     c.append(src("Src Switch", "SOURCE: WENZLHUEMER (2008)", 8.9, 12.0))
     add_out(c[-1], 11.8)
@@ -452,7 +453,7 @@ def s7_switch(D):
     heat = [G(f"Heat {k}", path([(k * 14 - 14, 0), (k * 14 - 10, -14), (k * 14 - 18, -28), (k * 14 - 14, -42)]), stroke(INK, 3)) for k in range(3)]
     fac.append(shape("Heat", heat, [fx[3], FY - 30], f0 + 6.0, D, opacity=fade_in(f0 + 6.0)))
     lt = [K(f0 + 1.2 + j * 1.6, [x, FY - 40]) for j, x in enumerate(fx)]
-    fac.append(shape("Tea Leaf", [G("Leaf", leaf_path(46), fill(A(K(f0 + 4.4, TEA), K(f0 + 5.2, OXID))))], A(*lt), f0 + 1.0, D, rotation=-20,
+    fac.append(shape("Tea Leaf", [G("Leaf", tea_leaf_path(46), fill(A(K(f0 + 4.4, TEA), K(f0 + 5.2, OXID))))], A(*lt), f0 + 1.0, D, rotation=-20,
                      opacity=fade_in(f0 + 1.0)))
     fac.append(appear(caps("Factory Label", "EVERY ESTATE NEEDED A FACTORY", [CX, 180], f0 + 0.4, D, size=18, color=INK), f0 + 0.4))
     # money and demand
@@ -462,8 +463,7 @@ def s7_switch(D):
     c += fac
     c.append(shape("London Line", [G("L", path([(fx[-1] + 60, FY), (1580, FY)]), trim(0, A(K(d0 + 0.4, 0), K(d0 + 1.0, 100))), stroke(INK, 3))], [0, 0], d0 + 0.4, D))
     c.append(appear(text("London", "London £", [1600, FY + 12], 34, INK, d0 + 1.0, D, font=HEAD, just="left"), d0 + 1.0))
-    cup = [G("Handle", ell([22, 22], [34, -4]), stroke(INK, 3)), G("Cup", path([(-30, -18), (30, -18), (22, 18), (-22, 18)], True), stroke(INK, 3), fill(WHITE)),
-           G("Saucer", path([(-44, 24), (44, 24)]), stroke(INK, 3))]
+    cup = teacup_items()
     c.append(shape("Teacup", cup, [1660, 460], d0 + 2.0, D, scale=grow(d0 + 2.0)))
     c.append(appear(caps("Demand Label", "DEMAND ALREADY THERE", [1660, 530], d0 + 2.3, D, size=16, color=INK), d0 + 2.3))
     c.append(marker("No Income Swipe", R0 + 1.5 * RPY - 80, RAIL_Y - 30, 160, d0 + 3.4, D, size=20))
@@ -742,9 +742,11 @@ def s11_close(D):
     x0 = CX - tw("The Fungus That Turned", 64, HEAD) / 2 + tw("The ", 64, HEAD)
     L.append(marker("End Swipe", x0 - 10, 860, fw + 20, 13.6, D, size=64))
     L.append(disc("Spot", list(SPOT), SPOT_D, RUST, 0, D, sh=0, parent=rig, opacity=A(K(sw, 100), K(sw + 0.6, 0))))
-    L.append(shape("Mexico Leaf", [G("Vein", path([(-CLEAF_L * 0.4, 0), (CLEAF_L * 0.38, 0)]), stroke(ROB, 4)), G("Leaf", leaf_path(CLEAF_L), fill(MX))],
+    oro = coffee_leaf(CLEAF_L, MX, sh=0, petiole=False)
+    oro[1]["items"][-1] = stroke(ROB, 4)  # the midrib carries the robusta genes
+    L.append(shape("Mexico Leaf", oro,
                    list(CLEAF), sw, D, parent=rig, rotation=CLEAF_R, opacity=fade_in(sw, 0.6)))
-    L.append(grey_leaf("Coffee Leaf", CLEAF_L, list(CLEAF), 0, sw + 0.8, parent=rig, rotation=CLEAF_R, opacity=A(K(0, 0), K(0.8, 100), K(sw, 100), K(sw + 0.6, 0))))
+    L.append(coffee_grey_leaf("Coffee Leaf", CLEAF_L, list(CLEAF), 0, sw + 0.8, parent=rig, rotation=CLEAF_R, opacity=A(K(0, 0), K(0.8, 100), K(sw, 100), K(sw + 0.6, 0))))
     L.append(caps("Label Oro", "ORO AZTECA · A LITTLE ROBUSTA", [CLEAF[0], CLEAF[1] - 110], sw + 0.6, up[0], size=16, color=MX, parent=rig,
                   opacity=fade_io(sw + 0.6, up[0])))
     tin = tin_layers(D, 0, rig=rig, lid_open=True)
@@ -769,4 +771,4 @@ SCENES = [("S1_Tin", 20.0, s1_tin), ("S2_Island", 23.0, s2_island), ("S3_Spore",
 
 
 if __name__ == "__main__":
-    write(SCENES, "Ceylon_Rust", "02_ceylon_rust")
+    write(SCENES, "Ceylon_Rust", "02_ceylon_rust", beats=True)
