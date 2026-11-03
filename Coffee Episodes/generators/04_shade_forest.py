@@ -6,10 +6,15 @@ Rigs are nulls with anchor [0, 0]: content point c lands on screen at P + c * s.
 scene N+1 is written as (inv(P), s / HS) at the end of scene N (handoff()). The transect (S2-S3) and the farm
 cross-section (S4-S6, S10) are each one drawing in content coordinates, reused across scenes.
 No fades: cut_pass turns every exit into a cut or a pop.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: coffee-leaf outlines (leaf_path below), lumpy crowns on forked trunks, banana plants with paddle
+leaves, songbirds, egg-shaped cherries.
 """
 import math, random
 
 from coffee_common import *  # noqa: F401,F403
+from coffee_families import _rot, _leaf_at
 
 SAGE = "#8FA88A"
 CHIAPAS_LL = (-92.4, 15.6)
@@ -29,44 +34,81 @@ def rig(name, D, keys, t0=0):
 # ---------------------------------------------------------------------
 # art
 # ---------------------------------------------------------------------
+def leaf_path(L):  # noqa: F811 - episode 1's coffee-leaf outline (wedge base, drip tip) replaces the lens leaf in this episode
+    return leaf_outline(L)
+
+
+def blob(w, h, bumps=7, seed=0, flat=0.2, wob=0.07):
+    """Cloud-like crown outline: an ellipse with bumps on top and a flatter underside, centred on 0."""
+    rnd = random.Random(seed)
+    ph = rnd.uniform(0, math.pi)
+    pts = []
+    n = bumps * 4
+    for j in range(n):
+        th = 2 * math.pi * j / n
+        top = max(0.0, math.cos(th)) ** 0.5  # scallops on the top and sides only; the underside stays smooth
+        r = 1 + top * (wob * max(0.0, math.cos(bumps * th + ph)) ** 0.7 - wob * 0.4)
+        y = -math.cos(th) * h / 2 * r
+        if y > 0:
+            y *= 1 - flat
+        pts.append((math.sin(th) * w / 2 * r, y))
+    return smooth(pts, True)
+
+
 def crown(name, w, h, pos, t0, t1, ground=None, col=SAGE, kind="native", **tr):
-    """Side-view tree: three lumps and a trunk down to `ground` (content y)."""
-    if kind == "timber":
-        lumps = [ell([w, h], [0, 0])]
-    elif kind == "banana":
-        lumps = [path([(0, 0), (s * w * 0.5, -h * 0.3 + k * 20)], False, i=[(0, 0), (-s * 30, -30)], o=[(s * 30, -30), (0, 0)])
-                 for s in (-1, 1) for k in range(2)]
-        items = [G("Fronds", *lumps, stroke(col, 14))]
+    """Side-view tree. native: a broad lumpy crown on a forked trunk; timber: a tall narrow crown (cedar, laurel);
+    banana: a pseudostem with drooping paddle leaves; orange: a round crown with fruit."""
+    seed = int(pos[0]) * 7 + int(w)
+    trunk = []
+    if ground is not None:
+        tw_ = max(4, w * 0.03)
+        trunk = [G("Trunk", path([(0, h * 0.15), (0, ground - pos[1])]), *([path([(0, h * 0.3), (-w * 0.18, -h * 0.05)]), path([(0, h * 0.25), (w * 0.16, -h * 0.08)])]
+                                                                          if kind == "native" else []), stroke(STEM, tw_))]
+    if kind == "banana":
+        L_ = w * 0.62
+        leaves = [_leaf_at(L_ * k, (0, 0), a) for a, k in ((-150, 0.9), (-110, 1.0), (-65, 1.0), (-25, 0.9), (20, 0.75), (165, 0.75))]
+        ribs = [path([(0, 0), _rot((L_ * k * 0.9, 0), a)]) for a, k in ((-150, 0.9), (-110, 1.0), (-65, 1.0), (-25, 0.9), (20, 0.75), (165, 0.75))]
+        items = [G("Ribs", *ribs, stroke(WHITE, 3, 60)), G("Fronds", *leaves, fill(col))]
         if ground is not None:
-            items.append(G("Trunk", path([(0, 0), (0, ground - pos[1])]), stroke(STEM, 8)))
+            items.append(G("Pseudostem", path([(0, 0), (0, ground - pos[1])]), stroke("#9DB08F", 16, cap="butt")))
         return shape(name, items, pos, t0, t1, **tr)
+    if kind == "timber":
+        face = blob(w, h, bumps=6, seed=seed, flat=0.1, wob=0.06)
+    elif kind == "orange":
+        face = blob(w, h, bumps=8, seed=seed, flat=0.15, wob=0.05)
     else:
-        lumps = [ell([w * 0.6, h * 0.8], [-w * 0.2, h * 0.05]), ell([w * 0.6, h * 0.8], [w * 0.2, h * 0.05]), ell([w * 0.55, h * 0.75], [0, -h * 0.15])]
-    items = [G("Crown", *lumps, fill(col))]
+        face = blob(w, h * 1.15, bumps=7, seed=seed)
+    items = [G("Underside", egg(w * 0.78, h * 0.42, e=0), fill("#000000", 8), tr={"position": [0, h * 0.2]}),
+             G("Crown", face, fill(col))]
     if kind == "orange":
         items.insert(0, G("Fruit", *[ell([18, 18], [dx, dy]) for dx, dy in ((-40, 10), (20, -20), (50, 20), (-10, 30))], stroke(INK, 3), fill(WHITE)))
-    if ground is not None:
-        items.append(G("Trunk", path([(0, h * 0.2), (0, ground - pos[1])]), stroke(STEM, max(4, w * 0.03))))
+    items += trunk
     return shape(name, items, pos, t0, t1, **tr)
 
 
 def shrub(name, pos, t0, t1, s=100, col=MX, outline=False, cherries=0, **tr):
-    """Side-view coffee shrub, 200 px tall at s=100, base at pos."""
+    """Side-view coffee shrub, 200 px tall at s=100, base at pos: opposite leaf pairs on side branches, cherries in the axils."""
     leaves = []
     for k, (x, y, r) in enumerate(((-34, -60, -30), (34, -80, 30), (-38, -120, -35), (36, -140, 35), (-26, -170, -40), (24, -184, 40), (0, -200, 90))):
         leaves.append(G(f"Leaf {k + 1}", leaf_path(64), *([stroke(INK, 3)] if outline else []), fill(col), tr={"position": [x, y], "rotation": r}))
     items = []
     if cherries:
-        items.append(G("Cherries", *[ell([16, 16], [(-1) ** k * 14, -70 - k * 22]) for k in range(cherries)], fill(ARA)))
-    items += leaves + [G("Stem", path([(0, 0), (0, -196)]), stroke(STEM, 6))]
+        items.append(G("Cherries", *[egg(14, 17, rot=CH_ROT, o=((-1) ** k * 14, -70 - k * 22)) for k in range(cherries)], fill(ARA)))
+    items += leaves + [G("Branches", *[path([(0, y + 10), (x * 0.6, y)]) for x, y, _ in ((-34, -60, 0), (34, -80, 0), (-38, -120, 0), (36, -140, 0))], stroke(STEM, 4)),
+                       G("Stem", path([(0, 0), (0, -196)]), stroke(STEM, 6))]
     return shape(name, items, pos, t0, t1, scale=tr.pop("scale", [s, s]), **tr)
 
 
 def bird(k, pos, outline=False):
-    p = path([(-16, 0), (-26, -8), (-26, 6)], True)
+    """Perched songbird, side view facing right: round body, head, short beak, tail cocked down-left, a wing line."""
+    body = smooth([(-14, -6), (-2, -12), (12, -10), (18, -2), (12, 8), (-2, 10), (-12, 6), (-30, 14), (-32, 10)], True, corners=(7, 8))
+    head = ell([14, 14], [14, -12])
+    beak = path([(20, -14), (28, -11), (20, -9)], True)
     st = [stroke(INK, 2)] if outline else []
-    return G(f"Bird {k}", ell([28, 16], [0, 0]), ell([12, 12], [14, -8]), p, *st, *([] if outline else [fill(INK)]),
-             tr={"position": list(pos)})
+    out = [G("Wing", smooth([(-10, -4), (2, -6), (8, 0)], False), stroke(WHITE if not outline else INK, 2)),
+           G("Bird", body, head, beak, *st, *([] if outline else [fill(INK)])),
+           G("Legs", path([(0, 9), (-2, 16)]), path([(6, 8), (6, 16)]), stroke(INK, 2))]
+    return G(f"Bird {k}", *out, tr={"position": list(pos)})
 
 
 def bag(name, pos, t0, t1, **tr):
@@ -145,7 +187,7 @@ def farm(prefix, t0, t1, rg, crowns=True):
     gs = []
     for k, x in enumerate(SHRUB_X):
         gs.append(G(f"S{k}", *[G(f"L{j}", leaf_path(40), fill(MX), tr={"position": [(-1) ** j * 18, -30 - j * 18], "rotation": (-1) ** j * 35}) for j in range(5)],
-                    G("C", ell([10, 10], [8, -50]), ell([10, 10], [-8, -70]), fill(ARA)),
+                    G("C", egg(9, 11, rot=CH_ROT, o=(8, -50)), egg(9, 11, rot=CH_ROT, o=(-8, -70)), fill(ARA)),
                     G("Stem", path([(0, 0), (0, -110)]), stroke(STEM, 4)), tr={"position": [x, FG]}))
     out.append(shape(f"{prefix}Coffee", gs, [0, 0], t0, t1, parent=rg))
     lit = [G(f"L{k}", leaf_path(30), fill(SAGE), tr={"position": [30 + k * 38, FG + 8], "rotation": (k * 37) % 50 - 25}) for k in range(49)]
@@ -171,7 +213,10 @@ def aerial(prefix, t0, t1, rg, pop=True):
         x, y = rnd.uniform(-450, 450), rnd.uniform(-225, 225)
         if (x / 450) ** 2 + (y / 225) ** 2 < 1 and all(math.hypot(CX + x - a, CY + y - b) > 70 for a, b, _ in pts):
             pts.append((CX + x, CY + y, rnd.uniform(90, 150)))
-    gs = [G(f"C{k}", ell([d, d], [x, y]), stroke(WHITE, 4), fill(SAGE),
+    def top(x, y, d):  # a treetop seen from above: a round crown with a lumpy edge
+        r = lambda th: d / 2 * (1 + 0.035 * math.cos(9 * th + x))
+        return smooth([(x + r(th) * math.sin(th), y - r(th) * math.cos(th)) for th in (2 * math.pi * j / 28 for j in range(28))], True)
+    gs = [G(f"C{k}", top(x, y, d), stroke(WHITE, 4), fill(SAGE),
             tr={"anchorPoint": [x, y], "position": [x, y], "scale": grow(t0 + 0.2 + k * 0.04)} if pop else None) for k, (x, y, d) in enumerate(pts)]
     out = [shape(f"{prefix}Crowns", gs[1:], [0, 0], t0, t1, parent=rg),
            shape(f"{prefix}Centre Crown", [gs[0]], [0, 0], t0, t1, parent=rg),
@@ -588,7 +633,9 @@ def s9_roya(D):
                                                                        K(14.6, [55, 55]), K(c0 + 1.6, [55, 55]), K(c0 + 3.2, [0, 0]))}))
     L.append(shape("Rust", spots, [CX, CY], b0 + 1.2, d0, parent=lr))
     L.append(shape("Film", beads, [CX, CY], a1 + 0.6, d0, parent=lr))
-    L.append(shape("Leaf", [G("Mid", path([(-LEAF9 * 0.4, 0), (LEAF9 * 0.38, 0)]), stroke(INK, 5)), G("L", leaf_path(LEAF9), stroke(INK, 4), fill(MX))], [CX, CY], 0, D,
+    lf = coffee_leaf(LEAF9, MX, sh=0, petiole=False)
+    lf[-1]["items"].insert(1, stroke(INK, 4))
+    L.append(shape("Leaf", lf, [CX, CY], 0, D,
                    parent=lr, scale=A(K(0.2, [100, 0]), K(1.2, [100, 100]))))
     L.append(tag("Land", "LAND IN WATER", [CX, 780], a1 + 0.8, b0, size=18))
     L.append(crown("Crown", 520, 200, [CX, 150], a1 + 2.4, d0, scale=grow(a1 + 2.4)))
@@ -602,7 +649,7 @@ def s9_roya(D):
     L.append(arrow("To Less", (CX + 120, ay_), (CX + 700, ay_), b0 + 3.6, c0, col=INK, w=5))
     L.append(tag("More Rust", "WETTER LEAF: MORE RUST", [CX - 700, ay_ - 30], b0 + 1.0, c0, size=15, color=RUST, just="left"))
     L.append(tag("Less Rust", "FEWER CHERRIES: LESS RUST", [CX + 700, ay_ - 30], b0 + 4.0, c0, size=15, just="right"))
-    L.append(shape("Cherries", [G(f"C{k}", ell([30, 30], [-200 + k * 80, 0]), fill(ARA),
+    L.append(shape("Cherries", [G(f"C{k}", egg(28, 34, rot=CH_ROT, o=(-200 + k * 80, 0)), fill(ARA),
                                   tr={"opacity": A(K(13.6, 100), K(13.7, 0))} if k % 3 else None) for k in range(6)], [CX, 740], b0 + 3.6, c0, scale=grow(b0 + 3.6)))
     L.append(src("Src Lopez", "SOURCE: LÓPEZ-BRAVO, AVELINO ET AL. 2012", b0, c0))
     # C: layered crowns
@@ -693,4 +740,4 @@ SCENES = [("S1_Aerial", 16.0, s1_aerial), ("S2_Understory", 21.0, s2_understory)
           ("S9_Roya", 27.0, s9_roya), ("S10_Ledger", 22.0, s10_ledger), ("S11_Close", 13.0, s11_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Shade_Forest", "04_shade_forest")
+    write(SCENES, "Shade_Forest", "04_shade_forest", beats=True)

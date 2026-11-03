@@ -1,7 +1,7 @@
 # The Shade Forest in Your Cup: Script and Storyboard
 
 **Status:** draft v2 (revised against `notes/fact_check.md`, `notes/visual_direction.md` and `notes/story_edit.md`).
-**Format:** 4:41 (687 words of VO ≈ 4:26 at 155 wpm, plus about 15 s of holds), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:41 (687 words of VO ≈ 4:26 at 155 wpm, plus about 15 s of holds), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Why do some coffee farms look like jungle from the air?
 **The answer:** Arabica began as a forest shrub. On shade farms the trees still do work a grower would otherwise have to pay for: they flatten the daily temperature swing, pull nitrogen out of the air and cover the soil with leaf litter. On an organic farm, that work can't be bought at all. The price is fewer kilos of coffee per hectare.
 **The surprise:** Shade has a bill. It cost about 18 % of the yield in one trial, and it pushes leaf rust both ways at once: wetter leaves help the fungus, a lighter crop helps the plant. Lands in scenes 8 and 9 (3:16).
