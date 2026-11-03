@@ -17,6 +17,8 @@ Main episodes run 3–5 minutes. Episode 1 (3:00) doubles as the pilot or channe
 | 9 | 9 | [09_who_gets_paid_script.md](scripts/09_who_gets_paid_script.md) | Of a $5 latte, how much is coffee, and who sets the farmer's price? | 4:42 |
 | 10 | 10 | [10_cafe_de_olla_script.md](scripts/10_cafe_de_olla_script.md) | Why does a coffee country drink instant? | 4:17 |
 
+Episode 1 is built at **24 fps** with every in/out animation a multiple of 12 frames; `generators/01_coffee_families_vo.py` re-times it to the recorded VO (no time-stretch). Episodes 2–10 stay at 30 fps (`coffee_common.FPS`). Preview: `previews/01_coffee_families_sheet.jpg`, cherry close-up `previews/01_coffee_families_cherry.jpg`.
+
 Release order after episode 6 follows the story editor's recommendation; episode 10 goes last because it calls back episodes 2 and 8.
 
 Each script lists its unconfirmed facts (†) at the end.

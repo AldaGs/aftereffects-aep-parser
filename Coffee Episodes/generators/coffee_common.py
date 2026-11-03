@@ -11,6 +11,8 @@ sys.path.insert(0, os.path.join(ROOT, "schema", "examples"))
 from coffee_families import *  # noqa: F401,F403
 from coffee_families import zero_tangents
 
+FPS = 30  # episodes 2-10 (STYLE_GUIDE.md); episode 1 is 24 fps
+
 JSON_DIR = os.path.join(_HERE, "..", "json")
 
 # season palette (STYLE_GUIDE.md)

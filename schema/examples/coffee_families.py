@@ -9,11 +9,21 @@ pushes every scene in by HS (3 %), so a handoff value at the end of a scene is m
 
 Maps come from coffee_families_geo.json (see coffee_families_geo.py). A map is drawn in "map space"
 (lon * K, -lat * K) and parented to a rig null whose anchor is the focus point, so zooms are a scale on the rig.
+
+Timing: 24 fps. Scenes are written in design seconds; build() passes each one through retime(), which snaps keys to
+frames and makes every in/out animation a whole number of 12-frame beats (0.5 s, 1 s, ...). build(durations)
+re-times the scenes to other lengths (the voiceover cut, Coffee Episodes/generators/01_coffee_families_vo.py) the
+same way, so nothing is time-stretched. check_timing() refuses a build that breaks the rule.
+
+Episode 1 draws its cherry, cross-section, leaves, shrubs and beans with coffee_cherry(), coffee_section(),
+coffee_leaf(), icon_shrub() and bean_items2(). Episodes 2-10 import this module and still use the older cherry(),
+cherry_section(), leaf_path() and stroke icons, which are left unchanged.
 """
-import json, math, os, random, sys
+import json, math, os, random, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-W, H, FPS = 1920, 1080, 30
+W, H, FPS = 1920, 1080, 24
+BEAT = 12  # frames: every in and out animation lasts a whole number of beats (see retime())
 CX, CY = W / 2, H / 2
 HEAD, SCI, LAB, BODY = "Chonburi-Regular", "Georgia-Italic", "Arial-BoldMT", "ArialMT"
 INK, GREY, LINE, LAND, WHITE = "#161616", "#8C8C8C", "#E2E2E2", "#ECECEC", "#FFFFFF"
@@ -24,6 +34,7 @@ GEO = json.load(open(os.path.join(HERE, "coffee_families_geo.json"), encoding="u
 
 # ---------- keyframes ----------
 SNAP = {"inInfluence": 85, "outInfluence": 10, "inSpeed": 0, "outSpeed": 0}
+EXIT = {"inInfluence": 10, "outInfluence": 70, "inSpeed": 0, "outSpeed": 0}  # starts slow, leaves at speed
 
 
 def K(t, v, e=SNAP):
@@ -285,6 +296,15 @@ def leader(name, a, b, t, t1, col=INK, dot=True, **tr):
     return shape(name, items, [0, 0], t, t1, **tr)
 
 
+def lead(name, a, b, t, t1, col=INK):
+    """Leader for episode 1: the dot pops, the line draws to the label; it leaves the way it came, with the label's fade."""
+    out = t1 - 0.3
+    dot = G("Dot", ell([10, 10], a), fill(col), tr={"anchorPoint": list(a), "position": list(a),
+                                                     "scale": A(K(t, [0, 0]), K(t + 0.5, [100, 100]), K(out + 0.25, [100, 100]), K(out + 0.75, [0, 0]))})
+    line = G("Line", path([a, b]), trim(A(K(out, 0), K(out + 0.5, 100)), A(K(t, 0), K(t + 0.5, 100))), stroke(col, 2.5))
+    return shape(name, [dot, line], [0, 0], t, out + 0.75)
+
+
 def disc(name, pos, d, col, t0, t1, icon=(), line=None, sh=5, **tr):
     face = paper("Disc", ell([d, d]), col, line=line, lw=5, sh=sh) if sh else [G("Disc", ell([d, d]), *([stroke(line, 5)] if line else []), fill(col))]
     return shape(name, list(icon) + face, pos, t0, t1, **tr)
@@ -405,6 +425,262 @@ def icon_leaf(col, L=56):
     return [G("Vein", path([(-L * 0.42, 0), (L * 0.4, 0)]), stroke(WHITE, max(2, L * 0.02), 70)), G("Leaf", leaf_path(L), fill(col))]
 
 
+# ---------- episode 1 art (v2): drawn shapes instead of circles and lenses ----------
+# Episodes 2-10 still use cherry(), cherry_section(), leaf_path() and the stroke icons above.
+def _rot(p, deg, o=(0, 0)):
+    a = math.radians(deg)
+    c, s = math.cos(a), math.sin(a)
+    return (o[0] + p[0] * c - p[1] * s, o[1] + p[0] * s + p[1] * c)
+
+
+def smooth(pts, closed=True, corners=()):
+    """Bezier path through pts (Catmull-Rom tangents). Indices in `corners` get sharp vertices."""
+    n = len(pts)
+    ins, outs = [], []
+    for j in range(n):
+        if j in corners or (not closed and j in (0, n - 1)):
+            ins.append((0, 0))
+            outs.append((0, 0))
+            continue
+        a, b = pts[j - 1], pts[(j + 1) % n]
+        tx, ty = (b[0] - a[0]) / 6, (b[1] - a[1]) / 6
+        ins.append((-tx, -ty))
+        outs.append((tx, ty))
+    return path(pts, closed, i=ins, o=outs)
+
+
+CH_W, CH_H, CH_ROT = 200, 240, -8  # cherry: an ellipsoid a fifth longer than wide, hanging slightly off vertical
+
+
+def egg_pts(w, h, e=0.06, n=24, rot=0, o=(0, 0)):
+    """Closed egg outline, top first, clockwise. e > 0 widens the top (stem end) and narrows the bottom."""
+    out = []
+    for j in range(n):
+        th = 2 * math.pi * j / n
+        s, c = math.sin(th), math.cos(th)
+        flat = 1 - 0.05 * max(0.0, -c) ** 6  # the navel end is a little flattened
+        out.append(_rot((w / 2 * s * (1 + e * c), -h / 2 * c * flat), rot, o))
+    return out
+
+
+def egg(w, h, e=0.06, rot=0, o=(0, 0)):
+    return smooth(egg_pts(w, h, e, rot=rot, o=o))
+
+
+def crescent(pts, j0, j1, width, inset=0.0):
+    """Sliver hugging the outline pts from index j0 to j1 (wrapping), widest in the middle."""
+    n = len(pts)
+    idx = [(j0 + k) % n for k in range(((j1 - j0) % n) + 1)]
+    outer, inner = [], []
+    for k, j in enumerate(idx):
+        x, y = pts[j]
+        r = math.hypot(x, y) or 1
+        u = k / (len(idx) - 1)
+        x, y = x * (1 - inset / r), y * (1 - inset / r)
+        w = width * math.sin(math.pi * u) ** 0.8
+        outer.append((x, y))
+        inner.append((x - x / r * w, y - y / r * w))
+    pts2 = outer + inner[::-1][1:-1]
+    return smooth(pts2, True, corners=(0, len(outer) - 1))
+
+
+def leaf_pts(L, wr=0.36, bend=0.035, side=1.0):
+    """Coffee leaf along +x, base at -L/2: wedge base, widest just below the middle, a drip tip, wavy edges."""
+    prof = [(0.05, 0.22), (0.16, 0.62), (0.3, 0.9), (0.45, 1.0), (0.6, 0.94), (0.73, 0.76), (0.84, 0.5), (0.92, 0.24), (0.97, 0.08)]
+    hw = L * wr / 2
+
+    def P(u, v):  # u along the leaf 0..1, v across in half-widths
+        return (-L / 2 + u * L, v * hw - bend * L * math.sin(math.pi * u))
+
+    def width(u):  # half-width profile (0..1) at u, linear between the samples
+        pr = [(0.0, 0.0)] + prof + [(1.0, 0.0)]
+        for (u0, w0), (u1, w1) in zip(pr, pr[1:]):
+            if u0 <= u <= u1:
+                return w0 + (w1 - w0) * (u - u0) / (u1 - u0)
+        return 0.0
+
+    up = [P(u, -w * (1 + 0.035 * (-1) ** j)) for j, (u, w) in enumerate(prof)]
+    lo = [P(u, w * side * (1 + 0.035 * (-1) ** (j + 1))) for j, (u, w) in enumerate(prof)]
+    return [P(0, 0)] + up + [P(1, 0)] + lo[::-1], P, width
+
+
+def coffee_leaf(L, col, sh=5, veins=True, petiole=True):
+    """Leaf items (top -> bottom): veins, midrib, face, shadow. Base at (-L/2, 0), tip at (L/2, 0)."""
+    pts, P, width = leaf_pts(L)
+    face = smooth(pts, True, corners=(0, 10))
+    w = max(0.6, L * 0.007)
+    items = []
+    if veins:
+        vs = []
+        for j, u in enumerate((0.16, 0.27, 0.38, 0.49, 0.6, 0.71, 0.81)):
+            for sgn in (-1, 1):  # side veins run forward and curve towards the tip
+                vs.append(smooth([P(u, 0), P(u + 0.06, sgn * 0.45 * width(u + 0.06)), P(u + 0.13, sgn * 0.78 * width(u + 0.13))], False))
+        items.append(G("Veins", *vs, stroke(WHITE, w, 38)))
+        items.append(G("Midrib", smooth([P(u, 0) for u in (0.0, 0.25, 0.5, 0.75, 0.93)], False), stroke(WHITE, w * 1.6, 60)))
+    if petiole:
+        items.append(G("Petiole", path([P(-0.07, 0), P(0.02, 0)]), stroke(STEM, max(1.5, L * 0.03))))
+    items.append(G("Leaf", face, fill(col)))
+    if sh:
+        items.append(G("Leaf Shadow", face, fill("#000000", 9), tr={"position": [0, sh]}))
+    return items
+
+
+def leaf_outline(L):
+    pts, _, _ = leaf_pts(L)
+    return smooth(pts, True, corners=(0, 10))
+
+
+def _leaf_at(L, base, deg, side=1.0):
+    """Small filled leaf path for icons, base at `base`, pointing at `deg` (0 = right, clockwise)."""
+    pts, _, _ = leaf_pts(L, wr=0.42, bend=0.0, side=side)
+    return smooth([_rot((x + L / 2, y), deg, base) for x, y in pts], True, corners=(0, 10))
+
+
+def icon_shrub(col, tall=True, cherries=False):
+    """Coffee shrub: one stem with opposite leaf pairs spreading almost flat, cherries in the leaf axils. Fits ~64 px."""
+    if tall:
+        top, nodes = -34, [(20, 22, 4), (6, 20, -2), (-8, 17, -8), (-21, 12, -16)]
+    else:
+        top, nodes = -14, [(20, 24, 6), (7, 23, 0), (-5, 18, -8)]
+    leaves = []
+    for y, L, a in nodes:
+        leaves += [_leaf_at(L, (2, y), a), _leaf_at(L, (-2, y), 180 - a)]
+    leaves.append(_leaf_at(11, (0, top + 6), -90))
+    out = [G("Stem", path([(0, 30), (0, top + 4)]), stroke(col, 4)), G("Leaves", *leaves, fill(col))]
+    if cherries:
+        bs = [egg(7, 9, o=(x, y + 6)) for y, _, _ in nodes[:-1] for x in (-5, 5)]
+        out.insert(0, G("Cherries", *bs, stroke(WHITE, 1.5), fill(ARA_DARK)))
+    return out
+
+
+def icon_feather2(col):
+    vane = smooth([(0, -32), (12, -16), (13, 6), (5, 24), (0, 30), (-7, 20), (-11, 0), (-8, -18)], True, corners=(0, 4))
+    barbs = [path([(0, y), (sx * 10, y - 7)]) for y, sx in ((-14, 1), (-2, 1), (10, 1), (-8, -1), (4, -1), (16, -1))]
+    return [G("Barbs", *barbs, stroke(WHITE, 2)), G("Spine", path([(-2, 38), (0, -30)]), stroke(col, 4)), G("Vane", vane, fill(col))]
+
+
+def bean_items2(name, w, h, col, crease, s_curve):
+    """Green-coffee bean, flat side up: an egg outline with the centre cut (S-shaped for arabica)."""
+    if s_curve:
+        c = smooth([(0, -h * 0.4), (w * 0.08, -h * 0.15), (-w * 0.08, h * 0.15), (0, h * 0.4)], False)
+    else:
+        c = path([(0, -h * 0.4), (0, h * 0.4)])
+    body = egg(w, h, e=0.1)
+    return [G(name + " Crease", c, stroke(crease, max(3, w * 0.07))),
+            G(name, body, fill(col)), G(name + " Shadow", body, fill("#000000", 9), tr={"position": [0, 6]})]
+
+
+def icon_big_bean2(col):
+    c = smooth([(0, -18), (4, -6), (-4, 6), (0, 18)], False)
+    return [G("Crease", c, stroke(col, 4)), G("Bean", egg(40, 54, e=0.1), stroke(col, 5))]
+
+
+def icon_fruit2():
+    """Three cherries on short stalks (excelsa card)."""
+    bs = [egg(19, 23, rot=r, o=o) for o, r in (((-11, 8), 18), ((11, 8), -18), ((0, -6), 0))]
+    return [G("Fruit", *bs, fill(WHITE)), G("Stalks", path([(-8, -2), (0, -22)]), path([(8, -2), (0, -22)]), path([(0, -18), (0, -26)]), stroke(WHITE, 3))]
+
+
+# cherry-on-a-branch geometry, in rig space (cherry centre at the origin)
+CH_PTS = egg_pts(CH_W, CH_H)
+NODE = (-26, -184)
+SIB = {"pos": (-114, -84), "rot": 18, "w": 144, "h": 172}
+TWIG = [(-260, -158), (-140, -176), NODE, (90, -196), (196, -204)]
+# the end-of-scene disc: the egg squashes to a circle of CHERRY_D, rotated upright
+MORPH_SCALE = [100 * (CHERRY_D - 6) / CH_W, 100 * (CHERRY_D - 6) / CH_H]
+
+
+def coffee_cherry(prefix, t0, t1, rig, grow_t=None, morph_in=None, morph_out=None, branch_t=0.0, detail_t=0.0, flutter=True):
+    """Coffee cherry hanging from a twig, with a smaller cherry behind it and a pair of opposite leaves.
+
+    grow_t: body grows from nothing; morph_in / morph_out: (t0, t1) the plain disc of CHERRY_D turns into the
+    cherry, or back. Returns layers top -> bottom: front leaf, body, twig and stalks, back cherry, back leaf.
+    """
+    pos = [CX, CY]
+    top = _rot((0, -CH_H / 2 + 4), CH_ROT)
+
+    def at(p):
+        return [CX + p[0], CY + p[1]]
+
+    # body: details sit inside the rotated egg group, so the morph squashes and turns them together
+    det_op = A(K(detail_t, 0), K(detail_t + 0.5, 100))
+    shade = G("Shade", crescent(CH_PTS, 2, 13, 30), fill(ARA_DARK, 30), tr={"opacity": det_op})
+    hi = G("Highlight", crescent(CH_PTS, 18, 22, 13, inset=16), fill(WHITE, 45), tr={"opacity": det_op})
+    navel = G("Navel", ell([10, 7], [0, CH_H / 2 - 15]), fill(ARA_DARK), ell([34, 15], [0, CH_H / 2 - 15]), stroke(ARA_DARK, 4),
+              tr={"opacity": det_op})
+    grp_rot, grp_sc, disc_sc, sh_pos = CH_ROT, [100, 100], None, [0, 7]
+    if morph_out:
+        a, b = morph_out
+        for g in (shade, hi, navel):
+            g["transform"]["opacity"] = A(K(detail_t, 0), K(detail_t + 0.5, 100), K(a - 0.3, 100), K(a + 0.2, 0))
+        grp_rot = A(K(a, CH_ROT), K(b, 0))
+        grp_sc = A(K(a, [100, 100]), K(b, MORPH_SCALE))
+        disc_sc = A(K(a, [80, 80]), K(b, [100, 100]))
+        sh_pos = A(K(a, [0, 7]), K(b, [0, 0]))
+    if morph_in:
+        a, b = morph_in
+        grp_rot = A(K(a, 0), K(b, CH_ROT))
+        grp_sc = A(K(a, MORPH_SCALE), K(b, [100, 100]))
+        disc_sc = A(K(a, [100, 100]), K(b, [80, 80]))
+        sh_pos = A(K(a, [0, 0]), K(b, [0, 7]))
+    skin = smooth(CH_PTS)
+    items = [G("Cherry", navel, hi, shade, G("Skin", skin, fill(ARA)), tr={"rotation": grp_rot, "scale": grp_sc})]
+    if disc_sc:
+        items.append(G("Disc", ell([CHERRY_D, CHERRY_D]), fill(ARA), tr={"scale": disc_sc}))
+    items.append(G("Skin Shadow", skin, fill("#000000", 9), tr={"position": sh_pos, "rotation": grp_rot, "scale": grp_sc}))
+    sc = A(K(grow_t, [0, 0]), K(grow_t + 0.5, [100, 100])) if grow_t is not None else None
+    body = shape(f"{prefix} Body", items, pos, t0, t1, parent=rig, scale=sc)
+
+    # twig, the hero's stalk and the back cherry's stalk; the twig draws out from the node both ways
+    bt = branch_t
+    twig = shape(f"{prefix} Twig", [
+        G("Stalk", smooth([top, (top[0] - 4, (top[1] + NODE[1]) / 2), NODE], False), trim(0, A(K(bt + 0.25, 0), K(bt + 0.75, 100))), stroke(STEM, 10)),
+        G("Back Stalk", smooth([_rot((0, -SIB["h"] / 2 + 4), SIB["rot"], SIB["pos"]), (-60, -178), NODE], False),
+          trim(0, A(K(bt + 0.25, 0), K(bt + 0.75, 100))), stroke(STEM, 8)),
+        G("Node", ell([22, 18], NODE), fill(STEM), tr={"anchorPoint": list(NODE), "position": list(NODE), "scale": grow(bt + 0.25, 100, 0.5)}),
+        G("Twig", smooth(TWIG, False), trim(A(K(bt, 47), K(bt + 0.5, 0)), A(K(bt, 47), K(bt + 0.5, 100))), stroke(STEM, 12))],
+        pos, t0, t1, parent=rig)
+
+    sib_pts = egg_pts(SIB["w"], SIB["h"])
+    sib = shape(f"{prefix} Back Cherry", [
+        G("Shade", crescent(sib_pts, 3, 12, 22), fill("#000000", 12)),
+        G("Skin", smooth(sib_pts), fill(ARA_DARK))], at(SIB["pos"]), t0, t1, parent=rig, rotation=SIB["rot"],
+        scale=A(K(bt + 0.5, [0, 0]), K(bt + 1.0, [100, 100])))
+
+    def leaf(name, L, deg, t, phase):
+        rot = {"keyframes": [K(t, deg - 50), K(t + 0.5, deg)]}
+        if flutter:  # a slow sway from the base, as if in a draught
+            rot["expression"] = f"value + 1.4 * Math.sin((time + {phase}) * 2 * Math.PI / 3.5)"
+        return shape(name, coffee_leaf(L, MX, sh=5), at(NODE), t0, t1, parent=rig, anchorPoint=[-L / 2 - L * 0.07, 0],
+                     rotation=rot, scale=A(K(t, [0, 0]), K(t + 0.5, [100, 100])))
+
+    front = leaf(f"{prefix} Leaf", 220, -34, bt + 0.5, 0.0)
+    back = leaf(f"{prefix} Back Leaf", 170, 206, bt + 0.75, 1.3)
+    return [front, body, twig, sib, back]
+
+
+def coffee_section(prefix, t_open, t_close, t1, rig, thread_t=None):
+    """Lengthwise cut through the cherry, opened by an iris: skin rim, pulp, mucilage, parchment, two seeds flat sides together."""
+    def seed(name, s):
+        sd = smooth([(s * 5, -74), (s * 36, -66), (s * 60, -30), (s * 64, 8), (s * 52, 48), (s * 28, 72), (s * 5, 76)], True, corners=(0, 6))
+        pa = smooth([(s * 2, -84), (s * 40, -76), (s * 70, -34), (s * 74, 10), (s * 60, 56), (s * 30, 82), (s * 2, 86)], True, corners=(0, 6))
+        groove = smooth([(s * 9, -54), (s * 17, -20), (s * 18, 16), (s * 10, 52)], False)  # the furrow, just inside the flat face
+        return [G(name + " Groove", groove, stroke(SEED_LINE, 3, 80)),
+                G(name, sd, stroke(SEED_LINE, 3), fill(SEED)),
+                G(name + " Parchment", pa, stroke("#E6D3AE", 2), fill("#FFF8EA"))]
+    items = []
+    if thread_t is not None:
+        thr = smooth([(28, -50), (44, -18), (30, 14), (46, 48)], False)
+        items.append(G("Robusta Thread", thr, trim(0, A(K(thread_t, 0), K(thread_t + 1.0, 100))), stroke(ROB, 5)))
+    items += seed("Seed R", 1) + seed("Seed L", -1)
+    items.append(G("Mucilage", egg(176, 206, e=0.04), fill("#FBE3D8")))
+    items.append(G("Pulp", smooth([(x * 0.9, y * 0.91) for x, y in CH_PTS]), fill(PULP)))
+    sc = A(K(t_open, [0, 0]), K(t_open + 0.5, [100, 100]))
+    if t_close is not None:
+        sc["keyframes"] += [K(t_close, [100, 100]), K(t_close + 0.5, [0, 0])]
+    return shape(f"{prefix} Section", items, [CX, CY], t_open, t1, parent=rig, rotation=CH_ROT, scale=sc)
+
+
 # =====================================================================
 # SCENE 1 - THE SEED (10 s)
 # =====================================================================
@@ -413,23 +689,33 @@ def s1_seed(D):
     rig = "Cherry Rig"
     # labels
     L += [caps("Label Cherry", "COFFEE CHERRY", [1260, 372], 1.6, 6.4, color=INK, just="left", opacity=fade_io(1.6, 6.4)),
-          leader("Leader Cherry", (1066, 470), (1240, 380), 1.4, 6.4, opacity=fade_io(1.4, 6.4))]
+          lead("Leader Cherry", (1040, 500), (1240, 380), 1.4, 6.4)]
     L += [caps("Label Seeds", "2 SEEDS", [660, 652], 3.9, 6.4, color=INK, just="right", opacity=fade_io(3.9, 6.4)),
           caps("Label Seeds Sub", "THE COFFEE BEANS", [660, 682], 4.1, 6.4, size=16, just="right", opacity=fade_io(4.1, 6.4)),
-          leader("Leader Seeds", (920, 560), (680, 640), 3.7, 6.4, opacity=fade_io(3.7, 6.4))]
-    L.append(cherry_section("S1", 3.0, 6.6, D, rig))
-    parts = cherry("S1", 0, D, rig, show=0.3, leaf_t=0.75, detail_t=0.7)
-    leaf, stem, body = parts
-    # exit: the leaf falls, the stem retracts, details fade; a plain red disc remains
-    leaf["transform"]["position"] = A(K(7.2, [CX + 18, CY - 170]), K(8.4, [CX + 120, CY + 700], {"inInfluence": 10, "outInfluence": 60, "inSpeed": 0, "outSpeed": 0}))
-    leaf["transform"]["rotation"] = A(K(7.2, -28), K(8.4, 40))
-    leaf["out"] = 8.4
-    stem["shapes"][0]["items"][1]["end"] = A(K(0.5, 0), K(0.9, 100), K(7.5, 100), K(8.0, 0))
-    stem["out"] = 8.0
-    for g in body["shapes"][:2]:
-        g["transform"]["opacity"] = A(K(0.7, 0), K(1.1, 100), K(7.6, 100), K(8.0, 0))
-    body["shapes"][3]["transform"]["opacity"] = A(K(7.6, 100), K(8.0, 0))
-    body["transform"]["scale"] = A(K(0.2, [0, 0]), K(0.75, [100, 100]), K(8.2, [100, 100]), KL(D, [100 / HS, 100 / HS]))
+          lead("Leader Seeds", (918, 566), (680, 640), 3.7, 6.4)]
+    L.append(coffee_section("S1", 3.0, 6.6, D, rig))
+    # exit: the leaves and the back cherry drop, the twig pulls back into the stalk, the stalk into the cherry,
+    # and the cherry squashes upright into the plain red disc that scene 2 zooms out of
+    parts = coffee_cherry("S1", 0, D, rig, grow_t=0.25, morph_out=(7.9, 8.4), branch_t=0.0, detail_t=0.75)
+    leaf, body, twig, sib, back = parts
+    for l, t, dx, rot in ((leaf, 7.0, 140, 70), (back, 7.15, -120, -60), (sib, 7.3, -30, 25)):
+        p0 = l["transform"]["position"]
+        l["transform"]["position"] = A(K(t, p0, EXIT), K(t + 1.0, [p0[0] + dx, p0[1] + 900], EXIT))
+        r = l["transform"].get("rotation")
+        r0 = r if isinstance(r, (int, float)) else r["keyframes"][-1]["value"]
+        fall = [K(t, r0, EXIT), K(t + 1.0, r0 + rot, EXIT)]
+        if isinstance(r, dict):
+            r["keyframes"] += fall
+        else:
+            l["transform"]["rotation"] = A(*fall)
+        l["out"] = t + 1.0
+    tw_ = twig["shapes"]
+    tw_[3]["items"][1].update(start=A(K(0, 47), K(0.5, 0), K(7.3, 0), K(7.8, 47)), end=A(K(0, 47), K(0.5, 100), K(7.3, 100), K(7.8, 47)))
+    tw_[2]["transform"]["scale"] = A(K(0.25, [0, 0]), K(0.75, [100, 100]), K(7.4, [100, 100]), K(7.9, [0, 0]))
+    tw_[1]["items"][1]["end"] = A(K(0.25, 0), K(0.75, 100), K(7.3, 100), K(7.8, 0))
+    tw_[0]["items"][1]["end"] = A(K(0.25, 0), K(0.75, 100), K(7.4, 100), K(7.9, 0))  # the stalk retracts into the cherry
+    twig["out"] = 7.9
+    body["transform"]["scale"] = A(K(0.25, [0, 0]), K(0.75, [100, 100]), K(8.4, [100, 100]), KL(D, [100 / HS, 100 / HS]))
     L += parts
     L.append(null(rig, [CX, CY], 0, D))
     L.append(bg(D))
@@ -550,8 +836,8 @@ def s3_species(D):
             x += sgn * (wpx + 16)
     # 4 bean shape
     y, t = ry[3], rows_t[3]
-    tmp.append(shape("Bean rob", bean_items("Bean", 70, 64, ROB, "#3E2A20", False), [800, y], t + 0.15, D, scale=grow(t + 0.15), rotation=-12))
-    tmp.append(shape("Bean ara", bean_items("Bean", 56, 82, ARA, ARA_DARK, True), [1120, y], t + 0.4, D, scale=grow(t + 0.4), rotation=12))
+    tmp.append(shape("Bean rob", bean_items2("Bean", 70, 64, ROB, "#3E2A20", False), [800, y], t + 0.15, D, scale=grow(t + 0.15), rotation=-12))
+    tmp.append(shape("Bean ara", bean_items2("Bean", 56, 82, ARA, ARA_DARK, True), [1120, y], t + 0.4, D, scale=grow(t + 0.4), rotation=12))
     tmp.append(appear(text("Bean rob Note", "round, straight crease", [740, y + 8], 24, GREY, t + 0.3, D, just="right"), t + 0.3, dy=0, dx=20))
     tmp.append(appear(text("Bean ara Note", "oval, S-shaped crease", [1180, y + 8], 24, GREY, t + 0.55, D, just="left"), t + 0.55, dy=0, dx=-20))
     # 5 chromosomes
@@ -621,8 +907,7 @@ def s4_others(D):
         if kind == "tree":
             return [G("Canopy", ell([54, 46], [0, -10]), fill(WHITE)), G("Trunk", path([(0, 30), (0, 6)]), stroke(WHITE, 8, cap="butt"))]
         if kind == "fruit":
-            return [G("Fruit", ell([20, 20], [-12, 6]), ell([20, 20], [12, 6]), ell([20, 20], [0, -12]), fill(WHITE)),
-                    G("Stem", path([(0, -22), (8, -32)]), stroke(WHITE, 4))]
+            return icon_fruit2()
         if kind == "therm":
             return [G("Bulb", ell([22, 22], [0, 20]), fill(WHITE)), G("Tube", rect([12, 46], [0, -8], 6), stroke(WHITE, 4)),
                     G("Mercury", rect([5, 26], [0, 2]), fill(WHITE))]
@@ -903,9 +1188,9 @@ def s8_tree(D):
     L += wipe_text("Tree Title", "Mexico's arabica family tree", [CX, 92], 40, INK, 1.2, D)
     # Typica's children
     tx, ty = ROOTS["Typica"]
-    kids = [("Criollo", 170, 2.8, icon_plant(ARA, True), "Typica on old farms.\rTall, low yield"),
-            ("Pluma Hidalgo", 440, 6.5, icon_feather(ARA), "Typica selection\rfrom Oaxaca"),
-            ("Maragogype", 720, 9.5, icon_big_bean(ARA), "Typica mutation,\rgiant beans")]
+    kids = [("Criollo", 170, 2.8, icon_shrub(ARA, True), "Typica on old farms.\rTall, low yield"),
+            ("Pluma Hidalgo", 440, 6.5, icon_feather2(ARA), "Typica selection\rfrom Oaxaca"),
+            ("Maragogype", 720, 9.5, icon_big_bean2(ARA), "Typica mutation,\rgiant beans")]
     L.append(link("Link Typica Bus", [(tx, ty + RD / 2 + 6), (tx, 350)], 2.4, 0.3))
     for nm, x, t, ic, tr_ in kids:
         L.append(link(f"Link {nm}", [(tx, 350), (x, 350), (x, 470 - ND / 2 - 6)], t - 0.4, 0.45))
@@ -913,13 +1198,13 @@ def s8_tree(D):
     # Bourbon -> Caturra
     bx, by = ROOTS["Bourbon"]
     L.append(link("Link Caturra", [(bx, by + RD / 2 + 6), (bx, 470 - ND / 2 - 6)], 12.3, 0.4))
-    L += node("Caturra", (bx, 470), 12.6, icon_plant(ARA, False), "Bourbon mutation.\rDwarf, dense planting")
+    L += node("Caturra", (bx, 470), 12.6, icon_shrub(ARA, False), "Bourbon mutation.\rDwarf, dense planting")
     # Typica x Bourbon -> Mundo Novo
     cross = [G("Cross", path([(-9, -9), (9, 9)]), path([(-9, 9), (9, -9)]), stroke(INK, 4)), *paper("Badge", ell([34, 34]), WHITE, line=INK, lw=3, sh=3)]
     L.append(shape("Cross 1", cross, [MUNDO[0], ty], 16.6, D, scale=grow(16.6)))
     L.append(link("Link Cross 1", [(tx + RD / 2 + 6, ty), (bx - RD / 2 - 6, ty)], 16.2, 0.5))
     L.append(link("Link Mundo Novo", [(MUNDO[0], ty + 20), (MUNDO[0], 470 - ND / 2 - 6)], 16.8, 0.4))
-    L += node("Mundo Novo", MUNDO, 17.1, icon_plant(ARA, True, True), "Typica × Bourbon.\rTall, productive")
+    L += node("Mundo Novo", MUNDO, 17.1, icon_shrub(ARA, True, True), "Typica × Bourbon.\rTall, productive")
     # Mundo Novo x Caturra -> Catuai, Garnica
     mx = (MUNDO[0] + bx) / 2
     L.append(link("Link Cross 2", [(MUNDO[0] + ND / 2 + 6, 470), (bx - ND / 2 - 6, 470)], 20.4, 0.5))
@@ -927,8 +1212,8 @@ def s8_tree(D):
     L.append(link("Link Cross 2 Bus", [(mx, 490), (mx, 680)], 20.9, 0.3))
     L.append(link("Link Catuai", [(mx, 680), (CATUAI[0], 680), (CATUAI[0], 800 - ND / 2 - 6)], 21.2, 0.4))
     L.append(link("Link Garnica", [(mx, 680), (GARNICA[0], 680), (GARNICA[0], 800 - ND / 2 - 6)], 23.2, 0.4))
-    L += node("Catuaí", CATUAI, 21.5, icon_plant(ARA, False, True), "Mundo Novo × Caturra.\rCompact, high yield")
-    L += node("Garnica", GARNICA, 23.6, [G("Leaf Icon", *icon_leaf(MX, LEAF_ICON), tr={"rotation": LEAF_ROT})], "Mundo Novo × Caturra", line=MX, tag="BRED IN MEXICO")
+    L += node("Catuaí", CATUAI, 21.5, icon_shrub(ARA, False, True), "Mundo Novo × Caturra.\rCompact, high yield")
+    L += node("Garnica", GARNICA, 23.6, [G("Leaf Icon", *coffee_leaf(LEAF_ICON, MX, sh=1, petiole=False), tr={"rotation": LEAF_ROT})], "Mundo Novo × Caturra", line=MX, tag="BRED IN MEXICO")
     # final push into Garnica's leaf: everything else fades
     for l in L:
         if l["name"] not in keep:
@@ -967,10 +1252,9 @@ def s9_roya(D):
         spots.append(G(f"Spot {j + 1}", ell([s * 0.4, s * 0.4]), fill("#A9561A"), ell([s, s]), fill(RUST),
                        tr={"position": [x, y], "scale": grow(t, 100, 0.8)}))
     tmp.append(shape("Rust", spots, [CX, CY], 1.0, D, parent=rig, rotation=LEAF_ROT, trackMatte={"target": "Leaf Matte", "type": "Alpha"}))
-    tmp.append(shape("Leaf Matte", [G("M", leaf_path(LF), fill(WHITE))], [CX, CY], 0, D, parent=rig, rotation=LEAF_ROT, enabled=False))
-    tmp.append(shape("Leaf Wilt", [G("W", leaf_path(LF), fill("#9C9372"))], [CX, CY], 3.5, D, parent=rig, rotation=LEAF_ROT, opacity=A(K(3.5, 0), K(6.5, 55))))
-    tmp.append(shape("Leaf", [G("Vein", path([(-LF * 0.42, 0), (LF * 0.4, 0)]), stroke(WHITE, max(2, LF * 0.02), 70)),
-                              *paper("Leaf", leaf_path(LF), MX, sh=8)], [CX, CY], 0, D, parent=rig, rotation=LEAF_ROT))
+    tmp.append(shape("Leaf Matte", [G("M", leaf_outline(LF), fill(WHITE))], [CX, CY], 0, D, parent=rig, rotation=LEAF_ROT, enabled=False))
+    tmp.append(shape("Leaf Wilt", [G("W", leaf_outline(LF), fill("#9C9372"))], [CX, CY], 3.5, D, parent=rig, rotation=LEAF_ROT, opacity=A(K(3.5, 0), K(6.5, 55))))
+    tmp.append(shape("Leaf", coffee_leaf(LF, MX, sh=8, petiole=False), [CX, CY], 0, D, parent=rig, rotation=LEAF_ROT))
     tmp.append(null(rig, [CX, CY], 0, D, position=A(K(6.6, [CX, CY]), K(7.4, [560, 600])), scale=A(K(6.6, [100, 100]), K(7.4, [72, 72]))))
     # date and name
     tmp.append(appear(text("Year", "2012", [130, 230], 110, INK, 2.6, D, font=HEAD, just="left"), 2.6))
@@ -1060,12 +1344,11 @@ def s10_close(D):
     L += wipe_text("End Title", "The Coffee Family Tree", [CX, 790], 84, INK, 6.4, D, hl=True)
     L.append(appear(text("End Sub", "From Ethiopia to Mexico, one seed at a time", [CX, 860], 32, GREY, 7.0, D, font=SCI), 7.0))
     L.append(caps("Label Robusta", "A LITTLE ROBUSTA", [1180, 452], 4.7, D, color=ROB, just="left", opacity=fade_io(4.7, 6.2)))
-    L.append(leader("Leader Robusta", (1000, 520), (1160, 460), 4.5, 6.2, col=ROB, opacity=fade_io(4.5, 6.2)))
-    L.append(cherry_section("S10", 1.6, None, D, rig, thread_t=3.8))
-    L += cherry("S10", 0, D, rig, show=0.2, leaf_t=0.5, detail_t=0.5)
-    L[-1]["transform"]["scale"] = None
-    L[-1]["transform"].pop("scale")
-    L.append(null(rig, [CX, CY], 0, D, position=A(K(6.0, [CX, CY]), K(6.8, [CX, 400])), scale=A(K(6.0, [100, 100]), K(6.8, [72, 72]))))
+    L.append(lead("Leader Robusta", (1000, 520), (1160, 460), 4.5, 6.2, col=ROB))
+    L.append(coffee_section("S10", 1.6, None, D, rig, thread_t=3.8))
+    # Oro Azteca's disc turns back into a cherry, and the twig and leaves grow around it
+    L += coffee_cherry("S10", 0, D, rig, morph_in=(0.0, 0.5), branch_t=0.25, detail_t=0.5)
+    L.append(null(rig, [CX, CY], 0, D, position=A(K(6.0, [CX, CY]), K(7.0, [CX, 400])), scale=A(K(6.0, [100, 100]), K(7.0, [72, 72]))))
     L.append(bg(D))
     return L
 
@@ -1100,11 +1383,169 @@ def zero_tangents(proj):
             walk_shapes(l.get("shapes", []))
 
 
-def build():
+# ---------- timing: 24 fps, in/out animations in whole 12-frame beats ----------
+EPS = 1e-6
+_UEXPR = re.compile(r"\(time - ([-0-9.e]+)\) / ([-0-9.e]+)\)")
+
+
+def frames(t):
+    return round(t * FPS)
+
+
+def beats(d):
+    """Duration d (s) rounded to a whole number of beats, at least one."""
+    return max(1, round(d * FPS / BEAT)) * BEAT / FPS
+
+
+def _same(a, b):
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(_same(x, y) for x, y in zip(a, b))
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        return abs(a - b) < 1e-6
+    return a == b
+
+
+def _is_zero(v):
+    return all(abs(x) < 1e-6 for x in v) if isinstance(v, list) else isinstance(v, (int, float)) and abs(v) < 1e-6
+
+
+def _ease_side(k, **kw):
+    e = k.get("ease")
+    if e is None or isinstance(e, str):
+        return  # linear or preset keys keep their ease
+    k["ease"] = dict(e, **kw)
+
+
+def retime(layers, D, Dn):
+    """Map a scene designed at D seconds onto Dn seconds at FPS.
+
+    Start times scale by Dn / D and snap to frames; every animated segment (two keys with different values) is
+    re-timed to a whole number of 12-frame beats from its start. A segment that ends on the scene's last frame
+    (the handoff to the next scene) keeps that end and moves its start instead. Holds absorb the difference.
+    Segments that go to zero (fade-outs, scale-outs, retracting trims) get the EXIT ease: slow start, fast leave.
+    """
+    f = Dn / D
+    T = lambda t: Dn if abs(t - D) < EPS else frames(t * f) / FPS
+
+    def keys(ks, tmap):
+        def mv(a, b):
+            return not _same(a["value"], b["value"]) and a.get("interp") != "hold"
+
+        # a drift into the cut right after an animation: hold first, so both keep whole beats
+        copies = set()
+        for j in range(len(ks) - 1, 1, -1):
+            if abs(ks[j]["time"] - D) < EPS and mv(ks[j - 1], ks[j]) and mv(ks[j - 2], ks[j - 1]):
+                ks.insert(j, dict(ks[j - 1]))
+                copies.add(j + 1)
+        old = [k["time"] for k in ks]
+        new = []
+        for j, k in enumerate(ks):
+            if j == 0:
+                new.append(T(old[0]))
+                continue
+            moving = mv(ks[j - 1], k)
+            if moving:
+                d = beats((old[j] - old[j - 1]) * f)
+                if abs(old[j] - D) < EPS:
+                    if j > 1:
+                        d = min(d, (Dn - new[j - 2] - 1 / FPS) // (BEAT / FPS) * BEAT / FPS)
+                    if d < BEAT / FPS - EPS:  # no room for a whole beat: land on the final value instead of drifting
+                        ks[j - 1]["value"] = k["value"]
+                        if j in copies:
+                            ks[j - 2]["value"] = k["value"]
+                        new.append(max(T(old[j]), new[j - 1] + 1 / FPS))
+                        continue
+                    new[j - 1] = Dn - d
+                    new.append(Dn)
+                else:
+                    new.append(new[j - 1] + d)
+                if _is_zero(k["value"]) and not _is_zero(ks[j - 1]["value"]):
+                    _ease_side(ks[j - 1], outInfluence=70, outSpeed=0)
+                    _ease_side(k, inInfluence=10, inSpeed=0)
+            else:
+                new.append(max(T(old[j]), new[j - 1] + 1 / FPS))
+        for k, o, n in zip(ks, old, new):
+            k["time"] = round(n, 6)
+            tmap.setdefault(round(o, 3), []).append(n)
+
+    def expr(e):
+        return _UEXPR.sub(lambda m: f"(time - {T(float(m.group(1))):.6f}) / {beats(float(m.group(2)) * f):.6f})", e)
+
+    def walk(o, tmap):
+        if isinstance(o, dict):
+            if isinstance(o.get("keyframes"), list) and o["keyframes"]:
+                keys(o["keyframes"], tmap)
+            if isinstance(o.get("expression"), str):
+                o["expression"] = expr(o["expression"])
+            for k, v in o.items():
+                if k not in ("keyframes", "expression"):
+                    walk(v, tmap)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v, tmap)
+
+    for l in layers:
+        tmap = {}
+        walk(l.get("transform", {}), tmap)
+        walk(l.get("shapes", []), tmap)
+        t_in, t_out = l["in"], l["out"]
+        l["in"] = T(t_in)
+        if abs(t_out - D) < EPS:
+            l["out"] = Dn
+        else:
+            l["out"] = min(Dn, max(tmap.get(round(t_out, 3), [T(t_out)])))
+        l["out"] = round(max(l["out"], l["in"] + 1 / FPS), 6)
+        l["in"] = round(l["in"], 6)
+    return layers
+
+
+def check_timing(proj):
+    """Every key on a whole frame, every animated segment a whole number of beats, nothing animating past the cut."""
+    bad = []
+
+    def chk(o, where, D):
+        if isinstance(o, dict):
+            ks = o.get("keyframes")
+            if isinstance(ks, list):
+                for k in ks:
+                    if abs(k["time"] * FPS - round(k["time"] * FPS)) > 1e-3:
+                        bad.append((where, "off-frame key", k["time"]))
+                for a, b in zip(ks, ks[1:]):
+                    if round((b["time"] - a["time"]) * FPS) < 1:
+                        bad.append((where, "keys less than a frame apart", a["time"]))
+                    if not _same(a["value"], b["value"]) and a.get("interp") != "hold":
+                        n = round((b["time"] - a["time"]) * FPS)
+                        if n % BEAT:
+                            bad.append((where, f"{n} frames", a["time"]))
+                        if b["time"] > D + EPS:
+                            bad.append((where, "past the cut", b["time"]))
+            for m in _UEXPR.finditer(o.get("expression") or ""):
+                if round(float(m.group(2)) * FPS) % BEAT:
+                    bad.append((where, "expression ramp", m.group(0)))
+            for k, v in o.items():
+                if k != "keyframes":
+                    chk(v, where, D)
+        elif isinstance(o, list):
+            for v in o:
+                chk(v, where, D)
+
+    for c in proj["compositions"][1:]:
+        for l in c["layers"]:
+            chk(l, f'{c["name"]}/{l["name"]}', c["duration"])
+            for t in (l["in"], l["out"]):
+                if abs(t * FPS - round(t * FPS)) > 1e-3:
+                    bad.append((f'{c["name"]}/{l["name"]}', "off-frame in/out", t))
+    return bad
+
+
+def build(durations=None, aep="coffee_families.aep", schema="../motion.schema.json"):
+    """durations: one length (s) per scene, e.g. measured from the voiceover; default is the designed timing."""
     comps, main = [], []
     t = 0.0
-    for cname, d, fn in SCENES:
-        layers = fn(d)
+    durations = durations or [d for _, d, _ in SCENES]
+    for (cname, d, fn), dn in zip(SCENES, durations):
+        dn = frames(dn) / FPS
+        layers = retime(fn(d), d, dn)
         names = [l["name"] for l in layers]
         assert len(names) == len(set(names)), (cname, [n for n in names if names.count(n) > 1])
         missing = [(l["name"], l["parent"]) for l in layers if l.get("parent") and l["parent"] not in names]
@@ -1113,26 +1554,33 @@ def build():
         assert not mattes, (cname, "matte not found", mattes)
         bad = [l["name"] for l in layers if not l["out"] > l["in"]]
         assert not bad, (cname, "out <= in", bad)
-        comps.append({"name": cname, "width": W, "height": H, "fps": FPS, "duration": d, "backgroundColor": WHITE, "layers": layers})
-        main.insert(0, {"name": cname, "type": "precomp", "source": cname, "startTime": t, "in": t, "out": t + d,
-                        "transform": {"scale": A(KL(t, [100, 100]), KL(t + d, [HS * 100, HS * 100]))}})
-        t += d
+        comps.append({"name": cname, "width": W, "height": H, "fps": FPS, "duration": dn, "backgroundColor": WHITE, "layers": layers})
+        # the master's 3 % push-in runs the length of the scene; it is a drift, not an in/out animation
+        main.insert(0, {"name": cname, "type": "precomp", "source": cname, "startTime": round(t, 6), "in": round(t, 6), "out": round(t + dn, 6),
+                        "transform": {"scale": A(KL(t, [100, 100]), KL(t + dn, [HS * 100, HS * 100]))}})
+        t = frames(t + dn) / FPS
+    for l in main:
+        l["transform"]["scale"]["keyframes"][0]["time"] = l["in"]
+        l["transform"]["scale"]["keyframes"][1]["time"] = l["out"]
     grain = {"name": "Paper Grain", "type": "adjustment", "in": 0, "out": t,
              "effects": [{"matchName": "ADBE Noise", "props": {"ADBE Noise-0001": 2.0}}]}
     master = {"name": "Coffee_Families", "width": W, "height": H, "fps": FPS, "duration": t, "backgroundColor": WHITE,
               "layers": [grain] + main}
-    return {"$schema": "../motion.schema.json", "file": "coffee_families.aep", "expressionEngine": "javascript-1.0",
+    proj = {"$schema": schema, "file": aep, "expressionEngine": "javascript-1.0",
             "bitDepth": "8 bpc", "compositions": [master] + comps}
+    zero_tangents(proj)
+    bad = check_timing(proj)
+    assert not bad, "\n".join(map(str, bad[:40])) + f"\n... {len(bad)} timing problems"
+    return proj
 
 
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "coffee_families.json")
     proj = build()
-    zero_tangents(proj)
     with open(out, "w", encoding="utf-8") as f:
         json.dump(proj, f, indent=1, ensure_ascii=False)
     t = 0
-    for c, d, _ in SCENES:
-        print(f"{int(t // 60)}:{t % 60:04.1f}  {c}")
-        t += d
-    print("total", t, "s,", sum(len(c["layers"]) for c in proj["compositions"]), "layers")
+    for c in proj["compositions"][1:]:
+        print(f"{int(t // 60)}:{t % 60:04.1f}  {c['name']}")
+        t += c["duration"]
+    print("total", t, "s at", FPS, "fps,", sum(len(c["layers"]) for c in proj["compositions"]), "layers")
