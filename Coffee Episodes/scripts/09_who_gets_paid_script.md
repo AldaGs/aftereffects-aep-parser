@@ -1,7 +1,7 @@
 # Who Gets Paid for Your Coffee: Script and Storyboard
 
 **Status:** draft v2 (revised against `notes/fact_check.md`, `notes/visual_direction.md` and `notes/story_edit.md`).
-**Format:** 4:42 (723 words of VO), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:42 (723 words of VO), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Of the five dollars you pay for a latte, how much reaches the person who grew the coffee, and who decides?
 **The answer:** About fifteen cents is the coffee, priced per pound by futures traders in New York (the "C price"), and the farmer gets roughly eight to ten of those cents after the exporter, the local buyer and the exchange rate. From 1963 to 1989 a treaty's quotas held that price up, on and off; since 1989, in Mexico, nothing does except a floor that a few cooperatives built.
 **The surprise:** In the turn (scenes 6–7): the treaty's quotas had been suspended twice before, from 1972 to 1980 and from 1986 to 1987, while coffee was dear, and both times they came back. In July 1989 they went and never returned, and the average price over the next five years was little more than half the average of the five before. Then (scene 9): the first fair-trade label, the floor that took the treaty's place for some farmers, started with a Mexican cooperative months before the treaty broke.

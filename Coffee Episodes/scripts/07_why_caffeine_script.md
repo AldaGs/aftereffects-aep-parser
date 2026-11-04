@@ -1,7 +1,7 @@
 # Why Does a Plant Make Caffeine?: Script and Storyboard
 
 **Status:** draft v2 (after fact check, visual direction and story edit, see `notes/`).
-**Format:** 4:07 (606 words of VO at 155 wpm, plus a 1 s hold per scene and a 2 s end card), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:07 (606 words of VO at 155 wpm, plus a 1 s hold per scene and a 2 s end card), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** What is a coffee plant making caffeine for?
 **The answer:** Caffeine is a defence chemical, and the plant sets the dose by tissue: enough in seeds and young leaves to stop most insects, a trace in the nectar that makes a pollinating bee remember the flower and come back.
 **The surprise:** The same molecule that poisons a caterpillar is, at nectar strength, a memory aid for bees. Lands in scene 7, the turn (≈ 2:10). Then the beetle that does the most damage to coffee lives inside the seed, the most caffeinated part of the plant, and its gut bacteria eat caffeine as food (scene 8).

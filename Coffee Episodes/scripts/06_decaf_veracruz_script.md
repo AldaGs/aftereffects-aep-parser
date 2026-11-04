@@ -1,7 +1,7 @@
 # How Decaf Is Made, in Veracruz: Script and Storyboard
 
 **Status:** draft v2 (after fact check, visual direction and story edit, see `notes/`).
-**Format:** 3:32 (523 words of VO at 155 wpm, plus a 1 s hold per scene and a 2 s end card), 1920×1080, 30 fps, AE 26.5.
+**Format:** 3:32 (523 words of VO at 155 wpm, plus a 1 s hold per scene and a 2 s end card), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Why would a Colombian bean travel three thousand kilometres to Mexico to lose its caffeine, and how do you take caffeine out without taking the flavour too?
 **The answer:** You soak the beans in water that already holds everything a bean can lose except caffeine. Every other compound is already as concentrated in the water as in the bean, so caffeine is the only thing that moves. Only a handful of plants do this with water alone, and one of them is in Córdoba, Veracruz.
 **The surprise:** The mountain water the bags advertise matters less than what's dissolved in it. In Córdoba the extract is brewed separately for each origin, so a Colombian bean soaks in water that already tastes Colombian. Lands in scene 6, the turn (≈ 2:20).

@@ -11,7 +11,7 @@ Most coffee channels cover brewing and gear and repeat the same arabica-vs-robus
 | | |
 | :--- | :--- |
 | Length | 3–5 minutes. VO at about 155 words per minute, so 3:00 ≈ 465 words and 5:00 ≈ 775 words. State the word count and the runtime it implies at the top of each script |
-| Frame | 1920×1080, 30 fps, After Effects 26.5. One precomp per scene, butt-cut on the master comp |
+| Frame | 1920×1080, 24 fps, After Effects 26.5. Every in/out animation lasts a whole number of 12-frame beats (`write(..., beats=True)` checks it). One precomp per scene, butt-cut on the master comp |
 | Scenes | 8–14 scenes. A scene is one idea and one on-screen change that carries it |
 | VO | One unseen narrator, present tense where possible, second person sparingly ("your cup") |
 
@@ -61,7 +61,7 @@ Copy this structure. Section names match episode 1's script so the build pipelin
 # <Episode title>: Script and Storyboard
 
 **Status:** draft v<N>.
-**Format:** <m:ss> (<word count> words of VO), 1920×1080, 30 fps, AE 26.5.
+**Format:** <m:ss> (<word count> words of VO), 1920×1080, 24 fps, AE 26.5.
 **The question:** <one sentence the viewer has never asked>
 **The answer:** <one or two sentences>
 **The surprise:** <what the viewer won't expect, and where it lands>

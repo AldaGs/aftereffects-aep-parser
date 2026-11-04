@@ -1,7 +1,7 @@
 # The Fungus That Turned Ceylon Into a Tea Country: Script and Storyboard
 
 **Status:** draft v2 (revised against `notes/fact_check.md`, `notes/visual_direction.md` and `notes/story_edit.md`).
-**Format:** 4:50 (745 words of VO), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:50 (745 words of VO), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Why did Ceylon give up on coffee when the rust hit, while Mexico, hit by the same fungus a century later, kept growing it?
 **The answer:** In Ceylon the rust met hundreds of thousands of acres of near-identical arabica, and the British owners could afford three years without a harvest while they rebuilt on tea, so they changed the crop. Mexico's coffee belongs to about half a million families on a couple of hectares each, who couldn't wait, so they changed the tree, borrowing robusta genes. That fix costs points in the cup and holds only until the fungus adapts.
 **The surprise:** Two of them. In the turn (scene 7): the fungus didn't make Ceylon a tea country; money did, because only owners who could wait three years for a harvest could switch. Near the end (scene 10): Costa Rica 95, one of the rescue varieties from episode 1, now catches rust in Costa Rica.

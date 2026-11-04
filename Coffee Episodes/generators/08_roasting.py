@@ -5,6 +5,9 @@
 Every scene hangs off one camera null (cam): content point q sits on screen at c with zoom z, and the master
 push-in is cancelled inside the expression, so content coordinates are screen pixels and every match cut is
 exact without handoff maths. No fades: cut_pass turns exits into cuts or pops.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: beans are bean outlines (egg-shaped, S-shaped cut), not ellipses; a rounded cup on a saucer.
 """
 import math, random
 
@@ -60,6 +63,11 @@ def honeycomb(r, w, h, lw):
     return G("Cells", *ps, stroke(INK, lw))
 
 
+def bean_shape(w, h):
+    """Coffee bean on its side (w wide, h tall): episode 1's egg outline, broad end to the left."""
+    return egg(h, w, e=0.1, rot=-90)
+
+
 def bean(name, pos, w, col, t0, t1, crease=True, cells_r=None, cells_t=None, gloss_t=None, **tr):
     h = w * 0.7
     items = []
@@ -74,7 +82,7 @@ def bean(name, pos, w, col, t0, t1, crease=True, cells_r=None, cells_t=None, glo
         if cells_t is not None:
             g["transform"] = {"opacity": fade_in(cells_t)}
         items.append(g)
-    items.append(G("Body", ell([w, h]), stroke(INK, max(2, w * 0.008)), fill(col)))
+    items.append(G("Body", bean_shape(w, h), stroke(INK, max(2, w * 0.008)), fill(col)))
     return shape(name, items, pos, t0, t1, **tr)
 
 
@@ -123,7 +131,8 @@ def gauge(name, pos, t0, t1, rot):
 
 def cup(name, pos, t0, t1):
     return shape(name, [G("Handle", ell([22, 26], [34, -6]), stroke(INK, 4)),
-                        G("Cup", path([(-30, -24), (30, -24), (22, 20), (-22, 20)], True), stroke(INK, 4), fill(WHITE))], pos, t0, t1, scale=grow(t0))
+                        G("Cup", smooth([(-31, -24), (31, -24), (28, 2), (16, 18), (-16, 18), (-28, 2)], True, corners=(0, 1)), stroke(INK, 4), fill(WHITE)),
+                        G("Saucer", smooth([(-42, 24), (0, 30), (42, 24)], False), stroke(INK, 4))], pos, t0, t1, scale=grow(t0))
 
 
 def clock(name, pos, t0, t1):
@@ -155,8 +164,8 @@ def drum(t0, t1, col=ROAST[3], pour_t=None, label_t=None):
     for j in range(14):
         a, r = rnd.uniform(0.15, 0.85) * math.pi, rnd.uniform(60, 160)
         p = [round(r * math.cos(a), 1), round(r * math.sin(a), 1)]
-        bs.append(G(f"Bean {j + 1}", path([(-14, 0), (14, 0)]), stroke(INK, 2, 50), tr={"position": p, "rotation": rnd.uniform(0, 180)}))
-        bs.append(G(f"Bean {j + 1} Body", ell([44, 30]), stroke(INK, 2), fill(col), tr={"position": p, "rotation": bs[-1]["transform"]["rotation"]}))
+        bs.append(G(f"Bean {j + 1}", smooth([(-16, 0), (-5, -2), (5, 2), (16, 0)], False), stroke(INK, 2, 50), tr={"position": p, "rotation": rnd.uniform(0, 180)}))
+        bs.append(G(f"Bean {j + 1} Body", bean_shape(44, 30), stroke(INK, 2), fill(col), tr={"position": p, "rotation": bs[-1]["transform"]["rotation"]}))
     out.append(shape("Drum Beans", [G("Tumble", *bs, tr={"rotation": X("time * 45")})], list(DRUM), t0, t1))
     out.append(shape("Drum", [G("Hopper", path([(-90, -290), (-36, -205), (36, -205), (90, -290)]), stroke(INK, 6)),
                               G("Legs", path([(-140, 140), (-170, 240)]), path([(140, 140), (170, 240)]), path([(-190, 240), (190, 240)]), stroke(INK, 6)),
@@ -222,11 +231,11 @@ def ramp(T):
     return "#" + "".join(f"{round(x + (y - x) * u):02X}" for x, y in zip(a, b))
 
 
-def ride(way, step=0.1):
-    """[(t, m)] waypoints -> eased (t, m) samples."""
+def ride(way, step=0.5):
+    """[(t, m)] waypoints -> eased (t, m) samples, one per 12-frame beat (each step is a whole beat after retime)."""
     out = []
     for (t0, m0), (t1, m1) in zip(way, way[1:]):
-        n = max(1, int((t1 - t0) / step)) if m1 != m0 else 1
+        n = max(1, round((t1 - t0) / step)) if m1 != m0 else 1
         for j in range(n):
             u = j / n
             out.append((t0 + (t1 - t0) * u, m0 + (m1 - m0) * u * u * (3 - 2 * u)))
@@ -525,7 +534,7 @@ def s5_crack(D):
           shape("Split", [G("S", path([(-260, 0), (260, 0)], False, i=[(0, 0), (-140, -44)], o=[(140, 44), (0, 0)]), stroke(WHITE, 16))], [CX, CY], b0, c0),
           bean("Roasted", [CX, CY], 620, ROAST[2], b0, c0, crease=False),
           caps("Ghost Label", "GREEN", [CX - 300, 300], b0 + 1.6, c0, size=14, color=GREY, just="right"),
-          shape("Ghost", [G("G", ell([540, 378]), stroke(GREY, 3, dashes=(14, 10)))], [CX - 60, CY - 40], b0 + 1.4, c0)]
+          shape("Ghost", [G("G", bean_shape(540, 378), stroke(GREY, 3, dashes=(14, 10)))], [CX - 60, CY - 40], b0 + 1.4, c0)]
     L += bv
     # C: back out to the curve
     L.append(tag("FC Label", "FIRST CRACK ≈ 196 °C", [cxy(M_FC)[0] - 30, cxy(M_FC)[1] - 60], c0 + 2.2, D, size=16, just="right"))
@@ -764,4 +773,4 @@ SCENES = [("S1_Drum", 17.0, s1_drum), ("S2_Seed", 20.0, s2_seed), ("S3_Curve", 2
           ("S9_Mexico", 30.0, s9_mexico), ("S10_Close", 19.0, s10_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Roasting", "08_roasting")
+    write(SCENES, "Roasting", "08_roasting", beats=True)

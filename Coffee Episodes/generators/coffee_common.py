@@ -9,7 +9,10 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(_HERE, "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "schema", "examples"))
 from coffee_families import *  # noqa: F401,F403
-from coffee_families import zero_tangents
+from coffee_families import zero_tangents, retime, check_timing, frames
+import coffee_families as _ep1
+
+FPS = 30  # episodes still on the old timing; build_project(beats=True) builds at 24 fps like episode 1
 
 JSON_DIR = os.path.join(_HERE, "..", "json")
 
@@ -180,7 +183,10 @@ def cut_pass(proj):
             walk(l.get("shapes", []))
 
 
-def build_project(scenes, master_name, aep_name):
+def build_project(scenes, master_name, aep_name, beats=False):
+    """beats=True: episode 1's rules. 24 fps, keys on frames, every in/out animation a whole number of 12-frame
+    beats (coffee_families.retime, after cut_pass so the scale pops are re-timed too), checked by check_timing."""
+    fps = _ep1.FPS if beats else FPS
     comps, main = [], []
     t = 0.0
     for cname, d, fn in scenes:
@@ -193,30 +199,39 @@ def build_project(scenes, master_name, aep_name):
         assert not mattes, (cname, "matte not found", mattes)
         bad = [l["name"] for l in layers if not l["out"] > l["in"]]
         assert not bad, (cname, "out <= in", bad)
-        comps.append({"name": cname, "width": W, "height": H, "fps": FPS, "duration": d, "backgroundColor": WHITE, "layers": layers})
-        main.insert(0, {"name": cname, "type": "precomp", "source": cname, "startTime": t, "in": t, "out": t + d,
-                        "transform": {"scale": A(KL(t, [100, 100]), KL(t + d, [HS * 100, HS * 100]))}})
-        t += d
+        dn = frames(d) / fps if beats else d
+        comps.append({"name": cname, "width": W, "height": H, "fps": fps, "duration": dn, "backgroundColor": WHITE, "layers": layers})
+        main.insert(0, {"name": cname, "type": "precomp", "source": cname, "startTime": t, "in": t, "out": t + dn,
+                        "transform": {"scale": A(KL(t, [100, 100]), KL(t + dn, [HS * 100, HS * 100]))}})
+        t += dn
     grain = {"name": "Paper Grain", "type": "adjustment", "in": 0, "out": t,
              "effects": [{"matchName": "ADBE Noise", "props": {"ADBE Noise-0001": 2.0}}]}
-    master = {"name": master_name, "width": W, "height": H, "fps": FPS, "duration": t, "backgroundColor": WHITE, "layers": [grain] + main}
+    master = {"name": master_name, "width": W, "height": H, "fps": fps, "duration": t, "backgroundColor": WHITE, "layers": [grain] + main}
     proj = {"$schema": "../../schema/motion.schema.json", "file": aep_name, "expressionEngine": "javascript-1.0",
             "bitDepth": "8 bpc", "compositions": [master] + comps}
     cut_pass(proj)
+    if beats:
+        for c, (_, d, _) in zip(comps, scenes):
+            retime(c["layers"], d, c["duration"])
+            bad = [l["name"] for l in c["layers"] if not l["out"] > l["in"]]
+            assert not bad, (c["name"], "out <= in after retime", bad)
     zero_tangents(proj)
+    if beats:
+        bad = check_timing(proj)
+        assert not bad, "\n".join(map(str, bad[:40])) + f"\n... {len(bad)} timing problems"
     return proj
 
 
-def write(scenes, master_name, stem):
-    proj = build_project(scenes, master_name, stem + ".aep")
+def write(scenes, master_name, stem, beats=False):
+    proj = build_project(scenes, master_name, stem + ".aep", beats=beats)
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(JSON_DIR, stem + ".json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(proj, f, indent=1, ensure_ascii=False)
     t = 0
-    for c, d, _ in scenes:
-        print(f"{int(t // 60)}:{t % 60:04.1f}  {c}")
-        t += d
-    print("total", t, "s,", sum(len(c["layers"]) for c in proj["compositions"]), "layers")
+    for c in proj["compositions"][1:]:
+        print(f"{int(t // 60)}:{t % 60:04.1f}  {c['name']}")
+        t += c["duration"]
+    print("total", round(t, 3), "s at", proj["compositions"][0]["fps"], "fps,", sum(len(c["layers"]) for c in proj["compositions"]), "layers")
 
 
 def truck(name, pos, t0, t1, s=100, col=INK, **tr):
@@ -225,3 +240,49 @@ def truck(name, pos, t0, t1, s=100, col=INK, **tr):
              G("Cab", path([(10, 6), (10, -30), (40, -30), (62, -6), (62, 6)], True), stroke(col, 4), fill(WHITE)),
              G("Bed", rect([80, 30], [-30, -9]), stroke(col, 4), fill(WHITE))]
     return shape(name, items, pos, t0, t1, scale=tr.pop("scale", [s, s]), **tr)
+
+
+# ---------- drawn vectors (episode 1 style), for episodes built with beats=True ----------
+def coffee_grey_leaf(name, L, pos, t0, t1, line=INK, **tr):
+    """Episode 1's coffee leaf outline in the grey 'not Mexico' look: land fill, ink edge, thin ink veins."""
+    pts, P, width = leaf_pts(L)
+    face = smooth(pts, True, corners=(0, 10))
+    w = max(1.0, L * 0.006)
+    vs = [smooth([P(u, 0), P(u + 0.06, sg * 0.45 * width(u + 0.06)), P(u + 0.13, sg * 0.78 * width(u + 0.13))], False)
+          for u in (0.16, 0.27, 0.38, 0.49, 0.6, 0.71, 0.81) for sg in (-1, 1)]
+    return shape(name, [G("Veins", *vs, stroke(line, w, 45)),
+                        G("Midrib", smooth([P(u, 0) for u in (0.0, 0.25, 0.5, 0.75, 0.93)], False), stroke(line, w * 1.8)),
+                        G("Leaf", face, stroke(line, max(2, L * 0.013)), fill(LAND))], pos, t0, t1, **tr)
+
+
+def tea_leaf_path(L, teeth=11):
+    """Tea leaf along +x: narrow ellipse, blunt tip, a fine saw-tooth edge (coffee leaves have smooth, wavy edges)."""
+    hw = L * 0.19
+    up, lo = [], []
+    for j in range(1, 2 * teeth):
+        u = j / (2 * teeth)
+        w = hw * math.sin(math.pi * u ** 0.95) ** 0.8 * (1 + (0.07 if j % 2 else -0.03))
+        x = -L / 2 + u * L
+        up.append((x, -w))
+        lo.append((x, w))
+    pts = [(-L / 2, 0)] + up + [(L / 2, 0)] + lo[::-1]
+    n = len(up)
+    tips = [k + 1 for k in range(n) if (k + 1) % 2] + [n + 2 + k for k in range(n) if (n - k) % 2]
+    return smooth(pts, True, corners=tuple([0, n + 1] + tips))
+
+
+def icon_tea_bush(col):
+    """Tea bush as estates keep it: plucked flat at waist height, a broad hedge with a scalloped top on a short trunk."""
+    xs = [-36, -24, -12, 0, 12, 24, 36]
+    top = [(x, -10 - (3 if j % 2 else 0)) for j, x in enumerate(xs)]
+    hedge = smooth([(-40, 4)] + top + [(40, 4), (24, 10), (0, 11), (-24, 10)], True, corners=(0, len(top) + 1))
+    return [G("Hedge", hedge, fill(col)),
+            G("Trunk", path([(0, 30), (0, 16)]), path([(0, 18), (-16, 6)]), path([(0, 18), (16, 6)]), path([(0, 18), (0, 6)]),
+              stroke(col, 4))]
+
+
+def teacup_items(col=INK):
+    bowl = smooth([(-34, -18), (34, -18), (28, 4), (14, 18), (-14, 18), (-28, 4)], True, corners=(0, 1))
+    return [G("Handle", smooth([(30, -10), (46, -8), (42, 8), (24, 8)], False), stroke(col, 3)),
+            G("Cup", bowl, stroke(col, 3), fill(WHITE)),
+            G("Saucer", smooth([(-48, 22), (0, 30), (48, 22)], False), stroke(col, 3))]

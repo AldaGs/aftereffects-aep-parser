@@ -1,7 +1,7 @@
 # Why Mountain Coffee Tastes Different: Script and Storyboard
 
 **Status:** draft v2 (revised against `notes/fact_check.md`, `notes/visual_direction.md` and `notes/story_edit.md`).
-**Format:** 3:58 (586 words of VO ≈ 3:47 at 155 wpm, plus about 11 s of holds on the charts and end card), 1920×1080, 30 fps, AE 26.5.
+**Format:** 3:58 (586 words of VO ≈ 3:47 at 155 wpm, plus about 11 s of holds on the charts and end card), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Why is a coffee graded by the height of its farm?
 **The answer:** Height is a stand-in for cold. Cooler air makes the cherry ripen more slowly, so the seed has longer to fill. It comes out denser, and the coffee tastes more acidic. A grade line in metres marks how long the seed had to fill, and height is only the usual way to find that out.
 **The surprise:** The bean never reads an altimeter. Two Mexican farms on the same rung, at the same 1,200 m, sit about a degree apart, and a shade tree can delay ripening by up to a month without the farm moving at all. The grade can't see either. Lands in scene 8 (2:48).

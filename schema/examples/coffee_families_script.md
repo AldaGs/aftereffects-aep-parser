@@ -2,7 +2,7 @@
 
 **Status:** approved. Built by `coffee_families.py` → `coffee_families.json` → `coffee_families.jsx`.
 
-**Format:** 3:00, 1920×1080, 30 fps, English VO (to be recorded; timings assume about 155 words per minute). Target: After Effects 26.5
+**Format:** 3:00, 1920×1080, 24 fps (in/out animations in multiples of 12 frames), English VO (to be recorded; timings assume about 155 words per minute). Target: After Effects 26.5
 **Audience:** curious general viewers who drink coffee but have never thought about where the plant comes from
 **Build (after approval):** `coffee_families.py` generates `coffee_families.json` and then `json2jsx`. There is one precomp per scene inside `Coffee_Families`.
 
