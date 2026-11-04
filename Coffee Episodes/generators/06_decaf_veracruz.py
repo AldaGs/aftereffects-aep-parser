@@ -3,6 +3,9 @@
     python "Coffee Episodes/generators/06_decaf_veracruz.py"      # writes ../json/06_decaf_veracruz.json
 
 A handoff is a screen point/size: the outgoing scene ends its shape at inv(p) with size/HS, the next starts at p.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: beans and seeds are bean outlines with their S-shaped cut, not ellipses; rounded cups.
 """
 import math, random
 
@@ -12,6 +15,16 @@ BAG_C, BAG_SIZE, WIN, WIN_D = (CX, 560), (420, 580), (CX, 600), 180
 SEED_W, SEED_H = 520, 380
 BAR_Y, BAR_X0, BAR_X1 = 860, 260, 1660
 BEAN = "#6B4226"
+
+
+def bean_shape(w, h):
+    """Coffee bean lying on its side (w wide, h tall): episode 1's egg outline, broad end to the left."""
+    return egg(h, w, e=0.1, rot=-90)
+
+
+def bean_cut(w, h):
+    """The S-shaped centre cut along the bean's long axis."""
+    return smooth([(-w * 0.38, 0), (-w * 0.12, -h * 0.07), (w * 0.12, h * 0.07), (w * 0.38, 0)], False)
 
 
 def molecule(name, atoms, bonds, pos, t, t1, **tr):
@@ -48,7 +61,7 @@ def dots_in(rnd, n, rx, ry, cx=0, cy=0):
 def bag_layers(D, t, rig, prefix="", beans=True):
     out = []
     if beans:
-        bs = [G(f"B{j + 1}", ell([46, 32]), path([(-14, 0), (14, 0)]), stroke("#3E2A1E", 2), fill(BEAN),
+        bs = [G(f"B{j + 1}", bean_cut(46, 32), bean_shape(46, 32), stroke("#3E2A1E", 2), fill(BEAN),
                 tr={"position": p, "rotation": r}) for j, (p, r) in enumerate([((-40, -36), 20), ((30, -44), -30), ((-50, 18), -10),
                                                                               ((10, 6), 40), ((50, 30), 10), ((-10, 50), -40)])]
         out.append(shape(f"{prefix}Window Beans", bs, list(WIN), t, D, parent=rig))
@@ -93,8 +106,8 @@ def s1_bag(D):
     # D: one bean slides out, scales up and fades back to a green seed
     d0 = 15.4
     seed_col = A(K(d0 + 1.0, BEAN), K(d0 + 3.4, SEED))
-    L.append(shape("Seed", [G("Crease", path([(0, -SEED_H * 0.38), (0, SEED_H * 0.38)]), stroke(SEED_LINE, 6)),
-                            G("Seed", ell([SEED_W, SEED_H]), stroke(INK, 4), fill(seed_col))],
+    L.append(shape("Seed", [G("Crease", bean_cut(SEED_W, SEED_H), stroke(SEED_LINE, 6)),
+                            G("Seed", bean_shape(SEED_W, SEED_H), stroke(INK, 4), fill(seed_col))],
                    A(K(d0, [WIN[0] + 10, WIN[1]]), K(d0 + 1.6, list(inv((CX, CY))))), d0, D,
                    scale=A(K(d0, [46 / SEED_W * 100] * 2), K(d0 + 1.6, [100 / HS, 100 / HS]))))
     # B: small print with a swipe under "Veracruz"
@@ -135,8 +148,8 @@ def s2_percent(D):
             tr["scale"] = X("var p = 100 + 30 * Math.max(0, Math.sin((time - 1.5) * 5)) * (time < 4 ? 1 : 0); [p, p]")
         gs.append(G(f"D{j + 1}", ell([12, 12]), fill(col), tr=tr))
     L.append(shape("Dots", gs, [0, 0], 0.4, b0 + 1.8))
-    L.append(shape("Seed", [G("Crease", path([(0, -SEED_H * 0.38), (0, SEED_H * 0.38)]), stroke(SEED_LINE, 6), tr={"opacity": A(K(0.2, 100), K(0.5, 0))}),
-                            G("Seed", ell([SEED_W, SEED_H]), stroke(INK, 4), fill(A(K(0.2, SEED), K(0.6, WHITE))))], [CX, CY], 0, b0 + 0.6,
+    L.append(shape("Seed", [G("Crease", bean_cut(SEED_W, SEED_H), stroke(SEED_LINE, 6), tr={"opacity": A(K(0.2, 100), K(0.5, 0))}),
+                            G("Seed", bean_shape(SEED_W, SEED_H), stroke(INK, 4), fill(A(K(0.2, SEED), K(0.6, WHITE))))], [CX, CY], 0, b0 + 0.6,
                    opacity=A(K(b0, 100), K(b0 + 0.6, 0))))
     L.append(appear(caps("Seed Label", "GREEN ARABICA SEED, CUT OPEN", [CX, CY + SEED_H / 2 + 50], 0.8, b0, size=16), 0.8))
     add_out(L[-1], b0 - 0.3)
@@ -159,8 +172,9 @@ def s2_percent(D):
     for j, (nm, frac, lab, x) in enumerate([("Regular", 0.95, "≈ 95 mg", 700), ("Decaf", 0.08, "≈ 2–15 mg", 1220)]):
         t = c0 + j * 0.8
         cup = [G("Handle", ell([46, 46], [96, -10]), stroke(INK, 4)),
-               G("Cup", path([(-80, -70), (80, -70), (64, 70), (-64, 70)], True), stroke(INK, 4), fill(WHITE)),
-               G("Saucer", path([(-110, 82), (110, 82)]), stroke(INK, 4))]
+               G("Cup", smooth([(-82, -70), (82, -70), (74, 10), (50, 58), (22, 72), (-22, 72), (-50, 58), (-74, 10)], True, corners=(0, 1)),
+                 stroke(INK, 4), fill(WHITE)),
+               G("Saucer", smooth([(-112, 80), (0, 92), (112, 80)], False), stroke(INK, 4))]
         cups.append(shape(f"Cup {nm}", cup, [x, 420], t, D, scale=grow(t)))
         cups.append(shape(f"Gauge {nm}", [G("Fill", rect([26, 200 * frac], [0, 100 - 200 * frac / 2]), fill(CAF),
                                             tr={"scale": A(K(t + 0.4, [100, 0]), K(t + 1.2, [100, 100])), "anchorPoint": [0, 100], "position": [0, 100]}),
@@ -279,7 +293,7 @@ def s4_water(D):
             tr={"position": A(K(2.4 + j * 0.08, [CX, CY]), K(3.6 + j * 0.08, list(p))), "opacity": fade_in(2.4 + j * 0.08, 0.1)})
           for j, p in enumerate(pts)]
     L.append(shape("Out Dots", gs, [0, 0], 2.4, D))
-    L.append(shape("Seed", [G("Seed", ell([130, 92]), stroke(INK, 3), fill(A(K(2.6, SEED), K(7.0, WHITE))))],
+    L.append(shape("Seed", [G("Seed", bean_shape(130, 92), stroke(INK, 3), fill(A(K(2.6, SEED), K(7.0, WHITE))))],
                    A(K(0.8, [CX, -100]), K(1.8, [CX, CY]), K(9.6, [CX, CY]), K(10.6, [CX, -160])), 0.8, D))
     L.append(beaker("Beaker", [CX, CY], 0, D))
     L += wipe_text("Takes All", "Plain water takes almost everything", [CX, 880], 40, INK, 5.0, D)
@@ -306,7 +320,7 @@ def s5_extract(D):
     L.append(shape("Rail", [G("R", path([(400, 100), (1520, 100)]), trim(0, A(K(0.6, 0), K(1.4, 100))), stroke(LINE, 3))], [0, 0], 0.6, D))
     tankL = []
     # A: steam a batch of seeds
-    seeds = [G(f"S{j + 1}", ell([60, 42]), stroke(INK, 2), fill(SEED), tr={"position": p, "scale": A(K(a0 + 2.6, [100, 100]), K(a0 + 4.6, [110, 110]))})
+    seeds = [G(f"S{j + 1}", bean_shape(60, 42), stroke(INK, 2), fill(SEED), tr={"position": p, "scale": A(K(a0 + 2.6, [100, 100]), K(a0 + 4.6, [110, 110]))})
              for j, p in enumerate([(-60, -40), (30, -60), (60, 20), (-30, 40), (-90, 30)])]
     tankL.append(shape("Batch", seeds, list(TANK), a0 + 1.2, b0 + 6.0, opacity=A(K(a0 + 1.2, 0), K(a0 + 1.6, 100), K(b0 + 5.4, 100), K(b0 + 6.0, 0))))
     steam = [G(f"Steam {k}", path([(0, 0), (8, -20), (-8, -40), (0, -60)], False, i=[(0, 0), (6, 8), (6, 8), (6, 8)], o=[(6, -8), (-6, -8), (-6, -8), (0, 0)]),
@@ -345,7 +359,7 @@ def s5_extract(D):
         else:
             bd.append(G(f"BI{j + 1}", ell([12, 12]), fill(INK), tr={"position": list(p), "opacity": fade_in(c0)}))
     L.append(shape("Bean Dots", bd, list(BEAN_C), c0, D))
-    L.append(shape("Bean", [G("Bean", ell([BEAN_W, BEAN_H]), stroke(INK, 4), fill(SEED, 55))], list(BEAN_C), c0, D, scale=grow(c0, 100, 0.6)))
+    L.append(shape("Bean", [G("Bean", bean_shape(BEAN_W, BEAN_H), stroke(INK, 4), fill(SEED, 55))], list(BEAN_C), c0, D, scale=grow(c0, 100, 0.6)))
     L.append(appear(caps("Bean Label", "A FRESH BEAN, CUT OPEN", [BEAN_C[0], BEAN_C[1] + BEAN_H / 2 + 44], c0 + 0.4, D, size=16), c0 + 0.4))
 
     def gauge(name, y, inside, outside, col, t):
@@ -468,7 +482,7 @@ def s6_cordoba(D):
     # E: the Colombian bean drops in; push in on one caffeine dot leaving it
     e0 = 37.4
     bean_end = [TC[0] - 20, TC[1] + 10]
-    dl.append(shape("Col Bean", [G("Bean", ell([70, 50]), stroke(INK, 2), fill(SEED))], A(K(e0, [260, 860]), K(e0 + 1.6, bean_end)), e0, D))
+    dl.append(shape("Col Bean", [G("Bean", bean_shape(70, 50), stroke(INK, 2), fill(SEED))], A(K(e0, [260, 860]), K(e0 + 1.6, bean_end)), e0, D))
     caf_end = [bean_end[0] + 44, bean_end[1] - 20]
     dl.append(disc("Caf Dot", A(K(e0 + 2.0, bean_end), K(e0 + 3.0, caf_end)), 10, CAF, e0 + 2.0, D, sh=0))
     for l in dl:
@@ -531,7 +545,7 @@ def s8_close(D):
     pts = dots_in(rnd, 99, 160, 110, 0, 0)
     gs = [G(f"D{j + 1}", ell([8, 8]), fill(INK), tr={"position": list(p), "opacity": fade_in(s0 + 1.4 + j * 0.01, 0.1)}) for j, p in enumerate(pts)]
     seed = [shape("Seed Dots", gs, [1450, 560], s0 + 1.4, 9.6, opacity=A(K(8.6, 100), K(9.0, 0))),
-            shape("Seed", [G("Seed", ell([360, 260]), stroke(INK, 4), fill(A(K(s0 + 0.4, BEAN), K(s0 + 1.4, SEED))))],
+            shape("Seed", [G("Seed", bean_shape(360, 260), stroke(INK, 4), fill(A(K(s0 + 0.4, BEAN), K(s0 + 1.4, SEED))))],
                   A(K(s0, [WIN[0], WIN[1]]), K(s0 + 1.0, [1450, 560]), K(8.8, [1450, 560]), K(9.6, list(WIN))), s0, 9.8,
                   scale=A(K(s0, [13, 13]), K(s0 + 1.0, [100, 100]), K(8.8, [100, 100]), K(9.6, [13, 13])), opacity=A(K(9.4, 100), K(9.8, 0)))]
     seed.append(appear(caps("Seed Note", "NO CAFFEINE · EVERYTHING ELSE STILL THERE", [1450, 740], s0 + 2.4, 8.6, size=15, color=INK), s0 + 2.4))
@@ -551,4 +565,4 @@ SCENES = [("S1_Bag", 20.0, s1_bag), ("S2_OnePercent", 21.0, s2_percent), ("S3_So
           ("S5_Extract", 53.0, s5_extract), ("S6_Cordoba", 44.0, s6_cordoba), ("S7_Crystal", 10.0, s7_crystal), ("S8_Close", 19.0, s8_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Decaf_Veracruz", "06_decaf_veracruz")
+    write(SCENES, "Decaf_Veracruz", "06_decaf_veracruz", beats=True)
