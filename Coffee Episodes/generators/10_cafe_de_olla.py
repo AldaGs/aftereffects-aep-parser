@@ -4,6 +4,10 @@
 
 Uses episode 8's camera (content coordinates are screen pixels, master push-in cancelled) and episode 9's sack,
 cup and coyote truck. Instant coffee is mid grey with an ink outline. No fades.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: coffee shrubs on the hillside, an instant-coffee jar with shoulders and a label, bean outlines,
+a water drop, a clay olla with neck and lip.
 """
 import importlib, math, random
 
@@ -28,10 +32,12 @@ PORT = (-96.13, 19.2)
 # art
 # ---------------------------------------------------------------------
 def tree(name, pos, t0, t1, s=100, picked=None):
-    items = [G("Cherries", *[ell([9, 9], [x, y]) for x, y in ((-10, -26), (8, -18), (2, -36))], fill(ARA),
+    """A coffee bush on the hillside with cherries."""
+    items = [G("Cherries", *[egg(8, 10, rot=CH_ROT, o=(x, y)) for x, y in ((-10, -12), (9, -16), (-2, -26))], fill(ARA),
                tr={"position": A(K(picked, [0, 0]), K(picked + 0.8, [30, 60])) if picked else [0, 0]}),
-             G("Canopy", ell([54, 54], [0, -28]), stroke(INK, 2), fill(MX)),
-             G("Trunk", path([(0, 0), (0, -10)]), stroke(STEM, 4))]
+             G("Bush", smooth([(-20, -4), (-22, -18), (-15, -30), (-6, -28), (0, -38), (8, -30), (17, -32), (22, -18), (18, -6), (0, -4)], True, corners=(0, 8)),
+               stroke(INK, 2), fill(MX)),
+             G("Trunk", path([(0, 0), (0, -8)]), stroke(STEM, 4))]  # a rounded coffee bush, as on episode 3's hillside
     return shape(name, items, list(pos), t0, t1, scale=grow(t0, s, 0.3))
 
 
@@ -55,8 +61,12 @@ def kitchen(t0, t1, label_t=None, picked=None):
 
 
 def jar(name, pos, t0, t1, **tr):
-    return shape(name, [G("Lid", rect([150, 34], [0, -112], 6), stroke(INK, 4), fill(GREY)),
-                        G("Body", rect([170, 190], [0, 0], 18), stroke(INK, 4), fill(GREY))], pos, t0, t1, **tr)
+    """Instant coffee jar: ribbed lid, rounded shoulders, a paper label band."""
+    body = smooth([(-62, -96), (62, -96), (84, -70), (86, 70), (76, 94), (-76, 94), (-86, 70), (-84, -70)], True, corners=(0, 1))
+    return shape(name, [G("Ribs", *[path([(x, -124), (x, -102)]) for x in range(-60, 61, 20)], stroke(INK, 2)),
+                        G("Lid", rect([136, 30], [0, -112], 6), stroke(INK, 4), fill(GREY)),
+                        G("Label", rect([172, 70], [0, 4]), stroke(INK, 3), fill(WHITE)),
+                        G("Body", body, stroke(INK, 4), fill(GREY))], pos, t0, t1, **tr)
 
 
 def cup_top(name, pos, d, t0, t1, col=None, **tr):
@@ -184,7 +194,7 @@ def s3_export(D):
         t = c0 + 0.6 + j * 0.25
         good = j % 3 != 0
         dst = [1460, 640] if good else [HEAP[0] + rnd.uniform(-20, 20), HEAP[1]]
-        L.append(shape(f"Grain {j + 1}", [G("B", ell([20, 14]), stroke(INK, 2), fill(ROAST[0] if good else GREY))], [sv[0], sv[1] - 120], t, t + 1.0,
+        L.append(shape(f"Grain {j + 1}", [G("B", _e8.bean_shape(20, 14), stroke(INK, 2), fill(ROAST[0] if good else GREY))], [sv[0], sv[1] - 120], t, t + 1.0,
                        position=A(K(t, [sv[0], sv[1] - 120]), K(t + 0.4, list(sv)), K(t + 1.0, dst))))
     L.append(sack("Ship Sack", [1460, 640], c0, d0, col=SEED, s=140, scale=grow(c0, 140)))
     L.append(shape("Sieve", [G("S", path([(-90, 0), (90, 0)]), *[path([(x, -8), (x, 8)]) for x in range(-70, 80, 20)], stroke(INK, 4))], list(sv), c0, d0, scale=grow(c0)))
@@ -260,7 +270,7 @@ def s5_soluble(D):
                          G("D", ell([130, 130]), stroke(INK, 4), fill(WHITE))], [220, 560], a0, x0, scale=grow(a0))]
     for j in range(5):
         t = a0 + 0.6 + j * 0.4
-        st.insert(0, shape(f"Bean {j + 1}", [G("B", ell([26, 18]), stroke(INK, 2), fill(A(K(t + 0.6, SEED), K(t + 1.2, ROAST[4]))))], [220, 440], t, t + 2.4,
+        st.insert(0, shape(f"Bean {j + 1}", [G("B", _e8.bean_shape(26, 18), stroke(INK, 2), fill(A(K(t + 0.6, SEED), K(t + 1.2, ROAST[4]))))], [220, 440], t, t + 2.4,
                            position=A(K(t, [100, 440]), K(t + 0.6, [220, 560]), K(t + 1.6, [220, 560]), K(t + 2.4, [220, 760]))))
     stage["a"] = st
     # B: the columns
@@ -408,7 +418,12 @@ def s7_olla(D):
         L.append(tag(f"Ing {j + 1}", s, [1000, 300 + 44 * j], t + 0.6, c0, size=14, just="left"))
         L.append(disc(f"Swatch {j + 1}", [970, 295 + 44 * j], 20, col, t + 0.6, c0, sh=0, scale=grow(t + 0.6)))
         if j < 3:
-            shp = (path([(-28, 22), (0, -28), (28, 22)], True) if j == 2 else ell([30, 40] if j == 0 else [50, 26]))
+            if j == 0:    # a drop of water
+                shp = smooth([(0, -24), (10, -4), (14, 8), (8, 18), (0, 20), (-8, 18), (-14, 8), (-10, -4)], True, corners=(0,))
+            elif j == 1:  # a spoonful of ground coffee
+                shp = smooth([(-28, 12), (-18, -2), (-6, -12), (8, -10), (20, -2), (28, 12)], True, corners=(0, 5))
+            else:         # piloncillo, a cone of raw cane sugar
+                shp = path([(-28, 22), (0, -28), (28, 22)], True)
             L.append(shape(f"Drop {j + 1}", [G("D", shp, stroke(INK, 2), fill(col))], [MOUTH[0], 120], t, t + 1.0,
                            position=A(K(t, [MOUTH[0] + 20 * j, 120]), K(t + 1.0, [MOUTH[0], MOUTH[1] + 20], None))))
     L.append(shape("Steam", [G("S", *[path([(x, 0), (x + 10, -40), (x - 10, -80), (x, -120)], False) for x in (-50, 0, 50)], stroke(INK, 2.5),
@@ -444,11 +459,15 @@ def s7_olla(D):
     L.insert(0, shape("Stick", STICK, [MOUTH[0] + 40, MOUTH[1] - 50], b0 + 7.2, D, rotation=A(K(b0 + 7.8, -70), K(f0 + 0.4, -70), K(D - 1.0, 0)),
                       position=A(K(b0 + 7.2, [MOUTH[0] + 40, 100]), K(b0 + 7.8, [MOUTH[0] + 40, MOUTH[1] - 50]), K(f0 + 0.4, [MOUTH[0] + 40, MOUTH[1] - 50]), K(D - 1.0, list(C))),
                       scale=A(K(b0 + 7.2, [40, 40]), K(f0 + 0.4, [40, 40]), K(D - 1.0, [100, 100]))))
-    pot = [shape("Flame", [G("F", path([(-40, 0), (-20, -50), (0, -10), (20, -60), (40, 0)], True), stroke(INK, 3))], [POT[0], 880], t0, f0),
-           shape("Pot", [G("Handle", path([(-170, -120), (-210, -80), (-170, -40)]), path([(170, -120), (210, -80), (170, -40)]), stroke(INK, 5)),
-                         G("Body", path([(-130, -180), (130, -180), (190, 0), (120, 180), (-120, 180), (-190, 0)], True,
-                                        i=[(0, 0), (0, 0), (0, -80), (40, 0), (0, 0), (-40, 0)], o=[(0, 0), (0, 0), (0, 80), (0, 0), (-40, 0), (0, -80)]),
-                           stroke(INK, 5), fill(SAND))], list(POT), t0, f0)]
+    flame = smooth([(-42, 0), (-34, -30), (-18, -50), (-12, -22), (0, -66), (12, -24), (20, -56), (34, -28), (42, 0)], True, corners=(0, 2, 4, 6, 8))
+    # olla de barro: a round clay belly, a narrow neck and a flared lip, two loop handles on the shoulders
+    olla = smooth([(-150, -180), (150, -180), (124, -160), (118, -130), (170, -90), (205, 0), (180, 110), (110, 175), (0, 190), (-110, 175), (-180, 110),
+                   (-205, 0), (-170, -90), (-118, -130), (-124, -160)], True, corners=(0, 1))
+    pot = [shape("Flame", [G("F", flame, stroke(INK, 3))], [POT[0], 880], t0, f0),
+           shape("Pot", [G("Handle", smooth([(-150, -110), (-200, -96), (-186, -50), (-176, -60)], False), smooth([(150, -110), (200, -96), (186, -50), (176, -60)], False),
+                           stroke(INK, 5)),
+                         G("Band", smooth([(-196, -20), (0, 0), (196, -20)], False), stroke(INK, 3, 50)),
+                         G("Body", olla, stroke(INK, 5), fill(SAND))], list(POT), t0, f0)]
     L += pot
     L.append(cup_top("Mouth", list(C), 300, 0, t0, col=SAND, fill_tr={"scale": A(K(0.4, [0, 0]), K(1.2, [128, 128]))}))
     return finish(L, D)
@@ -569,4 +588,4 @@ SCENES = [("S1_Jar", 21.0, s1_jar), ("S2_Cups", 14.0, s2_cups), ("S3_Export", 26
           ("S9_Specialty", 28.0, s9_specialty), ("S10_Close", 17.0, s10_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Cafe_de_Olla", "10_cafe_de_olla")
+    write(SCENES, "Cafe_de_Olla", "10_cafe_de_olla", beats=True)

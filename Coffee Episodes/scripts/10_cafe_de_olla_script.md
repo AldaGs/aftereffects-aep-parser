@@ -1,7 +1,7 @@
 # Café de Olla and the Instant Nation: Script and Storyboard
 
 **Status:** draft v2 (revised against `notes/fact_check.md`, `notes/visual_direction.md` and `notes/story_edit.md`).
-**Format:** 4:17 (658 words of VO), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:17 (658 words of VO), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Why does a country with about two-thirds of a million hectares of coffee drink mostly instant?
 **The answer:** Mexico's best coffee was grown to be exported, so the home market got the beans that didn't make export grade, and a factory process that pulls more than twice as much out of each bean, and works with cheaper robusta, made instant the cheapest cup in the country. It found an easy way in because the Mexican home cup, café de olla, already took its flavour from sugar and cinnamon rather than from the bean. What is changing now is that Mexicans are starting to buy their own export-grade coffee.
 **The surprise:** Scene 6: this year Mexico is expected to import more green coffee than it exports, much of it robusta for instant. Scene 8, the callback: the cinnamon in café de olla comes from Sri Lanka, the island from episode 2, and Mexico is its biggest customer.
