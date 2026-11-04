@@ -8,3 +8,5 @@ temp/
 *.mp4
 *.mov
 node_modules/
+schema/examples/*.aep
+schema/examples/*_parsed.json

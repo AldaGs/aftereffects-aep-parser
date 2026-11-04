@@ -38,10 +38,12 @@ It bridges static binary `.aep` analysis (via RIFX/Egg! chunk parsing in Go) wit
 | [`cmd/export2author/main.go`](cmd/export2author/main.go) | CLI that converts a raw `aep-parser` JSON export into the concise, human/agent-editable authoring JSON format. |
 | [`cmd/json2jsx/main.go`](cmd/json2jsx/main.go) | CLI that compiles an authoring JSON file into an ES3-compatible `.jsx` ExtendScript, and optionally executes After Effects to build, save, and open the `.aep`. |
 | [`schema/motion.schema.json`](schema/motion.schema.json) | JSON Schema (Draft-07) defining the authoring format. |
-| [`schema/examples/`](schema/examples/) | Ready-to-run authoring JSON examples (`explainer_video.json`, `espresso_explainer.json` with its generator `espresso_explainer.py` and script, `agent_showcase.json`, `title_card.json`, `lower_third.json`, `shape_loop.json`) and their generated `.jsx` scripts. |
+| [`schema/examples/`](schema/examples/) | Ready-to-run authoring JSON examples (`explainer_video.json`, `espresso_explainer.json` with its generator `espresso_explainer.py` and script, `agent_showcase.json`, `claude_pet.json`, `octopus_reel.json`, `title_card.json`, `lower_third.json`, `shape_loop.json`) and their generated `.jsx` scripts. Built `.aep` files are not committed; build them with `json2jsx -run`. |
 | [`scripts/fig2json.js`](scripts/fig2json.js) | Node script that converts a Figma `.fig` file into authoring JSON (one file per comp), ready for `json2jsx`. |
 | [`scripts/preview.js`](scripts/preview.js) | Node + Playwright renderer that draws an authoring JSON to JPEG frames, for checking layouts without After Effects (approximate: no effects, straight motion paths). |
 | [`scripts/roundtrip.ps1`](scripts/roundtrip.ps1) | Automated PowerShell test harness that compiles JSON -> JSX -> AEP, parses the resulting `.aep` back with `aep-parser`, and verifies layer/keyframe fidelity. |
+| [`aep/`](aep/) | Real projects for studying the format, with parsed exports in `aep/out/`. |
+| [`data/`](data/) | Small `.aep` fixtures used by `go test`. |
 | [`docs/AGENT_GUIDE.md`](docs/AGENT_GUIDE.md) | Complete reference guide and coordinate rules for AI agents authoring or modifying motion graphics. |
 | [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md) | Detailed architectural specification of the binary parser and authoring pipeline. |
 
@@ -113,7 +115,7 @@ To verify that authoring JSONs compile cleanly into `.aep` files and parse back 
 # Run full round-trip verification on all examples (requires After Effects installed)
 powershell -ExecutionPolicy Bypass -File scripts\roundtrip.ps1 -All
 
-# Verify using existing pre-built .aep files without launching After Effects
+# Verify using .aep files you already built, without launching After Effects
 powershell -ExecutionPolicy Bypass -File scripts\roundtrip.ps1 -All -SkipBuild
 ```
 
