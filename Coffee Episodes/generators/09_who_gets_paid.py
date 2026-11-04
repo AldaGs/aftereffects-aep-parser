@@ -4,6 +4,10 @@
 
 Uses episode 8's camera (cam/finish): content coordinates are screen pixels and the master push-in is cancelled.
 The C-price chart is one content drawing (1962-2026); scenes frame it with a Chart Rig null. No fades.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: episode 1's coffee cherry and cross-section in the close, bean outlines on the pans, a rounded
+latte cup, jute sacks with a gathered neck.
 """
 import importlib, math, random
 
@@ -40,7 +44,8 @@ def latte_bar(t0, t1, grow_t=None, sliver_t=None):
 def cup(name, pos, t0, t1, **tr):
     return shape(name, [G("Foam", ell([150, 30], [0, -70]), fill(KRAFT)),
                         G("Handle", ell([50, 60], [92, -10]), stroke(INK, 5)),
-                        G("Cup", path([(-90, -70), (90, -70), (70, 60), (-70, 60)], True), stroke(INK, 5), fill(WHITE)),
+                        G("Cup", smooth([(-92, -70), (92, -70), (84, 0), (60, 46), (28, 62), (-28, 62), (-60, 46), (-84, 0)], True, corners=(0, 1)),
+                          stroke(INK, 5), fill(WHITE)),
                         G("Saucer", ell([300, 40], [0, 70]), stroke(INK, 5), fill(WHITE))], pos, t0, t1, **tr)
 
 
@@ -62,7 +67,8 @@ def sun(name, pos, t0, t1):
 
 def sack(name, pos, t0, t1, col=KRAFT, s=100, **tr):
     return shape(name, [G("Tie", path([(-8, -26), (8, -26)]), stroke(INK, 3)),
-                        G("S", path([(-14, -24), (14, -24), (22, 24), (-22, 24)], True), stroke(INK, 3), fill(col))], pos, t0, t1,
+                        G("S", smooth([(-10, -26), (-6, -22), (6, -22), (10, -26), (18, -10), (24, 14), (18, 25), (0, 27), (-18, 25), (-24, 14), (-18, -10)], True,
+                                      corners=(0, 3)), stroke(INK, 3), fill(col))], pos, t0, t1,
                  scale=tr.pop("scale", [s, s]), **tr)
 
 
@@ -259,7 +265,7 @@ def pan(prefix, x, t0, t1, col, grams, n, rnd, **tr):
     for j in range(n):
         t = t0 + 0.4 + j * 0.08
         p = [round(x + rnd.uniform(-110, 110), 1), round(SLIVER[1] - 22 - rnd.uniform(0, 40) * (1 - abs(j / n - 0.5)), 1)]
-        out.append(shape(f"{prefix} Bean {j + 1}", [G("B", ell([34, 24]), stroke(INK, 2), fill(col))], A(K(t, [p[0], 300]), K(t + 0.5, p)), t, t1,
+        out.append(shape(f"{prefix} Bean {j + 1}", [G("Cut", smooth([(-12, 0), (-4, -2), (4, 2), (12, 0)], False), stroke(INK, 1.5, 60)), G("B", _e8.bean_shape(34, 24), stroke(INK, 2), fill(col))], A(K(t, [p[0], 300]), K(t + 0.5, p)), t, t1,
                          rotation=rnd.uniform(-40, 40)))
     out.append(shape(f"{prefix} Scale", [G("Rim", rect([300, 24]), fill(INK)), G("Base", rect([200, 110], [0, 85], 8), stroke(INK, 4), fill(WHITE))],
                      [x, SLIVER[1]], t0, t1, **tr))
@@ -732,10 +738,9 @@ def s10_close(D):
     bar = latte_bar(0, b0)
     L += bar
     L.append(cup("Cup", [CX, 620], b0, c0 - 0.6, scale=grow(b0)))
-    L.append(cherry_section("End", e0 - 2.0, None, D, "Cherry Rig"))
-    L += cherry("End", c0 - 0.2, D, "Cherry Rig", show=c0, leaf_t=c0 + 0.4, detail_t=c0 + 0.3,
-                body_scale=A(K(c0 - 0.2, [0, 0]), K(c0 + 0.4, [100, 100])))
-    L.append(null("Cherry Rig", [CX, CY], 0, D, scale=[160, 160], position=[CX, 470]))
+    L.append(coffee_section("End", e0 - 2.0, None, D, "Cherry Rig"))
+    L += coffee_cherry("End", c0 - 0.2, D, "Cherry Rig", grow_t=c0 - 0.2, branch_t=c0, detail_t=c0 + 0.3)
+    L.append(null("Cherry Rig", [CX, CY], 0, D, scale=[140, 140], position=[CX, 520]))
     return finish(L, D)
 
 
@@ -744,4 +749,4 @@ SCENES = [("S1_Ticker", 20.0, s1_ticker), ("S2_Grams", 24.0, s2_grams), ("S3_Exc
           ("S9_Floor", 41.0, s9_floor), ("S10_Close", 22.0, s10_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Who_Gets_Paid", "09_who_gets_paid")
+    write(SCENES, "Who_Gets_Paid", "09_who_gets_paid", beats=True)
