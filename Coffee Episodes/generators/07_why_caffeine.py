@@ -4,10 +4,32 @@
 
 A handoff is a screen point/size: the outgoing scene ends its shape at inv(p) with size/HS, the next starts at p.
 No fades: cut_pass (coffee_common) turns every appear/exit into a cut plus a scale pop.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: episode 1's coffee cherry and cross-section (S2, S8-S10; the borer's hole is at the crown, where
+the beetle enters), coffee-leaf outlines, a jasmine-like coffee flower, a beetle-shaped borer.
 """
 import math, random
 
 from coffee_common import *  # noqa: F401,F403
+from coffee_families import _rot
+
+NAVEL = _rot((0, CH_H / 2 - 15), CH_ROT)        # the crown at the cherry's tip, where the borer goes in (rig space)
+SEED_R = _rot((36, 0), CH_ROT)                  # the middle of the right seed in coffee_section
+SEED_PTS = [(5, -74), (36, -66), (60, -30), (64, 8), (52, 48), (28, 72), (5, 76)]
+
+
+def leaf_path(L):  # noqa: F811 - episode 1's coffee-leaf outline replaces the lens leaf in this episode
+    return leaf_outline(L)
+
+
+def grey_leaf(name, L, pos, t0, t1, **tr):  # noqa: F811
+    return coffee_grey_leaf(name, L, pos, t0, t1, **tr)
+
+
+def in_seed(name, items, t0, t1, rg, **tr):
+    """Shapes drawn in the cross-section's own (tilted) space, centred on the cherry."""
+    return shape(name, items, [CX, CY], t0, t1, parent=rg, rotation=CH_ROT, **tr)
 
 PEST, MAG = "#6C4F9E", "#B4457F"
 FLOWER_D = 300           # 6->7 handoff, flower at centre
@@ -24,9 +46,12 @@ CHAPAS_DOT = 16          # 7->8 pest-violet dot
 # art
 # ---------------------------------------------------------------------
 def flower(name, d, pos, t0, t1, **tr):
-    petals = [G(f"Petal {k + 1}", ell([d * 0.36, d * 0.5], [0, -d * 0.25]), stroke(INK, max(2, d * 0.012)), fill(WHITE), tr={"rotation": k * 72})
-              for k in range(5)]
-    return shape(name, [G("Centre", ell([d * 0.16, d * 0.16]), fill(SEED_LINE))] + petals, pos, t0, t1, **tr)
+    petal = smooth([(0, -d * 0.04), (d * 0.09, -d * 0.2), (d * 0.07, -d * 0.4), (0, -d * 0.5), (-d * 0.07, -d * 0.4), (-d * 0.09, -d * 0.2)], True, corners=(0, 3))
+    petals = [G(f"Petal {k + 1}", petal, stroke(INK, max(2, d * 0.012)), fill(WHITE), tr={"rotation": k * 72 + 36}) for k in range(5)]
+    stamens = [path([(0, 0), _rot((0, -d * 0.2), k * 72)]) for k in range(5)]
+    tips = [ell([d * 0.04, d * 0.07], _rot((0, -d * 0.22), k * 72)) for k in range(5)]
+    return shape(name, [G("Anthers", *tips, fill(SEED_LINE)), G("Stamens", *stamens, stroke(INK, max(1.5, d * 0.008))),
+                        G("Centre", ell([d * 0.1, d * 0.1]), fill(SEED_LINE))] + petals, pos, t0, t1, **tr)
 
 
 def bee(name, pos, t0, t1, s=100, **tr):
@@ -46,7 +71,12 @@ def hornworm(name, pos, t0, t1, s=100, **tr):
 
 
 def borer(name, pos, t0, t1, s=100, **tr):
-    return shape(name, [G("Borer", ell([36, 22]), stroke(INK, 2), fill(PEST))], pos, t0, t1, scale=tr.pop("scale", [s, s]), **tr)
+    """Coffee berry borer, a 2 mm beetle: domed wing cases, a hooded head, short legs."""
+    body = smooth([(-18, 4), (-16, -6), (-4, -11), (10, -9), (18, -2), (16, 6), (4, 9), (-10, 9)], True)
+    return shape(name, [G("Seam", path([(-12, -3), (14, -1)]), stroke(WHITE, 1.5, 50)),
+                        G("Borer", body, ell([12, 11], [-19, 1]), stroke(INK, 2), fill(PEST)),
+                        G("Legs", path([(-8, 8), (-12, 14)]), path([(2, 9), (0, 15)]), path([(10, 7), (13, 13)]), stroke(INK, 2))],
+                 pos, t0, t1, scale=tr.pop("scale", [s, s]), **tr)
 
 
 def wasp(name, pos, t0, t1, **tr):
@@ -171,7 +201,7 @@ def s2_plant(D):
     for k, (p, rot, l) in enumerate((((820, 300), -30, 170), ((1060, 470), 25, 190), ((780, 560), -15, 160), ((1300, 560), 30, 150))):
         pl.append(grey_leaf(f"Plant Leaf {k + 1}", l, list(p), 0, D, rotation=rot))
     pl.append(grey_leaf("Young Leaf", 90, [960, 200], 0, D, rotation=-60))
-    pl.append(shape("Plant Cherries", [G("C", ell([44, 44], [880, 420]), ell([44, 44], [930, 440]), ell([40, 40], [1180, 420]), stroke(ARA_DARK, 2), fill(ARA))], [0, 0], 0, 10.4))
+    pl.append(shape("Plant Cherries", [G("C", egg(40, 48, rot=CH_ROT, o=(880, 420)), egg(40, 48, rot=CH_ROT, o=(930, 440)), egg(36, 44, rot=CH_ROT, o=(1180, 420)), stroke(ARA_DARK, 2), fill(ARA))], [0, 0], 0, 10.4))
     pl.append(shape("Plant Stem", [G("S", path([(960, 760), (960, 180)]), path([(960, 420), (1240, 320)]), path([(960, 500), (760, 420)]), stroke(STEM, 8))], [0, 0], 0, D))
     pl.append(shape("Ground", [G("G", path([(700, 760), (1220, 760)]), stroke(INK, 3))], [0, 0], 0, D))
     parent_all(pl, rig)
@@ -200,8 +230,8 @@ def s2_plant(D):
     L += sc + pl
     # C: a cherry slides out to centre and opens; D: one molecule grows to 360 px
     crig = "Cherry Rig"
-    L.append(cherry_section("Cherry", c0 + 1.4, None, 13.4, crig))
-    L += cherry("Cherry", c0, 13.4, crig)
+    L.append(coffee_section("Cherry", c0 + 1.4, None, 13.4, crig))
+    L += coffee_cherry("Cherry", c0, 13.4, crig, branch_t=c0 - 1.5, detail_t=c0 - 1.0)
     L.append(null(crig, A(K(c0, [880, 420]), K(c0 + 1.2, [CX, CY])), c0, D, anchor=[CX, CY],
                   scale=A(K(c0, [20, 20]), K(c0 + 1.2, [100, 100]), K(c0 + 2.4, [100, 100]), K(13.4, [260, 260]))))
     L.append(caffeine("Seed Mol", inv((CX, CY)), 13.0, D, scale=A(K(13.0, [8, 8]), K(15.6, [100 / HS, 100 / HS]))))
@@ -561,14 +591,13 @@ def s8_broca(D):
                                 stroke(INK, 2), fill(SEED))], [1460, 560], b0 + 0.6, 12.4, scale=grow(b0 + 0.6)))
     L.append(caps("Sesame Label", "SESAME ≈ 3 MM", [1460, 640], b0 + 0.8, 12.4, size=15, color=INK))
     L.append(caps("Borer Label", "BORER ≈ 2 MM", [1260, 640], b0 + 0.8, 12.4, size=15, color=PEST))
-    L.append(borer("Borer", A(K(b0 + 0.6, [1260, 570]), K(12.6, [1260, 570]), K(13.6, [CX, CY - 104])), b0 + 0.6, 14.2))
-    L.append(disc("Hole", [CX, CY - 100], 16, ARA_DARK, 14.0, 17.0, sh=0, parent=crig))
-    L.append(cherry_section("Cherry", 14.4, None, 17.0, crig))
-    L.append(shape("Tunnel", [G("T", path([(CX + 30, CY - 70), (CX + 40, CY - 20), (CX + 32, CY + 30)]), trim(0, A(K(15.0, 0), K(15.8, 100))), stroke(PEST, 6)),
-                              G("Seed Blue", path([(CX + 6, CY - 72), (CX + 6, CY + 72)], True, i=[(0, 0), (70, 0)], o=[(70, 0), (0, 0)]), stroke(CAF, 5))],
-                   [0, 0], 14.8, 17.0, parent=crig))
-    L += cherry("Cherry", b0, 17.0, crig)
-    L.append(null(crig, [CX, CY], b0, D, scale=A(K(16.2, [100, 100]), K(17.0, [400, 400])), anchor=[CX + 36, CY]))
+    L.append(borer("Borer", A(K(b0 + 0.6, [1260, 570]), K(12.6, [1260, 570]), K(13.6, [CX + NAVEL[0] - 8, CY + NAVEL[1] + 14])), b0 + 0.6, 14.2, rotation=A(K(12.6, 0), K(13.6, -70))))
+    L.append(disc("Hole", [CX + NAVEL[0], CY + NAVEL[1]], 16, ARA_DARK, 14.0, 17.0, sh=0, parent=crig))
+    L.append(in_seed("Tunnel", [G("T", smooth([(0, CH_H / 2 - 15), (14, 80), (34, 46), (40, 0), (32, -40)], False), trim(0, A(K(15.0, 0), K(15.8, 100))), stroke(PEST, 6)),
+                                G("Seed Blue", smooth(SEED_PTS, True, corners=(0, 6)), stroke(CAF, 5))], 14.8, 17.0, crig))
+    L.append(coffee_section("Cherry", 14.4, None, 17.0, crig))
+    L += coffee_cherry("Cherry", b0, 17.0, crig, branch_t=b0, detail_t=b0)
+    L.append(null(crig, [CX, CY], b0, D, scale=A(K(16.2, [100, 100]), K(17.0, [400, 400])), anchor=[CX + SEED_R[0], CY + SEED_R[1]]))
     # C: the gut, bacteria eating the caffeine stream
     c0 = 17.0
     gut_op = A(K(21.0, 100), K(21.4, 30), K(25.0, 30), K(25.4, 100))
@@ -612,8 +641,10 @@ def s8_broca(D):
     # E: pull back to the closed cherry, its hole at the tip
     e0 = 30.4
     erig = "End Rig"
-    L += cherry("End Cherry", e0, D, erig)
-    L.append(disc("End Hole", [CX, CY - 100], 16, ARA_DARK, e0, D, sh=0, parent=erig))
+    end = coffee_cherry("End Cherry", e0, D, erig, branch_t=e0 - 1.5, detail_t=e0 - 1.0)
+    L += end[:2]
+    L.append(disc("End Hole", [CX + NAVEL[0], CY + NAVEL[1]], 16, ARA_DARK, e0, D, sh=0, parent=erig))
+    L += end[2:]
     L.append(null(erig, [CX, CY], e0, D, scale=A(K(e0, [300, 300]), K(D - 0.4, [100 / HS, 100 / HS]))))
     L.append(bg(D))
     return L
@@ -626,14 +657,18 @@ def s9_wasps(D):
     L = []
     crig = "Cherry Rig"
     d0 = 21.4
-    L.append(wasp("Wasp", A(K(1.0, [1600, 120]), K(2.2, [CX + 40, CY - 128]), K(10.6, [CX + 40, CY - 128]), K(12.0, [CX + 30, CY - 20])), 1.0, 15.6,
+    L.append(wasp("Wasp", A(K(1.0, [1600, 120]), K(2.2, [CX + NAVEL[0] + 30, CY + NAVEL[1] + 34]), K(10.6, [CX + NAVEL[0] + 30, CY + NAVEL[1] + 34]), K(12.0, [CX + 30, CY + 20])), 1.0, 15.6,
                   scale=[130, 130]))
-    sec = cherry_section("Cherry", 10.0, 20.4, D, crig)
-    L.append(shape("Young", [G("Y", ell([22, 14], [CX + 36, CY]), ell([22, 14], [CX + 46, CY + 30]), fill(A(K(15.0, PEST), K(15.6, GREY2))))], [0, 0], 10.6, 20.4, parent=crig))
-    L.append(shape("Eggs", [G("E", ell([8, 8], [CX + 30, CY - 6]), ell([8, 8], [CX + 52, CY + 24]), fill(INK))], [0, 0], 13.2, 20.4, parent=crig))
+    sec = coffee_section("Cherry", 10.0, 20.4, D, crig)
+    L.append(in_seed("Young", [G("Y", ell([22, 14], [36, 0]), ell([22, 14], [46, 30]), fill(A(K(15.0, PEST), K(15.6, GREY2))))], 10.6, 20.4, crig))
+    L.append(in_seed("Eggs", [G("E", ell([8, 8], [30, -6]), ell([8, 8], [52, 24]), fill(INK))], 13.2, 20.4, crig))
     L.append(sec)
-    L.append(disc("Hole", [CX, CY - 100], 16, ARA_DARK, 0, D, sh=0, parent=crig))
-    L += cherry("Cherry", 0, D, crig)
+    ch = coffee_cherry("Cherry", 0, D, crig, branch_t=-1.5, detail_t=-1.0)
+    L += ch[:2]
+    L.append(disc("Hole", [CX + NAVEL[0], CY + NAVEL[1]], 16, ARA_DARK, 0, D, sh=0, parent=crig))
+    L += ch[2:]
+    for l in (ch[0], ch[2], ch[3], ch[4]):  # on the Chiapas branch the cherry hangs from the branch's own stem
+        add_out(l, d0)
     # A: the dashed arc from Africa
     W9 = 5.0
     ws = lambda ll: screen(ll, W9, (-30, 10), (CX, 880))
@@ -689,8 +724,8 @@ def s10_close(D):
     # C: end card
     L += wipe_text("End Title", "Why Does a Plant Make Caffeine?", [CX, 930], 64, INK, 13.2, D)
     L.append(word_marker("End Swipe", "Why Does a Plant Make Caffeine?", "Caffeine?", CX, 930, 64, 14.0, D))
-    L += cherry("Cherry", 0, D, crig)
-    L.append(disc("Hole", [CX, CY - 100], 16, ARA_DARK, 0, D, sh=0, parent=crig))
+    L.append(coffee_cherry("Cherry", 0, D, crig, branch_t=-1.5, detail_t=-1.0)[1])
+    L.append(disc("Hole", [CX + NAVEL[0], CY + NAVEL[1]], 16, ARA_DARK, 0, D, sh=0, parent=crig))
     L.append(null(crig, list(CH_END), 0, D, anchor=[CX, CY], scale=[CH_END_S, CH_END_S]))
     L += branch_layers(0, D, brig)
     L.append(null(brig, [CX, CY], 0, D))
@@ -703,4 +738,4 @@ SCENES = [("S1_Flower", 15.0, s1_flower), ("S2_Plant", 17.0, s2_plant), ("S3_Ori
           ("S9_Wasps", 27.0, s9_wasps), ("S10_Close", 20.0, s10_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Why_Caffeine", "07_why_caffeine")
+    write(SCENES, "Why_Caffeine", "07_why_caffeine", beats=True)
