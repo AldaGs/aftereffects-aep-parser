@@ -1,7 +1,7 @@
 # What Roasting Really Does: Script and Storyboard
 
 **Status:** draft v2 (after fact check, visual direction and story edit, see `notes/`).
-**Format:** 4:06 (605 words of VO at 155 wpm, plus a 1 s hold per scene and a 2 s end card), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:06 (605 words of VO at 155 wpm, plus a 1 s hold per scene and a 2 s end card), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Where does the caramel in an unsweetened coffee come from?
 **The answer:** From the seed's own sugar, which the roast spends. Heat drives the water out, then sugar reacts with amino acids (the Maillard reaction) and breaks down on its own (caramelisation), turning into brown pigment and smell molecules. By a medium roast almost no sugar is left: the caramel is a smell.
 **The surprise:** There's almost no sugar in a roasted bean that tastes of caramel. Lands in scene 8, the turn (≈ 3:00).
