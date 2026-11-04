@@ -1,7 +1,7 @@
 # Why Veracruz Lets Its Coffee Go Sour: Script and Storyboard
 
 **Status:** draft v2 (revised against `notes/fact_check.md`, `notes/visual_direction.md` and `notes/story_edit.md`). The working title in the series plan was "Washed, Natural, Honey". See the review decisions in the build notes.
-**Format:** 4:09 (615 words of VO ≈ 3:58 at 155 wpm, plus about 11 s of holds), 1920×1080, 30 fps, AE 26.5.
+**Format:** 4:09 (615 words of VO ≈ 3:58 at 155 wpm, plus about 11 s of holds), 1920×1080, 24 fps (in/out animations in multiples of 12 frames, as episode 1), AE 26.5.
 **The question:** Why does Veracruz's coffee law mention letting the beans ferment?
 **The answer:** Fermenting does very little to the bean itself. Under the pulp, each seed is coated in mucilage, a slime that water won't rinse off. In the tank, microbes eat its sugars and the water sours, and as it sours the slime comes loose so it can be washed away. The seed is then dried from about half water to 10–12 %.
 **The surprise:** Nothing in the tank digests the slime. A French–Mexican team working on Coatepec coffee found the pectin barely touched after 20 hours, and the tank's main bacterium made no enzyme that cuts pectin. The slime's release tracked the souring. Lands in scene 6 (2:13), just past the middle.

@@ -4,6 +4,10 @@
 
 Rigs are nulls with anchor [0, 0]: content point c lands on screen at P + c * s; handoff() writes the next scene's
 start (P, s) as this scene's end, undoing the master push-in. No fades: cut_pass turns exits into cuts or pops.
+
+Follows episode 1's rules: 24 fps, every in/out animation a whole number of 12-frame beats (write(..., beats=True)),
+and drawn vectors: episode 1's coffee cherry (S2), bean-shaped seeds with their centre cut (seed unit, piles,
+drying beds), rod and budding-yeast microbes.
 """
 import math, random
 
@@ -99,16 +103,25 @@ def s1_law(D):
 LAYERS = {"muc": [130, 150], "parch": [104, 124], "silver": [96, 116], "seed": [88, 108]}
 
 
+def bean(name, w, h, p, rot=0, line=SEED_LINE, lw=2):
+    """Green-coffee bean, flat side up: an egg outline with its S-shaped centre cut."""
+    k = h / 2
+    cut = smooth([(p[0], p[1] - k * 0.75), (p[0] + w * 0.08, p[1] - k * 0.25), (p[0] - w * 0.08, p[1] + k * 0.25), (p[0], p[1] + k * 0.75)], False)
+    return G(name, G("Cut", cut, stroke(line, lw)), G("Bean", egg(w, h, e=0.1, o=tuple(p)), stroke(line, lw), fill(SEED)),
+             tr={"anchorPoint": list(p), "position": list(p), "rotation": rot})
+
+
 def seed_unit(name, pos, t0, t1, muc=1.0, muc_col=WHITE, parch=True, **tr):
     """Seed, silverskin, parchment and mucilage ring as one layer around pos (base size: CHERRY_D cross-section)."""
-    items = [G("Crease", path([(0, -36), (0, 36)], False, i=[(0, 0), (-12, -14)], o=[(12, 14), (0, 0)]), stroke(SEED_LINE, 3)),
-             G("Seed", ell(LAYERS["seed"]), fill(SEED)),
-             G("Silverskin", ell(LAYERS["silver"]), stroke(GREY2, 2))]
+    # every ring follows the bean's egg outline, broader at the top
+    items = [G("Crease", smooth([(0, -38), (7, -13), (-7, 13), (0, 38)], False), stroke(SEED_LINE, 3)),
+             G("Seed", egg(*LAYERS["seed"], e=0.1), fill(SEED)),
+             G("Silverskin", egg(*LAYERS["silver"], e=0.1), stroke(GREY2, 2))]
     if parch:
-        items.append(G("Parchment", ell(LAYERS["parch"]), stroke(SEED_LINE, 4), fill("#FBF6EA")))
+        items.append(G("Parchment", egg(*LAYERS["parch"], e=0.09), stroke(SEED_LINE, 4), fill("#FBF6EA")))
     if muc is not None:
         mt = {"scale": muc} if isinstance(muc, dict) else {"scale": [muc * 100, muc * 100]}
-        items.append(G("Mucilage", ell(LAYERS["muc"]), stroke(INK, 3), fill(muc_col), tr=mt))
+        items.append(G("Mucilage", egg(*LAYERS["muc"], e=0.07), stroke(INK, 3), fill(muc_col), tr=mt))
     return shape(name, items, pos, t0, t1, **tr)
 
 
@@ -146,9 +159,9 @@ def s2_layers(D):
     for l in L:
         add_out(l, c0)
     L.append(seed_unit("Seed Unit", [CX, CY], o0, D, parent=sr, scale=grow(o0, 100, 0.5)))
-    L.append(shape("Pulp", [G("P", ell([196, 196]), fill(PULP))], [CX, CY], o0, c0 + 0.8, parent=rg,
+    L.append(shape("Pulp", [G("P", smooth([(x * 0.9, y * 0.91) for x, y in CH_PTS]), fill(PULP))], [CX, CY], o0, c0 + 0.8, parent=rg, rotation=CH_ROT,
                    scale=A(K(o0, [0, 0]), K(o0 + 0.5, [100, 100]), K(c0, [100, 100]), K(c0 + 0.8, [0, 0]))))
-    ch = cherry("Cherry", 0, c0 + 0.8, rg)
+    ch = coffee_cherry("Cherry", 0, c0 + 0.8, rg, morph_in=(0.0, 0.5), branch_t=0.25, detail_t=0.5)  # S1 ends on the disc
     for l in ch:
         l["transform"]["position"] = A(K(c0, l["transform"]["position"]), K(c0 + 0.8, [l["transform"]["position"][0] + 1400, l["transform"]["position"][1]]))
     L += ch
@@ -301,9 +314,9 @@ def s5_tank(D):
     rnd = random.Random(5)
     seeds = [(rnd.uniform(x - w / 2 + 50, x + w / 2 - 50), rnd.uniform(y + 20, y + h / 2 - 30)) for _ in range(46)]
     L.append(shape("Water Line", [G("W", path([(x - w / 2, WL), (x + w / 2, WL)]), stroke(WATER, 5))], [0, 0], 0, d0))
-    groups = [("Other", 26, lambda p: [ell([10, 10], p)], [stroke(INK, 2), fill(WHITE)], b0, "OTHER BACTERIA (FIRST, MOST NUMEROUS)"),
-              ("Yeasts", 14, lambda p: [ell([16, 16], p)], [fill(MAG)], b0 + 3.0, "YEASTS"),
-              ("Lactic", 14, lambda p: [rect([24, 9], p, 4)], [fill(MAG)], b0 + 5.6, "LACTIC ACID BACTERIA")]
+    groups = [("Other", 26, lambda p: [rect([16, 8], p, 4)], [stroke(INK, 2), fill(WHITE)], b0, "OTHER BACTERIA (FIRST, MOST NUMEROUS)"),
+              ("Yeasts", 14, lambda p: [ell([16, 13], p), ell([8, 7], [p[0] + 10, p[1] - 6])], [fill(MAG)], b0 + 3.0, "YEASTS"),
+              ("Lactic", 14, lambda p: [rect([13, 8], [p[0] - 7, p[1]], 4), rect([13, 8], [p[0] + 7, p[1]], 4)], [fill(MAG)], b0 + 5.6, "LACTIC ACID BACTERIA")]
     for k, (nm, n, fn, st, t, lab) in enumerate(groups):
         gs = []
         for j in range(n):
@@ -312,11 +325,10 @@ def s5_tank(D):
             gs.append(G(f"{nm}{j}", *fn(p), *st, tr={"opacity": A(K(t + j * 0.08, 0), K(t + j * 0.08 + 0.1, 100))}))
         L.append(shape(f"Microbes {nm}", gs, [0, 0], t, d0))
         L.append(caps(f"{nm} Label", lab, [x - w / 2 + 20, y + h / 2 + 40 + k * 28], t, d0, size=13, color=MAG if k else INK, just="left"))
-    L.append(shape("Yoghurt", [G("Y", path([(-16, -20), (16, -20), (12, 18), (-12, 18)], True), stroke(INK, 3), fill(WHITE))],
+    L.append(shape("Yoghurt", [G("Lid", rect([38, 6], [0, -22], 3), fill(INK)),
+                               G("Y", smooth([(-17, -18), (17, -18), (13, 14), (8, 19), (-8, 19), (-13, 14)], True, corners=(0, 1)), stroke(INK, 3), fill(WHITE))],
                    [x - w / 2 + 380, y + h / 2 + 90], b0 + 6.0, d0, scale=grow(b0 + 6.0)))
-    pile = [G(f"S{j}", ell([40, 28], list(p)), stroke(SEED_LINE, 2), fill(SEED), tr={"rotation": rnd.uniform(-40, 40)}) for j, p in enumerate(seeds)]
-    for g, p in zip(pile, seeds):
-        g["transform"].update({"anchorPoint": list(p), "position": list(p)})
+    pile = [bean(f"S{j}", 28, 38, p, rot=rnd.uniform(40, 140)) for j, p in enumerate(seeds)]
     L.append(shape("Pile", pile, [0, 0], 0, d0))
     L.append(shape("Tank", [G("T", path([(x - w / 2, y - h / 2), (x - w / 2, y + h / 2), (x + w / 2, y + h / 2), (x + w / 2, y - h / 2)]), stroke(INK, 5))], [0, 0], 0, d0))
     L.append(shape("Clock", [G("Hand", path([(0, 0), (0, -26)]), stroke(INK, 4), tr={"rotation": X(f"Math.min(time, {d0}) / {d0} * 600")}),
@@ -338,11 +350,11 @@ def s5_tank(D):
             add_out(l, d0)
     # D: the hand test, two silhouettes on a cut
     L.append(hand("Open Hand", [CX, 620], d0, d1))
-    L.append(shape("Slide", [G(f"S{j}", ell([40, 28], [-60 + j * 40, 0]), stroke(SEED_LINE, 2), fill(SEED)) for j in range(4)],
+    L.append(shape("Slide", [bean(f"S{j}", 28, 38, [-60 + j * 40, 0], rot=90) for j in range(4)],
                    A(K(d0 + 0.2, [CX, 520]), K(d1, [CX, 1200])), d0, d1))
     L.append(tag("Slick", "SLICK · 6 HOURS", [CX, 880], d0 + 0.3, d1, size=18))
     L.append(hand("Closed Hand", [CX, 620], d1, D))
-    L.append(shape("Held", [G(f"S{j}", ell([40, 28], [-60 + j * 40, -90]), stroke(SEED_LINE, 2), fill(SEED)) for j in range(4)], [CX, 620], d1, D))
+    L.append(shape("Held", [bean(f"S{j}", 28, 38, [-60 + j * 40, -90], rot=90) for j in range(4)], [CX, 620], d1, D))
     L.append(tag("Gritty", "GRITTY · 20 HOURS", [CX, 880], d1 + 0.3, D - 1.6, size=18))
     L.insert(0, disc("Bacterium", A(K(d1, [CX - 20, 530]), K(D - 1.6, [CX - 20, 530]), K(D - 0.3, inv(BACT))), 12, MAG, d1 + 0.2, D, sh=0,
                      scale=A(K(D - 1.6, [100, 100]), K(D - 0.3, [160 / 12 / HS * 100] * 2))))
@@ -421,14 +433,14 @@ def s7_dry(D):
                            position=A(KL(t, [-80, CH_Y + 20]), KL(t + 3.0, [2000, CH_Y + 20])), rotation=A(KL(t, 0), KL(t + 3.0, 720))))
     # B: patio and bed
     L.append(shape("Patio", [G("P", path([(120, 820), (900, 820)]), stroke(GREY2, 5))], [0, 0], b0, c0))
-    L.append(shape("Patio Seeds", [G(f"S{j}", ell([24, 16], [160 + j * 36, 808]), fill(SEED)) for j in range(20)], [0, 0], b0 + 0.2, c0))
+    L.append(shape("Patio Seeds", [bean(f"S{j}", 16, 24, [160 + j * 36, 808], rot=90, lw=1.5) for j in range(20)], [0, 0], b0 + 0.2, c0))
     L.append(shape("Rake", [G("R", path([(0, 0), (0, -260)]), path([(-60, 0), (60, 0)]), *[path([(x, 0), (x, 16)]) for x in (-60, -30, 0, 30, 60)], stroke(INK, 4))],
                    A(K(b0 + 0.6, [200, 790]), K(c0 - 0.6, [820, 790])), b0 + 0.4, c0))
     L.append(caps("Patio Label", "PATIO", [510, 880], b0 + 0.2, c0, size=15, color=INK))
     L.append(shape("Split", [G("S", path([(CX, 300), (CX, 900)]), stroke(INK, 3))], [0, 0], b0, c0))
     L.append(shape("Bed", [G("Mesh", *[path([(1080 + j * 40, 700), (1080 + j * 40, 720)]) for j in range(18)], stroke(GREY, 2)),
                            G("B", rect([720, 20], [1440, 710]), path([(1100, 720), (1100, 840)]), path([(1780, 720), (1780, 840)]), stroke(INK, 4))], [0, 0], b0, c0))
-    L.append(shape("Bed Seeds", [G(f"S{j}", ell([24, 16], [1110 + j * 36, 690]), fill(SEED)) for j in range(19)], [0, 0], b0 + 0.2, c0))
+    L.append(shape("Bed Seeds", [bean(f"S{j}", 16, 24, [1110 + j * 36, 690], rot=90, lw=1.5) for j in range(19)], [0, 0], b0 + 0.2, c0))
     for k in range(4):
         L.append(arrow(f"Air {k + 1}", (1200 + k * 160, 830), (1200 + k * 160, 740), b0 + 0.8 + k * 0.2, c0, col=GREY))
     L.append(caps("Bed Label", "RAISED BED", [1440, 880], b0 + 0.2, c0, size=15, color=INK))
@@ -446,7 +458,7 @@ def s7_dry(D):
     L.append(L.pop(len(L) - 2 * len(vals) - 1))
     L.append(tag("Water Pct", "≈ 50 % WATER → 10–12 %", [CX, 260], c0 + 1.0, d0, size=20))
     L.append(src("Src SCA", "SOURCE: SCA GREEN COFFEE STANDARD", c0, d0))
-    L.append(shape("Pan Pile", [G(f"S{j}", ell([30, 20], [-60 + j * 30, -12]), stroke(SEED_LINE, 2), fill(SEED)) for j in range(5)], list(pan), c0 + 0.4, d0))
+    L.append(shape("Pan Pile", [bean(f"S{j}", 20, 30, [-60 + j * 30, -12], rot=90) for j in range(5)], list(pan), c0 + 0.4, d0))
     for l in L:
         if l["out"] > d0:
             add_out(l, d0)
@@ -540,4 +552,4 @@ SCENES = [("S1_Declaration", 23.0, s1_law), ("S2_Layers", 29.0, s2_layers), ("S3
           ("S5_Tank", 31.0, s5_tank), ("S6_Acid", 41.0, s6_acid), ("S7_Dry", 22.0, s7_dry), ("S8_Water", 35.0, s8_water), ("S9_Close", 18.0, s9_close)]
 
 if __name__ == "__main__":
-    write(SCENES, "Go_Sour", "05_processing")
+    write(SCENES, "Go_Sour", "05_processing", beats=True)
