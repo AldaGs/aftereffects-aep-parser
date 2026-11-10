@@ -47,6 +47,7 @@ python schema/examples/espresso_explainer.py                 # regenerate the es
 - Text is escaped to `\uXXXX` by `json2jsx`, so `°`, `₂` and accents are fine. Fonts are PostScript names and must be installed on the user's machine. `ArialMT`, `Arial-BoldMT`, `Georgia` and `Georgia-Bold` are safe on Windows and macOS.
 - `json2jsx` bakes an **absolute `.aep` save path** into the `.jsx`. Built in the cloud, that path is Linux; the user should regenerate on their machine, or pass `-aep` with their path.
 - ExtendScript gets slow on very large scripts (the espresso JSX is ~2.7 MB, 450 layers). If a build stalls, split into one JSON/JSX per scene.
+- `scripts/json2aep.py` (experimental, `pip install py-aep==0.19.0`) writes the `.aep` directly from authoring JSON, no AE needed. It skips stroke dashes and any effect not defined in a `--seed` project; use JSX for the real build until a py-aep file has been opened in AE.
 - There is no After Effects in the cloud container, so `-run` and `scripts/roundtrip.ps1` only work on the user's Windows machine. Ask the user to run the build and paste `ae_error.log` (written next to the `.aep`) if it fails.
 
 ## Verification without After Effects
