@@ -1,0 +1,4590 @@
+{
+ "$schema": "../motion.schema.json",
+ "file": "tinypos_story.aep",
+ "expressionEngine": "javascript-1.0",
+ "assets": [
+  {
+   "id": "vo",
+   "name": "tinypos_story_vo.wav",
+   "type": "file",
+   "file": "C:\\Users\\aldai\\OneDrive\\Documentos\\_aftereffects-aep-parser\\schema\\examples\\tinypos_story_vo.wav"
+  }
+ ],
+ "compositions": [
+  {
+   "name": "TinyPOS_Story",
+   "width": 1080,
+   "height": 1920,
+   "fps": 30,
+   "duration": 18.0,
+   "backgroundColor": "#0d3a66",
+   "layers": [
+    {
+     "name": "VO",
+     "type": "audio",
+     "source": "vo",
+     "startTime": 0.4,
+     "in": 0.4,
+     "out": 18.0
+    },
+    {
+     "name": "Wipe 4",
+     "type": "shape",
+     "in": 14.3,
+     "out": 14.9,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Band",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1280,
+          700
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 14.3,
+         "value": [
+          540.0,
+          2320
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 14.9,
+         "value": [
+          540.0,
+          -400
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Wipe 3",
+     "type": "shape",
+     "in": 10.65,
+     "out": 11.25,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Band",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1280,
+          700
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 10.65,
+         "value": [
+          540.0,
+          2320
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 11.25,
+         "value": [
+          540.0,
+          -400
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Wipe 2",
+     "type": "shape",
+     "in": 6.15,
+     "out": 6.75,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Band",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1280,
+          700
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 6.15,
+         "value": [
+          540.0,
+          2320
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 6.75,
+         "value": [
+          540.0,
+          -400
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Wipe 1",
+     "type": "shape",
+     "in": 3.35,
+     "out": 3.95,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Band",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1280,
+          700
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 3.35,
+         "value": [
+          540.0,
+          2320
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 3.95,
+         "value": [
+          540.0,
+          -400
+         ],
+         "ease": "easeInOut",
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "S5_CTA",
+     "type": "precomp",
+     "source": "S5_CTA",
+     "startTime": 14.6,
+     "in": 14.6,
+     "out": 18.0,
+     "transform": {
+      "scale": {
+       "keyframes": [
+        {
+         "time": 14.6,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 18.0,
+         "value": [
+          104,
+          104
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "S4_Setup",
+     "type": "precomp",
+     "source": "S4_Setup",
+     "startTime": 10.95,
+     "in": 10.95,
+     "out": 14.6,
+     "transform": {
+      "scale": {
+       "keyframes": [
+        {
+         "time": 10.95,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 14.6,
+         "value": [
+          104,
+          104
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "S3_Precise",
+     "type": "precomp",
+     "source": "S3_Precise",
+     "startTime": 6.449999999999999,
+     "in": 6.449999999999999,
+     "out": 10.95,
+     "transform": {
+      "scale": {
+       "keyframes": [
+        {
+         "time": 6.45,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 10.95,
+         "value": [
+          104,
+          104
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "S2_Offline",
+     "type": "precomp",
+     "source": "S2_Offline",
+     "startTime": 3.65,
+     "in": 3.65,
+     "out": 6.449999999999999,
+     "transform": {
+      "scale": {
+       "keyframes": [
+        {
+         "time": 3.65,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 6.45,
+         "value": [
+          104,
+          104
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "S1_Hook",
+     "type": "precomp",
+     "source": "S1_Hook",
+     "startTime": 0.0,
+     "in": 0.0,
+     "out": 3.65,
+     "transform": {
+      "scale": {
+       "keyframes": [
+        {
+         "time": 0.0,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 3.65,
+         "value": [
+          104,
+          104
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "S1_Hook",
+   "width": 1080,
+   "height": 1920,
+   "fps": 30,
+   "duration": 3.65,
+   "backgroundColor": "#0d3a66",
+   "layers": [
+    {
+     "name": "Wordmark",
+     "type": "text",
+     "in": 1.45,
+     "out": 3.65,
+     "text": {
+      "string": "TinyPOS",
+      "font": "Arial-BoldMT",
+      "fontSize": 170,
+      "fillColor": "#f28b05",
+      "justification": "center"
+     },
+     "transform": {
+      "position": [
+       540.0,
+       1180
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 1.45,
+         "value": [
+          0,
+          0
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.675,
+         "value": [
+          112.00000000000001,
+          112.00000000000001
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.81,
+         "value": [
+          96.0,
+          96.0
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 1.95,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Meet",
+     "type": "text",
+     "in": 1.2,
+     "out": 3.65,
+     "text": {
+      "string": "Meet",
+      "font": "ArialMT",
+      "fontSize": 56,
+      "fillColor": "#dde8ee",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.2,
+         "value": [
+          540.0,
+          1030
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.8,
+         "value": [
+          540.0,
+          1000
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.2,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.56,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Q",
+     "type": "text",
+     "in": 0.1,
+     "out": 3.65,
+     "text": {
+      "string": "Running a\rcoffee bar?",
+      "font": "Arial-BoldMT",
+      "fontSize": 92,
+      "fillColor": "#ffffff",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.1,
+         "value": [
+          540.0,
+          450
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 0.7,
+         "value": [
+          540.0,
+          420
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.1,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.46,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Cup",
+     "type": "shape",
+     "in": 0.25,
+     "out": 3.65,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Steam 0",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -40,
+            -110
+           ],
+           [
+            -26,
+            -150
+           ],
+           [
+            -50,
+            -190
+           ],
+           [
+            -34,
+            -230
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.17,
+            3.33
+           ],
+           [
+            1.67,
+            13.33
+           ],
+           [
+            1.33,
+            13.33
+           ],
+           [
+            -1.33,
+            3.33
+           ]
+          ],
+          "outTangents": [
+           [
+            1.17,
+            -3.33
+           ],
+           [
+            -1.67,
+            -13.33
+           ],
+           [
+            -1.33,
+            -13.33
+           ],
+           [
+            1.33,
+            -3.33
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": 100
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 9,
+         "lineCap": "round",
+         "lineJoin": "round",
+         "opacity": 70
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Steam 1",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            0,
+            -110
+           ],
+           [
+            14,
+            -150
+           ],
+           [
+            -10,
+            -190
+           ],
+           [
+            6,
+            -230
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.17,
+            3.33
+           ],
+           [
+            1.67,
+            13.33
+           ],
+           [
+            1.33,
+            13.33
+           ],
+           [
+            -1.33,
+            3.33
+           ]
+          ],
+          "outTangents": [
+           [
+            1.17,
+            -3.33
+           ],
+           [
+            -1.67,
+            -13.33
+           ],
+           [
+            -1.33,
+            -13.33
+           ],
+           [
+            1.33,
+            -3.33
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": 100
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 9,
+         "lineCap": "round",
+         "lineJoin": "round",
+         "opacity": 70
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Steam 2",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            40,
+            -110
+           ],
+           [
+            54,
+            -150
+           ],
+           [
+            30,
+            -190
+           ],
+           [
+            46,
+            -230
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.17,
+            3.33
+           ],
+           [
+            1.67,
+            13.33
+           ],
+           [
+            1.33,
+            13.33
+           ],
+           [
+            -1.33,
+            3.33
+           ]
+          ],
+          "outTangents": [
+           [
+            1.17,
+            -3.33
+           ],
+           [
+            -1.67,
+            -13.33
+           ],
+           [
+            -1.33,
+            -13.33
+           ],
+           [
+            1.33,
+            -3.33
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": 100
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 9,
+         "lineCap": "round",
+         "lineJoin": "round",
+         "opacity": 70
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Coffee",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          170,
+          30
+         ],
+         "position": [
+          0,
+          -70
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Body",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": true,
+          "vertices": [
+           [
+            -90,
+            -70
+           ],
+           [
+            90,
+            -70
+           ],
+           [
+            70,
+            90
+           ],
+           [
+            -70,
+            90
+           ]
+          ]
+         }
+        },
+        {
+         "type": "fill",
+         "color": "#dde8ee"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Handle",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          70,
+          70
+         ],
+         "position": [
+          100,
+          0
+         ]
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 18,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       800
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 0.25,
+         "value": [
+          0,
+          0
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.475,
+         "value": [
+          100.80000000000001,
+          100.80000000000001
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.61,
+         "value": [
+          86.39999999999999,
+          86.39999999999999
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 0.75,
+         "value": [
+          90.0,
+          90.0
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "BG",
+     "type": "shape",
+     "in": 0,
+     "out": 3.65,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "BG",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1480,
+          2320
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#0d3a66"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       960.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "S2_Offline",
+   "width": 1080,
+   "height": 1920,
+   "fps": 30,
+   "duration": 2.8,
+   "backgroundColor": "#0d3a66",
+   "layers": [
+    {
+     "name": "Head",
+     "type": "text",
+     "in": 0.05,
+     "out": 2.8,
+     "text": {
+      "string": "Wi-Fi down?",
+      "font": "Arial-BoldMT",
+      "fontSize": 84,
+      "fillColor": "#ffffff",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.05,
+         "value": [
+          540.0,
+          390
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 0.65,
+         "value": [
+          540.0,
+          360
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.05,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.41,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "WiFi",
+     "type": "shape",
+     "in": 0.1,
+     "out": 2.8,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Slash",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -170,
+            -230
+           ],
+           [
+            170,
+            70
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": {
+          "keyframes": [
+           {
+            "time": 0.6,
+            "value": 0,
+            "ease": {
+             "inInfluence": 85,
+             "outInfluence": 10,
+             "inSpeed": 0,
+             "outSpeed": 0
+            }
+           },
+           {
+            "time": 0.95,
+            "value": 100,
+            "ease": {
+             "inInfluence": 85,
+             "outInfluence": 10,
+             "inSpeed": 0,
+             "outSpeed": 0
+            }
+           }
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#e5484d",
+         "strokeWidth": 26,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Dot",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          34,
+          34
+         ],
+         "position": [
+          0,
+          -10
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#dde8ee"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Arc 0",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -42.43,
+            -42.43
+           ],
+           [
+            -22.48,
+            -55.63
+           ],
+           [
+            0.0,
+            -60.0
+           ],
+           [
+            22.48,
+            -55.63
+           ],
+           [
+            42.43,
+            -42.43
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.66,
+            1.1
+           ],
+           [
+            -7.07,
+            2.93
+           ],
+           [
+            -7.49,
+            -0.0
+           ],
+           [
+            -7.07,
+            -2.93
+           ],
+           [
+            -1.66,
+            -1.1
+           ]
+          ],
+          "outTangents": [
+           [
+            1.66,
+            -1.1
+           ],
+           [
+            7.07,
+            -2.93
+           ],
+           [
+            7.49,
+            0.0
+           ],
+           [
+            7.07,
+            2.93
+           ],
+           [
+            1.66,
+            1.1
+           ]
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 26,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Arc 1",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -84.85,
+            -84.85
+           ],
+           [
+            -44.95,
+            -111.26
+           ],
+           [
+            0.0,
+            -120.0
+           ],
+           [
+            44.95,
+            -111.26
+           ],
+           [
+            84.85,
+            -84.85
+           ]
+          ],
+          "inTangents": [
+           [
+            -3.33,
+            2.2
+           ],
+           [
+            -14.14,
+            5.86
+           ],
+           [
+            -14.98,
+            -0.0
+           ],
+           [
+            -14.14,
+            -5.86
+           ],
+           [
+            -3.33,
+            -2.2
+           ]
+          ],
+          "outTangents": [
+           [
+            3.33,
+            -2.2
+           ],
+           [
+            14.14,
+            -5.86
+           ],
+           [
+            14.98,
+            0.0
+           ],
+           [
+            14.14,
+            5.86
+           ],
+           [
+            3.33,
+            2.2
+           ]
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 26,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Arc 2",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -127.28,
+            -127.28
+           ],
+           [
+            -67.43,
+            -166.89
+           ],
+           [
+            0.0,
+            -180.0
+           ],
+           [
+            67.43,
+            -166.89
+           ],
+           [
+            127.28,
+            -127.28
+           ]
+          ],
+          "inTangents": [
+           [
+            -4.99,
+            3.3
+           ],
+           [
+            -21.21,
+            8.79
+           ],
+           [
+            -22.48,
+            -0.0
+           ],
+           [
+            -21.21,
+            -8.79
+           ],
+           [
+            -4.99,
+            -3.3
+           ]
+          ],
+          "outTangents": [
+           [
+            4.99,
+            -3.3
+           ],
+           [
+            21.21,
+            -8.79
+           ],
+           [
+            22.48,
+            0.0
+           ],
+           [
+            21.21,
+            8.79
+           ],
+           [
+            4.99,
+            3.3
+           ]
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 26,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       720
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 0.1,
+         "value": [
+          0,
+          0
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.325,
+         "value": [
+          112.00000000000001,
+          112.00000000000001
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.46,
+         "value": [
+          96.0,
+          96.0
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 0.6,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Ticket 41 Label",
+     "type": "text",
+     "in": 1.0,
+     "out": 2.8,
+     "text": {
+      "string": "Order #41   paid",
+      "font": "Arial-BoldMT",
+      "fontSize": 44,
+      "fillColor": "#12263f",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": [
+          290.0,
+          996
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.6,
+         "value": [
+          490.0,
+          996
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.36,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Ticket 41",
+     "type": "shape",
+     "in": 1.0,
+     "out": 2.8,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Tick",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          44,
+          44
+         ],
+         "position": [
+          220,
+          0
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#3fb37f"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Card",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          560,
+          110
+         ],
+         "roundness": 22
+        },
+        {
+         "type": "fill",
+         "color": "#dde8ee"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": [
+          340.0,
+          980
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.6,
+         "value": [
+          540.0,
+          980
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.36,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Ticket 42 Label",
+     "type": "text",
+     "in": 1.35,
+     "out": 2.8,
+     "text": {
+      "string": "Order #42   paid",
+      "font": "Arial-BoldMT",
+      "fontSize": 44,
+      "fillColor": "#12263f",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.35,
+         "value": [
+          290.0,
+          1136
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.95,
+         "value": [
+          490.0,
+          1136
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.35,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.71,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Ticket 42",
+     "type": "shape",
+     "in": 1.35,
+     "out": 2.8,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Tick",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          44,
+          44
+         ],
+         "position": [
+          220,
+          0
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#3fb37f"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Card",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          560,
+          110
+         ],
+         "roundness": 22
+        },
+        {
+         "type": "fill",
+         "color": "#dde8ee"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.35,
+         "value": [
+          340.0,
+          1120
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.95,
+         "value": [
+          540.0,
+          1120
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.35,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.71,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Ticket 43 Label",
+     "type": "text",
+     "in": 1.7,
+     "out": 2.8,
+     "text": {
+      "string": "Order #43   paid",
+      "font": "Arial-BoldMT",
+      "fontSize": 44,
+      "fillColor": "#12263f",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.7,
+         "value": [
+          290.0,
+          1276
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.3,
+         "value": [
+          490.0,
+          1276
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.7,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.06,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Ticket 43",
+     "type": "shape",
+     "in": 1.7,
+     "out": 2.8,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Tick",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          44,
+          44
+         ],
+         "position": [
+          220,
+          0
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#3fb37f"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Card",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          560,
+          110
+         ],
+         "roundness": 22
+        },
+        {
+         "type": "fill",
+         "color": "#dde8ee"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.7,
+         "value": [
+          340.0,
+          1260
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.3,
+         "value": [
+          540.0,
+          1260
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.7,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.06,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Cap",
+     "type": "text",
+     "in": 1.0,
+     "out": 2.8,
+     "text": {
+      "string": "Sales keep going.",
+      "font": "Arial-BoldMT",
+      "fontSize": 70,
+      "fillColor": "#f28b05",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": [
+          540.0,
+          1590
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.6,
+         "value": [
+          540.0,
+          1560
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.36,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "BG",
+     "type": "shape",
+     "in": 0,
+     "out": 2.8,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "BG",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1480,
+          2320
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#0d3a66"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       960.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "S3_Precise",
+   "width": 1080,
+   "height": 1920,
+   "fps": 30,
+   "duration": 4.5,
+   "backgroundColor": "#0d3a66",
+   "layers": [
+    {
+     "name": "Item 0",
+     "type": "text",
+     "in": 0.5,
+     "out": 4.5,
+     "text": {
+      "string": "Latte",
+      "font": "ArialMT",
+      "fontSize": 50,
+      "fillColor": "#12263f",
+      "justification": "left"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.5,
+         "value": [
+          310.0,
+          720
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.1,
+         "value": [
+          310.0,
+          700
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.5,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.86,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Price 0",
+     "type": "text",
+     "in": 0.5,
+     "out": 4.5,
+     "text": {
+      "string": "$65.00",
+      "font": "ArialMT",
+      "fontSize": 50,
+      "fillColor": "#12263f",
+      "justification": "right"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.5,
+         "value": [
+          770.0,
+          720
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.1,
+         "value": [
+          770.0,
+          700
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.5,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.86,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Item 1",
+     "type": "text",
+     "in": 0.75,
+     "out": 4.5,
+     "text": {
+      "string": "Croissant",
+      "font": "ArialMT",
+      "fontSize": 50,
+      "fillColor": "#12263f",
+      "justification": "left"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.75,
+         "value": [
+          310.0,
+          830
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.35,
+         "value": [
+          310.0,
+          810
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.75,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.11,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Price 1",
+     "type": "text",
+     "in": 0.75,
+     "out": 4.5,
+     "text": {
+      "string": "$42.50",
+      "font": "ArialMT",
+      "fontSize": 50,
+      "fillColor": "#12263f",
+      "justification": "right"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.75,
+         "value": [
+          770.0,
+          830
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.35,
+         "value": [
+          770.0,
+          810
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.75,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.11,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Item 2",
+     "type": "text",
+     "in": 1.0,
+     "out": 4.5,
+     "text": {
+      "string": "Extra shot",
+      "font": "ArialMT",
+      "fontSize": 50,
+      "fillColor": "#12263f",
+      "justification": "left"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": [
+          310.0,
+          940
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.6,
+         "value": [
+          310.0,
+          920
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.36,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Price 2",
+     "type": "text",
+     "in": 1.0,
+     "out": 4.5,
+     "text": {
+      "string": "$12.00",
+      "font": "ArialMT",
+      "fontSize": 50,
+      "fillColor": "#12263f",
+      "justification": "right"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": [
+          770.0,
+          940
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.6,
+         "value": [
+          770.0,
+          920
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.0,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.36,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Total",
+     "type": "text",
+     "in": 1.5,
+     "out": 4.5,
+     "text": {
+      "string": "Total",
+      "font": "Arial-BoldMT",
+      "fontSize": 64,
+      "fillColor": "#0d3a66",
+      "justification": "left"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.5,
+         "value": [
+          310.0,
+          1100
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.1,
+         "value": [
+          310.0,
+          1080
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.5,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.86,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Total Price",
+     "type": "text",
+     "in": 1.5,
+     "out": 4.5,
+     "text": {
+      "string": "$119.50",
+      "font": "Arial-BoldMT",
+      "fontSize": 64,
+      "fillColor": "#0d3a66",
+      "justification": "right"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.5,
+         "value": [
+          770.0,
+          1100
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.1,
+         "value": [
+          770.0,
+          1080
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.5,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.86,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Check",
+     "type": "shape",
+     "in": 2.0,
+     "out": 4.5,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Mark",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -34,
+            2
+           ],
+           [
+            -8,
+            28
+           ],
+           [
+            38,
+            -24
+           ]
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#ffffff",
+         "strokeWidth": 14,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Disc",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          120,
+          120
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#3fb37f"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       790.0,
+       560
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 2.0,
+         "value": [
+          0,
+          0
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.225,
+         "value": [
+          112.00000000000001,
+          112.00000000000001
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.36,
+         "value": [
+          96.0,
+          96.0
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 2.5,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Rule",
+     "type": "shape",
+     "in": 0,
+     "out": 4.5,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Rule",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            310.0,
+            980
+           ],
+           [
+            770.0,
+            980
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": {
+          "keyframes": [
+           {
+            "time": 1.2,
+            "value": 0,
+            "ease": {
+             "inInfluence": 85,
+             "outInfluence": 10,
+             "inSpeed": 0,
+             "outSpeed": 0
+            }
+           },
+           {
+            "time": 1.6,
+            "value": 100,
+            "ease": {
+             "inInfluence": 85,
+             "outInfluence": 10,
+             "inSpeed": 0,
+             "outSpeed": 0
+            }
+           }
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#8fa6bd",
+         "strokeWidth": 5,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       0,
+       0
+      ]
+     }
+    },
+    {
+     "name": "Receipt",
+     "type": "shape",
+     "in": 0.15,
+     "out": 4.5,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Paper",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          620,
+          760
+         ],
+         "roundness": 30
+        },
+        {
+         "type": "fill",
+         "color": "#ffffff"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.15,
+         "value": [
+          540.0,
+          1000
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 0.75,
+         "value": [
+          540.0,
+          880
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.15,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.51,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Cap",
+     "type": "text",
+     "in": 2.3,
+     "out": 4.5,
+     "text": {
+      "string": "Exact to the centavo.",
+      "font": "Arial-BoldMT",
+      "fontSize": 70,
+      "fillColor": "#f28b05",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 2.3,
+         "value": [
+          540.0,
+          1490
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.9,
+         "value": [
+          540.0,
+          1460
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 2.3,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.66,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Sub",
+     "type": "text",
+     "in": 2.6,
+     "out": 4.5,
+     "text": {
+      "string": "Totals and taxes always match.",
+      "font": "ArialMT",
+      "fontSize": 46,
+      "fillColor": "#dde8ee",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 2.6,
+         "value": [
+          540.0,
+          1590
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 3.2,
+         "value": [
+          540.0,
+          1560
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 2.6,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.96,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "BG",
+     "type": "shape",
+     "in": 0,
+     "out": 4.5,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "BG",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1480,
+          2320
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#0d3a66"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       960.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "S4_Setup",
+   "width": 1080,
+   "height": 1920,
+   "fps": 30,
+   "duration": 3.65,
+   "backgroundColor": "#0d3a66",
+   "layers": [
+    {
+     "name": "Ready",
+     "type": "text",
+     "in": 1.6,
+     "out": 3.65,
+     "text": {
+      "string": "Ready!",
+      "font": "Arial-BoldMT",
+      "fontSize": 90,
+      "fillColor": "#f28b05",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 1.6,
+         "value": [
+          540.0,
+          810
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.2,
+         "value": [
+          540.0,
+          780
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 1.6,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.96,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Bar Fill",
+     "type": "shape",
+     "in": 0,
+     "out": 3.65,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Fill",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          600,
+          60
+         ],
+         "position": [
+          300,
+          0
+         ],
+         "roundness": 30
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       240.0,
+       900
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 0.5,
+         "value": [
+          0,
+          100
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.6,
+         "value": [
+          100,
+          100
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Bar Track",
+     "type": "shape",
+     "in": 0,
+     "out": 3.65,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Track",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          600,
+          60
+         ],
+         "roundness": 30
+        },
+        {
+         "type": "fill",
+         "color": "#0a2e52"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       900
+      ]
+     }
+    },
+    {
+     "name": "Head",
+     "type": "text",
+     "in": 0.05,
+     "out": 3.65,
+     "text": {
+      "string": "Set up in seconds.",
+      "font": "Arial-BoldMT",
+      "fontSize": 84,
+      "fillColor": "#ffffff",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.05,
+         "value": [
+          540.0,
+          550
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 0.65,
+         "value": [
+          540.0,
+          520
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.05,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.41,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Sub1",
+     "type": "text",
+     "in": 2.0,
+     "out": 3.65,
+     "text": {
+      "string": "No servers.",
+      "font": "ArialMT",
+      "fontSize": 60,
+      "fillColor": "#dde8ee",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 2.0,
+         "value": [
+          540.0,
+          1180
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.6,
+         "value": [
+          540.0,
+          1150
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 2.0,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.36,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Sub2",
+     "type": "text",
+     "in": 2.3,
+     "out": 3.65,
+     "text": {
+      "string": "No tech skills.",
+      "font": "ArialMT",
+      "fontSize": 60,
+      "fillColor": "#dde8ee",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 2.3,
+         "value": [
+          540.0,
+          1270
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 2.9,
+         "value": [
+          540.0,
+          1240
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 2.3,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 2.66,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "BG",
+     "type": "shape",
+     "in": 0,
+     "out": 3.65,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "BG",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1480,
+          2320
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#0d3a66"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       960.0
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "name": "S5_CTA",
+   "width": 1080,
+   "height": 1920,
+   "fps": 30,
+   "duration": 3.4,
+   "backgroundColor": "#0d3a66",
+   "layers": [
+    {
+     "name": "Tag",
+     "type": "text",
+     "in": 0.8,
+     "out": 3.4,
+     "text": {
+      "string": "Made for coffee.",
+      "font": "Arial-BoldMT",
+      "fontSize": 72,
+      "fillColor": "#ffffff",
+      "justification": "center"
+     },
+     "transform": {
+      "position": {
+       "keyframes": [
+        {
+         "time": 0.8,
+         "value": [
+          540.0,
+          1210
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        },
+        {
+         "time": 1.4,
+         "value": [
+          540.0,
+          1180
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         },
+         "inTangent": [
+          0,
+          0
+         ],
+         "outTangent": [
+          0,
+          0
+         ]
+        }
+       ]
+      },
+      "opacity": {
+       "keyframes": [
+        {
+         "time": 0.8,
+         "value": 0,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 1.16,
+         "value": 100,
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Underline",
+     "type": "shape",
+     "in": 0,
+     "out": 3.4,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Line",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -300,
+            0
+           ],
+           [
+            300,
+            0
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": {
+          "keyframes": [
+           {
+            "time": 0.6,
+            "value": 0,
+            "ease": {
+             "inInfluence": 85,
+             "outInfluence": 10,
+             "inSpeed": 0,
+             "outSpeed": 0
+            }
+           },
+           {
+            "time": 1.1,
+            "value": 100,
+            "ease": {
+             "inInfluence": 85,
+             "outInfluence": 10,
+             "inSpeed": 0,
+             "outSpeed": 0
+            }
+           }
+          ]
+         }
+        },
+        {
+         "type": "stroke",
+         "color": "#f28b05",
+         "strokeWidth": 14,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       1040
+      ]
+     }
+    },
+    {
+     "name": "Wordmark",
+     "type": "text",
+     "in": 0.05,
+     "out": 3.4,
+     "text": {
+      "string": "TinyPOS",
+      "font": "Arial-BoldMT",
+      "fontSize": 200,
+      "fillColor": "#f28b05",
+      "justification": "center"
+     },
+     "transform": {
+      "position": [
+       540.0,
+       990
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 0.05,
+         "value": [
+          0,
+          0
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.275,
+         "value": [
+          112.00000000000001,
+          112.00000000000001
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.41,
+         "value": [
+          96.0,
+          96.0
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 0.55,
+         "value": [
+          100,
+          100
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "Cup",
+     "type": "shape",
+     "in": 0.3,
+     "out": 3.4,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "Steam 0",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            -40,
+            -110
+           ],
+           [
+            -26,
+            -150
+           ],
+           [
+            -50,
+            -190
+           ],
+           [
+            -34,
+            -230
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.17,
+            3.33
+           ],
+           [
+            1.67,
+            13.33
+           ],
+           [
+            1.33,
+            13.33
+           ],
+           [
+            -1.33,
+            3.33
+           ]
+          ],
+          "outTangents": [
+           [
+            1.17,
+            -3.33
+           ],
+           [
+            -1.67,
+            -13.33
+           ],
+           [
+            -1.33,
+            -13.33
+           ],
+           [
+            1.33,
+            -3.33
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": 100
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 9,
+         "lineCap": "round",
+         "lineJoin": "round",
+         "opacity": 70
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Steam 1",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            0,
+            -110
+           ],
+           [
+            14,
+            -150
+           ],
+           [
+            -10,
+            -190
+           ],
+           [
+            6,
+            -230
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.17,
+            3.33
+           ],
+           [
+            1.67,
+            13.33
+           ],
+           [
+            1.33,
+            13.33
+           ],
+           [
+            -1.33,
+            3.33
+           ]
+          ],
+          "outTangents": [
+           [
+            1.17,
+            -3.33
+           ],
+           [
+            -1.67,
+            -13.33
+           ],
+           [
+            -1.33,
+            -13.33
+           ],
+           [
+            1.33,
+            -3.33
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": 100
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 9,
+         "lineCap": "round",
+         "lineJoin": "round",
+         "opacity": 70
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Steam 2",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": false,
+          "vertices": [
+           [
+            40,
+            -110
+           ],
+           [
+            54,
+            -150
+           ],
+           [
+            30,
+            -190
+           ],
+           [
+            46,
+            -230
+           ]
+          ],
+          "inTangents": [
+           [
+            -1.17,
+            3.33
+           ],
+           [
+            1.67,
+            13.33
+           ],
+           [
+            1.33,
+            13.33
+           ],
+           [
+            -1.33,
+            3.33
+           ]
+          ],
+          "outTangents": [
+           [
+            1.17,
+            -3.33
+           ],
+           [
+            -1.67,
+            -13.33
+           ],
+           [
+            -1.33,
+            -13.33
+           ],
+           [
+            1.33,
+            -3.33
+           ]
+          ]
+         }
+        },
+        {
+         "type": "trim",
+         "start": 0,
+         "end": 100
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 9,
+         "lineCap": "round",
+         "lineJoin": "round",
+         "opacity": 70
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Coffee",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          170,
+          30
+         ],
+         "position": [
+          0,
+          -70
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#f28b05"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Body",
+       "items": [
+        {
+         "type": "path",
+         "path": {
+          "closed": true,
+          "vertices": [
+           [
+            -90,
+            -70
+           ],
+           [
+            90,
+            -70
+           ],
+           [
+            70,
+            90
+           ],
+           [
+            -70,
+            90
+           ]
+          ]
+         }
+        },
+        {
+         "type": "fill",
+         "color": "#dde8ee"
+        }
+       ]
+      },
+      {
+       "type": "group",
+       "name": "Handle",
+       "items": [
+        {
+         "type": "ellipse",
+         "size": [
+          70,
+          70
+         ],
+         "position": [
+          100,
+          0
+         ]
+        },
+        {
+         "type": "stroke",
+         "color": "#dde8ee",
+         "strokeWidth": 18,
+         "lineCap": "round",
+         "lineJoin": "round"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       640
+      ],
+      "scale": {
+       "keyframes": [
+        {
+         "time": 0.3,
+         "value": [
+          0,
+          0
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.525,
+         "value": [
+          89.60000000000001,
+          89.60000000000001
+         ],
+         "ease": {
+          "inInfluence": 85,
+          "outInfluence": 10,
+          "inSpeed": 0,
+          "outSpeed": 0
+         }
+        },
+        {
+         "time": 0.66,
+         "value": [
+          76.8,
+          76.8
+         ],
+         "ease": "easeInOut"
+        },
+        {
+         "time": 0.8,
+         "value": [
+          80.0,
+          80.0
+         ],
+         "ease": "easeInOut"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "name": "BG",
+     "type": "shape",
+     "in": 0,
+     "out": 3.4,
+     "shapes": [
+      {
+       "type": "group",
+       "name": "BG",
+       "items": [
+        {
+         "type": "rect",
+         "size": [
+          1480,
+          2320
+         ]
+        },
+        {
+         "type": "fill",
+         "color": "#0d3a66"
+        }
+       ]
+      }
+     ],
+     "transform": {
+      "position": [
+       540.0,
+       960.0
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
