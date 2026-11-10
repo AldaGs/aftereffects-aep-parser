@@ -8,7 +8,9 @@
 //
 // Supported: shape/text/null/precomp layers, parenting, keyframes (preset and custom ease),
 // JS expressions using time/value, shape groups with transforms, trim paths, stroke caps/joins/dashes,
-// track mattes, enabled:false. Not rendered: effects, adjustment layers, footage, 3D, masks,
+// track mattes, enabled:false, threeD layers through AE's default comp camera (shapes projected per
+// point, text and precomps by an affine at the anchor; adjacent 3D layers depth-sorted by anchor z).
+// Not rendered: effects, adjustment layers, footage, camera/light layers, masks,
 // auto-bezier spatial curves (paths are drawn straight). Text uses Liberation fonts for Arial/Georgia.
 // Other fonts: set PREVIEW_FONTS to a folder of .ttf/.otf files named <Family>-<Style>.ttf (e.g. Chonburi-Regular.ttf);
 // a layer whose PostScript font name starts with <Family> is drawn with that file.
@@ -45,6 +47,20 @@ function evalProp(p, t, def){
   }
   return v==null?def:v;
 }
+// ---- 3D (threeD layers): AE default comp camera, T(P) Rx Ry Rz S T(-A), shapes projected per point ----
+function m4mul(a,b){ const r=new Array(16).fill(0); for(let i=0;i<4;i++)for(let j=0;j<4;j++){let s=0;for(let k=0;k<4;k++)s+=a[i*4+k]*b[k*4+j];r[i*4+j]=s;} return r; }
+function m4(P,A,S,rx,ry,rz){ const c=Math.cos, s=Math.sin, T=(x,y,z)=>[1,0,0,x, 0,1,0,y, 0,0,1,z, 0,0,0,1];
+  return [T(P[0],P[1],P[2]), [1,0,0,0, 0,c(rx),-s(rx),0, 0,s(rx),c(rx),0, 0,0,0,1], [c(ry),0,s(ry),0, 0,1,0,0, -s(ry),0,c(ry),0, 0,0,0,1],
+    [c(rz),-s(rz),0,0, s(rz),c(rz),0,0, 0,0,1,0, 0,0,0,1], [S[0],0,0,0, 0,S[1],0,0, 0,0,S[2],0, 0,0,0,1], T(-A[0],-A[1],-A[2])].reduce(m4mul); }
+function layerM4(comp,L,t){ const tr=L.transform||{}, v3=(v,d)=>[v[0],v[1],v.length>2?v[2]:d], dg=Math.PI/180;
+  const P=v3(evalProp(tr.position,t,[comp.width/2,comp.height/2]),0); if(tr.zPosition!=null) P[2]=evalProp(tr.zPosition,t,0);
+  const A=v3(evalProp(tr.anchorPoint,t,L.type==='null'?[50,50]:[0,0]),0), S=v3(evalProp(tr.scale,t,[100,100]),100).map(x=>x/100), O=evalProp(tr.orientation,t,[0,0,0]);
+  let m=m4(P,A,S,(evalProp(tr.xRotation,t,0)+O[0])*dg,(evalProp(tr.yRotation,t,0)+O[1])*dg,(evalProp(tr.rotation!=null?tr.rotation:tr.zRotation,t,0)+O[2])*dg);
+  if(L.parent){ const pl=comp.layers.find(x=>x.name===L.parent); if(pl) m=m4mul(layerM4(comp,pl,t),m); }
+  return m; }
+function proj(comp,m,q){ const x=m[0]*q[0]+m[1]*q[1]+m[3], y=m[4]*q[0]+m[5]*q[1]+m[7], z=m[8]*q[0]+m[9]*q[1]+m[11];
+  const Z=comp.width*50/36, cx=comp.width/2, cy=comp.height/2, k=Z/(z+Z); return [cx+(x-cx)*k, cy+(y-cy)*k, z]; }
+function depth(comp,L,t){ const A=evalProp((L.transform||{}).anchorPoint,t,[0,0]); return proj(comp,layerM4(comp,L,t),A)[2]; }
 // 2D affine [a,b,c,d,e,f]
 function mul(m,n){ return [m[0]*n[0]+m[2]*n[1], m[1]*n[0]+m[3]*n[1], m[0]*n[2]+m[2]*n[3], m[1]*n[2]+m[3]*n[3], m[0]*n[4]+m[2]*n[5]+m[4], m[1]*n[4]+m[3]*n[5]+m[5]]; }
 function layerMatrix(comp, L, t){
@@ -104,15 +120,16 @@ function buildGroup(items, t){
   }
   return {ops, paths};
 }
-function drawShape(ctx, L, t){
-  const g=buildGroup(L.shapes||[], t);
+function drawShape(ctx, L, t, mp, ws){
+  const g=buildGroup(L.shapes||[], t); const M=mp||(q=>q); ws=ws||1;
+  const mv=q=>{ const r=M(q); ctx.moveTo(r[0],r[1]); }, ln=q=>{ const r=M(q); ctx.lineTo(r[0],r[1]); };
   for (let i=g.ops.length-1;i>=0;i--){ const op=g.ops[i];
     ctx.beginPath();
-    if (op.kind==='fill'){ for(const p of op.paths){ if(p.trim && (p.trim[1]-p.trim[0])<=0) continue; ctx.moveTo(p.pts[0][0],p.pts[0][1]); for(const q of p.pts) ctx.lineTo(q[0],q[1]); ctx.closePath(); }
+    if (op.kind==='fill'){ for(const p of op.paths){ if(p.trim && (p.trim[1]-p.trim[0])<=0) continue; mv(p.pts[0]); for(const q of p.pts) ln(q); ctx.closePath(); }
       ctx.fillStyle=css(op.color, op.op/100); ctx.fill('nonzero'); }
     else { for(const p of op.paths){ const pieces = p.trim ? trimPoly(p,...p.trim) : [p.closed? p.pts.concat([p.pts[0]]) : p.pts];
-        for(const pc of pieces){ if(!pc.length) continue; ctx.moveTo(pc[0][0],pc[0][1]); for(const q of pc) ctx.lineTo(q[0],q[1]); } }
-      ctx.strokeStyle=css(op.color, op.op/100); ctx.lineWidth=op.w; ctx.lineJoin=op.join||'miter'; ctx.lineCap=op.cap==='projecting'?'square':(op.cap||'butt'); ctx.setLineDash(op.dash?op.dash.slice(0,2):[]); ctx.lineDashOffset=op.dash?-op.dash[2]:0; if (op.w>0) ctx.stroke(); }
+        for(const pc of pieces){ if(!pc.length) continue; mv(pc[0]); for(const q of pc) ln(q); } }
+      ctx.strokeStyle=css(op.color, op.op/100); ctx.lineWidth=op.w*ws; ctx.lineJoin=op.join||'miter'; ctx.lineCap=op.cap==='projecting'?'square':(op.cap||'butt'); ctx.setLineDash(op.dash?op.dash.slice(0,2):[]); ctx.lineDashOffset=op.dash?-op.dash[2]:0; if (op.w>0) ctx.stroke(); }
   }
 }
 function drawText(ctx, L){
@@ -129,6 +146,13 @@ function offscreen(i){ const cv=document.getElementById('cv'); if(!OFF[i]){ cons
   const c=OFF[i]; if(c.width!==cv.width||c.height!==cv.height){ c.width=cv.width; c.height=cv.height; }
   const x=c.getContext('2d'); x.setTransform(1,0,0,1,0,0); x.globalCompositeOperation='source-over'; x.clearRect(0,0,c.width,c.height); return x; }
 function drawLayer(ctx, comp, L, t, op){
+  if (L.threeD){ const m=layerM4(comp,L,t), o=proj(comp,m,[0,0]), ex=proj(comp,m,[1,0]), ey=proj(comp,m,[0,1]);
+    if (o[2] < -comp.width*50/36*0.95) return;  // behind the camera
+    ctx.save(); ctx.globalAlpha*=op;
+    if (L.type==='shape') drawShape(ctx,L,t,q=>proj(comp,m,q),(Math.hypot(ex[0]-o[0],ex[1]-o[1])+Math.hypot(ey[0]-o[0],ey[1]-o[1]))/2);
+    else { ctx.transform(ex[0]-o[0],ex[1]-o[1],ey[0]-o[0],ey[1]-o[1],o[0],o[1]);  // ponytail: affine at the anchor, no foreshortening across the layer
+      if (L.type==='text') drawText(ctx,L); else if (L.type==='precomp') renderComp(ctx, COMPS[L.source], t-(L.startTime||0)); }
+    ctx.restore(); return; }
   const st=L.startTime||0; const m=layerMatrix(comp,L,t);
   ctx.save(); ctx.transform(...m); ctx.globalAlpha*=op;
   if (L.type==='shape') drawShape(ctx,L,t);
@@ -136,7 +160,11 @@ function drawLayer(ctx, comp, L, t, op){
   else if (L.type==='precomp') renderComp(ctx, COMPS[L.source], t-st);
   ctx.restore(); }
 function renderComp(ctx, comp, t){
-  for (let i=comp.layers.length-1;i>=0;i--){ const L=comp.layers[i];
+  // bottom-up; each run of adjacent 3D layers is depth-sorted, far first
+  const order=[]; let run=[];
+  const flush=()=>{ run.sort((a,b)=>depth(comp,comp.layers[b],t)-depth(comp,comp.layers[a],t)); order.push(...run); run=[]; };
+  for (let i=comp.layers.length-1;i>=0;i--){ if (comp.layers[i].threeD) run.push(i); else { flush(); order.push(i); } } flush();
+  for (const i of order){ const L=comp.layers[i];
     const st=L.startTime||0; const inP=L.in!=null?L.in:st; let outP=L.out!=null?L.out:comp.duration;
     if (L.type==='precomp' && L.out==null) outP=st+COMPS[L.source].duration;
     if (t<inP || t>=outP) continue;

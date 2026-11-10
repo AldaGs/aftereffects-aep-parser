@@ -59,4 +59,4 @@ python schema/examples/espresso_explainer.py                 # regenerate the es
   node scripts/preview.js schema/examples/<name>.json /tmp/frames 1        # one frame per second
   ffmpeg -i /tmp/frames/f%05d.jpg -frames:v 1 -vf "scale=480:-1,tile=4x5" sheet.jpg
   ```
-  The preview is approximate: no effects or grain, Liberation fonts in place of Arial and Georgia, and position paths drawn straight (as they are when keys have zero tangents).
+  The preview is approximate: no effects or grain, Liberation fonts in place of Arial and Georgia, and position paths drawn straight (as they are when keys have zero tangents). `threeD` layers are drawn in perspective through AE's default comp camera (camera and light layers are ignored), with each run of adjacent 3D layers sorted far to near by anchor depth. Shape layers are projected point by point; text and precomps get a flat affine at the anchor, so they don't foreshorten across their width.
